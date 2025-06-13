@@ -258,11 +258,17 @@ body.noscroll {
   .burger {
     display: block;                  /* Burger-Menü sichtbar */
   }
+  /* Das Overlay ist jetzt STANDARD versteckt (s. oben), 
+     wird aber NUR mit der .open-Klasse sichtbar! */
   .mobile-menu-overlay {
-    display: flex;                   /* Overlay sichtbar bei offenem Menü */
+    display: none;                   /* Overlay bleibt unsichtbar */
+  }
+  .mobile-menu-overlay.open {
+    display: flex;                   /* Wenn .open gesetzt, wird Overlay sichtbar */
   }
   .blog-teaser-grid, .blog-grid {
     flex-direction: column;          /* Blogkarten untereinander */
     gap: 1rem;                       /* Weniger Abstand */
   }
 }
+
