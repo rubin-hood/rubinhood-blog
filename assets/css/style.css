@@ -238,6 +238,7 @@ footer {
    9. Mobile Menü-Overlay (ausklappbares Menü)
    =========================== */
 .mobile-menu-overlay {
+  overflow-y: auto;   /* <--- Diese Zeile hinzufügen! */
   display: none;                     /* Standard: ausgeblendet */
   position: fixed;                   /* Überdeckt die ganze Seite */
   top: 0; left: 0; right: 0; bottom: 0;
