@@ -6,15 +6,19 @@ layout: default
   <aside class="blog-sidebar">
     <div class="blog-list">
       {% for post in site.posts %}
-        <div class="blog-card{% if post.url == page.url %} active{% endif %}">
-          <a href="{{ post.url | relative_url }}">
-            <div class="card-img">Bild</div>
-            <div class="card-content">
-              <div class="card-title">{% if post.url == page.url %}<strong>{{ post.title }}</strong>{% else %}{{ post.title }}{% endif %}</div>
-              <div class="card-desc">{{ post.excerpt }}</div>
+        <a class="blog-card{% if post.url == page.url %} active{% endif %}" href="{{ post.url | relative_url }}">
+          <div class="card-img">Bild</div>
+          <div class="card-content">
+            <div class="card-title">
+              {% if post.url == page.url %}
+                <strong>{{ post.title }}</strong>
+              {% else %}
+                {{ post.title }}
+              {% endif %}
             </div>
-          </a>
-        </div>
+            <div class="card-desc">{{ post.excerpt }}</div>
+          </div>
+        </a>
       {% endfor %}
     </div>
   </aside>
