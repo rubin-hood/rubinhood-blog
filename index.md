@@ -14,12 +14,13 @@ title: Home
 
 <div class="blog-teaser-grid">
   {% for post in site.posts limit:3 %}
-    <div class="blog-card">
-      <div class="card-img">Bild</div>
-      <div class="card-content">
-        <div class="card-title">{{ post.title }}</div>
-        <div class="card-desc">{{ post.excerpt }}</div>
-      </div>
+<a class="blog-card" href="{{ post.url | relative_url }}">
+  <div class="card-img">Bild</div>
+  <div class="card-content">
+    <div class="card-title">{{ post.title }}</div>
+    <div class="card-desc">{{ post.excerpt | strip_html | truncate: 140 }}</div>
+  </div>
+</a>
     </div>
   {% endfor %}
 </div>
