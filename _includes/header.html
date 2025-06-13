@@ -17,14 +17,17 @@
     <a href="#"><span>YT</span></a>
     <a href="#"><span>GH</span></a>
   </div>
-  <div class="mobile-blog-list">
-    {% for post in site.posts %}
-      <div class="blog-card">
-        <div class="card-img">Bild</div>
-        <div class="card-content">
-          <div class="card-title">{{ post.title }}</div>
+<div class="mobile-blog-list">
+  {% for post in site.posts %}
+    <div class="blog-card">
+      <div class="card-img">Bild</div>
+      <div class="card-content">
+        <div class="card-title">{{ post.title }}</div>
+        <div class="card-desc">
+          {{ post.excerpt | strip_html | truncate: 140 }}
         </div>
       </div>
-    {% endfor %}
-  </div>
+    </div>
+  {% endfor %}
+</div>
 </div>
