@@ -118,6 +118,15 @@ main {
   border: 2px solid #222;            /* Rahmen */
 }
 
+.blog-card .card-img img {
+  max-width: 80px;        /* passt zur bisherigen Platzhaltergröße */
+  max-height: 80px;       /* bleibt quadratisch */
+  object-fit: cover;      /* füllt den Platz gut aus */
+  border-radius: 4px;     /* etwas abgerundet, optional */
+  display: block;
+}
+
+
 /* Blog-Titel innerhalb der Karte */
 .blog-card .card-title {
   font-weight: bold;                 /* Fett */
