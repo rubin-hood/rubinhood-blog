@@ -277,3 +277,14 @@ body.noscroll {
   }
 }
 
+
+/* ===========================
+   11. Sidebar-Layout: Bild immer links, Text immer rechts
+   =========================== */
+.blog-sidebar .blog-card {
+  flex-direction: row !important;    /* Horizontal anordnen, Bild links, Text rechts */
+  align-items: center;               /* Vertikal zentriert */
+  max-width: 100%;                   /* Maximale Breite auf 100% der Sidebar */
+  flex-wrap: nowrap;                 /* Kein Umbruch, damit Bild nicht oben steht */
+}
+
