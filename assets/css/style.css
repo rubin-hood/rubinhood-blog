@@ -123,7 +123,7 @@ main {
   max-height: 80px;       /* bleibt quadratisch */
   object-fit: cover;      /* füllt den Platz gut aus */
   border-radius: 4px;     /* etwas abgerundet, optional */
-  display: block;
+  display: block;         /* kein unerwünschter Abstand unten */
 }
 
 
