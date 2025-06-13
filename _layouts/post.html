@@ -7,7 +7,7 @@ layout: default
     <div class="blog-list">
       {% for post in site.posts %}
         <div class="blog-card{% if post.url == page.url %} active{% endif %}">
-          <a href="{{ post.url }}">
+          <a href="{{ post.url | relative_url }}">
             <div class="card-img">Bild</div>
             <div class="card-content">
               <div class="card-title">{% if post.url == page.url %}<strong>{{ post.title }}</strong>{% else %}{{ post.title }}{% endif %}</div>
