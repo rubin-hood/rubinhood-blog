@@ -188,6 +188,7 @@ footer {
    8. Burger-Menü (Button für Mobile)
    =========================== */
 .burger {
+  display: none; /* Burger-Menü auf Desktop NICHT anzeigen! */
   background: none;                  /* Kein Hintergrund */
   border: none;                      /* Kein Rahmen */
   width: 36px;                       /* Feste Größe */
@@ -256,7 +257,7 @@ body.noscroll {
     display: none;                   /* Hauptnavigation & Icons ausblenden */
   }
   .burger {
-    display: none;                  /* Burger-Menü auf Desktop NICHT anzeigen! */
+    display: block;                  /* Burger-Menü sichtbar */
   }
   /* Das Overlay ist jetzt STANDARD versteckt (s. oben), 
      wird aber NUR mit der .open-Klasse sichtbar! */
