@@ -256,7 +256,7 @@ body.noscroll {
     display: none;                   /* Hauptnavigation & Icons ausblenden */
   }
   .burger {
-    display: block;                  /* Burger-Menü sichtbar */
+    display: none;                  /* Burger-Menü auf Desktop NICHT anzeigen! */
   }
   /* Das Overlay ist jetzt STANDARD versteckt (s. oben), 
      wird aber NUR mit der .open-Klasse sichtbar! */
