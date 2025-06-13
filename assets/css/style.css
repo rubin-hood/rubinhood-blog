@@ -190,6 +190,7 @@ footer {
 @media (max-width: 900px) {
   .blog-teaser-grid, .blog-grid {
     flex-direction: column;          /* Blog-Karten untereinander */
+    align-items: center; /* <- NUR DAS musst du ergänzen! */
   }
   .blog-layout {
     flex-direction: column;          /* Sidebar & Content untereinander */
