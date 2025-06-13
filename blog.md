@@ -4,7 +4,7 @@ title: Blog
 ---
 
 <h2>Blog</h2>
-<div class="blog-grid">
+<div class="blog-grid blog-grid-single">
   {% for post in site.posts %}
 <a class="blog-card" href="{{ post.url | relative_url }}">
   <div class="card-img">

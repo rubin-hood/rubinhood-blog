@@ -90,7 +90,7 @@ main {
 }
 
 /* Blog-Seite: Karten untereinander als EIN SPALTE */
-body.blog .blog-grid {
+.blog-grid-single {
   flex-direction: column;
   align-items: center;
 }
