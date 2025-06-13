@@ -21,6 +21,5 @@ title: Home
     <div class="card-desc">{{ post.excerpt | strip_html | truncate: 140 }}</div>
   </div>
 </a>
-    </div>
   {% endfor %}
 </div>
