@@ -1,0 +1,29 @@
+<header class="site-header">
+  <a class="logo" href="/"><img src="/assets/img/logo.svg" alt="Rubin Hood"></a>
+  <nav class="site-nav">
+    {% include navigation.html %}
+  </nav>
+  <div class="social-icons">
+    <!-- Beispiel-Icons: Ersetze Pfade mit SVG oder FontAwesome falls erlaubt -->
+    <a href="#"><span>YT</span></a>
+    <a href="#"><span>GH</span></a>
+  </div>
+  <button class="burger" aria-label="Menü"></button>
+</header>
+<div class="mobile-menu-overlay">
+  <nav>{% include navigation.html %}</nav>
+  <div class="social-icons">
+    <a href="#"><span>YT</span></a>
+    <a href="#"><span>GH</span></a>
+  </div>
+  <div class="mobile-blog-list">
+    {% for post in site.posts %}
+      <div class="blog-card">
+        <div class="card-img">Bild</div>
+        <div class="card-content">
+          <div class="card-title">{{ post.title }}</div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>

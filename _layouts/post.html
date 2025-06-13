@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<div class="blog-layout">
+  <aside class="blog-sidebar">
+    <div class="blog-list">
+      {% for post in site.posts %}
+        <div class="blog-card{% if post.url == page.url %} active{% endif %}">
+          <a href="{{ post.url }}">
+            <div class="card-img">Bild</div>
+            <div class="card-content">
+              <div class="card-title">{% if post.url == page.url %}<strong>{{ post.title }}</strong>{% else %}{{ post.title }}{% endif %}</div>
+              <div class="card-desc">{{ post.excerpt }}</div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </aside>
+  <section class="blog-content">
+    {{ content }}
+  </section>
+</div>
