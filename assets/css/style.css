@@ -99,9 +99,13 @@ main {
   align-items: center;               /* Vertikal zentriert */
   padding: 1rem;                     /* Innenabstand */
   min-width: 250px;                  /* Mindestbreite */
-  max-width: 350px;                  /* Maximalbreite */
+  /*max-width: 350px;                  /* Maximalbreite */
   margin-bottom: 1rem;               /* Abstand nach unten */
   transition: border-color .2s;      /* Sanfte Animation beim Farbwechsel */
+
+  flex-direction: row;     /* Bild und Text nebeneinander */
+  max-width: 100%;         /* Keine Maximalbreite in der Sidebar */
+  flex-wrap: nowrap;       /* Kein Umbruch */
 }
 
 /* Platzhalter für Blog-Bild (links in der Karte) */
@@ -149,6 +153,11 @@ main {
 }
 .blog-sidebar {
   flex: 1 1 350px;                   /* Sidebar: kleinerer Anteil */
+  
+  flex-direction: row;     /* Bild und Text nebeneinander */
+  align-items: center;     /* Vertikal zentriert */
+  max-width: 100%;         /* Keine Maximalbreite in der Sidebar */
+  flex-wrap: nowrap;       /* Kein Umbruch */
 }
 .blog-content {
   flex: 3 1 600px;                   /* Content: größerer Anteil */
@@ -275,16 +284,5 @@ body.noscroll {
     flex-direction: column;          /* Blogkarten untereinander */
     gap: 1rem;                       /* Weniger Abstand */
   }
-}
-
-
-/* ===========================
-   11. Sidebar-Layout: Bild immer links, Text immer rechts
-   =========================== */
-.blog-sidebar .blog-card {
-  flex-direction: row !important;    /* Horizontal anordnen, Bild links, Text rechts */
-  align-items: center;               /* Vertikal zentriert */
-  max-width: 100%;                   /* Maximale Breite auf 100% der Sidebar */
-  flex-wrap: nowrap;                 /* Kein Umbruch, damit Bild nicht oben steht */
 }
 
