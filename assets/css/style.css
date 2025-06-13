@@ -1,196 +1,268 @@
+/* ===========================
+   1. Basis-Layout und Schrift
+   =========================== */
 html, body {
-  margin: 0;
-  padding: 0;
-  font-family: system-ui, sans-serif;
-  background: #fff;
-  color: #222;
+  margin: 0;                         /* Kein Außenabstand für Seite */
+  padding: 0;                        /* Kein Innenabstand für Seite */
+  font-family: system-ui, sans-serif; /* Moderne System-Schrift */
+  background: #fff;                  /* Hintergrundfarbe weiß */
+  color: #222;                       /* Standard-Textfarbe dunkelgrau */
 }
 
+
+/* ===========================
+   2. Header und Navigation (Desktop)
+   =========================== */
 .site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 2px solid #222;
-  padding: 0.5rem 1rem;
+  display: flex;                     /* Flexbox für horizontales Layout */
+  align-items: center;               /* Zentrierte Ausrichtung vertikal */
+  justify-content: space-between;    /* Platz zwischen den Bereichen */
+  border-bottom: 2px solid #222;     /* Untere Trennlinie */
+  padding: 0.5rem 1rem;              /* Abstand oben/unten, rechts/links */
 }
+
+/* Logo links oben */
 .logo img {
-  height: 48px;
+  height: 48px;                      /* Feste Höhe für Logo */
 }
+
+/* Navigation in der Mitte */
 .site-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-  margin: 0;
-  padding: 0;
+  display: flex;                     /* Horizontale Liste */
+  list-style: none;                  /* Keine Standard-Aufzählungszeichen */
+  gap: 2rem;                         /* Abstand zwischen den Links */
+  margin: 0;                         /* Kein Außenabstand */
+  padding: 0;                        /* Kein Innenabstand */
 }
+
+/* Navigationslinks: unterstrichen, dunkel */
 .site-nav a {
-  text-decoration: underline;
-  color: #222;
-  font-weight: bold;
+  text-decoration: underline;        /* Unterstrichener Link */
+  color: #222;                       /* Dunkelgrau */
+  font-weight: bold;                 /* Fett */
 }
+
+/* Aktiver Navigationslink in grün */
 .site-nav a.active {
-  color: #008000;
+  color: #008000;                    /* Akzentfarbe Grün */
 }
+
+/* Social Icons rechts */
 .social-icons {
-  display: flex;
-  gap: 1rem;
+  display: flex;                     /* Horizontale Anordnung */
+  gap: 1rem;                         /* Abstand zwischen Icons */
 }
 .social-icons a {
-  color: #008000;
-  font-size: 1.5rem;
-  text-decoration: none;
+  color: #008000;                    /* Akzentfarbe Grün */
+  font-size: 1.5rem;                 /* Größere Icons */
+  text-decoration: none;             /* Keine Unterstreichung */
 }
 
+
+/* ===========================
+   3. Hauptbereich (Main Content)
+   =========================== */
 main {
-  max-width: 1200px;
-  margin: 2rem auto 2rem auto;
-  padding: 0 1rem;
+  max-width: 1200px;                 /* Maximale Breite, zentriert */
+  margin: 2rem auto 2rem auto;       /* Abstand oben/unten, automatisch zentriert */
+  padding: 0 1rem;                   /* Seitlicher Abstand */
 }
 
+/* Begrüßungstext auf der Startseite */
 .intro {
-  margin-bottom: 2rem;
+  margin-bottom: 2rem;               /* Abstand nach unten */
 }
 .intro .underline {
-  text-decoration: underline;
+  text-decoration: underline;        /* Extra Unterstreichung für Akzent */
 }
 
+
+/* ===========================
+   4. Blog-Grid und Blog-Karten
+   =========================== */
 .blog-teaser-grid, .blog-grid {
-  display: flex;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
+  display: flex;                     /* Flexible horizontale Anordnung */
+  gap: 2rem;                         /* Abstand zwischen Karten */
+  margin-bottom: 2rem;               /* Abstand nach unten */
+  flex-wrap: wrap;                   /* Umbruch bei kleinen Bildschirmen */
 }
+
 .blog-card {
-  background: #fff;
-  border: 2px solid #222;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  min-width: 250px;
-  max-width: 350px;
-  margin-bottom: 1rem;
-  transition: border-color .2s;
+  background: #fff;                  /* Kartenhintergrund weiß */
+  border: 2px solid #222;            /* Dunkler Rahmen */
+  border-radius: 20px;               /* Abgerundete Ecken */
+  display: flex;                     /* Bild + Text nebeneinander */
+  align-items: center;               /* Vertikal zentriert */
+  padding: 1rem;                     /* Innenabstand */
+  min-width: 250px;                  /* Mindestbreite */
+  max-width: 350px;                  /* Maximalbreite */
+  margin-bottom: 1rem;               /* Abstand nach unten */
+  transition: border-color .2s;      /* Sanfte Animation beim Farbwechsel */
 }
+
+/* Platzhalter für Blog-Bild (links in der Karte) */
 .blog-card .card-img {
-  min-width: 80px;
-  min-height: 80px;
-  background: #f3f3f3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-right: 1rem;
-  border: 2px solid #222;
+  min-width: 80px;                   /* Feste Breite */
+  min-height: 80px;                  /* Feste Höhe */
+  background: #f3f3f3;               /* Heller Hintergrund */
+  display: flex;                     /* Zentrierter Text/Bild */
+  align-items: center;               /* Vertikal zentriert */
+  justify-content: center;           /* Horizontal zentriert */
+  font-size: 2rem;                   /* Großer Schriftzug ("Bild") */
+  font-weight: bold;                 /* Fett */
+  margin-right: 1rem;                /* Abstand rechts zum Text */
+  border: 2px solid #222;            /* Rahmen */
 }
+
+/* Blog-Titel innerhalb der Karte */
 .blog-card .card-title {
-  font-weight: bold;
-  margin-bottom: .5rem;
+  font-weight: bold;                 /* Fett */
+  margin-bottom: .5rem;              /* Abstand nach unten */
 }
+
+/* Vorschautext (Anfang des Blogposts) */
 .blog-card .card-desc {
-  font-size: 1rem;
-  color: #444;
+  font-size: 1rem;                   /* Normale Größe */
+  color: #444;                       /* Etwas heller als Text */
 }
+
+/* Markierung für aktiven Blog (Sidebar) */
 .blog-card.active {
-  border-color: #d00;
+  border-color: #d00;                /* Roter Rahmen */
 }
 .blog-card.active .card-title {
-  color: #d00;
-  font-weight: bold;
+  color: #d00;                       /* Titel in Rot */
+  font-weight: bold;                 /* Extra fett */
 }
+
+
+/* ===========================
+   5. Blogpost-Layout: Sidebar & Content
+   =========================== */
 .blog-layout {
-  display: flex;
-  gap: 2rem;
+  display: flex;                     /* Zwei Spalten nebeneinander */
+  gap: 2rem;                         /* Abstand zwischen Sidebar und Content */
 }
 .blog-sidebar {
-  flex: 1 1 350px;
+  flex: 1 1 350px;                   /* Sidebar: kleinerer Anteil */
 }
 .blog-content {
-  flex: 3 1 600px;
+  flex: 3 1 600px;                   /* Content: größerer Anteil */
 }
 
+
+/* ===========================
+   6. Footer
+   =========================== */
 footer {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #666;
-  margin: 2rem 0 1rem 0;
+  text-align: center;                /* Zentrierter Text */
+  font-size: 0.9rem;                 /* Etwas kleinere Schrift */
+  color: #666;                       /* Graue Schrift */
+  margin: 2rem 0 1rem 0;             /* Abstand oben/unten */
 }
 .footer-links {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;             /* Kleiner Abstand nach unten */
 }
 
+
+/* ===========================
+   7. Responsive Design (bis 900px)
+   =========================== */
 @media (max-width: 900px) {
   .blog-teaser-grid, .blog-grid {
-    flex-direction: column;
+    flex-direction: column;          /* Blog-Karten untereinander */
   }
   .blog-layout {
-    flex-direction: column;
+    flex-direction: column;          /* Sidebar & Content untereinander */
   }
   .blog-sidebar {
-    display: none;
+    display: none;                   /* Sidebar ausblenden */
   }
   .blog-content {
-    width: 100%;
+    width: 100%;                     /* Content nimmt volle Breite ein */
   }
 }
 
-/* Mobile Navigation */
+
+/* ===========================
+   8. Burger-Menü (Button für Mobile)
+   =========================== */
 .burger {
-  background: none;
-  border: none;
-  width: 36px;
+  background: none;                  /* Kein Hintergrund */
+  border: none;                      /* Kein Rahmen */
+  width: 36px;                       /* Feste Größe */
   height: 36px;
-  cursor: pointer;
-  position: relative;
-  z-index: 11;
+  cursor: pointer;                   /* Hand-Cursor */
+  position: relative;                /* Für absolute Kinder */
+  z-index: 11;                       /* Über allem */
 }
+/* Die drei Linien des Burger-Menüs */
 .burger::before,
 .burger::after,
 .burger span {
-  content: '';
+  content: '';                       /* Leere Inhalte für Linien */
   display: block;
-  background: #008000;
-  height: 4px;
-  border-radius: 2px;
+  background: #008000;               /* Grün */
+  height: 4px;                       /* Dicke der Linie */
+  border-radius: 2px;                /* Abgerundet */
   position: absolute;
   left: 8px;
   right: 8px;
-  transition: all 0.3s;
+  transition: all 0.3s;              /* Animation für das Kreuz */
 }
-.burger::before { top: 12px; }
-.burger span { top: 18px; }
-.burger::after { top: 24px; }
-/* Bei Aktivierung (Burger zu Kreuz) kannst du mit JS/Checkbox-Klasse animieren */
+.burger::before { top: 12px; }       /* Obere Linie */
+.burger span { top: 18px; }          /* Mittlere Linie */
+.burger::after { top: 24px; }        /* Untere Linie */
 
+/* Bei Aktivierung (wird zum Kreuz) */
+.burger.open span      { opacity: 0; }                /* Mitte verschwindet */
+.burger.open::before   { transform: rotate(45deg); top: 18px;}  /* Obere Linie diagonal */
+.burger.open::after    { transform: rotate(-45deg); top: 18px;} /* Untere Linie diagonal */
+
+
+/* ===========================
+   9. Mobile Menü-Overlay (ausklappbares Menü)
+   =========================== */
 .mobile-menu-overlay {
-  display: none; /* Toggle mit JS: display: flex */
-  position: fixed;
+  display: none;                     /* Standard: ausgeblendet */
+  position: fixed;                   /* Überdeckt die ganze Seite */
   top: 0; left: 0; right: 0; bottom: 0;
-  background: #fff;
-  z-index: 10;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding-top: 4rem;
+  background: #fff;                  /* Weißer Hintergrund */
+  z-index: 10;                       /* Über Inhalt, aber unter Burger */
+  flex-direction: column;            /* Vertikale Anordnung */
+  align-items: center;               /* Zentriert */
+  justify-content: flex-start;       /* Von oben nach unten */
+  padding-top: 4rem;                 /* Platz für Header */
+}
+.mobile-menu-overlay.open {
+  display: flex;                     /* Sichtbar, sobald .open gesetzt */
 }
 
+/* Body-Scroll verhindern, wenn Menü offen */
+body.noscroll {
+  overflow: hidden;                  /* Kein Scrollen bei offenem Menü */
+}
+
+
+/* ===========================
+   10. Mobile-Anpassungen (bis 600px)
+   =========================== */
 @media (max-width: 600px) {
   .site-header {
-    flex-direction: row;
+    flex-direction: row;             /* Bleibt horizontal */
     gap: 0;
   }
   .site-nav, .social-icons {
-    display: none;
+    display: none;                   /* Hauptnavigation & Icons ausblenden */
   }
   .burger {
-    display: block;
+    display: block;                  /* Burger-Menü sichtbar */
   }
   .mobile-menu-overlay {
-    display: flex;
+    display: flex;                   /* Overlay sichtbar bei offenem Menü */
   }
   .blog-teaser-grid, .blog-grid {
-    flex-direction: column;
-    gap: 1rem;
+    flex-direction: column;          /* Blogkarten untereinander */
+    gap: 1rem;                       /* Weniger Abstand */
   }
 }
