@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>{{ page.title }} | {{ site.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </head>
 <body>
   {% include header.html %}
@@ -13,5 +12,7 @@
     {{ content }}
   </main>
   {% include footer.html %}
+  <!-- JS am besten hier einbinden: -->
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
 </html>
