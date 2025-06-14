@@ -89,6 +89,10 @@ main {
   justify-content: center;  /* Karten in der Mitte */
 }
 
+.blog-grid.blog-grid-single {
+  gap: 0.5rem !important;
+}
+
 /* Blog-Seite: Karten untereinander als EIN SPALTE */
 .blog-grid-single {
   flex-direction: column;
@@ -108,10 +112,6 @@ main {
   max-width: 350px;                  /* Maximalbreite */
   margin-bottom: 1rem;               /* Abstand nach unten */
   transition: border-color .2s;      /* Sanfte Animation beim Farbwechsel */
-}
-
-.blog-grid-single .blog-card {
-  padding: 0.5rem !important;
 }
 
 /* Platzhalter für Blog-Bild (links in der Karte) */
