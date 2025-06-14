@@ -313,7 +313,7 @@ body.noscroll {
   max-width: 350px;
   width: 100%;
   min-height: 0 !important;
-  height: auto !important;
+  height: 100px !important;
   margin-bottom: 0.5rem;
 }
 
@@ -323,6 +323,6 @@ body.noscroll {
   max-width: 350px;
   width: 100%;
   min-height: 0 !important;
-  height: auto !important;
+  height: 100px !important;
   margin-bottom: 0.5rem;
 }
