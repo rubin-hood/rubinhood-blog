@@ -303,7 +303,6 @@ body.noscroll {
     align-items: center;
   }
     .blog-card {
-    border: none !important;
     display: flex;
     min-width: unset;          /* Überschreibt das alte min-width */
     max-width: 95vw;           /* Fast die ganze Viewport-Breite */
@@ -319,7 +318,6 @@ body.noscroll {
     min-width: unset !important;
     margin-left: auto;
     margin-right: auto;
-    border: 2px solid #222 !important;
   }
 }
 
@@ -350,4 +348,9 @@ body.noscroll {
   min-height: 0 !important;
   height: auto !important;
   margin-bottom: 0.5rem;
+  border: none !important;
+}
+
+.blog-teaser-grid .blog-card {
+  border: 2px solid #222 !important;
 }
