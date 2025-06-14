@@ -87,6 +87,7 @@ main {
   margin-bottom: 2rem;               /* Abstand nach unten */
   /* flex-wrap: wrap;                   /* Umbruch bei kleinen Bildschirmen */
   justify-content: center;  /* Karten in der Mitte */
+  padding: 0.5rem
 }
 
 /* Blog-Seite: Karten untereinander als EIN SPALTE */
@@ -299,7 +300,7 @@ body.noscroll {
     max-width: 95vw;           /* Fast die ganze Viewport-Breite */
     width: 95vw;               /* Breite relativ zum Bildschirm */
     box-sizing: border-box;    /* Kein Überlauf durch Padding */
-    padding: 0.5rem !important;
+    padding: 0.5rem
   }
 }
 
