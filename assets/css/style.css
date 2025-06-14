@@ -103,6 +103,7 @@ main {
   border-radius: 20px;               /* Abgerundete Ecken */
   display: flex;                     /* Bild + Text nebeneinander */
   align-items: flex-start;           /* Das sorgt dafür, dass Bild UND Text oben anfangen! */
+  padding: 0.5rem;
   padding: 1rem;                     /* Innenabstand */
   min-width: 250px;                  /* Mindestbreite */
   max-width: 350px;                  /* Maximalbreite */
