@@ -298,6 +298,8 @@ body.noscroll {
     max-width: 95vw;           /* Fast die ganze Viewport-Breite */
     width: 95vw;               /* Breite relativ zum Bildschirm */
     box-sizing: border-box;    /* Kein Überlauf durch Padding */
+    margin-left: auto;   /* Links und rechts automatisch! */
+    margin-right: auto; /* Optional: Abstand zum Rand/zu anderen Cards anpassen */
   }
 }
 
