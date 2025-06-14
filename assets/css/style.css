@@ -137,12 +137,6 @@ main {
 .blog-card .card-title {
   font-weight: bold;                 /* Fett */
   margin-bottom: 0.5rem;              /* Abstand nach unten */
-
-  display: -webkit-box;
-  -webkit-line-clamp: 3;    /* Maximal 3 Zeilen anzeigen */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 /* Vorschautext (Anfang des Blogposts) */
@@ -150,6 +144,15 @@ main {
   font-size: 1rem;                   /* Normale Größe */
   color: #444;                       /* Etwas heller als Text */
 }
+
+.card-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;    /* Maximal 3 Zeilen anzeigen */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 
 /* Markierung für aktiven Blog (Sidebar) */
 .blog-card.active {
