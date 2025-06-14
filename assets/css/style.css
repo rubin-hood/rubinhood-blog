@@ -112,17 +112,16 @@ main {
 
 /* Platzhalter für Blog-Bild (links in der Karte) */
 .blog-card .card-img {
-  min-width: 120px;                 /* Feste Breite */
-  /* min-height entfernt! */
-  height: auto;                     /* Automatische Höhe: nur so hoch wie Bild */
-  display: flex;                    /* Zentrierter Text/Bild */
-  align-items: center;              /* Vertikal zentriert */
-  justify-content: center;          /* Horizontal zentriert */
-  font-size: 2rem;                  /* Großer Schriftzug ("Bild") */
-  font-weight: bold;                /* Fett */
-  margin-right: 1rem;               /* Abstand rechts zum Text */
-  border: 2px solid #222;           /* Rahmen */
-  align-self: flex-start;           /* Damit Bild nicht die Card nach unten zieht */
+  min-width: 120px;                   /* Feste Breite */
+  /* min-height: 120px;                  /* Feste Höhe */
+  background: #f3f3f3;               /* Heller Hintergrund */
+  display: flex;                     /* Zentrierter Text/Bild */
+  align-items: center;               /* Vertikal zentriert */
+  justify-content: center;           /* Horizontal zentriert */
+  font-size: 2rem;                   /* Großer Schriftzug ("Bild") */
+  font-weight: bold;                 /* Fett */
+  margin-right: 1rem;                /* Abstand rechts zum Text */
+  border: 2px solid #222;            /* Rahmen */
 }
 
 .blog-card .card-img img {
@@ -308,3 +307,12 @@ body.noscroll {
 
 
 
+.blog-grid-single .blog-card {
+  flex: none !important;
+  min-width: 250px;
+  max-width: 350px;
+  width: 100%;
+  min-height: 0 !important;
+  height: auto !important;
+  margin-bottom: 0.5rem;
+}
