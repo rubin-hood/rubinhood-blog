@@ -112,21 +112,16 @@ main {
 
 /* Platzhalter für Blog-Bild (links in der Karte) */
 .blog-card .card-img {
-  min-width: 120px;
-  min-height: 120px;
-  max-width: 120px;
-  max-height: 120px;
-  width: 120px;
-  height: 120px;
-  background: #f3f3f3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-right: 1rem;
-  border: 2px solid #222;
-  align-self: center; /* <<--- DAS IST DER TRICK */
+  min-width: 120px;                   /* Feste Breite */
+  min-height: 120px;                  /* Feste Höhe */
+  background: #f3f3f3;               /* Heller Hintergrund */
+  display: flex;                     /* Zentrierter Text/Bild */
+  align-items: center;               /* Vertikal zentriert */
+  justify-content: center;           /* Horizontal zentriert */
+  font-size: 2rem;                   /* Großer Schriftzug ("Bild") */
+  font-weight: bold;                 /* Fett */
+  margin-right: 1rem;                /* Abstand rechts zum Text */
+  border: 2px solid #222;            /* Rahmen */
 }
 
 .blog-card .card-img img {
@@ -142,6 +137,12 @@ main {
 .blog-card .card-title {
   font-weight: bold;                 /* Fett */
   margin-bottom: 0.5rem;              /* Abstand nach unten */
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;    /* Maximal 3 Zeilen anzeigen */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Vorschautext (Anfang des Blogposts) */
