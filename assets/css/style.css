@@ -110,6 +110,10 @@ main {
   transition: border-color .2s;      /* Sanfte Animation beim Farbwechsel */
 }
 
+.blog-grid-single .blog-card {
+  padding: 0.5rem !important;
+}
+
 /* Platzhalter für Blog-Bild (links in der Karte) */
 .blog-card .card-img {
   min-width: 120px;                   /* Feste Breite */
