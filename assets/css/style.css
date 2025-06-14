@@ -291,6 +291,8 @@ body.noscroll {
   .blog-teaser-grid, .blog-grid {
     flex-direction: column;          /* Blogkarten untereinander */
     gap: 1rem;                       /* Weniger Abstand */
+    align-items: center;
+    padding: 0 0.5rem;    /* links und rechts etwas Platz */
   }
 }
 
