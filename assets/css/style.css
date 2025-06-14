@@ -136,7 +136,7 @@ main {
 /* Blog-Titel innerhalb der Karte */
 .blog-card .card-title {
   font-weight: bold;                 /* Fett */
-  margin-bottom: .5rem;              /* Abstand nach unten */
+  margin-bottom: 0.5rem;              /* Abstand nach unten */
 }
 
 /* Vorschautext (Anfang des Blogposts) */
