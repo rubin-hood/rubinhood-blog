@@ -108,6 +108,7 @@ main {
   max-width: 350px;                  /* Maximalbreite */
   margin-bottom: 1rem;               /* Abstand nach unten */
   transition: border-color .2s;      /* Sanfte Animation beim Farbwechsel */
+  padding: 0.5rem;
 }
 
 /* Platzhalter für Blog-Bild (links in der Karte) */
