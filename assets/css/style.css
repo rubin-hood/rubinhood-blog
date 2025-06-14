@@ -301,6 +301,11 @@ body.noscroll {
   }
 }
 
+  main {
+    padding-left: 4vw;   /* mehr Rand links */
+    padding-right: 4vw;  /* mehr Rand rechts */
+  }
+
 
 /* ================================================
    SPEZIAL: Blog-Karten im mobilen Menü-Overlay
