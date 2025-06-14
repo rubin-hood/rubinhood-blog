@@ -270,57 +270,32 @@ body.noscroll {
    10. Mobile-Anpassungen (bis 600px)
    =========================== */
 @media (max-width: 600px) {
-  .site-header {
-    flex-direction: row;             /* Bleibt horizontal */
-    gap: 0;
-  }
-  .site-nav, .social-icons {
-    display: none;                   /* Hauptnavigation & Icons ausblenden */
-  }
-  .burger {
-    display: block;                  /* Burger-Menü sichtbar */
-  }
-  /* Das Overlay ist jetzt STANDARD versteckt (s. oben), 
-     wird aber NUR mit der .open-Klasse sichtbar! */
-  .mobile-menu-overlay {
-    display: none;                   /* Overlay bleibt unsichtbar */
-  }
-  .mobile-menu-overlay.open {
-    display: flex;                   /* Wenn .open gesetzt, wird Overlay sichtbar */
+  main {
+    padding-left: 4vw;   /* Mehr Rand links */
+    padding-right: 4vw;  /* Mehr Rand rechts */
   }
   .blog-teaser-grid, .blog-grid {
-    flex-direction: column;          /* Blogkarten untereinander */
-    gap: 1rem;                       /* Weniger Abstand */
+    flex-direction: column;
     align-items: center;
+    gap: 1rem;
   }
-    .blog-card {
-    min-width: unset;          /* Überschreibt das alte min-width */
-    max-width: 95vw;           /* Fast die ganze Viewport-Breite */
-    width: 95vw;               /* Breite relativ zum Bildschirm */
-    box-sizing: border-box;    /* Kein Überlauf durch Padding */
+  .blog-card {
+    min-width: 0;              /* Kein Mindestwert, volle Flexibilität */
+    width: 100%;               /* Nimmt volle Breite des Containers */
+    max-width: 95vw;           /* Fast bis zum Rand, aber mit Abstand */
+    margin: 0 auto 1rem auto;  /* Unten Abstand, horizontal zentriert */
+    box-sizing: border-box;
+  }
+  /* Speziell fürs Overlay – überschreibt alle anderen! */
+  .mobile-menu-overlay .blog-card {
+    width: 94vw;
+    max-width: 450px;
+    min-width: 0;
+    margin: 0 auto 1.5rem auto;
+  }
+  .mobile-menu-overlay {
+    padding-left: 2vw;
+    padding-right: 2vw;
   }
 }
-
-  main {
-    padding-left: 4vw;   /* mehr Rand links */
-    padding-right: 4vw;  /* mehr Rand rechts */
-  }
-
-
-/* ================================================
-   SPEZIAL: Blog-Karten im mobilen Menü-Overlay
-   (Begrenzt die Breite der Blog-Karten NUR IM Overlay!)
-   ================================================ */
-.mobile-menu-overlay .blog-card {
-  width: 90vw;           /* 90% der Viewport-Breite */
-  max-width: 400px;      /* Optional: nie größer als 400px */
-  margin-left: auto;     /* Automatisch zentrieren */
-  margin-right: auto;
-  margin-bottom: 1rem;   /* Abstand nach unten */
-}
-.mobile-menu-overlay {
-  padding-left: 2vw;     /* Leichter Seitenabstand im Overlay */
-  padding-right: 2vw;
-}
-
 
