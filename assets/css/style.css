@@ -95,10 +95,6 @@ main {
   align-items: center;
 }
 
-.blog-grid.blog-grid-single .blog-card {
-  padding: 0.5rem;
-}
-
 .blog-card {
   flex: 1 1 300px;           /* Jede Karte darf wachsen, mind. 300px breit */
   box-sizing: border-box;
@@ -307,3 +303,17 @@ body.noscroll {
   }
 }
 
+
+.blog-grid.blog-grid-single .blog-card {
+  padding: 0.5rem;
+}
+
+.blog-card {
+  padding: 0.5rem;    /* Desktop & Tablet */
+}
+
+@media (max-width: 600px) {
+  .blog-card {
+    padding: 0.25rem; /* Mobil noch weniger */
+  }
+}
