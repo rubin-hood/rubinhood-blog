@@ -102,7 +102,7 @@ main {
   border: 2px solid #222;            /* Dunkler Rahmen */
   border-radius: 20px;               /* Abgerundete Ecken */
   display: flex;                     /* Bild + Text nebeneinander */
-  align-items: center;               /* Vertikal zentriert */
+  align-items: flex-start;           /* Das sorgt dafür, dass Bild UND Text oben anfangen! */
   padding: 1rem;                     /* Innenabstand */
   min-width: 250px;                  /* Mindestbreite */
   max-width: 350px;                  /* Maximalbreite */
@@ -306,7 +306,4 @@ body.noscroll {
 
 
 
-.blog-card {
-  padding: 0px !important;
-  background: yellow !important; /* Sichtbarer Test! */
-}
+
