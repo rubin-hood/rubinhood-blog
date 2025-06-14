@@ -303,17 +303,4 @@ body.noscroll {
   }
 }
 
-
-.blog-grid.blog-grid-single .blog-card {
-  padding: 0.5rem;
-}
-
-.blog-card {
-  padding: 0.5rem;    /* Desktop & Tablet */
-}
-
-@media (max-width: 600px) {
-  .blog-card {
-    padding: 0.25rem; /* Mobil noch weniger */
-  }
-}
+.blog-card { padding: 0.5rem; }
