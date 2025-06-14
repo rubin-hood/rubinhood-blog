@@ -89,10 +89,6 @@ main {
   justify-content: center;  /* Karten in der Mitte */
 }
 
-.blog-grid.blog-grid-single {
-  gap: 0.5rem !important;
-}
-
 /* Blog-Seite: Karten untereinander als EIN SPALTE */
 .blog-grid-single {
   flex-direction: column;
