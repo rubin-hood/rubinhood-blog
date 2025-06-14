@@ -113,7 +113,7 @@ main {
 /* Platzhalter für Blog-Bild (links in der Karte) */
 .blog-card .card-img {
   min-width: 120px;                   /* Feste Breite */
-  /* min-height: 120px;                  /* Feste Höhe */
+  min-height: 120px;                  /* Feste Höhe */
   background: #f3f3f3;               /* Heller Hintergrund */
   display: flex;                     /* Zentrierter Text/Bild */
   align-items: center;               /* Vertikal zentriert */
