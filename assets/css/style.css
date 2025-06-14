@@ -316,7 +316,7 @@ body.noscroll {
 .blog-grid-single .blog-card {
   flex: none !important;
   min-width: 250px;
-  max-width: 350px;
+  max-width: 600px;
   width: 100%;
   min-height: 0 !important;
   height: auto !important;
@@ -326,7 +326,7 @@ body.noscroll {
 .blog-card {
   flex: none !important;
   min-width: 250px;
-  max-width: 400px;
+  max-width: 350px;
   width: 100%;
   min-height: 0 !important;
   height: auto !important;
