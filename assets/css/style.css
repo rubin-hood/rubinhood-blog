@@ -291,8 +291,13 @@ body.noscroll {
   .blog-teaser-grid, .blog-grid {
     flex-direction: column;          /* Blogkarten untereinander */
     gap: 1rem;                       /* Weniger Abstand */
-    align-items: center;
-    padding: 0 0.5rem;    /* links und rechts etwas Platz */
+        align-items: center;
+  }
+    .blog-card {
+    min-width: unset;          /* Überschreibt das alte min-width */
+    max-width: 95vw;           /* Fast die ganze Viewport-Breite */
+    width: 95vw;               /* Breite relativ zum Bildschirm */
+    box-sizing: border-box;    /* Kein Überlauf durch Padding */
   }
 }
 
