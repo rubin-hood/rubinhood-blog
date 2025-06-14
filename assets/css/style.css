@@ -304,6 +304,6 @@ body.noscroll {
 }
 
   main {
-    padding: 0;   /* oder z.B. padding: 0 .5rem; für Mini-Rand */
+    padding: 0 1rem; /* 1rem Abstand links/rechts für ALLES! */
   }
 
