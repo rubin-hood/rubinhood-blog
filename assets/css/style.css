@@ -84,7 +84,7 @@ main {
   display: flex;                     /* Flexible horizontale Anordnung */
   flex-wrap: wrap;          /* Bei zu wenig Platz umbrechen */
   gap: 1rem;                         /* Abstand zwischen Karten */
-  margin-bottom: 1rem;               /* Abstand nach unten */
+  margin-bottom: 2rem;               /* Abstand nach unten */
   /* flex-wrap: wrap;                   /* Umbruch bei kleinen Bildschirmen */
   justify-content: center;  /* Karten in der Mitte */
 }
@@ -99,7 +99,7 @@ main {
   flex: 1 1 300px;           /* Jede Karte darf wachsen, mind. 300px breit */
   box-sizing: border-box;
   background: #fff;                  /* Kartenhintergrund weiß */
-  border: 2px solid #222;            /* Dunkler Rahmen */
+  border: 2px solid #999999;            /* Dunkler Rahmen */
   border-radius: 20px;               /* Abgerundete Ecken */
   display: flex;                     /* Bild + Text nebeneinander */
   align-items: center;           /* Das sorgt dafür, dass Bild UND Text oben anfangen! */
@@ -309,6 +309,15 @@ body.noscroll {
     width: 95vw;               /* Breite relativ zum Bildschirm */
     box-sizing: border-box;    /* Kein Überlauf durch Padding */
     padding: 0.5rem
+  }
+
+    /* Nur Cards auf der Startseite (teaser), NICHT im Blog */
+  .blog-teaser-grid .blog-card {
+    max-width: 600px !important;
+    width: 100%;
+    min-width: unset !important;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
