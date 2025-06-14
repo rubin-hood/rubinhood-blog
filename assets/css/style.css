@@ -106,7 +106,7 @@ main {
   padding: 1rem;                     /* Innenabstand */
   min-width: 250px;                  /* Mindestbreite */
   max-width: 350px;                  /* Maximalbreite */
-  margin-bottom: 1rem;               /* Abstand nach unten */
+  margin-bottom: 0.5rem;               /* Abstand nach unten */
   transition: border-color .2s;      /* Sanfte Animation beim Farbwechsel */
 }
 
