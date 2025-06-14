@@ -300,10 +300,9 @@ body.noscroll {
     box-sizing: border-box;    /* Kein Überlauf durch Padding */
     margin-left: auto;   /* Links und rechts automatisch! */
     margin-right: auto; /* Optional: Abstand zum Rand/zu anderen Cards anpassen */
+    padding-left: 0.8rem;  /* Innenabstand links */
+    padding-right: 0.8rem; /* Innenabstand rechts */
   }
 }
 
-  main {
-    padding: 0 1rem; /* 1rem Abstand links/rechts für ALLES! */
-  }
 
