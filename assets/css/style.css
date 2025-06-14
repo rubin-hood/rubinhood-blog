@@ -303,3 +303,7 @@ body.noscroll {
   }
 }
 
+  main {
+    padding: 0;   /* oder z.B. padding: 0 .5rem; für Mini-Rand */
+  }
+
