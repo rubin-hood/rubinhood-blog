@@ -312,6 +312,14 @@ body.noscroll {
   }
 }
 
+.mobile-menu-overlay .blog-card {
+  max-width: 92vw !important;
+  width: 92vw !important;
+  min-width: unset !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
 .blog-grid-single .blog-card {
   flex: none !important;
