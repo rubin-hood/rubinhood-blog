@@ -100,7 +100,7 @@ main {
   box-sizing: border-box;
   background: #fff;                  /* Kartenhintergrund weiß */
   border: 2px solid #999999;            /* Dunkler Rahmen */
-  border-radius: 20px;               /* Abgerundete Ecken */
+  border-radius: 7px;               /* Abgerundete Ecken */
   display: flex;                     /* Bild + Text nebeneinander */
   align-items: center;           /* Das sorgt dafür, dass Bild UND Text oben anfangen! */
   padding: 0.25rem;
@@ -121,7 +121,7 @@ main {
   font-size: 2rem;                   /* Großer Schriftzug ("Bild") */
   font-weight: bold;                 /* Fett */
   margin-right: 1rem;                /* Abstand rechts zum Text */
-  border: 2px solid #222;            /* Rahmen */
+  border: 2px solid transparent;            /* Rahmen */
 }
 
 .blog-card .card-img img {
