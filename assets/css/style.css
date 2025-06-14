@@ -84,7 +84,7 @@ main {
   display: flex;                     /* Flexible horizontale Anordnung */
   flex-wrap: wrap;          /* Bei zu wenig Platz umbrechen */
   gap: 2rem;                         /* Abstand zwischen Karten */
-  margin-bottom: 2rem;               /* Abstand nach unten */
+  margin-bottom: 0.5rem;               /* Abstand nach unten */
   /* flex-wrap: wrap;                   /* Umbruch bei kleinen Bildschirmen */
   justify-content: center;  /* Karten in der Mitte */
 }
@@ -108,7 +108,6 @@ main {
   max-width: 350px;                  /* Maximalbreite */
   margin-bottom: 1rem;               /* Abstand nach unten */
   transition: border-color .2s;      /* Sanfte Animation beim Farbwechsel */
-  padding: 0.5rem;
 }
 
 /* Platzhalter für Blog-Bild (links in der Karte) */
