@@ -126,7 +126,7 @@ main {
   font-weight: bold;
   margin-right: 1rem;
   border: 2px solid #222;
-  align-self: auto;  /* Flex-Kind übernimmt die Ausrichtung vom Elternteil (center) */
+  align-self: center; /* <<--- DAS IST DER TRICK */
 }
 
 .blog-card .card-img img {
