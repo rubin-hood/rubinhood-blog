@@ -84,7 +84,7 @@ main {
   display: flex;                     /* Flexible horizontale Anordnung */
   flex-wrap: wrap;          /* Bei zu wenig Platz umbrechen */
   gap: 1rem;                         /* Abstand zwischen Karten */
-  margin-bottom: 2rem;               /* Abstand nach unten */
+  margin-bottom: 1rem;               /* Abstand nach unten */
   /* flex-wrap: wrap;                   /* Umbruch bei kleinen Bildschirmen */
   justify-content: center;  /* Karten in der Mitte */
 }
