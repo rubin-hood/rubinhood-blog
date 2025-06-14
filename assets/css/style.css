@@ -270,70 +270,39 @@ body.noscroll {
    10. Mobile-Anpassungen (bis 600px)
    =========================== */
 @media (max-width: 600px) {
-  /* Header bleibt horizontal, aber Navigation & Social werden versteckt */
   .site-header {
-    flex-direction: row;   /* Header bleibt horizontal */
+    flex-direction: row;             /* Bleibt horizontal */
     gap: 0;
   }
   .site-nav, .social-icons {
-    display: none;         /* Navigation & Social-Icons ausblenden */
+    display: none;                   /* Hauptnavigation & Icons ausblenden */
   }
   .burger {
-    display: block;        /* Burger-Button wird angezeigt */
+    display: block;                  /* Burger-Menü sichtbar */
   }
-
-  /* Mobile Menü-Overlay, Standard ist versteckt, open zeigt Menü */
+  /* Das Overlay ist jetzt STANDARD versteckt (s. oben), 
+     wird aber NUR mit der .open-Klasse sichtbar! */
   .mobile-menu-overlay {
-    display: none;
+    display: none;                   /* Overlay bleibt unsichtbar */
   }
   .mobile-menu-overlay.open {
-    display: flex;
+    display: flex;                   /* Wenn .open gesetzt, wird Overlay sichtbar */
   }
 
-  /* 
-    Grid-Container für Blog-Teaser und Blog-Grid:
-    - Spalten werden untereinander angeordnet (column)
-    - Abstand zwischen den Karten (gap)
-    - ALLES wird in der Mitte ausgerichtet (align-items: center)
-    - Links/rechts Abstand fürs ganze Grid (padding)
-    - box-sizing: border-box, damit Padding sauber berechnet wird
-    - width: 100vw für volle Bildschirmbreite (optional)
-  */
+  /* Grid-Container: ganz normale Breite, kein 100vw */
   .blog-teaser-grid, .blog-grid {
-    flex-direction: column;      /* Karten untereinander */
-    gap: 1rem;                   /* Abstand zwischen den Karten */
-    align-items: center;         /* Karten zentriert */
-    padding: 0 1rem;             /* Seitenabstand links/rechts */
-    box-sizing: border-box;      /* Padding wird einberechnet */
-    width: 100vw;                /* Optional: volle Breite */
-    margin-left: 0;              /* Kein zusätzlicher Einzug */
-    margin-right: 0;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;          /* ! Wichtig: stretch, damit die Karten 100% nehmen */
+    padding: 0 1rem;               /* Abstand links/rechts */
+    box-sizing: border-box;
   }
-
-  /*
-    Jede Blog-Karte:
-    - volle Breite des Containers (also mit 1rem Abstand)
-    - max-width: 100% verhindert, dass sie zu breit wird
-    - Kein zusätzlicher Außenabstand links/rechts
-  */
   .blog-card {
-    min-width: unset;        /* Mindestbreite aufheben */
-    max-width: 100%;         /* Nie breiter als Grid */
-    width: 100%;             /* Immer volle Breite vom Container */
-    box-sizing: border-box;  /* Padding korrekt berechnen */
+    min-width: 0;                  /* Kein Mindestwert mehr! */
+    max-width: 100%;               /* Nicht über den Container hinaus */
+    width: 100%;                   /* Volle Breite des Containers */
+    box-sizing: border-box;        /* Padding wird eingerechnet */
     margin-left: 0;
     margin-right: 0;
   }
-
-  /*
-    Hauptbereich (z.B. Fließtext auf Startseite/Blog):
-    - Links und rechts ebenfalls 1rem Abstand
-    - Damit Text nicht am Bildschirmrand klebt!
-  */
-  main {
-    padding: 0 1rem;
-    box-sizing: border-box;
-  }
 }
-
-
