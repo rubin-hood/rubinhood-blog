@@ -16,7 +16,7 @@ title: Blog
   </div>
   <div class="card-content">
     <div class="card-title">{{ post.title }}</div>
-    <div class="card-desc">{{ post.excerpt | strip_html | truncate: 90 }}</div>
+    <div class="card-desc">{{ post.excerpt | strip_html | truncate: 140 }}</div>
   </div>
 </a>
   {% endfor %}

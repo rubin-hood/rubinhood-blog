@@ -145,13 +145,13 @@ main {
   color: #444;                       /* Etwas heller als Text */
 }
 
-/*.card-desc {
+.card-desc {
   display: -webkit-box;
-  -webkit-line-clamp: 3;    /* Maximal 3 Zeilen anzeigen */
-/*  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;    /* Maximal 3 Zeilen anzeigen */
+  -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-}*/
+}
 
 
 /* Markierung für aktiven Blog (Sidebar) */
