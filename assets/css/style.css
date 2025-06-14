@@ -121,7 +121,7 @@ main {
   font-size: 2rem;                   /* Großer Schriftzug ("Bild") */
   font-weight: bold;                 /* Fett */
   margin-right: 1rem;                /* Abstand rechts zum Text */
-  border: 2px solid transparent;            /* Rahmen */
+  border: 2px solid #9e9e9e;            /* Rahmen */
 }
 
 .blog-card .card-img img {
@@ -156,10 +156,10 @@ main {
 
 /* Markierung für aktiven Blog (Sidebar) */
 .blog-card.active {
-  border-color: #d00;                /* Roter Rahmen */
+  border-color: #009C6C;                /* Roter Rahmen */
 }
 .blog-card.active .card-title {
-  color: #d00;                       /* Titel in Rot */
+  color: #009C6C;                       /* Titel in Rot */
   font-weight: bold;                 /* Extra fett */
 }
 
@@ -303,6 +303,7 @@ body.noscroll {
     align-items: center;
   }
     .blog-card {
+    border: none !important;
     display: flex;
     min-width: unset;          /* Überschreibt das alte min-width */
     max-width: 95vw;           /* Fast die ganze Viewport-Breite */
@@ -318,6 +319,7 @@ body.noscroll {
     min-width: unset !important;
     margin-left: auto;
     margin-right: auto;
+    border: 2px solid #222 !important;
   }
 }
 
