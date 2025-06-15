@@ -125,8 +125,8 @@ main {
 }
 
 .blog-card .card-img img {
-  max-width: 80px;        /* passt zur bisherigen Platzhaltergröße */
-  max-height: 80px;       /* bleibt quadratisch */
+  max-width: 120px;        /* passt zur bisherigen Platzhaltergröße */
+  max-height: 120px;       /* bleibt quadratisch */
   object-fit: cover;      /* füllt den Platz gut aus */
   border-radius: 4px;     /* etwas abgerundet, optional */
   display: block;         /* kein unerwünschter Abstand unten */
