@@ -98,7 +98,7 @@ main {
 .blog-card {
   flex: 1 1 300px;           /* Jede Karte darf wachsen, mind. 300px breit */
   box-sizing: border-box;
-  background: #fff;                  /* Kartenhintergrund weiß */
+  background: #FCFBF7;                  /* Kartenhintergrund weiß */
   border: 2px solid #D0D7DE;            /* Dunkler Rahmen */
   border-radius: 7px;               /* Abgerundete Ecken */
   display: flex;                     /* Bild + Text nebeneinander */
@@ -121,7 +121,7 @@ main {
   font-size: 2rem;                   /* Großer Schriftzug ("Bild") */
   font-weight: bold;                 /* Fett */
   margin-right: 1rem;                /* Abstand rechts zum Text */
-  border: 2px solid #9e9e9e;            /* Rahmen */
+  border: 2px solid transparent;            /* Rahmen */
 }
 
 .blog-card .card-img img {
