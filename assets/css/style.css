@@ -161,10 +161,10 @@ main {
 
 /* Markierung für aktiven Blog (Sidebar) */
 .blog-card.active {
-  border-color: #009C6C;                /* Roter Rahmen */
+  border-color: #AA0600;                /* Roter Rahmen */
 }
 .blog-card.active .card-title {
-  color: #009C6C;                       /* Titel in Rot */
+  color: #AA0600;                       /* Titel in Rot */
   font-weight: bold;                 /* Extra fett */
 }
 
