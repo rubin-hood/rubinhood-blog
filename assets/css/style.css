@@ -83,7 +83,7 @@ main {
 .blog-teaser-grid, .blog-grid {
   display: flex;                     /* Flexible horizontale Anordnung */
   flex-wrap: wrap;          /* Bei zu wenig Platz umbrechen */
-  gap: 1rem 0.5rem;                         /* Abstand zwischen Karten */
+  gap: 0.5rem 1rem;                         /* Abstand zwischen Karten */
   margin-bottom: 2rem;               /* Abstand nach unten */
   /* flex-wrap: wrap;                   /* Umbruch bei kleinen Bildschirmen */
   justify-content: center;  /* Karten in der Mitte */
