@@ -55,8 +55,8 @@ html, body {
 }
 
 .icon {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   display: inline-block;
   background-size: contain;
   background-repeat: no-repeat;
