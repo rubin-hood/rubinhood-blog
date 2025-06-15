@@ -58,14 +58,14 @@ html, body {
   display: inline-block;
   position: relative;
   width: 30px;
-  height: 30px;
+  height: auto;
   margin: 0 2px;
   vertical-align: middle;
 }
 .icon-link .icon-img {
   position: absolute;
   top: 0; left: 0;
-  width: 30px; height: 30px;
+  width: auto; height: 30px;
   transition: opacity 0.2s;
   display: block;
 }
