@@ -212,8 +212,8 @@ footer {
    9. Burger-Menü (Button für Mobile)
    =========================== */
 .burger {
-  display: none;
-  background: none;
+  display: none !important;
+  background: none !important;
   border: none;
   width: 36px;
   height: 36px;
