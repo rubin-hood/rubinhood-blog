@@ -44,7 +44,7 @@ html, body {
 
 /* Aktiver Navigationslink in grün */
 .site-nav a.active {
-  color: #AA0600;                    /* Akzentfarbe Grün */
+  color: #008000;                    /* Akzentfarbe Grün */
 }
 
 /* Social Icons rechts */
@@ -53,7 +53,7 @@ html, body {
   gap: 1rem;                         /* Abstand zwischen Icons */
 }
 .social-icons a {
-  color: #009c6c;                    /* Akzentfarbe Grün */
+  color: #008000;                    /* Akzentfarbe Grün */
   font-size: 1.5rem;                 /* Größere Icons */
   text-decoration: none;             /* Keine Unterstreichung */
 }
@@ -73,7 +73,7 @@ main {
   margin-bottom: 2rem;               /* Abstand nach unten */
 }
 .intro .underline {
-  text-decoration: none;        /* Extra Unterstreichung für Akzent */
+  text-decoration: underline;        /* Extra Unterstreichung für Akzent */
 }
 
 
@@ -137,12 +137,7 @@ main {
 .blog-card .card-title {
   font-weight: bold;                 /* Fett */
   margin-bottom: 0.5rem;              /* Abstand nach unten */
-
-  color: #009C6C !important;           /* Grün, nimm hier deinen Wunsch-Farbcode */
-  text-decoration: none !important;    /* Keine Unterstreichung */
 }
-
-
 
 /* Vorschautext (Anfang des Blogposts) */
 .blog-card .card-desc {
