@@ -49,29 +49,44 @@ html, body {
 
 /* Social Icons rechts */
 .social-icons {
-  display: flex;                     /* Horizontale Anordnung */
-  align-items: center;
-  gap: 1rem;                         /* Abstand zwischen Icons */
+  display: flex;          /* Ordnet alle Kinder nebeneinander, also horizontal */
+  align-items: center;    /* Zentriert die Icons vertikal in der Zeile */
+  gap: 2rem;              /* Abstand zwischen den einzelnen Icons (z.B. 16px) */
 }
 
 .icon-link {
-  display: inline-block;
-  position: relative;
-  width: 30px;
-  height: auto;
-  margin: 0 2px;
-  vertical-align: middle;
+  display: inline-block;          /* Damit jedes Icon nebeneinander steht wie ein Inline-Element */
+  position: relative;             /* Ermöglicht das Positionieren der Kind-Elemente absolut */
+  width: 30px;                    /* Feste Breite für jedes Icon */
+  height: auto;                   /* Höhe automatisch – könnte auch height: 30px für quadratisch machen */
+  margin: 0 2px;                  /* Kleiner Abstand links/rechts zwischen den Icons */
+  vertical-align: middle;         /* Vertikal auf einer Linie mit Text oder anderen Icons */
 }
+
 .icon-link .icon-img {
-  position: absolute;
-  top: 0; left: 0;
-  width: auto; height: 30px;
-  transition: opacity 0.2s;
-  display: block;
+  position: absolute;             /* Absolut innerhalb .icon-link positioniert */
+  top: 0; left: 0;                /* Oben links anordnen */
+  width: auto; height: 30px;      /* Höhe 30px, Breite automatisch, so bleibt das Seitenverhältnis erhalten */
+  transition: opacity 0.2s;       /* Sanfte Überblendung zwischen normal und hover */
+  display: block;                 /* Kein Abstand unter dem Bild */
 }
-.icon-link .hover   { opacity: 0; pointer-events: none; }
-.icon-link:hover .hover { opacity: 1; pointer-events: auto; }
-.icon-link:hover .normal { opacity: 0; }
+
+/* Die Hover-Variante ist standardmäßig unsichtbar und kann nicht geklickt werden */
+.icon-link .hover   { 
+  opacity: 0;                     /* Unsichtbar */
+  pointer-events: none;           /* Kann keine Mausereignisse bekommen */
+}
+
+/* Wenn mit der Maus auf das Icon (eltern-Element) gegangen wird: */
+.icon-link:hover .hover { 
+  opacity: 1;                     /* Hover-Bild wird sichtbar */
+  pointer-events: auto;           /* Jetzt könnte man (theoretisch) das Bild klicken */
+}
+
+/* Das normale Bild wird beim Hover ausgeblendet */
+.icon-link:hover .normal { 
+  opacity: 0;                     /* Original-Icon wird unsichtbar */
+}
 
 
 
