@@ -308,6 +308,19 @@ footer {
   .blog-card {
     padding: 0.25rem;
   }
+  .site-nav,
+  .social-icons {
+    display: none;            /* Navigation & Social-Icons in Header AUSblenden */
+  }
+  .burger {
+    display: block;           /* Burger-Menü zeigen */
+  }
+  .mobile-menu-overlay {
+    display: none;            /* Overlay standardmäßig ausblenden */
+  }
+  .mobile-menu-overlay.open {
+    display: flex;            /* Overlay einblenden, wenn JS "open" setzt */
+  }
 }
 
 
