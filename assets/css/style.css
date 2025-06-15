@@ -341,6 +341,7 @@ body.noscroll {
 }
 
 .blog-card {
+  border: none !important;
   flex: none !important;
   min-width: 250px;
   max-width: 350px;
@@ -348,7 +349,6 @@ body.noscroll {
   min-height: 0 !important;
   height: auto !important;
   margin-bottom: 1rem
-  border: none !important;
 }
 
 .blog-teaser-grid .blog-card {
