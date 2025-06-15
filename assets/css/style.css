@@ -55,20 +55,22 @@ html, body {
 }
 
 .icon-link {
-  display: inline-block;          /* Damit jedes Icon nebeneinander steht wie ein Inline-Element */
-  position: relative;             /* Ermöglicht das Positionieren der Kind-Elemente absolut */
-  width: 30px;                    /* Feste Breite für jedes Icon */
-  height: auto;                   /* Höhe automatisch – könnte auch height: 30px für quadratisch machen */
-  /* margin: 0 2px;                  /* Kleiner Abstand links/rechts zwischen den Icons */
-  vertical-align: middle;         /* Vertikal auf einer Linie mit Text oder anderen Icons */
+  display: inline-block;
+  position: relative;
+  width: 34px;          /* z.B. etwas breiter für Medium, kannst variieren */
+  height: 30px;
+  overflow: hidden;     /* Verhindert, dass breite Bilder rausstehen */
+  vertical-align: middle;
 }
 
 .icon-link .icon-img {
-  position: absolute;             /* Absolut innerhalb .icon-link positioniert */
-  top: 0; left: 0;                /* Oben links anordnen */
-  width: auto; height: 30px;      /* Höhe 30px, Breite automatisch, so bleibt das Seitenverhältnis erhalten */
-  transition: opacity 0.2s;       /* Sanfte Überblendung zwischen normal und hover */
-  display: block;                 /* Kein Abstand unter dem Bild */
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* Das ist der wichtige Teil! */
+  transition: opacity 0.2s;
+  display: block;
 }
 
 /* Die Hover-Variante ist standardmäßig unsichtbar und kann nicht geklickt werden */
