@@ -5,7 +5,7 @@ html, body {
   margin: 0;                         /* Kein Außenabstand für Seite */
   padding: 0;                        /* Kein Innenabstand für Seite */
   font-family: system-ui, sans-serif; /* Moderne System-Schrift */
-  background: #F6F5F1;                  /* Hintergrundfarbe weiß */
+  background: #fff;                  /* Hintergrundfarbe weiß */
   color: #222;                       /* Standard-Textfarbe dunkelgrau */
 }
 
@@ -37,7 +37,7 @@ html, body {
 
 /* Navigationslinks: unterstrichen, dunkel */
 .site-nav a {
-  text-decoration: none;        /* Unterstrichener Link */
+  text-decoration: underline;        /* Unterstrichener Link */
   color: #222;                       /* Dunkelgrau */
   font-weight: bold;                 /* Fett */
 }
@@ -125,8 +125,8 @@ main {
 }
 
 .blog-card .card-img img {
-  max-width: 120px;        /* passt zur bisherigen Platzhaltergröße */
-  max-height: auto;       /* bleibt quadratisch */
+  max-width: 80px;        /* passt zur bisherigen Platzhaltergröße */
+  max-height: 80px;       /* bleibt quadratisch */
   object-fit: cover;      /* füllt den Platz gut aus */
   border-radius: 4px;     /* etwas abgerundet, optional */
   display: block;         /* kein unerwünschter Abstand unten */
