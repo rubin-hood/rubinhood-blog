@@ -51,7 +51,7 @@ html, body {
 .social-icons {
   display: flex;          /* Ordnet alle Kinder nebeneinander, also horizontal */
   align-items: center;    /* Zentriert die Icons vertikal in der Zeile */
-  gap: 2rem;              /* Abstand zwischen den einzelnen Icons (z.B. 16px) */
+  gap: 1rem;              /* Abstand zwischen den einzelnen Icons (z.B. 16px) */
 }
 
 .icon-link {
