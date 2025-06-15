@@ -137,17 +137,12 @@ main {
 .blog-card .card-title {
   font-weight: bold;                 /* Fett */
   margin-bottom: 0.5rem;              /* Abstand nach unten */
+
+  color: #009C6C !important;           /* Grün, nimm hier deinen Wunsch-Farbcode */
+  text-decoration: none !important;    /* Keine Unterstreichung */
 }
 
-.blog-card .card-title a {
-  color: #009C6C;           /* Grün, nimm hier deinen Wunsch-Farbcode */
-  text-decoration: none;    /* Keine Unterstreichung */
-}
 
-.blog-card .card-title a:hover {
-  text-decoration: underline;  /* Optional: Unterstreichung beim Hover */
-  color: #AA0600;              /* Optional: dunkleres Grün beim Hover */
-}
 
 /* Vorschautext (Anfang des Blogposts) */
 .blog-card .card-desc {
