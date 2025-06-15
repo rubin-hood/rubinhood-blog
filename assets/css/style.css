@@ -125,7 +125,7 @@ main {
 }
 
 .blog-card .card-img img {
-  max-width: 130px;        /* passt zur bisherigen Platzhaltergröße */
+  max-width: 120px;        /* passt zur bisherigen Platzhaltergröße */
   max-height: auto;       /* bleibt quadratisch */
   object-fit: cover;      /* füllt den Platz gut aus */
   border-radius: 4px;     /* etwas abgerundet, optional */
@@ -135,6 +135,10 @@ main {
 
 /* Blog-Titel innerhalb der Karte */
 .blog-card .card-title {
+  color: #009C6C;           /* Grün, nimm hier deinen Wunsch-Farbcode */
+  color: #AA0600;              /* Optional: dunkleres Grün beim Hover */
+  text-decoration: none;    /* Keine Unterstreichung */
+  
   font-weight: bold;                 /* Fett */
   margin-bottom: 0.5rem;              /* Abstand nach unten */
 }
