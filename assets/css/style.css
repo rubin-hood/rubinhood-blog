@@ -49,28 +49,30 @@ html, body {
 
 /* Social Icons rechts */
 .social-icons {
-  display: flex;          /* Ordnet alle Kinder nebeneinander, also horizontal */
-  align-items: center;    /* Zentriert die Icons vertikal in der Zeile */
-  gap: 1rem;              /* Abstand zwischen den einzelnen Icons (z.B. 16px) */
+  display: flex;           /* Macht aus dem Container eine Flexbox – die Kindelemente (Icons) werden nebeneinander (horizontal) angeordnet */
+  align-items: center;     /* Zentriert die Icons vertikal in der Zeile */
+  gap: 1rem;               /* Setzt einen Abstand von 1rem (meistens 16px) zwischen den einzelnen Icons */
 }
 
+/* Jedes Social-Icon ist ein Link, der als Container für die beiden Bilder (normal und hover) dient */
 .icon-link {
-  display: inline-block;
-  position: relative;
-  width: 34px;          /* z.B. etwas breiter für Medium, kannst variieren */
-  height: 30px;
-  overflow: hidden;     /* Verhindert, dass breite Bilder rausstehen */
-  vertical-align: middle;
+  display: inline-block;   /* Das Icon steht wie ein Textzeichen in der Zeile (nebeneinander mit anderen) */
+  position: relative;      /* Ermöglicht das absolute Positionieren der Bilder innerhalb des Containers */
+  width: 34px;             /* Feste Breite für das Icon – für breite Icons (z.B. Medium) ggf. anpassen */
+  height: 30px;            /* Feste Höhe für das Icon */
+  overflow: hidden;        /* Verhindert, dass Bilder aus dem Container herausragen */
+  vertical-align: middle;  /* Richtet die Icons mittig zur Textlinie aus */
 }
 
+/* Das eigentliche Bild im Icon (normal und hover) */
 .icon-link .icon-img {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;   /* Das ist der wichtige Teil! */
-  transition: opacity 0.2s;
-  display: block;
+  position: absolute;      /* Positioniert das Bild absolut innerhalb des Containers (.icon-link) */
+  top: 0; left: 0;         /* Bild beginnt oben links im Container */
+  width: 100%;             /* Bild nimmt die volle Containerbreite ein */
+  height: 100%;            /* Bild nimmt die volle Containerhöhe ein */
+  object-fit: contain;     /* Das Bild wird so skaliert, dass es immer komplett sichtbar bleibt, ohne das Seitenverhältnis zu verlieren */
+  transition: opacity 0.2s;/* Sorgt für einen sanften Übergang (Fade-Effekt), wenn die Sichtbarkeit gewechselt wird */
+  display: block;          /* Entfernt Abstand unter dem Bild (inline-block Bug) */
 }
 
 /* Die Hover-Variante ist standardmäßig unsichtbar und kann nicht geklickt werden */
