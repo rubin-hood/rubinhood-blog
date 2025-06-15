@@ -99,7 +99,7 @@ main {
   flex: 1 1 300px;           /* Jede Karte darf wachsen, mind. 300px breit */
   box-sizing: border-box;
   background: #fff;                  /* Kartenhintergrund weiß */
-  border: 2px solid #999999;            /* Dunkler Rahmen */
+  border: 2px solid #D0D7DE;            /* Dunkler Rahmen */
   border-radius: 7px;               /* Abgerundete Ecken */
   display: flex;                     /* Bild + Text nebeneinander */
   align-items: center;           /* Das sorgt dafür, dass Bild UND Text oben anfangen! */
@@ -114,7 +114,7 @@ main {
 .blog-card .card-img {
   min-width: 120px;                   /* Feste Breite */
   min-height: 120px;                  /* Feste Höhe */
-  background: #f3f3f3;               /* Heller Hintergrund */
+  background: transparent;               /* Heller Hintergrund */
   display: flex;                     /* Zentrierter Text/Bild */
   align-items: center;               /* Vertikal zentriert */
   justify-content: center;           /* Horizontal zentriert */
