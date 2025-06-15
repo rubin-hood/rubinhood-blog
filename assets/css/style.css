@@ -5,7 +5,7 @@ html, body {
   margin: 0;                         /* Kein Außenabstand für Seite */
   padding: 0;                        /* Kein Innenabstand für Seite */
   font-family: system-ui, sans-serif; /* Moderne System-Schrift */
-  background: #fff;                  /* Hintergrundfarbe weiß */
+  background: #F6F5F1;                  /* Hintergrundfarbe weiß */
   color: #222;                       /* Standard-Textfarbe dunkelgrau */
 }
 
@@ -37,7 +37,7 @@ html, body {
 
 /* Navigationslinks: unterstrichen, dunkel */
 .site-nav a {
-  text-decoration: underline;        /* Unterstrichener Link */
+  text-decoration: none;        /* Unterstrichener Link */
   color: #222;                       /* Dunkelgrau */
   font-weight: bold;                 /* Fett */
 }
