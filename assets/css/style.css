@@ -55,13 +55,13 @@ html, body {
 }
 
 .icon {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   display: inline-block;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  transition: background-image 0.2s;
+  /*transition: background-image 0.2s;*/
 }
 
 .icon.github  { background-image: url('/rubinhood-blog/assets/social/github.png'); }
