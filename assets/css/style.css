@@ -59,7 +59,7 @@ html, body {
   position: relative;             /* Ermöglicht das Positionieren der Kind-Elemente absolut */
   width: 30px;                    /* Feste Breite für jedes Icon */
   height: auto;                   /* Höhe automatisch – könnte auch height: 30px für quadratisch machen */
-  margin: 0 2px;                  /* Kleiner Abstand links/rechts zwischen den Icons */
+  /* margin: 0 2px;                  /* Kleiner Abstand links/rechts zwischen den Icons */
   vertical-align: middle;         /* Vertikal auf einer Linie mit Text oder anderen Icons */
 }
 
