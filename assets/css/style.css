@@ -60,23 +60,24 @@ html, body {
   display: inline-block;
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: center;
   transition: background-image 0.2s;
-  border-radius: 7px;
 }
 
-/* Standard Icons */
-.icon.github     { background-image: url('/assets/social/github.png'); }
-.icon.bluesky    { background-image: url('/assets/social/bluesky.png'); }
-.icon.medium     { background-image: url('/assets/social/medium.png'); }
-.icon.codepen    { background-image: url('/assets/social/codepen.png'); }
-.icon.youtube    { background-image: url('/assets/social/youtube.png'); }
+.icon.github  { background-image: url('/rubinhood-blog/assets/social/github.png'); }
+.icon.github:hover  { background-image: url('/rubinhood-blog/assets/social/github2.png'); }
 
-/* Hover-Icons (zweite Variante) */
-.icon.github:hover   { background-image: url('/assets/social/github2.png'); }
-.icon.bluesky:hover  { background-image: url('/assets/social/bluesky2.png'); }
-.icon.medium:hover   { background-image: url('/assets/social/medium2.png'); }
-.icon.codepen:hover  { background-image: url('/assets/social/codepen2.png'); }
-.icon.youtube:hover  { background-image: url('/assets/social/youtube2.png'); }
+.icon.bluesky { background-image: url('/rubinhood-blog/assets/social/bluesky.png'); }
+.icon.bluesky:hover { background-image: url('/rubinhood-blog/assets/social/bluesky2.png'); }
+
+.icon.medium  { background-image: url('/rubinhood-blog/assets/social/medium.png'); }
+.icon.medium:hover { background-image: url('/rubinhood-blog/assets/social/medium2.png'); }
+
+.icon.codepen { background-image: url('/rubinhood-blog/assets/social/codepen.png'); }
+.icon.codepen:hover { background-image: url('/rubinhood-blog/assets/social/codepen2.png'); }
+
+.icon.youtube { background-image: url('/rubinhood-blog/assets/social/youtube.png'); }
+.icon.youtube:hover { background-image: url('/rubinhood-blog/assets/social/youtube2.png'); }
 
 
 /* ===========================
