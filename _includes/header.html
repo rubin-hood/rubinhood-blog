@@ -1,43 +1,48 @@
 <header class="site-header">
   <a class="logo" href="{{ "/" | relative_url }}">
-  <img src="{{ '/assets/logo.png' | relative_url }}" alt="Rubin Hood">
-</a>
+    <img src="{{ '/assets/logo.png' | relative_url }}" alt="Rubin Hood">
+  </a>
   <nav class="site-nav">
     {% include navigation.html %}
   </nav>
   <div class="social-icons">
- <a href="https://github.com/rubin-hood" target="_blank" title="GitHub" class="icon github"></a>
- <a href="https://bsky.app/profile/rubin-hood.bsky.social" target="_blank" title="Bluesky" class="icon bluesky"></a>
- <a href="https://medium.com/@rubin-hood" target="_blank" title="Medium" class="icon medium"></a>
- <a href="https://codepen.io/rubin-hood" target="_blank" title="CodePen" class="icon codepen"></a>
- <a href="https://www.youtube.com/@Rubin-Hood/videos" target="_blank" title="YouTube" class="icon youtube"></a>
+    <a href="https://github.com/rubin-hood" target="_blank" title="GitHub" class="icon github"></a>
+    <a href="https://bsky.app/profile/rubin-hood.bsky.social" target="_blank" title="Bluesky" class="icon bluesky"></a>
+    <a href="https://medium.com/@rubin-hood" target="_blank" title="Medium" class="icon medium"></a>
+    <a href="https://codepen.io/rubin-hood" target="_blank" title="CodePen" class="icon codepen"></a>
+    <a href="https://www.youtube.com/@Rubin-Hood/videos" target="_blank" title="YouTube" class="icon youtube"></a>
   </div>
   <!-- BURGER BUTTON! -->
   <button class="burger" aria-label="Menü" id="burger-btn"><span></span></button>
 </header>
+
 <!-- MOBILE OVERLAY -->
 <div class="mobile-menu-overlay" id="mobile-menu">
-  <nav>{% include navigation.html %}</nav>
+  <nav>
+    {% include navigation.html %}
+  </nav>
   <div class="social-icons">
-    <a href="#"><span>YT</span></a>
-    <a href="#"><span>GH</span></a>
+    <a href="https://github.com/rubin-hood" target="_blank" title="GitHub" class="icon github"></a>
+    <a href="https://bsky.app/profile/rubin-hood.bsky.social" target="_blank" title="Bluesky" class="icon bluesky"></a>
+    <a href="https://medium.com/@rubin-hood" target="_blank" title="Medium" class="icon medium"></a>
+    <a href="https://codepen.io/rubin-hood" target="_blank" title="CodePen" class="icon codepen"></a>
+    <a href="https://www.youtube.com/@Rubin-Hood/videos" target="_blank" title="YouTube" class="icon youtube"></a>
   </div>
-<div class="mobile-blog-list">
-  {% for post in site.posts %}
-<a class="blog-card" href="{{ post.url | relative_url }}">
-  <div class="card-img">
-    {% if post.image %}
-      <img src="{{ post.image }}" alt="{{ post.title }}">
-    {% else %}
-      Bild
-    {% endif %}
+  <div class="mobile-blog-list">
+    {% for post in site.posts %}
+      <a class="blog-card" href="{{ post.url | relative_url }}">
+        <div class="card-img">
+          {% if post.image %}
+            <img src="{{ post.image }}" alt="{{ post.title }}">
+          {% else %}
+            Bild
+          {% endif %}
+        </div>
+        <div class="card-content">
+          <div class="card-title">{{ post.title }}</div>
+          <div class="card-desc">{{ post.excerpt | strip_html | truncate: 140 }}</div>
+        </div>
+      </a>
+    {% endfor %}
   </div>
-  <div class="card-content">
-    <div class="card-title">{{ post.title }}</div>
-    <div class="card-desc">{{ post.excerpt | strip_html | truncate: 140 }}</div>
-  </div>
-</a>
-  {% endfor %}
 </div>
-</div>
-
