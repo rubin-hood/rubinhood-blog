@@ -234,23 +234,82 @@ footer {
 
 
 /* ===========================
-   7. Responsive Design (bis 900px)
+   7. Responsive Design und Mobile-Menü (bis 900px)
    =========================== */
 @media (max-width: 900px) {
+  /* Blog-Übersichten im Spalten-Layout */
   .blog-teaser-grid, .blog-grid {
-    flex-direction: column;          /* Blog-Karten untereinander */
-    align-items: center; /* <- NUR DAS musst du ergänzen! */
+    flex-direction: column;           /* Blog-Karten untereinander */
+    align-items: center;              /* Karten zentrieren */
   }
+
+  /* Seitenlayout: Sidebar und Content untereinander statt nebeneinander */
   .blog-layout {
-    flex-direction: column;          /* Sidebar & Content untereinander */
+    flex-direction: column;
   }
   .blog-sidebar {
-    display: none;                   /* Sidebar ausblenden */
+    display: none;                    /* Sidebar ausblenden */
   }
   .blog-content {
-    width: 100%;                     /* Content nimmt volle Breite ein */
+    width: 100%;                      /* Content nimmt volle Breite */
+  }
+
+  /* Header-Elemente: Hauptnavigation und Social Icons ausblenden */
+  .site-nav, .site-header .social-icons {
+    display: none;                    /* Nur im Header! */
+  }
+
+  /* Burger-Menü Button einblenden */
+  .burger {
+    display: block;                   /* Jetzt sichtbar */
+  }
+
+  /* Mobile Overlay: Standard unsichtbar */
+  .mobile-menu-overlay {
+    display: none;
+  }
+  /* Mobile Overlay: Sichtbar wenn .open */
+  .mobile-menu-overlay.open {
+    display: flex;
+  }
+
+  /* Blogkarten noch kompakter */
+  .blog-card {
+    display: flex;
+    min-width: unset;
+    max-width: 95vw;
+    width: 95vw;
+    box-sizing: border-box;
+    padding: 0.5rem;
+  }
+  /* Startseiten-Karten besonders breit */
+  .blog-teaser-grid .blog-card {
+    max-width: 600px !important;
+    width: 100%;
+    min-width: unset !important;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
+
+/* ===========================
+   10. Feine Mobile-Anpassungen (bis 600px)
+   =========================== */
+@media (max-width: 600px) {
+  /* Noch kleinere Anpassungen für sehr kleine Displays */
+  .icon-link { width: 24px; }
+  .icon-img { height: 24px; }
+
+  .site-header {
+    flex-direction: row;
+    gap: 0;
+  }
+  /* Optional: Blogkarten noch kleiner machen */
+  .blog-card {
+    padding: 0.25rem;
+  }
+}
+
 
 
 /* ===========================
@@ -315,51 +374,6 @@ body.noscroll {
 }
 
 
-/* ===========================
-   10. Mobile-Anpassungen (bis 600px)
-   =========================== */
-@media (max-width: 600px) {
-  .site-header {
-    flex-direction: row;             /* Bleibt horizontal */
-    gap: 0;
-  }
-  .site-nav, .social-icons {
-    display: none;                   /* Hauptnavigation & Icons ausblenden */
-  }
-  .burger {
-    display: block;                  /* Burger-Menü sichtbar */
-  }
-  /* Das Overlay ist jetzt STANDARD versteckt (s. oben), 
-     wird aber NUR mit der .open-Klasse sichtbar! */
-  .mobile-menu-overlay {
-    display: none;                   /* Overlay bleibt unsichtbar */
-  }
-  .mobile-menu-overlay.open {
-    display: flex;                   /* Wenn .open gesetzt, wird Overlay sichtbar */
-  }
-  .blog-teaser-grid, .blog-grid {
-    flex-direction: column;          /* Blogkarten untereinander */
-    gap: 1rem;                       /* Weniger Abstand */
-    align-items: center;
-  }
-    .blog-card {
-    display: flex;
-    min-width: unset;          /* Überschreibt das alte min-width */
-    max-width: 95vw;           /* Fast die ganze Viewport-Breite */
-    width: 95vw;               /* Breite relativ zum Bildschirm */
-    box-sizing: border-box;    /* Kein Überlauf durch Padding */
-    padding: 0.5rem
-  }
-
-    /* Nur Cards auf der Startseite (teaser), NICHT im Blog */
-  .blog-teaser-grid .blog-card {
-    max-width: 600px !important;
-    width: 100%;
-    min-width: unset !important;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
 
 .mobile-menu-overlay .blog-card {
   max-width: 92vw !important;
