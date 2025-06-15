@@ -50,13 +50,33 @@ html, body {
 /* Social Icons rechts */
 .social-icons {
   display: flex;                     /* Horizontale Anordnung */
+  align-items: center;
   gap: 1rem;                         /* Abstand zwischen Icons */
 }
-.social-icons a {
-  color: #009c6c;                    /* Akzentfarbe Grün */
-  font-size: 1.5rem;                 /* Größere Icons */
-  text-decoration: none;             /* Keine Unterstreichung */
+
+.icon {
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: background-image 0.2s;
+  border-radius: 7px;
 }
+
+/* Standard Icons */
+.icon.github     { background-image: url('/assets/social/github.png'); }
+.icon.bluesky    { background-image: url('/assets/social/bluesky.png'); }
+.icon.medium     { background-image: url('/assets/social/medium.png'); }
+.icon.codepen    { background-image: url('/assets/social/codepen.png'); }
+.icon.youtube    { background-image: url('/assets/social/youtube.png'); }
+
+/* Hover-Icons (zweite Variante) */
+.icon.github:hover   { background-image: url('/assets/social/github2.png'); }
+.icon.bluesky:hover  { background-image: url('/assets/social/bluesky2.png'); }
+.icon.medium:hover   { background-image: url('/assets/social/medium2.png'); }
+.icon.codepen:hover  { background-image: url('/assets/social/codepen2.png'); }
+.icon.youtube:hover  { background-image: url('/assets/social/youtube2.png'); }
 
 
 /* ===========================
