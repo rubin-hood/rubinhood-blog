@@ -73,7 +73,7 @@ main {
   margin-bottom: 2rem;               /* Abstand nach unten */
 }
 .intro .underline {
-  text-decoration: underline;        /* Extra Unterstreichung für Akzent */
+  text-decoration: none;        /* Extra Unterstreichung für Akzent */
 }
 
 
