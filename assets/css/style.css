@@ -38,7 +38,7 @@ html, body {
 /* Navigationslinks: unterstrichen, dunkel */
 .site-nav a {
   text-decoration: none;        /* Unterstrichener Link */
-  color: #222;                       /* Dunkelgrau */
+  color: transparent;                       /* Dunkelgrau */
   font-weight: bold;                 /* Fett */
 }
 
