@@ -174,7 +174,8 @@ footer {
   .blog-sidebar { display: none; }
   .blog-content { width: 100%; }
   .site-nav, .site-header .social-icons { display: none; }
-  .burger { display: block; }
+  .burger { display: block !important;}
+
   .mobile-menu-overlay { display: none; }
   .mobile-menu-overlay.open { display: flex; }
   .blog-card {
@@ -203,7 +204,7 @@ footer {
   .blog-card { padding: 0.25rem; }
   /* Nochmals Header-Inhalte ausblenden auf sehr kleinen Screens */
   .site-nav, .site-header .social-icons { display: none; }
-  .burger { display: block; }
+  .burger { display: block important; }
   .mobile-menu-overlay { display: none; }
   .mobile-menu-overlay.open { display: flex; }
 }
@@ -212,8 +213,8 @@ footer {
    9. Burger-Menü (Button für Mobile)
    =========================== */
 .burger {
-  display: block !important;
-  background: red !important;
+  display: none;
+  background: none;
   border: none;
   width: 36px;
   height: 36px;
