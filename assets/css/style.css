@@ -361,8 +361,8 @@ footer {
 
 /* Burger-Menü wird zum "X" (Kreuz), wenn geöffnet */
 .burger.open span      { opacity: 0; }                 /* Mittlerer Balken wird ausgeblendet */
-.burger.open::before   { transform: rotate(45deg); top: 18px; }   /* Oberer Balken wird diagonal */
-.burger.open::after    { transform: rotate(-45deg); top: 18px; }  /* Unterer Balken wird diagonal */
+.burger.open::before   { transform: rotate(45deg); top: 21px; }   /* Oberer Balken wird diagonal */
+.burger.open::after    { transform: rotate(-45deg); top: 21px; }  /* Unterer Balken wird diagonal */
 
 
 /* ===============================================================
