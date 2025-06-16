@@ -158,14 +158,14 @@ main {
 .blog-card .card-img {
   min-width: 120px;         /* Bildbereich hat immer mindestens 120px Breite */
   min-height: 120px;        /* ... und mindestens 120px Höhe */
-  background: #f3f3f3;      /* Hellgrauer Hintergrund, falls kein Bild da ist */
+  /*background: #f3f3f3;      /* Hellgrauer Hintergrund, falls kein Bild da ist */
   display: flex;            /* Bild/Text im Inneren zentrieren */
   align-items: center;      /* Vertikal zentriert */
   justify-content: center;  /* Horizontal zentriert */
   font-size: 2rem;          /* Große Schriftgröße, falls Platzhalter-Text ("Bild") angezeigt wird */
   font-weight: bold;        /* Platzhalter fett dargestellt */
   margin-right: 1rem;       /* Abstand rechts zum Textbereich */
-  border: 2px solid #9e9e9e;/* Rahmen um das Bild/Platzhalter */
+  /*border: 2px solid #9e9e9e;/* Rahmen um das Bild/Platzhalter */
 }
 
 /* Bild selbst in der Karte */
@@ -204,58 +204,88 @@ main {
 .blog-card.active .card-title { color: #009C6C; font-weight: bold; } /* Titel bleibt grün und fett */
 
 
-/* ===========================
-   5. Blogpost-Layout: Sidebar & Content
-   =========================== */
+/* =============================================================
+   5. Blogpost-Layout: Zweispaltige Ansicht für Sidebar & Content
+   -------------------------------------------------------------
+   Nutzt Flexbox für einen modernen zweispaltigen Blogaufbau.
+   ============================================================= */
+
 .blog-layout {
-  display: flex;
-  gap: 2rem;
+  display: flex;        /* Macht aus .blog-layout einen Flex-Container (horizontale Aufteilung) */
+  gap: 2rem;            /* 2rem Abstand zwischen Sidebar und Hauptinhalt */
 }
-.blog-sidebar { flex: 1 1 350px; }
-.blog-content { flex: 3 1 600px; }
 
-/* ===========================
-   6. Footer
-   =========================== */
+.blog-sidebar { 
+  flex: 1 1 350px;      /* Sidebar: nimmt minimal 1 Anteil, darf wachsen/schrumpfen, Startbreite 350px */
+}
+.blog-content { 
+  flex: 3 1 600px;      /* Hauptinhalt: nimmt 3 Anteile, darf wachsen/schrumpfen, Startbreite 600px */
+}
+
+/* =============================================================
+   6. Footer – Fußzeile der Seite
+   -------------------------------------------------------------
+   Gestaltet den unteren Bereich der Seite dezent und mittig.
+   ============================================================= */
+
 footer {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #666;
-  margin: 2rem 0 1rem 0;
+  text-align: center;        /* Text zentrieren */
+  font-size: 0.9rem;         /* Schrift etwas kleiner als Standard */
+  color: #666;               /* Graue Schrift – weniger prominent */
+  margin: 2rem 0 1rem 0;     /* Abstand oben 2rem, unten 1rem, keine Abstände an den Seiten */
 }
-.footer-links { margin-bottom: 0.5rem; }
+.footer-links { 
+  margin-bottom: 0.5rem;     /* Abstand nach unten zu weiteren Footer-Inhalten */
+}
 
-/* ===========================
-   7. Responsive Design und Mobile-Menü (bis 900px)
-   =========================== */
+/* =============================================================
+   7. Responsive Design & Mobile-Menü (Bildschirme ≤ 900px)
+   -------------------------------------------------------------
+   Alle wichtigen Anpassungen, damit die Seite auch auf Tablets & kleinen Displays funktioniert!
+   ============================================================= */
+
 @media (max-width: 900px) {
+  /* Blog-Listen untereinander anordnen und zentrieren */
   .blog-teaser-grid, .blog-grid {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column;      /* Karten stapeln sich vertikal */
+    align-items: center;         /* Karten werden mittig ausgerichtet */
   }
-  .blog-layout { flex-direction: column; }
-  .blog-sidebar { display: none; }
-  .blog-content { width: 100%; }
-  .site-nav, .site-header .social-icons { display: none; }
-  .burger { display: block !important;}
 
+  /* Seitenlayout: Sidebar unter dem Content anordnen (bzw. ausblenden) */
+  .blog-layout { flex-direction: column; } /* Von horizontal auf vertikal */
+  .blog-sidebar { display: none; }         /* Sidebar ganz ausblenden (mehr Platz für Content) */
+  .blog-content { width: 100%; }           /* Hauptbereich nutzt die volle Breite */
+
+  /* Header-Navigation und Social Icons werden versteckt (Platz sparen) */
+  .site-nav, .site-header .social-icons { display: none; }
+
+  /* Burger-Menü wird jetzt sichtbar (Navigation via Overlay) */
+  .burger { display: block !important; }
+
+  /* Das Overlay-Menü für Mobile ist standardmäßig unsichtbar, 
+     wird aber durch die Klasse .open eingeblendet */
   .mobile-menu-overlay { display: none; }
   .mobile-menu-overlay.open { display: flex; }
+
+  /* Blogkarten bekommen dynamische Breite, passen sich ans Display an */
   .blog-card {
-    min-width: unset;
-    max-width: 95vw;
-    width: 95vw;
-    box-sizing: border-box;
-    padding: 0.5rem;
+    min-width: unset;            /* Mindestbreite aufheben */
+    max-width: 95vw;             /* Maximal 95% der Viewport-Breite */
+    width: 95vw;                 /* Genau 95% der Viewport-Breite */
+    box-sizing: border-box;      /* Padding/Border zählen zur Breite */
+    padding: 0.5rem;             /* Weniger Innenabstand, wirkt kompakter */
   }
+
+  /* Startseiten-Karten besonders breit darstellen, aber nie größer als 600px */
   .blog-teaser-grid .blog-card {
-    max-width: 600px !important;
-    width: 100%;
-    min-width: unset !important;
-    margin-left: auto;
+    max-width: 600px !important;       /* Nie größer als 600px */
+    width: 100%;                       /* Nimmt volle verfügbare Breite */
+    min-width: unset !important;        /* Mindestbreite aufheben */
+    margin-left: auto;                  /* Links und rechts zentriert */
     margin-right: auto;
   }
 }
+
 
 /* ===========================
    8. Feine Mobile-Anpassungen (bis 600px)
