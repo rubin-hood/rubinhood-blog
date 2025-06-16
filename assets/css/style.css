@@ -98,82 +98,111 @@ html, body {                                 /* Diese Regeln gelten für das ges
 }
 
 
-/* ===========================
+/* ===========================================================
    3. Hauptbereich (Main Content)
-   =========================== */
-main {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-.intro { margin-bottom: 2rem; }
-.intro .underline { text-decoration: none; }
+   -----------------------------------------------------------
+   - Gestaltet den Haupt-Inhaltsbereich der Seite (alles unter dem Header)
+   =========================================================== */
 
-/* ===========================
+main {
+  max-width: 1200px;        /* Begrenzung der maximalen Breite – sieht zentriert und gut lesbar aus */
+  margin: 2rem auto;        /* Oben und unten 2rem Abstand, links/rechts automatisch mittig (zentriert) */
+  padding: 0 1rem;          /* Innenabstand nach links/rechts, damit der Text nicht am Rand klebt */
+}
+
+.intro { 
+  margin-bottom: 2rem;      /* Abstand nach unten unter dem Intro-Block (Begrüßung etc.) */
+}
+.intro .underline { 
+  text-decoration: none;    /* Unterstreicht den Text im Element mit der Klasse "underline" NICHT (kann als Stil verwendet werden) */
+}
+
+/* ===========================================================
    4. Blog-Grid und Blog-Karten
-   =========================== */
+   -----------------------------------------------------------
+   - Layout und Aussehen für Blog-Listen und Blogkarten
+   =========================================================== */
+
+/* Grid für Blog-Teaser oder Blog-Übersicht */
 .blog-teaser-grid, .blog-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0rem 1rem;
-  margin-bottom: 2rem;
-  justify-content: center;
+  display: flex;            /* Zeigt alle Blogkarten nebeneinander als Flexbox */
+  flex-wrap: wrap;          /* Karten umbrechen automatisch in die nächste Zeile bei wenig Platz */
+  gap: 0rem 1rem;           /* Vertikal kein Abstand, horizontal 1rem Abstand zwischen Karten */
+  margin-bottom: 2rem;      /* Abstand unterhalb des gesamten Grids */
+  justify-content: center;  /* Grid wird zentriert, Karten erscheinen in der Mitte */
 }
+
+/* Einzelansicht (alle Blogkarten untereinander in einer Spalte) */
 .blog-grid-single {
-  flex-direction: column;
-  align-items: center;
+  flex-direction: column;   /* Stapelt die Karten untereinander (vertikal) */
+  align-items: center;      /* Karten in der Mitte ausrichten */
 }
+
+/* Einzelne Blogkarte (Artikel-Vorschau) */
 .blog-card {
-  flex: 1 1 300px;
-  box-sizing: border-box;
-  background: #fff;
-  border: 2px solid #999;
-  border-radius: 7px;
-  display: flex;
-  align-items: center;
-  padding: 0.25rem;
-  min-width: 250px;
-  max-width: 350px;
-  margin-bottom: 1rem;
-  transition: border-color .2s;
+  flex: 1 1 300px;          /* Karte kann wachsen, ist aber mindestens 300px breit */
+  box-sizing: border-box;   /* Padding und Border werden zur Breite dazugerechnet */
+  background: #FCFBF7;         /* Weiße Kartenfläche */
+  border: 2px solid #C9C8C8;   /* Dezenter, grauer Rahmen */
+  border-radius: 7px;       /* Abgerundete Ecken */
+  display: flex;            /* Bild und Inhalt nebeneinander */
+  align-items: center;      /* Bild und Text oben bündig */
+  padding: 0.25rem;         /* Etwas Innenabstand rundherum */
+  min-width: 250px;         /* Mindestbreite der Karte */
+  max-width: 350px;         /* Maximalbreite der Karte */
+  margin-bottom: 1rem;      /* Abstand nach unten zur nächsten Karte */
+  transition: border-color .2s; /* Weicher Übergang bei Farbumschlag (z.B. bei aktiver Karte) */
 }
+
+/* Bildbereich (links in der Karte) – kann auch als Platzhalter dienen */
 .blog-card .card-img {
-  min-width: 120px;
-  min-height: 120px;
-  background: #f3f3f3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-right: 1rem;
-  border: 2px solid #9e9e9e;
+  min-width: 120px;         /* Bildbereich hat immer mindestens 120px Breite */
+  min-height: 120px;        /* ... und mindestens 120px Höhe */
+  background: #f3f3f3;      /* Hellgrauer Hintergrund, falls kein Bild da ist */
+  display: flex;            /* Bild/Text im Inneren zentrieren */
+  align-items: center;      /* Vertikal zentriert */
+  justify-content: center;  /* Horizontal zentriert */
+  font-size: 2rem;          /* Große Schriftgröße, falls Platzhalter-Text ("Bild") angezeigt wird */
+  font-weight: bold;        /* Platzhalter fett dargestellt */
+  margin-right: 1rem;       /* Abstand rechts zum Textbereich */
+  border: 2px solid #9e9e9e;/* Rahmen um das Bild/Platzhalter */
 }
+
+/* Bild selbst in der Karte */
 .blog-card .card-img img {
-  max-width: 120px;
-  object-fit: cover;
-  border-radius: 4px;
-  display: block;
+  max-width: 120px;         /* Bild ist maximal 120px breit (passt in Platzhaltergröße) */
+  object-fit: cover;        /* Bild schneidet sich ggf. zu, um den Bereich auszufüllen */
+  border-radius: 4px;       /* Bild hat leicht abgerundete Ecken */
+  display: block;           /* Kein unerwünschter Abstand unter dem Bild */
 }
+
+/* Titel im Karten-Inhalt */
 .blog-card .card-title {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: #009C6C !important;
-  text-decoration: none !important;
+  font-weight: bold;                 /* Titel immer fett */
+  margin-bottom: 0.5rem;             /* Abstand nach unten */
+  color: #009C6C !important;         /* Akzentfarbe für den Titel (Grün) */
+  text-decoration: none !important;  /* Keine Unterstreichung */
 }
+
+/* Vorschautext zum Blogartikel */
 .blog-card .card-desc {
-  font-size: 1rem;
-  color: #444;
+  font-size: 1rem;                   /* Normale Schriftgröße */
+  color: #444;                       /* Etwas helleres Grau */
 }
+
+/* Vorschautext nur auf maximal 4 Zeilen beschränken, Rest abschneiden */
 .card-desc {
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  display: -webkit-box;              /* Ermöglicht den "line-clamp" Effekt in Webkit-Browsern */
+  -webkit-line-clamp: 4;             /* Maximal 4 Zeilen anzeigen */
+  -webkit-box-orient: vertical;      /* Box vertikal anordnen */
+  overflow: hidden;                  /* Überschüssigen Text abschneiden */
+  text-overflow: ellipsis;           /* "..." falls Text abgeschnitten wird */
 }
-.blog-card.active { border-color: #009C6C; }
-.blog-card.active .card-title { color: #009C6C; font-weight: bold; }
+
+/* Aktive Blogkarte (z.B. ausgewählt) */
+.blog-card.active { border-color: #009C6C; }        /* Rahmen wird grün */
+.blog-card.active .card-title { color: #009C6C; font-weight: bold; } /* Titel bleibt grün und fett */
+
 
 /* ===========================
    5. Blogpost-Layout: Sidebar & Content
