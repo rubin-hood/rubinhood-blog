@@ -146,7 +146,7 @@ main {
 .blog-card {
   flex: 1 1 300px;          /* Karte kann wachsen, ist aber mindestens 300px breit */
   box-sizing: border-box;   /* Padding und Border werden zur Breite dazugerechnet */
-  background: #FCFBF7;         /* Weiße Kartenfläche */
+  background: #f6dd7a;         /* Weiße Kartenfläche */
   border: 2px solid #ff0000;   /* Dezenter, grauer Rahmen */
   border-radius: 7px;       /* Abgerundete Ecken */
   display: flex;            /* Bild und Inhalt nebeneinander */
@@ -376,7 +376,7 @@ footer {
   display: none;                  /* Standard: Menü ist unsichtbar */
   position: fixed;                /* Overlay überdeckt die gesamte Seite, unabhängig vom Scrollen */
   top: 0; left: 0; right: 0; bottom: 0;  /* Überdeckt die gesamte Viewport-Fläche */
-  background: #fff;               /* Hintergrund weiß, damit alles andere abgedeckt wird */
+  background: #dad9d5;               /* Hintergrund weiß, damit alles andere abgedeckt wird */
   z-index: 10;                    /* Liegt über fast allen anderen Elementen (außer Burger) */
   flex-direction: column;         /* Inhalte (z.B. Navigation, Social-Icons) werden untereinander gestapelt */
   align-items: center;            /* Zentriert alle Inhalte horizontal */
