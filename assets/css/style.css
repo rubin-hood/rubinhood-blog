@@ -16,6 +16,10 @@ html, body {                                 /* Diese Regeln gelten für das ges
   color: #222;                              /* Standard-Textfarbe auf dunkles Grau (#222) gesetzt für gute Lesbarkeit */
 }
 
+a {
+  text-decoration: none !important;    /* Unterstreichung für alle Links überall abschalten */
+}
+
 
 /* =============================================================
    2. Header und Navigation (Desktop-Ansicht)
