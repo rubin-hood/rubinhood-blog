@@ -335,8 +335,8 @@ footer {
   display: none;                  /* Standard: nicht sichtbar (wird via Media Query aktiviert) */
   background: none;               /* Kein Hintergrund */
   border: none;                   /* Kein Rahmen */
-  width: 36px;                    /* Größe des Buttons */
-  height: 36px;
+  width: 46px;                    /* Größe des Buttons */
+  height: 46px;
   cursor: pointer;                /* Zeigt Hand-Cursor beim Überfahren */
   position: relative;             /* Für absolute Platzierung der Linien */
   z-index: 11;                    /* Über allen anderen Elementen */
@@ -347,7 +347,7 @@ footer {
 .burger span {
   content: '';                    /* "Pseudo-Elemente" – die Balken */
   display: block;                 /* Balken als Block-Elemente */
-  background: #008000;            /* Grün – kann angepasst werden */
+  background: #009C6C;            /* Grün – kann angepasst werden */
   height: 4px;                    /* Dicke der Linie */
   border-radius: 2px;             /* Leicht abgerundet */
   position: absolute;             /* Absolute Platzierung */
@@ -376,7 +376,7 @@ footer {
   display: none;                  /* Standard: Menü ist unsichtbar */
   position: fixed;                /* Overlay überdeckt die gesamte Seite, unabhängig vom Scrollen */
   top: 0; left: 0; right: 0; bottom: 0;  /* Überdeckt die gesamte Viewport-Fläche */
-  background: #dad9d5;               /* Hintergrund weiß, damit alles andere abgedeckt wird */
+  background: #F6F5F1;               /* Hintergrund weiß, damit alles andere abgedeckt wird */
   z-index: 10;                    /* Liegt über fast allen anderen Elementen (außer Burger) */
   flex-direction: column;         /* Inhalte (z.B. Navigation, Social-Icons) werden untereinander gestapelt */
   align-items: center;            /* Zentriert alle Inhalte horizontal */
