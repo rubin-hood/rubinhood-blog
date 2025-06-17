@@ -421,11 +421,11 @@ body.noscroll {
 .blog-grid-single .blog-card {
   flex: none !important;          /* Kein Flex-Grow/Shrink, sondern feste Breite */
   min-width: 250px;               /* Minimalbreite */
-  max-width: 600px;               /* Maximalbreite */
+  max-width: 900px;               /* Maximalbreite */
   width: 100%;                    /* Füllt den verfügbaren Platz */
   min-height: 0 !important;       /* Höhe an Inhalt anpassen */
   height: auto !important;
-  margin-bottom: 0.5rem;          /* Kleiner Abstand nach unten */
+  margin-bottom: 0.3rem;          /* Kleiner Abstand nach unten */
 }
 
 /* Standard-Layout für Blog-Karten: flexibel, aber auf mobile entfernt (keine Ränder) */
