@@ -163,9 +163,12 @@ main {
 }
 
 .blog-content .blog-card {
-  max-width: none;
+  max-width: 900px;   /* oder 100% für volle Breite */
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 
 /* Bildbereich (links in der Karte) – kann auch als Platzhalter dienen */
 .blog-card .card-img {
