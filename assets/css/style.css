@@ -192,10 +192,6 @@ main {
   text-decoration: none !important;  /* Keine Unterstreichung */
 }
 
-.blog-card .card-title :hover {
-  color: #AA0600;           /* Beim Hover: Rotbraun */
-}
-
 /* Vorschautext zum Blogartikel */
 .blog-card .card-desc {
   font-size: 1rem;                   /* Normale Schriftgröße */
