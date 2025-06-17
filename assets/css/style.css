@@ -162,6 +162,11 @@ main {
   transition: border-color .2s; /* Weicher Übergang bei Farbumschlag (z.B. bei aktiver Karte) */
 }
 
+.blog-content .blog-card {
+  max-width: none;
+  width: 100%;
+}
+
 /* Bildbereich (links in der Karte) – kann auch als Platzhalter dienen */
 .blog-card .card-img {
   min-width: 120px;         /* Bildbereich hat immer mindestens 120px Breite */
@@ -232,7 +237,7 @@ main {
 }
 
 .blog-sidebar { 
-  flex: 1 1 650px;      /* Sidebar: nimmt minimal 1 Anteil, darf wachsen/schrumpfen, Startbreite 350px */
+  flex: 1 1 450px;      /* Sidebar: nimmt minimal 1 Anteil, darf wachsen/schrumpfen, Startbreite 350px */
 }
 .blog-content { 
   flex: 3 1 600px;      /* Hauptinhalt: nimmt 3 Anteile, darf wachsen/schrumpfen, Startbreite 600px */
