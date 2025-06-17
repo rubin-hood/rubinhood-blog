@@ -192,6 +192,14 @@ main {
   text-decoration: none !important;  /* Keine Unterstreichung */
 }
 
+/* HOVER: Wenn die Maus über die Card oder den Titel ist */
+.blog-card:hover .card-title,
+.blog-card .card-title:hover {
+  color: #AA0600 !important;
+  text-decoration: underline !important;
+  cursor: pointer;
+}
+
 /* Vorschautext zum Blogartikel */
 .blog-card .card-desc {
   font-size: 1rem;                   /* Normale Schriftgröße */
