@@ -232,7 +232,7 @@ main {
 }
 
 .blog-sidebar { 
-  flex: 1 1 350px;      /* Sidebar: nimmt minimal 1 Anteil, darf wachsen/schrumpfen, Startbreite 350px */
+  flex: 1 1 450px;      /* Sidebar: nimmt minimal 1 Anteil, darf wachsen/schrumpfen, Startbreite 350px */
 }
 .blog-content { 
   flex: 3 1 600px;      /* Hauptinhalt: nimmt 3 Anteile, darf wachsen/schrumpfen, Startbreite 600px */
