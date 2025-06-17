@@ -57,7 +57,6 @@ a {
 
 .site-nav a:hover {
   color: #AA0600;           /* Beim Hover: Rotbraun */
-  text-decoration: underline; /* Unterstrich anzeigen */
 }
 
 .site-nav a.active {
@@ -191,6 +190,10 @@ main {
   margin-bottom: 0.5rem;             /* Abstand nach unten */
   color: #009C6C !important;         /* Akzentfarbe für den Titel (Grün) */
   text-decoration: none !important;  /* Keine Unterstreichung */
+}
+
+.card-title a:hover {
+  color: #AA0600;           /* Beim Hover: Rotbraun */
 }
 
 /* Vorschautext zum Blogartikel */
