@@ -433,7 +433,7 @@ body.noscroll {
   border: none !important;        /* Keine Umrandung, wenn nicht anders festgelegt */
   flex: none !important;          /* Kein Flexbox-Wachstum */
   min-width: 250px;               /* Mindestbreite */
-  max-width: 450px;               /* Maximalbreite */
+  max-width: 350px;               /* Maximalbreite */
   width: 100%;                    /* Immer so breit wie möglich im Eltern-Container */
   min-height: 0 !important;
   height: auto !important;
