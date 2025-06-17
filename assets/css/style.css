@@ -142,6 +142,8 @@ main {
 
 /* Einzelansicht (alle Blogkarten untereinander in einer Spalte) */
 .blog-grid-single {
+    max-width: none !important;
+  width: 100% !important;
   flex-direction: column;   /* Stapelt die Karten untereinander (vertikal) */
   align-items: center;      /* Karten in der Mitte ausrichten */
 }
