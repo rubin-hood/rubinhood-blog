@@ -142,8 +142,8 @@ main {
 
 /* Einzelansicht (alle Blogkarten untereinander in einer Spalte) */
 .blog-grid-single {
-  max-width: none !important;
-  width: 100% !important;
+  flex-direction: column;   /* Stapelt die Karten untereinander (vertikal) */
+  align-items: center;      /* Karten in der Mitte ausrichten */
 }
 
 /* Einzelne Blogkarte (Artikel-Vorschau) */
@@ -237,10 +237,6 @@ main {
 }
 .blog-content { 
   flex: 3 1 600px;      /* Hauptinhalt: nimmt 3 Anteile, darf wachsen/schrumpfen, Startbreite 600px */
-  width: 100% !important;
-  max-width: 1100px !important;
-  margin: 0 auto;
-  display: block;
 }
 
 /* =============================================================
