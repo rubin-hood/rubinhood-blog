@@ -247,7 +247,7 @@ main {
 }
 
 .blog-content { 
-  flex: 3 1 600px;      /* Hauptinhalt: nimmt 3 Anteile, darf wachsen/schrumpfen, Startbreite 600px */
+  flex: 4 1 1000px;      /* Hauptinhalt: nimmt 3 Anteile, darf wachsen/schrumpfen, Startbreite 600px */
   padding-left: 2rem;   /* Optional: Abstand von der Linie, für mehr Luft */
 }
 
