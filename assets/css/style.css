@@ -248,11 +248,8 @@ main {
 
 .blog-content { 
   flex: 4 1 1200px;      /* Hauptinhalt: nimmt 3 Anteile, darf wachsen/schrumpfen, Startbreite 600px */
-  padding-left: 2rem;   /* Optional: Abstand von der Linie, für mehr Luft */
+  padding-left: 1rem;   /* Optional: Abstand von der Linie, für mehr Luft */
   min-width: 0;
-}
-
-.blog-content {
   overflow-y: auto;           /* Ermöglicht Scrollen, falls Inhalt zu groß */
   /* max-height: 100vh;          /* Niemals höher als das Fenster */
   box-sizing: border-box;     /* Padding zählt zur Breite */
@@ -496,6 +493,10 @@ body.noscroll {
 
 /* Standard-Layout für Blog-Karten: flexibel, aber auf mobile entfernt (keine Ränder) */
 .blog-card {
+  display: flex;
+  flex-direction: column;      /* Bild und Inhalt untereinander statt nebeneinander */
+  align-items: stretch;        /* Standard – sorgt dafür, dass beides die volle Breite nutzt */
+
   border: none !important;        /* Keine Umrandung, wenn nicht anders festgelegt */
   flex: none !important;          /* Kein Flexbox-Wachstum */
   min-width: 250px;               /* Mindestbreite */
