@@ -126,17 +126,18 @@ main {
 }
 
 /* ===========================================================
-   4. Blog-Grid und Blog-Karten (wichtige Änderungen)
+   4a. Blog-SIDEBAR-Layout & Karten (Ergänzung/Override)
+   Nur für die Sidebar – beeinflusst nicht das Grid!
    =========================================================== */
 
-/* Sidebar (linke Spalte) */
 .blog-layout {
   display: flex;
   gap: 2rem;
 }
 
+/* Linke Spalte (Sidebar) */
 .blog-sidebar {
-  flex: 1 1 520px; /* Passe hier die Breite nach Wunsch an */
+  flex: 1 1 520px;
   min-width: 380px;
   max-width: 700px;
   border-right: 2px solid #e0e0e0;
@@ -144,15 +145,15 @@ main {
   box-sizing: border-box;
 }
 
-/* Blog-Listen (untereinander, mit Abstand) */
-.blog-list {
+/* Blogliste in der Sidebar */
+.blog-sidebar .blog-list {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
 }
 
-/* Blogkarten (Vorschau/Teaser in der Sidebar) */
-.blog-card {
+/* Karten in der Sidebar: nur überschreiben, wenn sie in der Sidebar sind */
+.blog-sidebar .blog-card {
   display: flex;
   align-items: flex-start;
   background: #F6F5F1;
@@ -163,11 +164,13 @@ main {
   max-width: unset;
   min-width: 0;
   box-sizing: border-box;
-  transition: border-color .2s;
   /* border: 1px solid #c4c4c4;  // falls gewünscht */
+  transition: border-color .2s;
+  flex: none;
 }
 
-.blog-card .card-img {
+/* Bildbereich in der Sidebar-Karte */
+.blog-sidebar .blog-card .card-img {
   min-width: 80px;
   max-width: 80px;
   min-height: 80px;
@@ -178,7 +181,8 @@ main {
   justify-content: center;
 }
 
-.blog-card .card-img img {
+/* Bild selbst in der Sidebar */
+.blog-sidebar .blog-card .card-img img {
   width: 80px;
   height: 80px;
   object-fit: cover;
@@ -186,31 +190,34 @@ main {
   display: block;
 }
 
-.card-content {
+/* Karten-Inhalt */
+.blog-sidebar .card-content {
   flex: 1;
   min-width: 0;
 }
 
-.blog-card .card-title {
+/* Titel in der Sidebar */
+.blog-sidebar .blog-card .card-title {
   font-weight: bold;
   margin-bottom: 0.5rem;
   color: #009C6C !important;
   text-decoration: none !important;
 }
 
-.blog-card:hover .card-title,
-.blog-card .card-title:hover {
+/* Hover: Titel in der Sidebar */
+.blog-sidebar .blog-card:hover .card-title,
+.blog-sidebar .blog-card .card-title:hover {
   color: #AA0600 !important;
   text-decoration: underline !important;
   cursor: pointer;
 }
 
-.blog-card .card-desc {
+.blog-sidebar .blog-card .card-desc {
   font-size: 1rem;
   color: #444;
 }
 
-.card-desc {
+.blog-sidebar .card-desc {
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
@@ -218,11 +225,17 @@ main {
   text-overflow: ellipsis;
 }
 
-/* Aktive Blogkarte */
-.blog-card.active { border: 2px solid #009C6C; background: #F2FFFA; }
-.blog-card.active .card-title { color: #009C6C; font-weight: bold; }
+/* Aktive Karte in der Sidebar */
+.blog-sidebar .blog-card.active {
+  border: 2px solid #009C6C;
+  background: #F2FFFA;
+}
+.blog-sidebar .blog-card.active .card-title {
+  color: #009C6C;
+  font-weight: bold;
+}
 
-/* Hauptinhalt (rechte Spalte) */
+/* Rechte Spalte (Hauptinhalt) */
 .blog-content {
   flex: 3 1 600px;
   padding-left: 2rem;
