@@ -233,29 +233,30 @@ main {
    ============================================================= */
 
 .blog-layout {
-  display: flex;
-  gap: 2rem;
-  height: 100vh;
-  overflow: hidden;
+  display: flex;        /* Macht aus .blog-layout einen Flex-Container (horizontale Aufteilung) */
+  gap: 2rem;            /* 2rem Abstand zwischen Sidebar und Hauptinhalt */
+  height: 100vh;          /* Volle Fensterhöhe */
+  overflow: hidden;       /* Verhindert doppeltes Scrollen im Body */
 }
 
-/* Sidebar schmaler */
 .blog-sidebar { 
-  flex: 0.8 1 340px;   /* z.B. 0.8 Anteile, Mindestbreite 340px */
-  max-width: 350px;
-  border-right: 2px solid #e0e0e0;
-  padding-right: 2rem;
-  box-sizing: border-box;
+  flex: 1 1 450px;      /* Sidebar: nimmt minimal 1 Anteil, darf wachsen/schrumpfen, Startbreite 350px */
+  border-right: 2px solid #e0e0e0; /* <--- Hier die Linie ergänzen! */
+  padding-right: 2rem;  /* Optional: Abstand zur Linie, passend zum gap */
+  box-sizing: border-box; /* Sicherstellen, dass Padding/Borders eingerechnet werden */
 }
 
-/* Content-Bereich breiter */
 .blog-content { 
-  flex: 4 1 900px;     /* z.B. 4 Anteile, Startbreite 900px */
-  padding-left: 2rem;
-  min-width: 0;
-  /* Optional: max-width entfernen, falls vorhanden */
+  flex: 4 1 1200px;      /* Hauptinhalt: nimmt 3 Anteile, darf wachsen/schrumpfen, Startbreite 600px */
+  padding-left: 2rem;   /* Optional: Abstand von der Linie, für mehr Luft */
 }
 
+.blog-content {
+  overflow-y: auto;           /* Ermöglicht Scrollen, falls Inhalt zu groß */
+  max-height: 100vh;          /* Niemals höher als das Fenster */
+  box-sizing: border-box;     /* Padding zählt zur Breite */
+  padding: 2rem 2rem 3rem 0;  /* Rechts genug Platz für Scrollbalken lassen! */
+}
 
 /* Bilder, Videos, iframes NIE breiter als der Content-Bereich */
 .blog-content img,
