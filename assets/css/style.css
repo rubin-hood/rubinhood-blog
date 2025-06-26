@@ -482,20 +482,13 @@ body.noscroll {
 .blog-layout {
   display: flex;
   gap: 2rem;
-  height: 100vh;      /* oder: 100dvh für moderne Browser */
-  min-height: 0;      /* verhindert Flexbox-Probleme bei Overflow */
-  overflow: hidden;   /* kein doppeltes Scrollen */
+  height: 100vh; /* <<< NEU: Volle Höhe des Bildschirms */
+  overflow: hidden; /* <<< Verhindert Doppelscrolling */
 }
-
 
 
 .blog-sidebar,
 .blog-content {
-  flex: 1 1 0;
-  min-width: 0;
-  min-height: 0;         /* sehr wichtig! */
-  max-height: 100vh;
-  overflow-y: auto;      /* macht die Spalte scrollbar */
-  /* optional: falls horizontales Scrollen stört */
-  overflow-x: hidden;
+  overflow-y: auto;     /* vertikales Scrollen aktivieren */
+  max-height: 100vh;    /* begrenzt auf die volle Fensterhöhe */
 }
