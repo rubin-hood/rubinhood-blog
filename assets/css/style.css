@@ -162,6 +162,10 @@ main {
   transition: border-color .2s; /* Weicher Übergang bei Farbumschlag (z.B. bei aktiver Karte) */
 }
 
+.card-content {
+  flex: 1;              /* Nimmt den Rest des Platzes */
+}
+
 
 /* Bildbereich (links in der Karte) – kann auch als Platzhalter dienen */
 .blog-card .card-img {
