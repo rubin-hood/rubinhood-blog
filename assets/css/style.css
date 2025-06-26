@@ -446,3 +446,24 @@ body.noscroll {
   border: 1px solid #c4c4c4 !important;   /* Deutlicher Rahmen für bessere Abgrenzung */
 }
 
+
+
+
+
+
+
+.blog-layout {
+  display: flex;
+}
+
+.blog-sidebar {
+  width: 350px; /* Oder wie breit du deine Sidebar willst */
+  border-right: 2px solid #e0e0e0; /* Die Linie! */
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.blog-content {
+  flex: 1;
+  padding-left: 40px; /* Abstand von der Linie */
+}
