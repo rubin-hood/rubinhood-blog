@@ -234,9 +234,14 @@ main {
 
 .blog-sidebar { 
   flex: 1 1 450px;      /* Sidebar: nimmt minimal 1 Anteil, darf wachsen/schrumpfen, Startbreite 350px */
+  border-right: 2px solid #e0e0e0; /* <--- Hier die Linie ergänzen! */
+  padding-right: 2rem;  /* Optional: Abstand zur Linie, passend zum gap */
+  box-sizing: border-box; /* Sicherstellen, dass Padding/Borders eingerechnet werden */
 }
+
 .blog-content { 
   flex: 3 1 600px;      /* Hauptinhalt: nimmt 3 Anteile, darf wachsen/schrumpfen, Startbreite 600px */
+  padding-left: 2rem;   /* Optional: Abstand von der Linie, für mehr Luft */
 }
 
 /* =============================================================
@@ -451,19 +456,3 @@ body.noscroll {
 
 
 
-
-.blog-layout {
-  display: flex;
-}
-
-.blog-sidebar {
-  width: 350px; /* Oder wie breit du deine Sidebar willst */
-  border-right: 2px solid #e0e0e0; /* Die Linie! */
-  padding-right: 20px;
-  box-sizing: border-box;
-}
-
-.blog-content {
-  flex: 1;
-  padding-left: 40px; /* Abstand von der Linie */
-}
