@@ -1,203 +1,172 @@
 /* =============================================
    1. Grundlegende Seiten-Einstellungen (Reset)
-   ---------------------------------------------
-   - Entfernt Standard-Abstände des Browsers
-   - Definiert die Haupt-Schriftart für alle Texte
-   - Setzt die Hintergrundfarbe der gesamten Seite
-   - Legt die Standard-Textfarbe fest
    ============================================= */
 
-html, body {                                 /* Diese Regeln gelten für das gesamte Dokument */
-  margin: 0;                                /* Entfernt den Standard-Außenabstand (weißer Rand) um die Seite */
-  padding: 0;                               /* Entfernt den Standard-Innenabstand im <body> */
-  font-family: system-ui, sans-serif;       /* Nutzt moderne System-Schriftarten (z.B. Apple, Windows, Android),
-                                               wenn nicht verfügbar, dann eine serifenlose Ersatz-Schrift */
-  background: #F6F5F1;                      /* Setzt eine dezente, helle Hintergrundfarbe für die ganze Seite */
-  color: #222;                              /* Standard-Textfarbe auf dunkles Grau (#222) gesetzt für gute Lesbarkeit */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+  background: #F6F5F1;
+  color: #222;
 }
 
 a {
-  text-decoration: none !important;    /* Unterstreichung für alle Links überall abschalten */
+  text-decoration: none !important;
 }
-
 
 /* =============================================================
    2. Header und Navigation (Desktop-Ansicht)
-   -------------------------------------------------------------
-   - Stellt den oberen Seitenbereich (Header) dar
-   - Beinhaltet Logo, Navigation und Social Icons
-   - Layout und Optik für große Bildschirme (Desktop)
    ============================================================= */
 
 .site-header {
-  display: flex;                     /* Flexbox: Richtet Header-Inhalt (Logo, Navigation, Icons) nebeneinander aus */
-  align-items: center;               /* Vertikal mittig innerhalb des Headers */
-  justify-content: space-between;    /* Maximale Verteilung: Logo links, Navigation mittig, Icons rechts */
-  /* border-bottom: 2px solid #222; */ /* Optional: Untere Trennlinie für Header */
-  padding: 0.5rem 1rem;              /* Abstand oben/unten: 0.5rem, rechts/links: 1rem (verhindert, dass der Inhalt am Rand klebt) */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
 }
 
 .logo img {
-  height: 90px;                      /* Logo bleibt immer 90px hoch, Breite passt sich automatisch an */
+  height: 90px;
 }
 
 .site-nav ul {
-  display: flex;                     /* Navigation als horizontale Leiste */
-  list-style: none;                  /* Entfernt die Standard-Punkte der Liste */
-  gap: 2rem;                         /* Abstand zwischen den einzelnen Navigationslinks */
-  margin: 0;                         /* Kein zusätzlicher Außenabstand */
-  padding: 0;                        /* Kein zusätzlicher Innenabstand */
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
 }
 
 .site-nav a {
-  text-decoration: none;             /* Unterstreicht die Links NICHT */
-  color: #009C6C;                       /* Dunkelgraue Schrift für die Navigation */
-  font-weight: bold;                 /* Links fett anzeigen */
+  text-decoration: none;
+  color: #009C6C;
+  font-weight: bold;
 }
 
-.site-nav a:hover {
-  color: #AA0600;           /* Beim Hover: Rotbraun */
-}
-
+.site-nav a:hover,
 .site-nav a.active {
-  color: #AA0600;                    /* Aktiver (gewählter) Navigationslink: auffälliges Orange/Rot */
+  color: #AA0600;
 }
 
-/* Social Icons rechts im Header */
 .social-icons {
-  display: flex;                     /* Icons nebeneinander anordnen */
-  align-items: center;               /* Vertikal zentrieren */
-  gap: 1rem;                         /* 1rem Abstand zwischen den Icons */
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-/* Einzelnes Icon als Link (umfasst jeweils zwei Bilder: normal und hover) */
 .icon-link {
-  display: inline-block;             /* Jedes Icon nebeneinander platzieren wie Text */
-  position: relative;                /* Kind-Elemente (Bilder) können absolut positioniert werden */
-  width: 34px;                       /* Breite für das Icon (bei Bedarf je nach Icon anpassen) */
-  height: 30px;                      /* Höhe für das Icon */
-  overflow: hidden;                  /* Verhindert, dass größere Bilder herausragen */
-  vertical-align: middle;            /* Zentriert Icon mit Text (falls daneben) */
+  display: inline-block;
+  position: relative;
+  width: 34px;
+  height: 30px;
+  overflow: hidden;
+  vertical-align: middle;
 }
 
 .icon-link .icon-img {
-  position: absolute;                /* Legt das Bild exakt im Container (icon-link) ab */
-  top: 0; left: 0;                   /* Oben links ausrichten */
-  width: 100%;                       /* Bild füllt immer die volle Containerbreite */
-  height: 100%;                      /* Bild füllt die volle Containerhöhe */
-  object-fit: contain;               /* Bild bleibt immer vollständig sichtbar (egal ob quadratisch oder quer) */
-  transition: opacity 0.2s;          /* Weicher Übergang beim Ein-/Ausblenden (z.B. beim Hover) */
-  display: block;                    /* Entfernt eventuellen Abstand unter dem Bild */
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.2s;
+  display: block;
 }
 
-/* Hover-Icon ist unsichtbar und nicht anklickbar (außer beim Hover auf das Eltern-Element) */
-.icon-link .hover   { 
-  opacity: 0;                        /* Unsichtbar */
-  pointer-events: none;              /* Mausereignisse ignorieren (verhindert z.B. versehentliche Klicks) */
-}
-/* Sobald das Icon „gehovered“ wird, wird das Hover-Bild eingeblendet... */
-.icon-link:hover .hover { 
-  opacity: 1;                        /* ... und sichtbar */
-  pointer-events: auto;              /* (optional, falls das Hover-Bild mal klickbar sein soll) */
-}
-/* ... und das normale Bild wird unsichtbar */
-.icon-link:hover .normal { 
-  opacity: 0;                        /* Blendet das Standard-Icon aus */
-}
-
+.icon-link .hover   { opacity: 0; pointer-events: none; }
+.icon-link:hover .hover { opacity: 1; pointer-events: auto; }
+.icon-link:hover .normal { opacity: 0; }
 
 /* ===========================================================
    3. Hauptbereich (Main Content)
-   -----------------------------------------------------------
-   - Gestaltet den Haupt-Inhaltsbereich der Seite (alles unter dem Header)
    =========================================================== */
 
 main {
-  max-width: 1200px;        /* Begrenzung der maximalen Breite – sieht zentriert und gut lesbar aus */
-  margin: 2rem auto;        /* Oben und unten 2rem Abstand, links/rechts automatisch mittig (zentriert) */
-  padding: 0 1rem;          /* Innenabstand nach links/rechts, damit der Text nicht am Rand klebt */
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
-.intro { 
-  margin-bottom: 2rem;      /* Abstand nach unten unter dem Intro-Block (Begrüßung etc.) */
+.intro {
+  margin-bottom: 2rem;
 }
-.intro .underline { 
-  text-decoration: none;    /* Unterstreicht den Text im Element mit der Klasse "underline" NICHT (kann als Stil verwendet werden) */
+.intro .underline {
+  text-decoration: none;
 }
 
 /* ===========================================================
-   4. Blog-Grid und Blog-Karten
-   -----------------------------------------------------------
-   - Layout und Aussehen für Blog-Listen und Blogkarten
+   4. Blog-Grid und Blog-Karten (wichtige Änderungen)
    =========================================================== */
 
-/* Grid für Blog-Teaser oder Blog-Übersicht */
-.blog-teaser-grid, .blog-grid {
-  display: flex;            /* Zeigt alle Blogkarten nebeneinander als Flexbox */
-  flex-wrap: wrap;          /* Karten umbrechen automatisch in die nächste Zeile bei wenig Platz */
-  gap: 0rem 1rem;           /* Vertikal kein Abstand, horizontal 1rem Abstand zwischen Karten */
-  margin-bottom: 2rem;      /* Abstand unterhalb des gesamten Grids */
-  justify-content: center;  /* Grid wird zentriert, Karten erscheinen in der Mitte */
+/* Sidebar (linke Spalte) */
+.blog-layout {
+  display: flex;
+  gap: 2rem;
 }
 
-/* Einzelansicht (alle Blogkarten untereinander in einer Spalte) */
-.blog-grid-single {
-  flex-direction: column;   /* Stapelt die Karten untereinander (vertikal) */
-  align-items: center;      /* Karten in der Mitte ausrichten */
+.blog-sidebar {
+  flex: 1 1 520px; /* Passe hier die Breite nach Wunsch an */
+  min-width: 380px;
+  max-width: 700px;
+  border-right: 2px solid #e0e0e0;
+  padding-right: 2rem;
+  box-sizing: border-box;
 }
 
-/* Einzelne Blogkarte (Artikel-Vorschau) */
+/* Blog-Listen (untereinander, mit Abstand) */
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Blogkarten (Vorschau/Teaser in der Sidebar) */
 .blog-card {
-  flex: 1 1 300px;          /* Karte kann wachsen, ist aber mindestens 300px breit */
-  box-sizing: border-box;   /* Padding und Border werden zur Breite dazugerechnet */
-  background: #F6F5F1;         /* Weiße Kartenfläche */
-  /*border: 2px solid #ff0000;   /* Dezenter, grauer Rahmen */
-  border-radius: 7px;       /* Abgerundete Ecken */
-  display: flex;            /* Bild und Inhalt nebeneinander */
-  align-items: center;      /* Bild und Text oben bündig */
-  padding: 0.25rem;         /* Etwas Innenabstand rundherum */
-  min-width: 250px;         /* Mindestbreite der Karte */
-  max-width: 350px;         /* Maximalbreite der Karte */
-  margin-bottom: 1rem;      /* Abstand nach unten zur nächsten Karte */
-  transition: border-color .2s; /* Weicher Übergang bei Farbumschlag (z.B. bei aktiver Karte) */
+  display: flex;
+  align-items: flex-start;
+  background: #F6F5F1;
+  border-radius: 7px;
+  padding: 0.7rem 0.5rem;
+  margin-bottom: 0;
+  width: 100%;
+  max-width: unset;
+  min-width: 0;
+  box-sizing: border-box;
+  transition: border-color .2s;
+  /* border: 1px solid #c4c4c4;  // falls gewünscht */
+}
+
+.blog-card .card-img {
+  min-width: 80px;
+  max-width: 80px;
+  min-height: 80px;
+  max-height: 80px;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-card .card-img img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
 }
 
 .card-content {
-  flex: 1;              /* Nimmt den Rest des Platzes */
+  flex: 1;
+  min-width: 0;
 }
 
-
-/* Bildbereich (links in der Karte) – kann auch als Platzhalter dienen */
-.blog-card .card-img {
-  min-width: 120px;         /* Bildbereich hat immer mindestens 120px Breite */
-  min-height: 120px;        /* ... und mindestens 120px Höhe */
-  /*background: #f3f3f3;      /* Hellgrauer Hintergrund, falls kein Bild da ist */
-  display: flex;            /* Bild/Text im Inneren zentrieren */
-  align-items: center;      /* Vertikal zentriert */
-  justify-content: center;  /* Horizontal zentriert */
-  font-size: 2rem;          /* Große Schriftgröße, falls Platzhalter-Text ("Bild") angezeigt wird */
-  font-weight: bold;        /* Platzhalter fett dargestellt */
-  margin-right: 1rem;       /* Abstand rechts zum Textbereich */
-  /*border: 2px solid #9e9e9e;/* Rahmen um das Bild/Platzhalter */
-}
-
-/* Bild selbst in der Karte */
-.blog-card .card-img img {
-  max-width: 120px;         /* Bild ist maximal 120px breit (passt in Platzhaltergröße) */
-  object-fit: cover;        /* Bild schneidet sich ggf. zu, um den Bereich auszufüllen */
-  border-radius: 4px;       /* Bild hat leicht abgerundete Ecken */
-  display: block;           /* Kein unerwünschter Abstand unter dem Bild */
-}
-
-/* Titel im Karten-Inhalt */
 .blog-card .card-title {
-  font-weight: bold;                 /* Titel immer fett */
-  margin-bottom: 0.5rem;             /* Abstand nach unten */
-  color: #009C6C !important;         /* Akzentfarbe für den Titel (Grün) */
-  text-decoration: none !important;  /* Keine Unterstreichung */
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #009C6C !important;
+  text-decoration: none !important;
 }
 
-/* HOVER: Wenn die Maus über die Card oder den Titel ist */
 .blog-card:hover .card-title,
 .blog-card .card-title:hover {
   color: #AA0600 !important;
@@ -205,258 +174,136 @@ main {
   cursor: pointer;
 }
 
-/* Vorschautext zum Blogartikel */
 .blog-card .card-desc {
-  font-size: 1rem;                   /* Normale Schriftgröße */
-  color: #444;                       /* Etwas helleres Grau */
+  font-size: 1rem;
+  color: #444;
 }
 
-/* Vorschautext nur auf maximal 4 Zeilen beschränken, Rest abschneiden */
 .card-desc {
-  display: -webkit-box;              /* Ermöglicht den "line-clamp" Effekt in Webkit-Browsern */
-  -webkit-line-clamp: 4;             /* Maximal 4 Zeilen anzeigen */
-  -webkit-box-orient: vertical;      /* Box vertikal anordnen */
-  overflow: hidden;                  /* Überschüssigen Text abschneiden */
-  text-overflow: ellipsis;           /* "..." falls Text abgeschnitten wird */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* Aktive Blogkarte (z.B. ausgewählt) */
-.blog-card.active { border-color: #009C6C; }        /* Rahmen wird grün */
-.blog-card.active .card-title { color: #009C6C; font-weight: bold; } /* Titel bleibt grün und fett */
+/* Aktive Blogkarte */
+.blog-card.active { border: 2px solid #009C6C; background: #F2FFFA; }
+.blog-card.active .card-title { color: #009C6C; font-weight: bold; }
 
-
-/* =============================================================
-   5. Blogpost-Layout: Zweispaltige Ansicht für Sidebar & Content
-   -------------------------------------------------------------
-   Nutzt Flexbox für einen modernen zweispaltigen Blogaufbau.
-   ============================================================= */
-
-.blog-layout {
-  display: flex;        /* Macht aus .blog-layout einen Flex-Container (horizontale Aufteilung) */
-  gap: 2rem;            /* 2rem Abstand zwischen Sidebar und Hauptinhalt */
-}
-
-.blog-sidebar { 
-  flex: 1 1 520px;      /* Sidebar: nimmt minimal 1 Anteil, darf wachsen/schrumpfen, Startbreite 350px */
-  border-right: 2px solid #e0e0e0; /* <--- Hier die Linie ergänzen! */
-  padding-right: 2rem;  /* Optional: Abstand zur Linie, passend zum gap */
-  box-sizing: border-box; /* Sicherstellen, dass Padding/Borders eingerechnet werden */
-}
-
-.blog-content { 
-  flex: 3 1 600px;      /* Hauptinhalt: nimmt 3 Anteile, darf wachsen/schrumpfen, Startbreite 600px */
-  padding-left: 2rem;   /* Optional: Abstand von der Linie, für mehr Luft */
+/* Hauptinhalt (rechte Spalte) */
+.blog-content {
+  flex: 3 1 600px;
+  padding-left: 2rem;
+  min-width: 0;
 }
 
 /* =============================================================
-   6. Footer – Fußzeile der Seite
-   -------------------------------------------------------------
-   Gestaltet den unteren Bereich der Seite dezent und mittig.
+   6. Footer
    ============================================================= */
 
 footer {
-  text-align: center;        /* Text zentrieren */
-  font-size: 0.9rem;         /* Schrift etwas kleiner als Standard */
-  color: #666;               /* Graue Schrift – weniger prominent */
-  margin: 2rem 0 1rem 0;     /* Abstand oben 2rem, unten 1rem, keine Abstände an den Seiten */
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  margin: 2rem 0 1rem 0;
 }
-.footer-links { 
-  margin-bottom: 0.5rem;     /* Abstand nach unten zu weiteren Footer-Inhalten */
+.footer-links {
+  margin-bottom: 0.5rem;
 }
 
 /* =============================================================
-   7. Responsive Design & Mobile-Menü (Bildschirme ≤ 900px)
-   -------------------------------------------------------------
-   Alle wichtigen Anpassungen, damit die Seite auch auf Tablets & kleinen Displays funktioniert!
+   7. Responsive Design & Mobile-Menü
    ============================================================= */
 
 @media (max-width: 900px) {
-  /* Blog-Listen untereinander anordnen und zentrieren */
-  .blog-teaser-grid, .blog-grid {
-    flex-direction: column;      /* Karten stapeln sich vertikal */
-    align-items: center;         /* Karten werden mittig ausgerichtet */
-  }
-
-  /* Seitenlayout: Sidebar unter dem Content anordnen (bzw. ausblenden) */
-  .blog-layout { flex-direction: column; } /* Von horizontal auf vertikal */
-  .blog-sidebar { display: none; }         /* Sidebar ganz ausblenden (mehr Platz für Content) */
-  .blog-content { width: 100%; }           /* Hauptbereich nutzt die volle Breite */
-
-  /* Header-Navigation und Social Icons werden versteckt (Platz sparen) */
+  .blog-layout { flex-direction: column; }
+  .blog-sidebar { display: none; }
+  .blog-content { width: 100%; }
   .site-nav, .site-header .social-icons { display: none; }
-
-  /* Burger-Menü wird jetzt sichtbar (Navigation via Overlay) */
   .burger { display: block !important; }
-
-  /* Das Overlay-Menü für Mobile ist standardmäßig unsichtbar, 
-     wird aber durch die Klasse .open eingeblendet */
   .mobile-menu-overlay { display: none; }
   .mobile-menu-overlay.open { display: flex; }
-
-  /* Blogkarten bekommen dynamische Breite, passen sich ans Display an */
   .blog-card {
-    min-width: unset;            /* Mindestbreite aufheben */
-    max-width: 95vw;             /* Maximal 95% der Viewport-Breite */
-    width: 95vw;                 /* Genau 95% der Viewport-Breite */
-    box-sizing: border-box;      /* Padding/Border zählen zur Breite */
-    padding: 0.5rem;             /* Weniger Innenabstand, wirkt kompakter */
-  }
-
-  /* Startseiten-Karten besonders breit darstellen, aber nie größer als 600px */
-  .blog-teaser-grid .blog-card {
-    max-width: 600px !important;       /* Nie größer als 600px */
-    width: 100%;                       /* Nimmt volle verfügbare Breite */
-    min-width: unset !important;        /* Mindestbreite aufheben */
-    margin-left: auto;                  /* Links und rechts zentriert */
-    margin-right: auto;
+    min-width: unset;
+    max-width: 95vw;
+    width: 95vw;
+    box-sizing: border-box;
+    padding: 0.5rem;
   }
 }
 
-/* ================================================================
-   8. Feine Mobile-Anpassungen für sehr kleine Bildschirme (≤ 600px)
-   ----------------------------------------------------------------
-   Hier werden Details für Smartphones und schmale Geräte optimiert.
-   ================================================================ */
 @media (max-width: 600px) {
-  .icon-link { 
-    width: 24px;                  /* Social-Icons noch kleiner als auf Tablet */
-  }
-  .icon-img { 
-    height: 24px;                 /* Höhe der Icon-Bilder auf 24px begrenzen */
-  }
-  .site-header { 
-    flex-direction: row;          /* Header bleibt horizontal (Logo, Burger usw.) */
-    gap: 0;                       /* Kein Abstand mehr im Header */
-  }
-  .blog-card { 
-    padding: 0.25rem;             /* Blogkarten noch kompakter */
-  }
-  /* Alle Header-Navigation & Social-Icons nochmals ausblenden,
-     falls z.B. Cache oder doppelte Media Queries stören */
-  .site-nav, 
-  .site-header .social-icons { 
-    display: none; 
-  }
-  .burger { 
-    display: block !important;    /* Burger-Menü auf jeden Fall zeigen */
-  }
-  .mobile-menu-overlay { 
-    display: none;                /* Mobile-Menü standardmäßig ausblenden */
-  }
-  .mobile-menu-overlay.open { 
-    display: flex;                /* ... aber einblenden, wenn die "open"-Klasse gesetzt ist */
-  }
+  .icon-link { width: 24px; }
+  .icon-img { height: 24px; }
+  .site-header { flex-direction: row; gap: 0; }
+  .blog-card { padding: 0.25rem; }
+  .site-nav, .site-header .social-icons { display: none; }
+  .burger { display: block !important; }
+  .mobile-menu-overlay { display: none; }
+  .mobile-menu-overlay.open { display: flex; }
 }
 
-/* ================================================================
-   9. Burger-Menü (Button für die mobile Navigation)
-   ----------------------------------------------------------------
-   Optisch ein Burger-Icon mit drei Balken, das auf Mobile sichtbar ist.
-   ================================================================ */
+/* Burger Menü Styles (wie gehabt) */
 .burger {
-  display: none;                  /* Standard: nicht sichtbar (wird via Media Query aktiviert) */
-  background: none;               /* Kein Hintergrund */
-  border: none;                   /* Kein Rahmen */
-  width: 46px;                    /* Größe des Buttons */
+  display: none;
+  background: none;
+  border: none;
+  width: 46px;
   height: 46px;
-  cursor: pointer;                /* Zeigt Hand-Cursor beim Überfahren */
-  position: relative;             /* Für absolute Platzierung der Linien */
-  z-index: 11;                    /* Über allen anderen Elementen */
+  cursor: pointer;
+  position: relative;
+  z-index: 11;
 }
-/* Die drei Linien für das Burger-Icon */
 .burger::before,
 .burger::after,
 .burger span {
-  content: '';                    /* "Pseudo-Elemente" – die Balken */
-  display: block;                 /* Balken als Block-Elemente */
-  background: #009C6C;            /* Grün – kann angepasst werden */
-  height: 4px;                    /* Dicke der Linie */
-  border-radius: 2px;             /* Leicht abgerundet */
-  position: absolute;             /* Absolute Platzierung */
-  left: 8px;                      /* Einrückung von links */
-  right: 8px;                     /* Einrückung von rechts */
-  transition: all 0.3s;           /* Sanfte Animation beim Öffnen/Schließen */
+  content: '';
+  display: block;
+  background: #009C6C;
+  height: 4px;
+  border-radius: 2px;
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  transition: all 0.3s;
 }
-.burger::before { top: 8px; }    /* Oberer Balken */
-.burger span    { top: 21px; }    /* Mittlerer Balken */
-.burger::after  { top: 34px; }    /* Unterer Balken */
+.burger::before { top: 8px; }
+.burger span    { top: 21px; }
+.burger::after  { top: 34px; }
+.burger.open span      { opacity: 0; }
+.burger.open::before   { transform: rotate(45deg); top: 21px; }
+.burger.open::after    { transform: rotate(-45deg); top: 21px; }
 
-/* Burger-Menü wird zum "X" (Kreuz), wenn geöffnet */
-.burger.open span      { opacity: 0; }                 /* Mittlerer Balken wird ausgeblendet */
-.burger.open::before   { transform: rotate(45deg); top: 21px; }   /* Oberer Balken wird diagonal */
-.burger.open::after    { transform: rotate(-45deg); top: 21px; }  /* Unterer Balken wird diagonal */
-
-
-/* ===============================================================
-   10. Mobile Menü-Overlay (ausklappbares Menü für Smartphones)
-   ---------------------------------------------------------------
-   Das Overlay-Menü, das erscheint, wenn auf das Burger-Icon geklickt wird.
-   Es liegt über der gesamten Seite und zeigt Navigation, Social-Icons etc.
-   =============================================================== */
-
+/* Mobile Menü Overlay */
 .mobile-menu-overlay {
-  display: none;                  /* Standard: Menü ist unsichtbar */
-  position: fixed;                /* Overlay überdeckt die gesamte Seite, unabhängig vom Scrollen */
-  top: 0; left: 0; right: 0; bottom: 0;  /* Überdeckt die gesamte Viewport-Fläche */
-  background: #F6F5F1;               /* Hintergrund weiß, damit alles andere abgedeckt wird */
-  z-index: 10;                    /* Liegt über fast allen anderen Elementen (außer Burger) */
-  flex-direction: column;         /* Inhalte (z.B. Navigation, Social-Icons) werden untereinander gestapelt */
-  align-items: center;            /* Zentriert alle Inhalte horizontal */
-  justify-content: flex-start;    /* Startet Inhalte oben im Overlay */
-  padding-top: 4rem;              /* Platz nach oben für den Header/Burger */
-  overflow-y: auto;               /* Ermöglicht vertikales Scrollen im Menü, falls Inhalte zu lang */
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #F6F5F1;
+  z-index: 10;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 4rem;
+  overflow-y: auto;
 }
+.mobile-menu-overlay.open { display: flex; }
+body.noscroll { overflow: hidden; }
 
-/* Das Overlay wird sichtbar, wenn die Klasse "open" hinzugefügt wird (per JavaScript) */
-.mobile-menu-overlay.open { 
-  display: flex;                  /* Flexbox: alles sichtbar machen und schön anordnen */
-}
-
-/* Wenn das Menü geöffnet ist, soll die Hauptseite nicht scrollbar sein.
-   Dazu bekommt das <body> Element die Klasse "noscroll" per JavaScript */
-body.noscroll { 
-  overflow: hidden;               /* Scrollen auf der eigentlichen Seite verhindern */
-}
-
-/* Die Blog-Karten innerhalb des Overlays werden besonders breit dargestellt */
 .mobile-menu-overlay .blog-card {
-  max-width: 92vw !important;     /* Maximal 92% der Viewport-Breite */
-  width: 92vw !important;         /* Immer 92% der Viewport-Breite */
-  min-width: unset !important;    /* Mindestbreite aufheben (sonst überschneiden sie sich evtl.) */
-  margin-left: auto;              /* Horizontal mittig ausrichten */
+  max-width: 92vw !important;
+  width: 92vw !important;
+  min-width: unset !important;
+  margin-left: auto;
   margin-right: auto;
 }
-
-/* Blog-Karten in der Einzel-Ansicht im Overlay */
 .blog-grid-single .blog-card {
-  flex: none !important;          /* Kein Flex-Grow/Shrink, sondern feste Breite */
-  min-width: 250px;               /* Minimalbreite */
-  max-width: 600px;               /* Maximalbreite */
-  width: 100%;                    /* Füllt den verfügbaren Platz */
-  min-height: 0 !important;       /* Höhe an Inhalt anpassen */
-  height: auto !important;
-  margin-bottom: 0.5rem;          /* Kleiner Abstand nach unten */
-}
-
-/* Standard-Layout für Blog-Karten: flexibel, aber auf mobile entfernt (keine Ränder) */
-.blog-card {
-  border: none !important;        /* Keine Umrandung, wenn nicht anders festgelegt */
-  flex: none !important;          /* Kein Flexbox-Wachstum */
-  min-width: 250px;               /* Mindestbreite */
-  /*max-width: 350px;               /* Maximalbreite */
-  width: 100%;                    /* Immer so breit wie möglich im Eltern-Container */
+  flex: none !important;
+  min-width: 250px;
+  max-width: 600px;
+  width: 100%;
   min-height: 0 !important;
   height: auto !important;
-  margin-bottom: 1rem;            /* Abstand nach unten */
+  margin-bottom: 0.5rem;
 }
-
-/* Nur auf der Startseite: Blogkarten haben einen sichtbaren Rahmen */
-.blog-teaser-grid .blog-card {
-  border: 1px solid #c4c4c4 !important;   /* Deutlicher Rahmen für bessere Abgrenzung */
-}
-
-
-
-
-
-
