@@ -249,11 +249,12 @@ main {
 .blog-content { 
   flex: 4 1 1200px;      /* Hauptinhalt: nimmt 3 Anteile, darf wachsen/schrumpfen, Startbreite 600px */
   padding-left: 2rem;   /* Optional: Abstand von der Linie, für mehr Luft */
+  min-width: 0;
 }
 
 .blog-content {
   overflow-y: auto;           /* Ermöglicht Scrollen, falls Inhalt zu groß */
-  max-height: 100vh;          /* Niemals höher als das Fenster */
+  /* max-height: 100vh;          /* Niemals höher als das Fenster */
   box-sizing: border-box;     /* Padding zählt zur Breite */
   padding: 2rem 2rem 3rem 0;  /* Rechts genug Platz für Scrollbalken lassen! */
 }
