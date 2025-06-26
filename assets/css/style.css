@@ -156,11 +156,10 @@ main {
   display: flex;            /* Bild und Inhalt nebeneinander */
   align-items: center;      /* Bild und Text oben bündig */
   padding: 0.25rem;         /* Etwas Innenabstand rundherum */
-  min-width: 0;         /* Mindestbreite der Karte */
-  max-width: unset;         /* Maximalbreite der Karte */
+  min-width: 250px;         /* Mindestbreite der Karte */
+  max-width: 350px;         /* Maximalbreite der Karte */
   margin-bottom: 1rem;      /* Abstand nach unten zur nächsten Karte */
   transition: border-color .2s; /* Weicher Übergang bei Farbumschlag (z.B. bei aktiver Karte) */
-  width: 100%;              /* Immer volle Breite des Containers */
 }
 
 .card-content {
@@ -238,7 +237,7 @@ main {
 }
 
 .blog-sidebar { 
-  flex: 1 1 520px;      /* Sidebar: nimmt minimal 1 Anteil, darf wachsen/schrumpfen, Startbreite 350px */
+  flex: 1 1 450px;      /* Sidebar: nimmt minimal 1 Anteil, darf wachsen/schrumpfen, Startbreite 350px */
   border-right: 2px solid #e0e0e0; /* <--- Hier die Linie ergänzen! */
   padding-right: 2rem;  /* Optional: Abstand zur Linie, passend zum gap */
   box-sizing: border-box; /* Sicherstellen, dass Padding/Borders eingerechnet werden */
@@ -444,7 +443,7 @@ body.noscroll {
   border: none !important;        /* Keine Umrandung, wenn nicht anders festgelegt */
   flex: none !important;          /* Kein Flexbox-Wachstum */
   min-width: 250px;               /* Mindestbreite */
-  /*max-width: 350px;               /* Maximalbreite */
+  max-width: 350px;               /* Maximalbreite */
   width: 100%;                    /* Immer so breit wie möglich im Eltern-Container */
   min-height: 0 !important;
   height: auto !important;
@@ -455,3 +454,9 @@ body.noscroll {
 .blog-teaser-grid .blog-card {
   border: 1px solid #c4c4c4 !important;   /* Deutlicher Rahmen für bessere Abgrenzung */
 }
+
+
+
+
+
+
