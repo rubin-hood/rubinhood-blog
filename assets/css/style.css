@@ -235,8 +235,6 @@ main {
 .blog-layout {
   display: flex;        /* Macht aus .blog-layout einen Flex-Container (horizontale Aufteilung) */
   gap: 2rem;            /* 2rem Abstand zwischen Sidebar und Hauptinhalt */
-  height: 100vh; /* <<< NEU: Volle Höhe des Bildschirms */
-  overflow: hidden; /* <<< Verhindert Doppelscrolling */
 }
 
 .blog-sidebar { 
@@ -266,8 +264,6 @@ main {
 .blog-sidebar .card-content {
   flex: 1;                    /* Der Inhaltsbereich (Text) nimmt den gesamten restlichen Platz ein */
   min-width: 0;               /* Erlaubt, dass der Textbereich schmal werden kann und sauber umbrechen darf */
-  overflow-y: auto;     /* vertikales Scrollen aktivieren */
-  max-height: 100vh;    /* begrenzt auf die volle Fensterhöhe */
 }
 
 
@@ -483,3 +479,16 @@ body.noscroll {
 
 
 
+.blog-layout {
+  display: flex;
+  gap: 2rem;
+  height: 100vh; /* <<< NEU: Volle Höhe des Bildschirms */
+  overflow: hidden; /* <<< Verhindert Doppelscrolling */
+}
+
+
+.blog-sidebar,
+.blog-content {
+  overflow-y: auto;     /* vertikales Scrollen aktivieren */
+  max-height: 100vh;    /* begrenzt auf die volle Fensterhöhe */
+}
