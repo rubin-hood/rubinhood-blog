@@ -126,122 +126,103 @@ main {
 }
 
 /* ===========================================================
-   4a. Blog-SIDEBAR-Layout & Karten (Ergänzung/Override)
-   Nur für die Sidebar – beeinflusst nicht das Grid!
+   4. Blog-Grid und Blog-Karten
+   -----------------------------------------------------------
+   - Layout und Aussehen für Blog-Listen und Blogkarten
    =========================================================== */
 
-.blog-layout {
-  display: flex;
-  gap: 2rem;
+/* Grid für Blog-Teaser oder Blog-Übersicht */
+.blog-teaser-grid, .blog-grid {
+  display: flex;            /* Zeigt alle Blogkarten nebeneinander als Flexbox */
+  flex-wrap: wrap;          /* Karten umbrechen automatisch in die nächste Zeile bei wenig Platz */
+  gap: 0rem 1rem;           /* Vertikal kein Abstand, horizontal 1rem Abstand zwischen Karten */
+  margin-bottom: 2rem;      /* Abstand unterhalb des gesamten Grids */
+  justify-content: center;  /* Grid wird zentriert, Karten erscheinen in der Mitte */
 }
 
-/* Linke Spalte (Sidebar) */
-.blog-sidebar {
-  flex: 1 1 520px;
-  min-width: 380px;
-  max-width: 700px;
-  border-right: 2px solid #e0e0e0;
-  padding-right: 2rem;
-  box-sizing: border-box;
+/* Einzelansicht (alle Blogkarten untereinander in einer Spalte) */
+.blog-grid-single {
+  flex-direction: column;   /* Stapelt die Karten untereinander (vertikal) */
+  align-items: center;      /* Karten in der Mitte ausrichten */
 }
 
-/* Blogliste in der Sidebar */
-.blog-sidebar .blog-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+/* Einzelne Blogkarte (Artikel-Vorschau) */
+.blog-card {
+  flex: 1 1 300px;          /* Karte kann wachsen, ist aber mindestens 300px breit */
+  box-sizing: border-box;   /* Padding und Border werden zur Breite dazugerechnet */
+  background: #F6F5F1;         /* Weiße Kartenfläche */
+  /*border: 2px solid #ff0000;   /* Dezenter, grauer Rahmen */
+  border-radius: 7px;       /* Abgerundete Ecken */
+  display: flex;            /* Bild und Inhalt nebeneinander */
+  align-items: center;      /* Bild und Text oben bündig */
+  padding: 0.25rem;         /* Etwas Innenabstand rundherum */
+  min-width: 250px;         /* Mindestbreite der Karte */
+  max-width: 350px;         /* Maximalbreite der Karte */
+  margin-bottom: 1rem;      /* Abstand nach unten zur nächsten Karte */
+  transition: border-color .2s; /* Weicher Übergang bei Farbumschlag (z.B. bei aktiver Karte) */
 }
 
-/* Karten in der Sidebar: nur überschreiben, wenn sie in der Sidebar sind */
-.blog-sidebar .blog-card {
-  display: flex;
-  align-items: flex-start;
-  background: #F6F5F1;
-  border-radius: 7px;
-  padding: 0.7rem 0.5rem;
-  margin-bottom: 0;
-  width: 100%;
-  max-width: unset;
-  min-width: 0;
-  box-sizing: border-box;
-  /* border: 1px solid #c4c4c4;  // falls gewünscht */
-  transition: border-color .2s;
-  flex: none;
+.card-content {
+  flex: 1;              /* Nimmt den Rest des Platzes */
 }
 
-/* Bildbereich in der Sidebar-Karte */
-.blog-sidebar .blog-card .card-img {
-  min-width: 80px;
-  max-width: 80px;
-  min-height: 80px;
-  max-height: 80px;
-  margin-right: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+/* Bildbereich (links in der Karte) – kann auch als Platzhalter dienen */
+.blog-card .card-img {
+  min-width: 120px;         /* Bildbereich hat immer mindestens 120px Breite */
+  min-height: 120px;        /* ... und mindestens 120px Höhe */
+  /*background: #f3f3f3;      /* Hellgrauer Hintergrund, falls kein Bild da ist */
+  display: flex;            /* Bild/Text im Inneren zentrieren */
+  align-items: center;      /* Vertikal zentriert */
+  justify-content: center;  /* Horizontal zentriert */
+  font-size: 2rem;          /* Große Schriftgröße, falls Platzhalter-Text ("Bild") angezeigt wird */
+  font-weight: bold;        /* Platzhalter fett dargestellt */
+  margin-right: 1rem;       /* Abstand rechts zum Textbereich */
+  /*border: 2px solid #9e9e9e;/* Rahmen um das Bild/Platzhalter */
 }
 
-/* Bild selbst in der Sidebar */
-.blog-sidebar .blog-card .card-img img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 4px;
-  display: block;
+/* Bild selbst in der Karte */
+.blog-card .card-img img {
+  max-width: 120px;         /* Bild ist maximal 120px breit (passt in Platzhaltergröße) */
+  object-fit: cover;        /* Bild schneidet sich ggf. zu, um den Bereich auszufüllen */
+  border-radius: 4px;       /* Bild hat leicht abgerundete Ecken */
+  display: block;           /* Kein unerwünschter Abstand unter dem Bild */
 }
 
-/* Karten-Inhalt */
-.blog-sidebar .card-content {
-  flex: 1;
-  min-width: 0;
+/* Titel im Karten-Inhalt */
+.blog-card .card-title {
+  font-weight: bold;                 /* Titel immer fett */
+  margin-bottom: 0.5rem;             /* Abstand nach unten */
+  color: #009C6C !important;         /* Akzentfarbe für den Titel (Grün) */
+  text-decoration: none !important;  /* Keine Unterstreichung */
 }
 
-/* Titel in der Sidebar */
-.blog-sidebar .blog-card .card-title {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: #009C6C !important;
-  text-decoration: none !important;
-}
-
-/* Hover: Titel in der Sidebar */
-.blog-sidebar .blog-card:hover .card-title,
-.blog-sidebar .blog-card .card-title:hover {
+/* HOVER: Wenn die Maus über die Card oder den Titel ist */
+.blog-card:hover .card-title,
+.blog-card .card-title:hover {
   color: #AA0600 !important;
   text-decoration: underline !important;
   cursor: pointer;
 }
 
-.blog-sidebar .blog-card .card-desc {
-  font-size: 1rem;
-  color: #444;
+/* Vorschautext zum Blogartikel */
+.blog-card .card-desc {
+  font-size: 1rem;                   /* Normale Schriftgröße */
+  color: #444;                       /* Etwas helleres Grau */
 }
 
-.blog-sidebar .card-desc {
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+/* Vorschautext nur auf maximal 4 Zeilen beschränken, Rest abschneiden */
+.card-desc {
+  display: -webkit-box;              /* Ermöglicht den "line-clamp" Effekt in Webkit-Browsern */
+  -webkit-line-clamp: 4;             /* Maximal 4 Zeilen anzeigen */
+  -webkit-box-orient: vertical;      /* Box vertikal anordnen */
+  overflow: hidden;                  /* Überschüssigen Text abschneiden */
+  text-overflow: ellipsis;           /* "..." falls Text abgeschnitten wird */
 }
 
-/* Aktive Karte in der Sidebar */
-.blog-sidebar .blog-card.active {
-  border: 2px solid #009C6C;
-  background: #F2FFFA;
-}
-.blog-sidebar .blog-card.active .card-title {
-  color: #009C6C;
-  font-weight: bold;
-}
-
-/* Rechte Spalte (Hauptinhalt) */
-.blog-content {
-  flex: 3 1 600px;
-  padding-left: 2rem;
-  min-width: 0;
-}
-
+/* Aktive Blogkarte (z.B. ausgewählt) */
+.blog-card.active { border-color: #009C6C; }        /* Rahmen wird grün */
+.blog-card.active .card-title { color: #009C6C; font-weight: bold; } /* Titel bleibt grün und fett */
 
 
 /* =============================================================
