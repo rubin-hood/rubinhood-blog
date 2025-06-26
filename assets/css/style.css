@@ -220,10 +220,11 @@ main {
   text-overflow: ellipsis;           /* "..." falls Text abgeschnitten wird */
 }
 
-/* Aktive Blogkarte (z.B. ausgewählt) */
-.blog-card.active { border-color: #009C6C; }        /* Rahmen wird grün */
-.blog-card.active .card-title { color: #AA0600; font-weight: bold; } /* Titel bleibt grün und fett */
-
+/* Aktiver Blogtitel in der Sidebar */
+.blog-sidebar .blog-card.active .card-title {
+  color: #AA0600 !important;    /* Dein Rot-Ton (wie in Navigation) */
+  font-weight: bold;            /* Extra fett */
+}
 
 /* =============================================================
    5. Blogpost-Layout: Zweispaltige Ansicht für Sidebar & Content
