@@ -176,7 +176,7 @@ main {
 
 /* Bildbereich (links in der Karte) – kann auch als Platzhalter dienen */
 .blog-card .card-img {
-  height: 100%;
+  height: auto;
   width: 110px;
   min-width: 90px;
   max-width: 120px;
@@ -193,11 +193,12 @@ main {
 /* Bild selbst in der Karte */
 .blog-card .card-img img {
   max-width: 120px;         /* Bild ist maximal 120px breit (passt in Platzhaltergröße) */
-  object-fit: cover;        /* Bild schneidet sich ggf. zu, um den Bereich auszufüllen */
   border-radius: 4px;       /* Bild hat leicht abgerundete Ecken */
   display: block;           /* Kein unerwünschter Abstand unter dem Bild */
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
+  object-fit: contain;   /* Damit das ganze Bild IMMER sichtbar bleibt */
+  display: block;
 }
 
 /* Titel im Karten-Inhalt */
