@@ -370,6 +370,7 @@ footer {
     padding: 0.5rem;             /* Weniger Innenabstand, wirkt kompakter */
     align-items: flex-start; /* Bild und Text oben bündig */
     min-height: 140px;  /* Passe auf Wunsch an! */
+    margin-bottom: 0.75rem;  /* vorher z.B. 1rem */
   }
 
   .blog-card .card-img {
