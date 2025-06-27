@@ -186,7 +186,7 @@ main {
 
 /* Bild selbst in der Karte */
 .blog-card .card-img img {
-  max-width: 120px;         /* Bild ist maximal 120px breit (passt in Platzhaltergröße) */
+  max-width: 320px;         /* Bild ist maximal 120px breit (passt in Platzhaltergröße) */
   object-fit: cover;        /* Bild schneidet sich ggf. zu, um den Bereich auszufüllen */
   border-radius: 4px;       /* Bild hat leicht abgerundete Ecken */
   display: block;           /* Kein unerwünschter Abstand unter dem Bild */
