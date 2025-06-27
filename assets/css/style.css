@@ -168,13 +168,15 @@ main {
 
 .card-content {
   flex: 1;              /* Nimmt den Rest des Platzes */
-    display: flex;
+  display: flex;
+  min-width: 0;             /* Wichtig, damit der Text flexibel umbrechen kann */
   flex-direction: column;
   justify-content: center;
 }
 
 /* Bildbereich (links in der Karte) – kann auch als Platzhalter dienen */
 .blog-card .card-img {
+  width: 160px;
   min-width: 120px;         /* Bildbereich hat immer mindestens 120px Breite */
   min-height: 120px;        /* ... und mindestens 120px Höhe */
   /*background: #f3f3f3;      /* Hellgrauer Hintergrund, falls kein Bild da ist */
