@@ -183,7 +183,7 @@ main {
 
 /* Bild selbst in der Karte */
 .blog-card .card-img img {
-  max-width: 120px;         /* Bild ist maximal 120px breit (passt in Platzhaltergröße) */
+  max-width: 220px;         /* Bild ist maximal 120px breit (passt in Platzhaltergröße) */
   object-fit: cover;        /* Bild schneidet sich ggf. zu, um den Bereich auszufüllen */
   border-radius: 4px;       /* Bild hat leicht abgerundete Ecken */
   display: block;           /* Kein unerwünschter Abstand unter dem Bild */
@@ -473,11 +473,6 @@ body.noscroll {
 .blog-teaser-grid .blog-card {
   border: 1px solid #c4c4c4 !important;   /* Deutlicher Rahmen für bessere Abgrenzung */
 }
-
-
-
-
-
 
 .blog-layout {
   display: flex;
