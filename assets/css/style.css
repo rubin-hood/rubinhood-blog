@@ -158,7 +158,7 @@ main {
   padding: 0.25rem;         /* Etwas Innenabstand rundherum */
   max-width: 500px;   /* Beispiel: vorher 350px oder 400px, jetzt z.B. 500px */
   min-width: 320px;   /* Optional, damit die Karten nicht zu klein werden */
-  margin-bottom: 1rem;      /* Abstand nach unten zur nächsten Karte */
+  margin-bottom: 0.25rem;      /* Abstand nach unten zur nächsten Karte */
   transition: border-color .2s; /* Weicher Übergang bei Farbumschlag (z.B. bei aktiver Karte) */
   border: none !important;        /* Keine Umrandung, wenn nicht anders festgelegt */
   width: 100%;                    /* Immer so breit wie möglich im Eltern-Container */
