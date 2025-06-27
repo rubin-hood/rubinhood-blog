@@ -176,6 +176,7 @@ main {
 
 /* Bildbereich (links in der Karte) – kann auch als Platzhalter dienen */
 .blog-card .card-img {
+  height: 100%;
   width: 110px;
   min-width: 90px;
   max-width: 120px;
@@ -191,10 +192,12 @@ main {
 
 /* Bild selbst in der Karte */
 .blog-card .card-img img {
-  max-width: 110px;         /* Bild ist maximal 120px breit (passt in Platzhaltergröße) */
+  max-width: 120px;         /* Bild ist maximal 120px breit (passt in Platzhaltergröße) */
   object-fit: cover;        /* Bild schneidet sich ggf. zu, um den Bereich auszufüllen */
   border-radius: 4px;       /* Bild hat leicht abgerundete Ecken */
   display: block;           /* Kein unerwünschter Abstand unter dem Bild */
+  height: 100%;
+  width: auto;
 }
 
 /* Titel im Karten-Inhalt */
@@ -364,6 +367,7 @@ footer {
     width: 95vw;                 /* Genau 95% der Viewport-Breite */
     box-sizing: border-box;      /* Padding/Border zählen zur Breite */
     padding: 1rem;             /* Weniger Innenabstand, wirkt kompakter */
+    min-height: 120px;  /* Passe auf Wunsch an! */
   }
 
   /* Startseiten-Karten besonders breit darstellen, aber nie größer als 600px */
