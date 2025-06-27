@@ -160,12 +160,15 @@ main {
   max-width: 350px;         /* Maximalbreite der Karte */
   margin-bottom: 1rem;      /* Abstand nach unten zur nächsten Karte */
   transition: border-color .2s; /* Weicher Übergang bei Farbumschlag (z.B. bei aktiver Karte) */
+  border: none !important;        /* Keine Umrandung, wenn nicht anders festgelegt */
+  width: 100%;                    /* Immer so breit wie möglich im Eltern-Container */
+  min-height: 0 !important;
+  height: auto !important;
 }
 
 .card-content {
   flex: 1;              /* Nimmt den Rest des Platzes */
 }
-
 
 /* Bildbereich (links in der Karte) – kann auch als Platzhalter dienen */
 .blog-card .card-img {
@@ -491,18 +494,6 @@ body.noscroll {
   min-height: 0 !important;       /* Höhe an Inhalt anpassen */
   height: auto !important;
   margin-bottom: 0.5rem;          /* Kleiner Abstand nach unten */
-}
-
-/* Standard-Layout für Blog-Karten: flexibel, aber auf mobile entfernt (keine Ränder) */
-.blog-card {
-  border: none !important;        /* Keine Umrandung, wenn nicht anders festgelegt */
-  flex: none !important;          /* Kein Flexbox-Wachstum */
-  min-width: 250px;               /* Mindestbreite */
-  max-width: 350px;               /* Maximalbreite */
-  width: 100%;                    /* Immer so breit wie möglich im Eltern-Container */
-  min-height: 0 !important;
-  height: auto !important;
-  margin-bottom: 1rem;            /* Abstand nach unten */
 }
 
 /* Nur auf der Startseite: Blogkarten haben einen sichtbaren Rahmen */
