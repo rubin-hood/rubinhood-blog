@@ -367,8 +367,13 @@ footer {
     max-width: 95vw;             /* Maximal 95% der Viewport-Breite */
     width: 95vw;                 /* Genau 95% der Viewport-Breite */
     box-sizing: border-box;      /* Padding/Border zählen zur Breite */
-    padding: 1rem;             /* Weniger Innenabstand, wirkt kompakter */
+    padding: 0.5rem;             /* Weniger Innenabstand, wirkt kompakter */
+    align-items: flex-start; /* Bild und Text oben bündig */
     min-height: 140px;  /* Passe auf Wunsch an! */
+  }
+
+  .blog-card .card-img {
+    align-items: flex-start; /* Bild oben ausrichten statt zentrieren */
   }
 
   /* Startseiten-Karten besonders breit darstellen, aber nie größer als 600px */
