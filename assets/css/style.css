@@ -369,7 +369,7 @@ footer {
     box-sizing: border-box;      /* Padding/Border zählen zur Breite */
     padding: 0.5rem;             /* Weniger Innenabstand, wirkt kompakter */
     min-height: 120px;  /* Passe auf Wunsch an! */
-    align-items: flex-start;
+    min-height: 120px;  /* Passe auf Wunsch an! */
   }
 
   /* Startseiten-Karten besonders breit darstellen, aber nie größer als 600px */
