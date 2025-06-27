@@ -168,6 +168,9 @@ main {
 
 .card-content {
   flex: 1;              /* Nimmt den Rest des Platzes */
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Bildbereich (links in der Karte) – kann auch als Platzhalter dienen */
