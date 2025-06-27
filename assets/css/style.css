@@ -169,24 +169,21 @@ main {
 
 /* Bildbereich (links in der Karte) – kann auch als Platzhalter dienen */
 .blog-card .card-img {
-  min-width: 120px;         /* Bildbereich hat immer mindestens 120px Breite */
-  min-height: 120px;        /* ... und mindestens 120px Höhe */
-  /*background: #f3f3f3;      /* Hellgrauer Hintergrund, falls kein Bild da ist */
-  display: flex;            /* Bild/Text im Inneren zentrieren */
-  align-items: center;      /* Vertikal zentriert */
-  justify-content: center;  /* Horizontal zentriert */
-  font-size: 2rem;          /* Große Schriftgröße, falls Platzhalter-Text ("Bild") angezeigt wird */
-  font-weight: bold;        /* Platzhalter fett dargestellt */
-  margin-right: 1rem;       /* Abstand rechts zum Textbereich */
-  /*border: 2px solid #9e9e9e;/* Rahmen um das Bild/Platzhalter */
+  margin-right: 0;             /* Kein Abstand rechts mehr nötig */
+  margin-bottom: 0.8rem;       /* Stattdessen Abstand NACH UNTEN zum Textbereich */
+  min-width: 0;
+  min-height: unset;           /* Optional: Höhe nicht mehr fix nötig */
+  max-width: 100%;             /* Bild kann sich der Breite der Card anpassen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-/* Bild selbst in der Karte */
 .blog-card .card-img img {
-  max-width: 120px;         /* Bild ist maximal 120px breit (passt in Platzhaltergröße) */
-  object-fit: cover;        /* Bild schneidet sich ggf. zu, um den Bereich auszufüllen */
-  border-radius: 4px;       /* Bild hat leicht abgerundete Ecken */
-  display: block;           /* Kein unerwünschter Abstand unter dem Bild */
+  width: 100%;                 /* Bild immer so breit wie möglich */
+  max-width: 100%;             /* Bild maximal so breit wie Container */
+  height: auto;                /* Höhe passt sich an, Seitenverhältnis bleibt */
+  border-radius: 4px;
+  display: block;
 }
 
 /* Titel im Karten-Inhalt */
@@ -235,6 +232,8 @@ main {
 .blog-layout {
   display: flex;        /* Macht aus .blog-layout einen Flex-Container (horizontale Aufteilung) */
   gap: 2rem;            /* 2rem Abstand zwischen Sidebar und Hauptinhalt */
+  height: 100vh;          /* Volle Fensterhöhe */
+  overflow: hidden;       /* Verhindert doppeltes Scrollen im Body */
 }
 
 .blog-sidebar { 
@@ -245,8 +244,40 @@ main {
 }
 
 .blog-content { 
-  flex: 3 1 600px;      /* Hauptinhalt: nimmt 3 Anteile, darf wachsen/schrumpfen, Startbreite 600px */
-  padding-left: 2rem;   /* Optional: Abstand von der Linie, für mehr Luft */
+  flex: 4 1 1200px;      /* Hauptinhalt: nimmt 3 Anteile, darf wachsen/schrumpfen, Startbreite 600px */
+  padding-left: 1rem;   /* Optional: Abstand von der Linie, für mehr Luft */
+  min-width: 0;
+  overflow-y: auto;           /* Ermöglicht Scrollen, falls Inhalt zu groß */
+  /* max-height: 100vh;          /* Niemals höher als das Fenster */
+  box-sizing: border-box;     /* Padding zählt zur Breite */
+  padding: 2rem 2rem 3rem 0;  /* Rechts genug Platz für Scrollbalken lassen! */
+}
+
+/* Bilder, Videos, iframes NIE breiter als der Content-Bereich */
+.blog-content img,
+.blog-content iframe,
+.blog-content video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  box-sizing: border-box;
+}
+
+/* Große Tabellen im Content horizontal scrollbar */
+.blog-content table {
+  max-width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+
+
+
+.blog-sidebar,
+.blog-content {
+  overflow-y: auto;       /* Vertikales Scrollen innerhalb jeder Spalte */
+  max-height: 100vh;      /* Höhe begrenzen auf Fensterhöhe */
 }
 
 /* Textbereich der Karten in der Sidebar so viel Platz einnimmt, wie es das Layout erlaubt */
@@ -459,6 +490,10 @@ body.noscroll {
 
 /* Standard-Layout für Blog-Karten: flexibel, aber auf mobile entfernt (keine Ränder) */
 .blog-card {
+  display: flex;
+  flex-direction: column;      /* Bild und Inhalt untereinander statt nebeneinander */
+  align-items: stretch;        /* Standard – sorgt dafür, dass beides die volle Breite nutzt */
+
   border: none !important;        /* Keine Umrandung, wenn nicht anders festgelegt */
   flex: none !important;          /* Kein Flexbox-Wachstum */
   min-width: 250px;               /* Mindestbreite */
@@ -473,9 +508,3 @@ body.noscroll {
 .blog-teaser-grid .blog-card {
   border: 1px solid #c4c4c4 !important;   /* Deutlicher Rahmen für bessere Abgrenzung */
 }
-
-
-
-
-
-
