@@ -199,6 +199,7 @@ main {
 
 /* Titel im Karten-Inhalt */
 .blog-card .card-title {
+  font-size: 1.2rem;    /* Etwas größerer Titel */
   font-weight: bold;                 /* Titel immer fett */
   margin-bottom: 0.5rem;             /* Abstand nach unten */
   color: #009C6C !important;         /* Akzentfarbe für den Titel (Grün) */
@@ -215,7 +216,7 @@ main {
 
 /* Vorschautext zum Blogartikel */
 .blog-card .card-desc {
-  font-size: 1rem;                   /* Normale Schriftgröße */
+  font-size: 1.05rem;                   /* Normale Schriftgröße */
   color: #444;                       /* Etwas helleres Grau */
 }
 
@@ -362,7 +363,7 @@ footer {
     max-width: 95vw;             /* Maximal 95% der Viewport-Breite */
     width: 95vw;                 /* Genau 95% der Viewport-Breite */
     box-sizing: border-box;      /* Padding/Border zählen zur Breite */
-    padding: 0.5rem;             /* Weniger Innenabstand, wirkt kompakter */
+    padding: 1rem;             /* Weniger Innenabstand, wirkt kompakter */
   }
 
   /* Startseiten-Karten besonders breit darstellen, aber nie größer als 600px */
