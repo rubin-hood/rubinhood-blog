@@ -103,7 +103,7 @@ main {
   align-items: center;
 }
 .blog-card {
-  flex: 1 1 145px;
+  flex: 1 1 150px;
   box-sizing: border-box;
   background: #FCFBF7;
   border-radius: 7px;
@@ -119,8 +119,8 @@ main {
   height: auto !important;
     
   transition: 
-    transform 0.20s cubic-bezier(.4,2,.6,1), 
-    box-shadow 0.2s cubic-bezier(.4,2,.6,1);
+    transform 0.40s cubic-bezier(.4,2,.6,1), 
+    box-shadow 0.40s cubic-bezier(.4,2,.6,1);
 }
 
 /* Hover-Zustand: leicht skalieren und ggf. Schatten */
