@@ -38,7 +38,7 @@ a {
 }
 
 .logo img {
-  height: 120px;                      /* Logo bleibt immer 90px hoch, Breite passt sich automatisch an */
+  height: 90px;                      /* Logo bleibt immer 90px hoch, Breite passt sich automatisch an */
 }
 
 .site-nav ul {
@@ -74,8 +74,8 @@ a {
 .icon-link {
   display: inline-block;             /* Jedes Icon nebeneinander platzieren wie Text */
   position: relative;                /* Kind-Elemente (Bilder) können absolut positioniert werden */
-  width: 24px;                       /* Breite für das Icon (bei Bedarf je nach Icon anpassen) */
-  height: 20px;                      /* Höhe für das Icon */
+  width: 34px;                       /* Breite für das Icon (bei Bedarf je nach Icon anpassen) */
+  height: 30px;                      /* Höhe für das Icon */
   overflow: hidden;                  /* Verhindert, dass größere Bilder herausragen */
   vertical-align: middle;            /* Zentriert Icon mit Text (falls daneben) */
 }
@@ -176,10 +176,9 @@ main {
 
 /* Bildbereich (links in der Karte) – kann auch als Platzhalter dienen */
 .blog-card .card-img {
-  height: 100%;
-  width: 110px;
-  min-width: 90px;
-  max-width: 120px;
+  width: 200px;        /* z.B. vorher 140px, jetzt 200px */
+  min-width: 160px;
+  max-width: 220px;
   /*background: #f3f3f3;      /* Hellgrauer Hintergrund, falls kein Bild da ist */
   display: flex;            /* Bild/Text im Inneren zentrieren */
   align-items: center;      /* Vertikal zentriert */
@@ -192,12 +191,10 @@ main {
 
 /* Bild selbst in der Karte */
 .blog-card .card-img img {
-  max-width: 120px;         /* Bild ist maximal 120px breit (passt in Platzhaltergröße) */
+  max-width: 200px;         /* Bild ist maximal 120px breit (passt in Platzhaltergröße) */
   object-fit: cover;        /* Bild schneidet sich ggf. zu, um den Bereich auszufüllen */
   border-radius: 4px;       /* Bild hat leicht abgerundete Ecken */
   display: block;           /* Kein unerwünschter Abstand unter dem Bild */
-  height: 100%;
-  width: auto;
 }
 
 /* Titel im Karten-Inhalt */
@@ -367,7 +364,6 @@ footer {
     width: 95vw;                 /* Genau 95% der Viewport-Breite */
     box-sizing: border-box;      /* Padding/Border zählen zur Breite */
     padding: 1rem;             /* Weniger Innenabstand, wirkt kompakter */
-    min-height: 120px;  /* Passe auf Wunsch an! */
   }
 
   /* Startseiten-Karten besonders breit darstellen, aber nie größer als 600px */
