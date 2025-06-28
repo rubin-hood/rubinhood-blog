@@ -387,11 +387,36 @@ footer {
   .mobile-menu-overlay.open { display: flex; }
 
 .mobile-menu-overlay > nav {
-  margin-bottom: 3rem !important;
+  margin-bottom: 2rem !important;
 }
 .mobile-menu-overlay > .social-icons {
   margin-bottom: 3rem !important;
 }
+
+  .mobile-menu-overlay nav a {
+    font-size: 1.5rem;    /* größer, z.B. 1.5rem oder 20px */
+    font-weight: bold;    /* fett */
+    line-height: 2;       /* mehr Abstand, optional */
+    /* Optional: andere Farbe */
+    /* color: #009C6C;   */
+  }
+
+  @media (max-width: 900px) {
+  .mobile-menu-overlay .icon-link {
+    width: 40px;         /* z.B. 40px statt 24px */
+    height: 40px;
+  }
+  .mobile-menu-overlay .icon-img {
+    width: 100%;
+    height: 100%;
+  }
+
+    .mobile-menu-overlay .social-icons {
+    gap: 2rem;   /* Abstand zwischen den Icons */
+  }
+}
+
+
 
   /* Blogkarten bekommen dynamische Breite, passen sich ans Display an */
   .blog-card {
