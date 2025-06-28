@@ -468,6 +468,15 @@ footer {
   }
   .blog-card { 
     padding: 0.25rem;             /* Blogkarten noch kompakter */
+      flex-direction: column;
+    align-items: stretch;
+  }
+
+  .blog-card .card-img {
+    margin-right: 0;
+    margin-bottom: 0.75rem;
+    width: 100%;
+    max-width: 100%;
   }
   /* Alle Header-Navigation & Social-Icons nochmals ausblenden,
      falls z.B. Cache oder doppelte Media Queries stören */
