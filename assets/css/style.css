@@ -170,7 +170,7 @@ main {
 
 /* Einzelne Blogkarte (Artikel-Vorschau) */
 .blog-card {
-  flex: 1 1 300px;          /* Karte kann wachsen, ist aber mindestens 300px breit */
+  flex: 1 1 125px;          /* Karte kann wachsen, ist aber mindestens 300px breit */
   box-sizing: border-box;   /* Padding und Border werden zur Breite dazugerechnet */
   background: #F6F5F1;         /* Weiße Kartenfläche */
   /*border: 2px solid #ff0000;   /* Dezenter, grauer Rahmen */
