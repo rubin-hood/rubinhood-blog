@@ -164,6 +164,12 @@ main {
   width: 100%;
 }
 
+
+/* Nur auf der Startseite: Blogkarten haben einen sichtbaren Rahmen */
+.blog-teaser-grid .blog-card {
+  border: 1px solid #c4c4c4 !important;   /* Deutlicher Rahmen für bessere Abgrenzung */
+}
+
 .card-content {
   flex: 1;              /* Nimmt den Rest des Platzes */
 }
@@ -496,21 +502,3 @@ body.noscroll {
   margin-bottom: 0.5rem;          /* Kleiner Abstand nach unten */
 }
 
-/* Standard-Layout für Blog-Karten: flexibel, aber auf mobile entfernt (keine Ränder) */
-
-
-.blog-card {
-  border: none !important;
-  flex: none !important;
-  min-width: 350px;
-  max-width: 900px;     /* Hier deinen Wunschwert eintragen! */
-  width: 100%;
-  min-height: 0 !important;
-  height: auto !important;
-  margin-bottom: 1rem;
-}
-
-/* Nur auf der Startseite: Blogkarten haben einen sichtbaren Rahmen */
-.blog-teaser-grid .blog-card {
-  border: 1px solid #c4c4c4 !important;   /* Deutlicher Rahmen für bessere Abgrenzung */
-}
