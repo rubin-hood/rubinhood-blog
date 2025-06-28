@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         card.style.opacity = "1";
         card.style.transform = "none";
       }, { once: true });
-    }, 300 + i * 400); // 500ms Startverzögerung, dann 400ms pro Karte gestaffelt
+    }, 10 + i * 400); // 500ms Startverzögerung, dann 400ms pro Karte gestaffelt
   });
 });
 
