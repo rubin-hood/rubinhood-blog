@@ -149,7 +149,7 @@ main {
 
 /* Einzelne Blogkarte (Artikel-Vorschau) */
 .blog-card {
-  flex: 1 1 300px;          /* Karte kann wachsen, ist aber mindestens 300px breit */
+  flex: 1 1 400px;          /* Karte kann wachsen, ist aber mindestens 300px breit */
   box-sizing: border-box;   /* Padding und Border werden zur Breite dazugerechnet */
   background: #F6F5F1;         /* Weiße Kartenfläche */
   /*border: 2px solid #ff0000;   /* Dezenter, grauer Rahmen */
@@ -362,7 +362,7 @@ footer {
 
   /* Startseiten-Karten besonders breit darstellen, aber nie größer als 600px */
   .blog-teaser-grid .blog-card {
-    max-width: 600px !important;       /* Nie größer als 600px */
+    max-width: 500px !important;       /* Nie größer als 600px */
     width: 100%;                       /* Nimmt volle verfügbare Breite */
     min-width: unset !important;        /* Mindestbreite aufheben */
     margin-left: auto;                  /* Links und rechts zentriert */
