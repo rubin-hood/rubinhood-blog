@@ -52,8 +52,8 @@ a {
 .site-nav a {
   text-decoration: none;             /* Unterstreicht die Links NICHT */
   color: #009C6C;                       /* Dunkelgraue Schrift für die Navigation */
-  /* font-weight: bold;                 /* Links fett anzeigen */
-  font-size: 1rem;                 /* Schrift der Navigation größer */
+  font-weight: bold;                 /* Links fett anzeigen */
+  font-size: 1.3rem;                 /* Schrift der Navigation größer */
 }
 
 .site-nav a:hover {
@@ -241,11 +241,15 @@ main {
 }
 
 .blog-sidebar { 
-  flex: 1 1 450px;      /* Sidebar: nimmt minimal 1 Anteil, darf wachsen/schrumpfen, Startbreite 350px */
+
   border-right: 2px solid #e0e0e0; /* <--- Hier die Linie ergänzen! */
   padding-right: 2rem;  /* Optional: Abstand zur Linie, passend zum gap */
   box-sizing: border-box; /* Sicherstellen, dass Padding/Borders eingerechnet werden */
   min-width: 260px; /* Sidebar wird nie schmaler als 260px */
+
+  width: 320px;      /* Feste Breite, z.B. 320px – nach Geschmack anpassen */
+  max-width: 350px;  /* Optional */
+  flex: 0 0 320px;   /* Flexbox: genau 320px Breite */
 }
 
 .blog-content { 
