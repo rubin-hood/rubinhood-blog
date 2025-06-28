@@ -117,23 +117,13 @@ main {
   width: 100%;
   min-height: 0 !important;
   height: auto !important;
-}
-
-.blog-card {
-  opacity: 0;
-  transform: translateY(50px);
-  animation: slide-up-fade-in 0.8s cubic-bezier(.4,2,.6,1) forwards;
-}
-
-/* Hover-Transition wie gehabt */
-.blog-card,
-.blog-card.animated { /* animated gleiches Verhalten */
-  transition:
-    transform 0.40s cubic-bezier(.4,2,.6,1),
+    
+  transition: 
+    transform 0.40s cubic-bezier(.4,2,.6,1), 
     box-shadow 0.40s cubic-bezier(.4,2,.6,1);
 }
 
-/* Hover-Effekt */
+/* Hover-Zustand: leicht skalieren und ggf. Schatten */
 .blog-card:hover,
 .blog-card:focus-visible {
   transform: scale(1.035);

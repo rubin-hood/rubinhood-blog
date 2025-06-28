@@ -26,3 +26,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+document.querySelectorAll('.blog-card').forEach(card => {
+  card.addEventListener('animationend', () => {
+    card.classList.add('animated');
+    card.style.animation = 'none'; // Animation entfernen!
+    // Optional: transform zurücksetzen, falls nötig
+    // card.style.transform = '';
+  });
+});
