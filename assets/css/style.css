@@ -386,13 +386,12 @@ footer {
   .mobile-menu-overlay { display: none; }
   .mobile-menu-overlay.open { display: flex; }
 
-    .mobile-menu-overlay nav {
-    margin-bottom: 2.5rem;   /* Abstand NACH den Navi-Links */
-  }
-
-    .mobile-menu-overlay .social-icons {
-    margin-bottom: 2.5rem;   /* Abstand NACH den Social Icons */
-  }
+.mobile-menu-overlay > nav {
+  margin-bottom: 3rem !important;
+}
+.mobile-menu-overlay > .social-icons {
+  margin-bottom: 3rem !important;
+}
 
   /* Blogkarten bekommen dynamische Breite, passen sich ans Display an */
   .blog-card {
