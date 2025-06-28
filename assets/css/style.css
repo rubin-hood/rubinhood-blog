@@ -1,3 +1,7 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /* =============================================
    1. Grundlegende Seiten-Einstellungen (Reset)
    ---------------------------------------------
@@ -177,8 +181,8 @@ main {
   border-radius: 7px;       /* Abgerundete Ecken */
   display: flex;            /* Bild und Inhalt nebeneinander */
   align-items: flex-start;   /* Bild und Text oben ausrichten (NICHT mittig!) */
-  padding: 0.25rem;         /* Etwas Innenabstand rundherum */
-  min-width: 350px;         /* Mindestbreite der Karte */
+  padding: 0.75rem;         /* Etwas Innenabstand rundherum */
+  min-width: 0px;         /* Mindestbreite der Karte */
   max-width: 900px;         /* Maximalbreite der Karte */
   margin-bottom: 1rem;      /* Abstand nach unten zur nächsten Karte */
   transition: border-color .2s; /* Weicher Übergang bei Farbumschlag (z.B. bei aktiver Karte) */
@@ -399,8 +403,6 @@ footer {
     align-items: center;   /* Zentriert die Links horizontal */
     padding: 0;
     margin: 0 0 2rem 0;    /* Optional: mehr Abstand unten */
-        padding-left: 0;   /* Optional, falls noch eingerückt */
-    margin: 0;         /* Optional, für saubere Kante */
   }
 
   .mobile-menu-overlay nav a {
