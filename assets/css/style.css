@@ -339,7 +339,7 @@ footer {
   display: none;
   background: none;
   border: none;
-  width: 54px;        /* <--- etwas breiter */
+  width: 46px;
   height: 46px;
   cursor: pointer;
   position: relative;
@@ -354,16 +354,16 @@ footer {
   height: 4px;
   border-radius: 2px;
   position: absolute;
-  left: 4px;         /* <--- kleiner Abstand links */
-  right: 4px;        /* <--- kleiner Abstand rechts */
+  left: 8px;
+  right: 8px;
   transition: all 0.3s;
 }
 .burger::before { top: 8px; }
-.burger span    { top: 21px; }
-.burger::after  { top: 34px; }
-.burger.open span      { opacity: 0; }
-.burger.open::before   { transform: rotate(45deg); top: 21px; }
-.burger.open::after    { transform: rotate(-45deg); top: 21px; }
+.burger span { top: 21px; }
+.burger::after { top: 34px; }
+.burger.open span { opacity: 0; }
+.burger.open::before { transform: rotate(45deg); top: 21px; }
+.burger.open::after { transform: rotate(-45deg); top: 21px; }
 
 
 /* ===============================================================
