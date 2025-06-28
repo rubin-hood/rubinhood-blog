@@ -18,6 +18,21 @@ html, body {                                 /* Diese Regeln gelten für das ges
 
 a {
   text-decoration: none !important;    /* Unterstreichung für alle Links überall abschalten */
+  color: #009C6C;            /* Standardfarbe */
+}
+
+a:visited {
+  color: #009C6C;            /* Besuchte Links gleiche Farbe */
+}
+
+a:hover,
+a:focus {
+  color: #AA0600;            /* Beim Hovern oder beim Fokus (Tab) */
+  text-decoration: underline; /* Optional: Unterstrichen lassen */
+}
+
+a:active {
+  color: #AA0600;            /* Beim aktiven Klick */
 }
 
 
