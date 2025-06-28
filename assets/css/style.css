@@ -115,14 +115,8 @@ main {
   margin-bottom: 1rem;
   transition: border-color .2s;
   width: 100%;
-  min-width: 0 !important;
   min-height: 0 !important;
   height: auto !important;
-}
-.blog-card .card-content {
-  min-width: 0 !important;
-  overflow-wrap: break-word;   /* Falls Wörter zu lang sind */
-  word-break: break-word;
 }
 
 .card-date {
@@ -308,9 +302,7 @@ footer {
     box-sizing: border-box;
     padding: 0.5rem;
   }
-  .blog-card .card-content {
-  min-width: 0;
-  }
+  
     .mobile-divider {
     border: none;
     border-top: 3px solid #ccc;   /* Farbe und Dicke der Linie */
