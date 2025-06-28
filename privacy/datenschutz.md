@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Datenschutzerklärung
-permalink: /datenschutz
+permalink: /privacy/datenschutz
 narrow: true
 ---
 
