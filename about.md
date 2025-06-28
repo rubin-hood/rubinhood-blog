@@ -2,7 +2,15 @@
 layout: default
 title: Home
 permalink: /about.html
+narrow: true
 ---
+
+<main>
+  <div class="page-content{% if page.narrow %} narrow{% endif %}">
+    {{ content }}
+  </div>
+</main>
+
 # Hallo, ich bin IT-Enthusiast, Problemlöser und Technikflüsterer.
 
 Während andere mit ihrem Computer sprechen, höre ich ihm zu – und erkläre dir, was er wirklich sagen will!
