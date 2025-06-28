@@ -158,7 +158,7 @@ main {
   align-items: flex-start;   /* Bild und Text oben ausrichten (NICHT mittig!) */
   padding: 0.25rem;         /* Etwas Innenabstand rundherum */
   min-width: 350px;         /* Mindestbreite der Karte */
-  max-width: 500px;         /* Maximalbreite der Karte */
+  max-width: 900px;         /* Maximalbreite der Karte */
   margin-bottom: 1rem;      /* Abstand nach unten zur nächsten Karte */
   transition: border-color .2s; /* Weicher Übergang bei Farbumschlag (z.B. bei aktiver Karte) */
   width: 100%;
@@ -362,7 +362,7 @@ footer {
 
   /* Startseiten-Karten besonders breit darstellen, aber nie größer als 600px */
   .blog-teaser-grid .blog-card {
-    max-width: 500px !important;       /* Nie größer als 600px */
+    max-width: 900px !important;       /* Nie größer als 600px */
     width: 100%;                       /* Nimmt volle verfügbare Breite */
     min-width: unset !important;        /* Mindestbreite aufheben */
     margin-left: auto;                  /* Links und rechts zentriert */
