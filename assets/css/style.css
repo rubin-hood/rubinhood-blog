@@ -114,7 +114,7 @@ a {
    =========================================================== */
 
 main {
-  max-width: 1200px;        /* Begrenzung der maximalen Breite – sieht zentriert und gut lesbar aus */
+  max-width: 1800px;        /* Begrenzung der maximalen Breite – sieht zentriert und gut lesbar aus */
   margin: 2rem auto;        /* Oben und unten 2rem Abstand, links/rechts automatisch mittig (zentriert) */
   padding: 0 1rem;          /* Innenabstand nach links/rechts, damit der Text nicht am Rand klebt */
 }
