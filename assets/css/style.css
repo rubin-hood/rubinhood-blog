@@ -154,7 +154,7 @@ main {
   /*border: 2px solid #ff0000;   /* Dezenter, grauer Rahmen */
   border-radius: 7px;       /* Abgerundete Ecken */
   display: flex;            /* Bild und Inhalt nebeneinander */
-  align-items: center;      /* Bild und Text oben bündig */
+  align-items: flex-start;   /* Bild und Text oben ausrichten (NICHT mittig!) */
   padding: 0.25rem;         /* Etwas Innenabstand rundherum */
   min-width: 250px;         /* Mindestbreite der Karte */
   max-width: 350px;         /* Maximalbreite der Karte */
