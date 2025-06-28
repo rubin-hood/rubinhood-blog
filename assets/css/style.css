@@ -367,9 +367,10 @@ footer {
     max-width: 95vw;             /* Maximal 95% der Viewport-Breite */
     width: 95vw;                 /* Genau 95% der Viewport-Breite */
     box-sizing: border-box;      /* Padding/Border zählen zur Breite */
-    padding: 0.5rem;             /* Weniger Innenabstand, wirkt kompakter */
     min-height: 120px;  /* Passe auf Wunsch an! */
     min-height: 120px;  /* Passe auf Wunsch an! */
+    margin-bottom: 0.5rem;
+    padding: 0.25rem;
   }
 
   /* Startseiten-Karten besonders breit darstellen, aber nie größer als 600px */
