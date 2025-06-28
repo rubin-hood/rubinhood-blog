@@ -302,6 +302,12 @@ footer {
     box-sizing: border-box;
     padding: 0.5rem;
   }
+    .mobile-divider {
+    border: none;
+    border-top: 3px solid #ccc;   /* Farbe und Dicke der Linie */
+    width: 85%;                   /* Länge der Linie, kannst du anpassen */
+    margin: 2.5rem 0 2rem 0;      /* Abstand oben/unten */
+  }
   .blog-teaser-grid .blog-card {
     max-width: 900px !important;
     width: 100%;
