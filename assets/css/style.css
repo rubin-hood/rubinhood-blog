@@ -118,6 +118,14 @@ main {
   min-height: 0 !important;
   height: auto !important;
 }
+
+.card-date {
+  display: block;
+  color: #888;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
 .blog-teaser-grid .blog-card {
   border: 1px solid #c4c4c4 !important;
 }
