@@ -53,6 +53,7 @@ a {
   text-decoration: none;             /* Unterstreicht die Links NICHT */
   color: #009C6C;                       /* Dunkelgraue Schrift für die Navigation */
   font-weight: bold;                 /* Links fett anzeigen */
+  font-size: 1.5rem;                 /* Schrift der Navigation größer */
 }
 
 .site-nav a:hover {
