@@ -162,6 +162,8 @@ main {
   margin-bottom: 1rem;      /* Abstand nach unten zur nächsten Karte */
   transition: border-color .2s; /* Weicher Übergang bei Farbumschlag (z.B. bei aktiver Karte) */
   width: 100%;
+    min-height: 0 !important;
+  height: auto !important;
 }
 
 
