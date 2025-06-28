@@ -114,9 +114,15 @@ a {
    =========================================================== */
 
 main {
-  max-width: 1300px;        /* Begrenzung der maximalen Breite – sieht zentriert und gut lesbar aus */
+  max-width: 1400px;        /* Begrenzung der maximalen Breite – sieht zentriert und gut lesbar aus */
   margin: 2rem auto;        /* Oben und unten 2rem Abstand, links/rechts automatisch mittig (zentriert) */
   padding: 0 1rem;          /* Innenabstand nach links/rechts, damit der Text nicht am Rand klebt */
+}
+
+.page-content {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
 .intro { 
