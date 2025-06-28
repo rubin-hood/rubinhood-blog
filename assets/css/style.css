@@ -114,7 +114,7 @@ a {
    =========================================================== */
 
 main {
-  max-width: 1800px;        /* Begrenzung der maximalen Breite – sieht zentriert und gut lesbar aus */
+  max-width: 1400px;        /* Begrenzung der maximalen Breite – sieht zentriert und gut lesbar aus */
   margin: 2rem auto;        /* Oben und unten 2rem Abstand, links/rechts automatisch mittig (zentriert) */
   padding: 0 1rem;          /* Innenabstand nach links/rechts, damit der Text nicht am Rand klebt */
 }
@@ -252,13 +252,12 @@ main {
 }
 
 .blog-content { 
-  flex: 10 1 1600px;    /* 10 statt 4 und Startbreite 1600px statt 1200px */
-  max-width: 1800px;    /* oder höher, je nach Geschmack */
-  padding-left: 2rem;
-  overflow-y: auto;
-  max-height: 100vh;
-  box-sizing: border-box;
-  padding: 2rem 2rem 3rem 0;
+  flex: 4 1 1200px;      /* Hauptinhalt: nimmt 3 Anteile, darf wachsen/schrumpfen, Startbreite 600px */
+  padding-left: 2rem;   /* Optional: Abstand von der Linie, für mehr Luft */
+  overflow-y: auto;           /* Ermöglicht Scrollen, falls Inhalt zu groß */
+  max-height: 100vh;          /* Niemals höher als das Fenster */
+  box-sizing: border-box;     /* Padding zählt zur Breite */
+  padding: 2rem 2rem 3rem 0;  /* Rechts genug Platz für Scrollbalken lassen! */
 }
 
 /* Bilder, Videos, iframes NIE breiter als der Content-Bereich */
