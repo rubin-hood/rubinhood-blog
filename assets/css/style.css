@@ -103,7 +103,7 @@ main {
   align-items: center;
 }
 .blog-card {
-  flex: 1 1 125px;
+  flex: 1 1 135px;
   box-sizing: border-box;
   background: #F6F5F1;
   border-radius: 7px;
