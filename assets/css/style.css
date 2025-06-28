@@ -103,9 +103,9 @@ main {
   align-items: center;
 }
 .blog-card {
-  flex: 1 1 150px;
+  flex: 1 1 145px;
   box-sizing: border-box;
-  background: #F6F5F1;
+  background: #FCFBF7;
   border-radius: 7px;
   display: flex;
   align-items: flex-start;
