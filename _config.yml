@@ -1,6 +1,6 @@
 title: Rubin Hood
 description: Minimalistischer Jekyll-Blog
-baseurl: "/rubinhood-blog"
+baseurl: ""
 url: ""
 theme: null
 exclude: [Gemfile, Gemfile.lock, node_modules, vendor]
