@@ -316,6 +316,10 @@ footer {
     margin-left: auto;
     margin-right: auto;
   }
+
+  .card-content {
+    min-width: 0;
+  }
 }
 
 /* ================================================================
