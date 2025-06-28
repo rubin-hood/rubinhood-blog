@@ -119,12 +119,12 @@ main {
   padding: 0 1rem;          /* Innenabstand nach links/rechts, damit der Text nicht am Rand klebt */
 }
 
+
 .page-content.narrow {
-  max-width: 800px;
+  max-width: 400px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
-
 
 .intro { 
   margin-bottom: 2rem;      /* Abstand nach unten unter dem Intro-Block (Begrüßung etc.) */
