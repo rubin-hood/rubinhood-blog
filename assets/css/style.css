@@ -147,6 +147,15 @@ main {
   align-items: center;      /* Karten in der Mitte ausrichten */
 }
 
+.blog-teaser-grid {
+  display: flex;
+  flex-direction: column;   /* <--- Nur das! */
+  align-items: center;      /* Cards zentriert */
+  max-width: 1200px;        /* oder nach Wunsch */
+  width: 100%;
+  margin: 0 auto;
+}
+
 /* Einzelne Blogkarte (Artikel-Vorschau) */
 .blog-card {
   flex: 1 1 400px;          /* Karte kann wachsen, ist aber mindestens 300px breit */
