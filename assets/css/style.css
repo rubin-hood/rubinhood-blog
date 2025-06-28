@@ -147,18 +147,9 @@ main {
   align-items: center;      /* Karten in der Mitte ausrichten */
 }
 
-.blog-teaser-grid {
-  display: flex;
-  flex-direction: column;   /* <--- Nur das! */
-  align-items: center;      /* Cards zentriert */
-  max-width: 1200px;        /* oder nach Wunsch */
-  width: 100%;
-  margin: 0 auto;
-}
-
 /* Einzelne Blogkarte (Artikel-Vorschau) */
 .blog-card {
-  flex: 1 1 400px;          /* Karte kann wachsen, ist aber mindestens 300px breit */
+  flex: 1 1 300px;          /* Karte kann wachsen, ist aber mindestens 300px breit */
   box-sizing: border-box;   /* Padding und Border werden zur Breite dazugerechnet */
   background: #F6F5F1;         /* Weiße Kartenfläche */
   /*border: 2px solid #ff0000;   /* Dezenter, grauer Rahmen */
@@ -166,8 +157,8 @@ main {
   display: flex;            /* Bild und Inhalt nebeneinander */
   align-items: flex-start;   /* Bild und Text oben ausrichten (NICHT mittig!) */
   padding: 0.25rem;         /* Etwas Innenabstand rundherum */
-  min-width: 700px;         /* Mindestbreite der Karte */
-  max-width: 1100px;         /* Maximalbreite der Karte */
+  min-width: 350px;         /* Mindestbreite der Karte */
+  max-width: 500px;         /* Maximalbreite der Karte */
   margin-bottom: 1rem;      /* Abstand nach unten zur nächsten Karte */
   transition: border-color .2s; /* Weicher Übergang bei Farbumschlag (z.B. bei aktiver Karte) */
   width: 100%;
