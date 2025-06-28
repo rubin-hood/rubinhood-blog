@@ -178,8 +178,8 @@ main {
   display: flex;            /* Bild und Inhalt nebeneinander */
   align-items: flex-start;   /* Bild und Text oben ausrichten (NICHT mittig!) */
   padding: 0.25rem;         /* Etwas Innenabstand rundherum */
-  min-width: 340px;         /* Mindestbreite der Karte */
-  max-width: 340px;         /* Maximalbreite der Karte */
+  min-width: 350px;         /* Mindestbreite der Karte */
+  max-width: 350px;         /* Maximalbreite der Karte */
   margin-bottom: 1rem;      /* Abstand nach unten zur nächsten Karte */
   transition: border-color .2s; /* Weicher Übergang bei Farbumschlag (z.B. bei aktiver Karte) */
   width: 100%;
@@ -349,7 +349,12 @@ footer {
 }
 .footer-links { 
   margin-bottom: 0.5rem;     /* Abstand nach unten zu weiteren Footer-Inhalten */
-  text-decoration: underline; /* Optional: Unterstrichen lassen */
+  /*text-decoration: underline; /* Optional: Unterstrichen lassen */
+}
+
+.footer-links a:hover {
+  color: #AA0600;                /* Beim Hover z.B. rotbraun */
+  text-decoration: underline;    /* Unterstrichen bleibt */
 }
 
 /* =============================================================
