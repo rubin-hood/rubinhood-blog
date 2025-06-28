@@ -131,6 +131,36 @@ main {
   z-index: 2;
 }
 
+/* Animation für das sanfte Auftauchen */
+@keyframes slide-up-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Blog-Karten initial unsichtbar & animiert */
+.blog-card {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: slide-up-fade-in 0.8s cubic-bezier(.4,2,.6,1) forwards;
+}
+
+/* Optional: Verzögerung für jede Karte */
+.blog-card:nth-child(1) { animation-delay: 0.05s; }
+.blog-card:nth-child(2) { animation-delay: 0.13s; }
+.blog-card:nth-child(3) { animation-delay: 0.21s; }
+.blog-card:nth-child(4) { animation-delay: 0.29s; }
+.blog-card:nth-child(5) { animation-delay: 0.37s; }
+.blog-card:nth-child(6) { animation-delay: 0.45s; }
+.blog-card:nth-child(7) { animation-delay: 0.53s; }
+.blog-card:nth-child(8) { animation-delay: 0.61s; }
+/* …je nachdem, wie viele Karten du auf einmal hast */
+
 .card-date {
   display: block;
   color: #888;
