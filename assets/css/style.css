@@ -397,6 +397,7 @@ footer {
     font-size: 1.5rem;    /* größer, z.B. 1.5rem oder 20px */
     font-weight: bold;    /* fett */
     line-height: 2;       /* mehr Abstand, optional */
+    text-align: center;    /* Zentriert den Linktext */
     /* Optional: andere Farbe */
     /* color: #009C6C;   */
   }
