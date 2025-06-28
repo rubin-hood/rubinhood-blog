@@ -17,7 +17,7 @@ html, body {                                 /* Diese Regeln gelten für das ges
 }
 
 a {
-  text-decoration: none !important;    /* Unterstreichung für alle Links überall abschalten */
+  /*text-decoration: none !important;    /* Unterstreichung für alle Links überall abschalten */
   color: #009C6C;            /* Standardfarbe */
 }
 
@@ -28,7 +28,6 @@ a:visited {
 a:hover,
 a:focus {
   color: #AA0600;            /* Beim Hovern oder beim Fokus (Tab) */
-  text-decoration: underline; /* Optional: Unterstrichen lassen */
 }
 
 a:active {
@@ -350,6 +349,7 @@ footer {
 }
 .footer-links { 
   margin-bottom: 0.5rem;     /* Abstand nach unten zu weiteren Footer-Inhalten */
+  text-decoration: underline; /* Optional: Unterstrichen lassen */
 }
 
 /* =============================================================
