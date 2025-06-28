@@ -245,6 +245,7 @@ main {
   border-right: 2px solid #e0e0e0; /* <--- Hier die Linie ergänzen! */
   padding-right: 2rem;  /* Optional: Abstand zur Linie, passend zum gap */
   box-sizing: border-box; /* Sicherstellen, dass Padding/Borders eingerechnet werden */
+  min-width: 260px; /* Sidebar wird nie schmaler als 260px */
 }
 
 .blog-content { 
@@ -291,11 +292,11 @@ main {
 .blog-sidebar .blog-card {
   width: 100%;                /* Die Karte nutzt die komplette Breite der Sidebar */
   max-width: unset !important;/* Hebt jegliche maximale Breite auf (wichtig, um 350px-Limit zu entfernen!) */
-  min-width: 0;               /* Erlaubt, dass die Karte auch schmaler werden kann, falls nötig */
   flex: 1 1 auto;             /* Karte kann im Flex-Container wachsen und schrumpfen (Flexbox) */
   display: flex;              /* Setzt das Layout der Karte auf Flexbox (Bild & Text nebeneinander) */
   align-items: center;        /* Bild und Text werden vertikal mittig ausgerichtet */
   box-sizing: border-box;     /* Padding und Border werden in die Gesamtbreite mit einberechnet */
+  min-width: 220px; /* Karte wird nie schmaler als 220px */
 }
 
 .blog-sidebar .card-content {
