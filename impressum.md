@@ -1,7 +1,7 @@
 --- 
 layout: default
 title: Impressum
-permalink: /privacy/impressum
+permalink: /impressum
 narrow: true
 ---
 
