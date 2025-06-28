@@ -1,6 +1,8 @@
 ---
 layout: default
 title: Willkommen!
+permalink: /projects
+narrow: true
 ---
 
 ### [🖧 Example Server Infrastructure Setup – A Closer Look](https://rubinhood.de/navigation/blog.php?article=Example+Server+Infrastructure+Setup+%E2%80%93+A+Closer+Look)
