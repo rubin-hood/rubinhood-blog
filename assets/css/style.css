@@ -273,6 +273,7 @@ footer {
   .mobile-menu-overlay > nav { margin-bottom: 2rem !important; }
   .mobile-menu-overlay > .social-icons { margin-bottom: 3rem !important; }
   .mobile-menu-overlay nav ul {
+    list-style: none;
     display: flex;
     flex-direction: column;
     align-items: center;
