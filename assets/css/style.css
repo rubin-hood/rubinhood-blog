@@ -174,7 +174,7 @@ main {
 
 /* Einzelne Blogkarte (Artikel-Vorschau) */
 .blog-card {
-  flex: 1 1 130px;          /* Karte kann wachsen, ist aber mindestens 300px breit */
+  flex: 1 1 125px;          /* Karte kann wachsen, ist aber mindestens 300px breit */
   box-sizing: border-box;   /* Padding und Border werden zur Breite dazugerechnet */
   background: #F6F5F1;         /* Weiße Kartenfläche */
   /*border: 2px solid #ff0000;   /* Dezenter, grauer Rahmen */
@@ -187,7 +187,7 @@ main {
   margin-bottom: 1rem;      /* Abstand nach unten zur nächsten Karte */
   transition: border-color .2s; /* Weicher Übergang bei Farbumschlag (z.B. bei aktiver Karte) */
   width: 100%;
-    min-height: 0 !important;
+  min-height: 0 !important;
   height: auto !important;
 }
 
@@ -199,6 +199,7 @@ main {
 
 .card-content {
   flex: 1;              /* Nimmt den Rest des Platzes */
+  overflow-wrap: break-word;  /* Lange Wörter umbrechen */
 }
 
 
@@ -433,7 +434,7 @@ footer {
 
   /* Blogkarten bekommen dynamische Breite, passen sich ans Display an */
   .blog-card {
-    min-width: unset;            /* Mindestbreite aufheben */
+    min-width: 0 !important;    /* Verhindert dass die Card größer als der Viewport bleibt */
     max-width: 95vw;             /* Maximal 95% der Viewport-Breite */
     width: 95vw;                 /* Genau 95% der Viewport-Breite */
     box-sizing: border-box;      /* Padding/Border zählen zur Breite */
@@ -468,15 +469,6 @@ footer {
   }
   .blog-card { 
     padding: 0.25rem;             /* Blogkarten noch kompakter */
-      flex-direction: column;
-    align-items: stretch;
-  }
-
-  .blog-card .card-img {
-    margin-right: 0;
-    margin-bottom: 0.75rem;
-    width: 100%;
-    max-width: 100%;
   }
   /* Alle Header-Navigation & Social-Icons nochmals ausblenden,
      falls z.B. Cache oder doppelte Media Queries stören */
