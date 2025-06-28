@@ -17,7 +17,7 @@ html, body {                                 /* Diese Regeln gelten für das ges
 }
 
 a {
-  /*text-decoration: none !important;    /* Unterstreichung für alle Links überall abschalten */
+  text-decoration: none !important;    /* Unterstreichung für alle Links überall abschalten */
   color: #009C6C;            /* Standardfarbe */
 }
 
@@ -178,7 +178,7 @@ main {
   display: flex;            /* Bild und Inhalt nebeneinander */
   align-items: flex-start;   /* Bild und Text oben ausrichten (NICHT mittig!) */
   padding: 0.25rem;         /* Etwas Innenabstand rundherum */
-  min-width: 350px;         /* Mindestbreite der Karte */
+  min-width: 300px;         /* Mindestbreite der Karte */
   max-width: 800px;         /* Maximalbreite der Karte */
   margin-bottom: 1rem;      /* Abstand nach unten zur nächsten Karte */
   transition: border-color .2s; /* Weicher Übergang bei Farbumschlag (z.B. bei aktiver Karte) */
