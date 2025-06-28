@@ -160,23 +160,15 @@ main {
   max-width: 350px;         /* Maximalbreite der Karte */
   margin-bottom: 1rem;      /* Abstand nach unten zur nächsten Karte */
   transition: border-color .2s; /* Weicher Übergang bei Farbumschlag (z.B. bei aktiver Karte) */
-  border: none !important;        /* Keine Umrandung, wenn nicht anders festgelegt */
-  width: 100%;                    /* Immer so breit wie möglich im Eltern-Container */
-  min-height: 0 !important;
-  height: auto !important;
 }
 
 .card-content {
   flex: 1;              /* Nimmt den Rest des Platzes */
-  display: flex;
-  min-width: 0;             /* Wichtig, damit der Text flexibel umbrechen kann */
-  flex-direction: column;
-  justify-content: center;
 }
+
 
 /* Bildbereich (links in der Karte) – kann auch als Platzhalter dienen */
 .blog-card .card-img {
-  width: 160px;
   min-width: 120px;         /* Bildbereich hat immer mindestens 120px Breite */
   min-height: 120px;        /* ... und mindestens 120px Höhe */
   /*background: #f3f3f3;      /* Hellgrauer Hintergrund, falls kein Bild da ist */
@@ -191,7 +183,7 @@ main {
 
 /* Bild selbst in der Karte */
 .blog-card .card-img img {
-  max-width: 320px;         /* Bild ist maximal 120px breit (passt in Platzhaltergröße) */
+  max-width: 120px;         /* Bild ist maximal 120px breit (passt in Platzhaltergröße) */
   object-fit: cover;        /* Bild schneidet sich ggf. zu, um den Bereich auszufüllen */
   border-radius: 4px;       /* Bild hat leicht abgerundete Ecken */
   display: block;           /* Kein unerwünschter Abstand unter dem Bild */
@@ -243,8 +235,6 @@ main {
 .blog-layout {
   display: flex;        /* Macht aus .blog-layout einen Flex-Container (horizontale Aufteilung) */
   gap: 2rem;            /* 2rem Abstand zwischen Sidebar und Hauptinhalt */
-  height: 100vh;          /* Volle Fensterhöhe */
-  overflow: hidden;       /* Verhindert doppeltes Scrollen im Body */
 }
 
 .blog-sidebar { 
@@ -255,42 +245,8 @@ main {
 }
 
 .blog-content { 
-  flex: 4 1 1200px;      /* Hauptinhalt: nimmt 3 Anteile, darf wachsen/schrumpfen, Startbreite 600px */
+  flex: 3 1 600px;      /* Hauptinhalt: nimmt 3 Anteile, darf wachsen/schrumpfen, Startbreite 600px */
   padding-left: 2rem;   /* Optional: Abstand von der Linie, für mehr Luft */
-}
-
-.blog-content {
-  overflow-y: auto;           /* Ermöglicht Scrollen, falls Inhalt zu groß */
-  max-height: 100vh;          /* Niemals höher als das Fenster */
-  box-sizing: border-box;     /* Padding zählt zur Breite */
-  padding: 2rem 2rem 3rem 0;  /* Rechts genug Platz für Scrollbalken lassen! */
-}
-
-/* Bilder, Videos, iframes NIE breiter als der Content-Bereich */
-.blog-content img,
-.blog-content iframe,
-.blog-content video {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 1.5rem auto;
-  box-sizing: border-box;
-}
-
-/* Große Tabellen im Content horizontal scrollbar */
-.blog-content table {
-  max-width: 100%;
-  overflow-x: auto;
-  display: block;
-}
-
-
-
-
-.blog-sidebar,
-.blog-content {
-  overflow-y: auto;       /* Vertikales Scrollen innerhalb jeder Spalte */
-  max-height: 100vh;      /* Höhe begrenzen auf Fensterhöhe */
 }
 
 /* Textbereich der Karten in der Sidebar so viel Platz einnimmt, wie es das Layout erlaubt */
@@ -501,7 +457,38 @@ body.noscroll {
   margin-bottom: 0.5rem;          /* Kleiner Abstand nach unten */
 }
 
+/* Standard-Layout für Blog-Karten: flexibel, aber auf mobile entfernt (keine Ränder) */
+.blog-card {
+  border: none !important;        /* Keine Umrandung, wenn nicht anders festgelegt */
+  flex: none !important;          /* Kein Flexbox-Wachstum */
+  min-width: 250px;               /* Mindestbreite */
+  max-width: 350px;               /* Maximalbreite */
+  width: 100%;                    /* Immer so breit wie möglich im Eltern-Container */
+  min-height: 0 !important;
+  height: auto !important;
+  margin-bottom: 1rem;            /* Abstand nach unten */
+}
+
 /* Nur auf der Startseite: Blogkarten haben einen sichtbaren Rahmen */
 .blog-teaser-grid .blog-card {
   border: 1px solid #c4c4c4 !important;   /* Deutlicher Rahmen für bessere Abgrenzung */
+}
+
+
+
+
+
+
+.blog-layout {
+  display: flex;
+  gap: 2rem;
+  height: 100vh; /* <<< NEU: Volle Höhe des Bildschirms */
+  overflow: hidden; /* <<< Verhindert Doppelscrolling */
+}
+
+
+.blog-sidebar,
+.blog-content {
+  overflow-y: auto;     /* vertikales Scrollen aktivieren */
+  max-height: 100vh;    /* begrenzt auf die volle Fensterhöhe */
 }
