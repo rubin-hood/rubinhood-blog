@@ -114,7 +114,7 @@ a {
    =========================================================== */
 
 main {
-  max-width: 1400px;        /* Begrenzung der maximalen Breite – sieht zentriert und gut lesbar aus */
+  max-width: 1300px;        /* Begrenzung der maximalen Breite – sieht zentriert und gut lesbar aus */
   margin: 2rem auto;        /* Oben und unten 2rem Abstand, links/rechts automatisch mittig (zentriert) */
   padding: 0 1rem;          /* Innenabstand nach links/rechts, damit der Text nicht am Rand klebt */
 }
@@ -149,7 +149,7 @@ main {
 
 /* Einzelne Blogkarte (Artikel-Vorschau) */
 .blog-card {
-  flex: 1 1 130px;          /* Karte kann wachsen, ist aber mindestens 300px breit */
+  flex: 1 1 125px;          /* Karte kann wachsen, ist aber mindestens 300px breit */
   box-sizing: border-box;   /* Padding und Border werden zur Breite dazugerechnet */
   background: #F6F5F1;         /* Weiße Kartenfläche */
   /*border: 2px solid #ff0000;   /* Dezenter, grauer Rahmen */
