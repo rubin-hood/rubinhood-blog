@@ -393,6 +393,14 @@ footer {
   margin-bottom: 3rem !important;
 }
 
+  .mobile-menu-overlay nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* Zentriert die Links horizontal */
+    padding: 0;
+    margin: 0 0 2rem 0;    /* Optional: mehr Abstand unten */
+  }
+
   .mobile-menu-overlay nav a {
     font-size: 1.5rem;    /* größer, z.B. 1.5rem oder 20px */
     font-weight: bold;    /* fett */
