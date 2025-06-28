@@ -1,7 +1,8 @@
 ---
 layout: default
 title: Home
-permalink: /about.html
+permalink: /about
+narrow: true
 ---
 
 
