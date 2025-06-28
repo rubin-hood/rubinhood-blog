@@ -245,23 +245,20 @@ main {
   border-right: 2px solid #e0e0e0; /* <--- Hier die Linie ergänzen! */
   padding-right: 2rem;  /* Optional: Abstand zur Linie, passend zum gap */
   box-sizing: border-box; /* Sicherstellen, dass Padding/Borders eingerechnet werden */
-
-  min-width: 400px;   /* oder 420, 440, 480 – je nach Geschmack */
+  min-width: 400px;   
   width: 480px;
   max-width: 520px;
   flex: 0 0 480px;
 }
 
 .blog-content { 
-  flex: 4 1 1200px;      /* Hauptinhalt: nimmt 3 Anteile, darf wachsen/schrumpfen, Startbreite 600px */
-  padding-left: 2rem;   /* Optional: Abstand von der Linie, für mehr Luft */
-}
-
-.blog-content {
-  overflow-y: auto;           /* Ermöglicht Scrollen, falls Inhalt zu groß */
-  max-height: 100vh;          /* Niemals höher als das Fenster */
-  box-sizing: border-box;     /* Padding zählt zur Breite */
-  padding: 2rem 2rem 3rem 0;  /* Rechts genug Platz für Scrollbalken lassen! */
+  flex: 10 1 1600px;    /* 10 statt 4 und Startbreite 1600px statt 1200px */
+  max-width: 1800px;    /* oder höher, je nach Geschmack */
+  padding-left: 2rem;
+  overflow-y: auto;
+  max-height: 100vh;
+  box-sizing: border-box;
+  padding: 2rem 2rem 3rem 0;
 }
 
 /* Bilder, Videos, iframes NIE breiter als der Content-Bereich */
