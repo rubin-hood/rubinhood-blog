@@ -74,8 +74,8 @@ a {
 .icon-link {
   display: inline-block;             /* Jedes Icon nebeneinander platzieren wie Text */
   position: relative;                /* Kind-Elemente (Bilder) können absolut positioniert werden */
-  width: 34px;                       /* Breite für das Icon (bei Bedarf je nach Icon anpassen) */
-  height: 30px;                      /* Höhe für das Icon */
+  width: 24px;                       /* Breite für das Icon (bei Bedarf je nach Icon anpassen) */
+  height: 20px;                      /* Höhe für das Icon */
   overflow: hidden;                  /* Verhindert, dass größere Bilder herausragen */
   vertical-align: middle;            /* Zentriert Icon mit Text (falls daneben) */
 }
