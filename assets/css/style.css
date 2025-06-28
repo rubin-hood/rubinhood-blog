@@ -66,7 +66,7 @@ a:active {
 .site-nav a {
   text-decoration: none;             /* Unterstreicht die Links NICHT */
   color: #009C6C;                       /* Dunkelgraue Schrift für die Navigation */
-  /*font-weight: bold;                 /* Links fett anzeigen */
+  font-weight: bold;                 /* Links fett anzeigen */
   font-size: 1.3rem;                 /* Schrift der Navigation größer */
 }
 
@@ -178,8 +178,8 @@ main {
   display: flex;            /* Bild und Inhalt nebeneinander */
   align-items: flex-start;   /* Bild und Text oben ausrichten (NICHT mittig!) */
   padding: 0.25rem;         /* Etwas Innenabstand rundherum */
-  min-width: 330px;         /* Mindestbreite der Karte */
-  max-width: 330px;         /* Maximalbreite der Karte */
+  min-width: 340px;         /* Mindestbreite der Karte */
+  max-width: 340px;         /* Maximalbreite der Karte */
   margin-bottom: 1rem;      /* Abstand nach unten zur nächsten Karte */
   transition: border-color .2s; /* Weicher Übergang bei Farbumschlag (z.B. bei aktiver Karte) */
   width: 100%;
