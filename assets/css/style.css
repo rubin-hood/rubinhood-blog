@@ -158,7 +158,7 @@ main {
   padding: 0.25rem;         /* Etwas Innenabstand rundherum */
   max-width: 500px;   /* Beispiel: vorher 350px oder 400px, jetzt z.B. 500px */
   min-width: 320px;   /* Optional, damit die Karten nicht zu klein werden */
-  margin-bottom: 0.25rem;      /* Abstand nach unten zur nächsten Karte */
+  margin-bottom: 1rem;      /* Abstand nach unten zur nächsten Karte */
   transition: border-color .2s; /* Weicher Übergang bei Farbumschlag (z.B. bei aktiver Karte) */
   border: none !important;        /* Keine Umrandung, wenn nicht anders festgelegt */
   width: 100%;                    /* Immer so breit wie möglich im Eltern-Container */
@@ -367,10 +367,14 @@ footer {
     max-width: 95vw;             /* Maximal 95% der Viewport-Breite */
     width: 95vw;                 /* Genau 95% der Viewport-Breite */
     box-sizing: border-box;      /* Padding/Border zählen zur Breite */
-    min-height: 120px;  /* Passe auf Wunsch an! */
-    min-height: 120px;  /* Passe auf Wunsch an! */
-    margin-bottom: 0.5rem;
-    padding: 0.25rem;
+    padding: 0.5rem;             /* Weniger Innenabstand, wirkt kompakter */
+    align-items: flex-start; /* Bild und Text oben bündig */
+    min-height: 140px;  /* Passe auf Wunsch an! */
+    margin-bottom: 0.75rem;  /* vorher z.B. 1rem */
+  }
+
+  .blog-card .card-img {
+    align-items: flex-start; /* Bild oben ausrichten statt zentrieren */
   }
 
   /* Startseiten-Karten besonders breit darstellen, aber nie größer als 600px */
