@@ -151,14 +151,14 @@ main {
 }
 
 /* Optional: Verzögerung für jede Karte */
-.blog-card:nth-child(1) { animation-delay: 1s; }
-.blog-card:nth-child(2) { animation-delay: 2s; }
-.blog-card:nth-child(3) { animation-delay: 3s; }
-.blog-card:nth-child(4) { animation-delay: 4s; }
-.blog-card:nth-child(5) { animation-delay: 5s; }
-.blog-card:nth-child(6) { animation-delay: 6s; }
-.blog-card:nth-child(7) { animation-delay: 7s; }
-.blog-card:nth-child(8) { animation-delay: 8s; }
+.blog-card:nth-child(1) { animation-delay: 0.5s; }
+.blog-card:nth-child(2) { animation-delay: 1s; }
+.blog-card:nth-child(3) { animation-delay: 1.5s; }
+.blog-card:nth-child(4) { animation-delay: 2s; }
+.blog-card:nth-child(5) { animation-delay: 2.5s; }
+.blog-card:nth-child(6) { animation-delay: 3s; }
+.blog-card:nth-child(7) { animation-delay: 3.5s; }
+.blog-card:nth-child(8) { animation-delay: 4s; }
 /* …je nachdem, wie viele Karten du auf einmal hast */
 
 .card-date {
