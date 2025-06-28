@@ -1,5 +1,8 @@
 ---
+layout: default
 title: Datenschutzerklärung
+permalink: /datenschutz
+narrow: true
 ---
 
 ### Allgemeine Hinweise
