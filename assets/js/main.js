@@ -27,13 +27,20 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+
 document.addEventListener("DOMContentLoaded", function () {
   const cards = document.querySelectorAll('.blog-card');
-  cards.forEach((card, i) => {
+  if (cards.length > 0) {
+    // Erste Karte sofort anzeigen
+    cards[0].classList.add('visible');
+  }
+  // Rest animiert verzögert
+  for (let i = 1; i < cards.length; i++) {
     setTimeout(() => {
-      card.classList.add('visible');
-    }, i * 120); // Verzögerung pro Karte für "Stufen"-Effekt
-  });
+      cards[i].classList.add('visible');
+    }, (i - 1) * 120); // Animation startet für zweite Karte, dann dritte usw.
+  }
 });
+
 
 
