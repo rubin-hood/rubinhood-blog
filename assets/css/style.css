@@ -39,19 +39,19 @@ a:active { color: #AA0600; }
   width: 100%;
   z-index: 100;
   height: 110px;
-  background: rgba(25, 25, 28, 0.95);
+  background: rgba(25,25,28,0.95); /* Startwert, wird im JS dynamisch überschrieben */
   transition:
     height 0.25s cubic-bezier(0.4,0,0.2,1),
     opacity 0.18s cubic-bezier(0.4,0,0.2,1),
-    filter 0.15s;
-  will-change: height, opacity;
+    filter 0.15s,
+    background 0.18s cubic-bezier(0.4,0,0.2,1);
+  will-change: height, opacity, background;
   display: flex;
   align-items: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .site-header.shrink {
-  /* Die Werte werden dynamisch per JS gesetzt, aber für Fallback: */
   height: 54px;
   opacity: 0.3;
   filter: blur(0.2px);
@@ -75,7 +75,6 @@ a:active { color: #AA0600; }
   height: 0;
   opacity: 0;
 }
-
 
 
 /*--------------------------------------------------------*/
