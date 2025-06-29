@@ -457,7 +457,7 @@ footer {
    9. Burger-Menü (Button für die mobile Navigation)
    ================================================================ */
 .burger {
-  z-index: 300;  /* Höher als das Overlay */
+  z-index: 301;  /* Höher als das Overlay */
   display: none;
   background: none;
   border: none;
