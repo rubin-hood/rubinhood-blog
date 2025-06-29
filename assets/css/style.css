@@ -365,31 +365,34 @@ footer {
   display: none;
   background: none;
   border: none;
-  width: 54px;        /* <--- etwas breiter */
-  height: 46px;
+  width: 38px;     /* kleiner */
+  height: 32px;    /* kleiner */
   cursor: pointer;
   position: relative;
   z-index: 11;
+  margin-top: 8px; /* oder top: 8px; bei position: absolute/fixed */
 }
+
 .burger::before,
 .burger::after,
 .burger span {
   content: '';
   display: block;
   background: #009C6C;
-  height: 4px;
+  height: 3px;        /* ggf. auch hier kleiner! */
   border-radius: 2px;
   position: absolute;
-  left: 4px;         /* <--- kleiner Abstand links */
-  right: 4px;        /* <--- kleiner Abstand rechts */
+  left: 4px;
+  right: 4px;
   transition: all 0.3s;
 }
-.burger::before { top: 8px; }
-.burger span    { top: 21px; }
-.burger::after  { top: 34px; }
+.burger::before { top: 6px; }
+.burger span    { top: 14px; }
+.burger::after  { top: 22px; }
 .burger.open span      { opacity: 0; }
-.burger.open::before   { transform: rotate(45deg); top: 21px; }
-.burger.open::after    { transform: rotate(-45deg); top: 21px; }
+.burger.open::before   { transform: rotate(45deg); top: 14px; }
+.burger.open::after    { transform: rotate(-45deg); top: 14px; }
+
 
 /* ===============================================================
    10. Mobile Menü-Overlay (ausklappbares Menü für Smartphones)
