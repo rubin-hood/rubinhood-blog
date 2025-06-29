@@ -27,18 +27,17 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-
 document.addEventListener("DOMContentLoaded", function () {
   const cards = document.querySelectorAll('.blog-card');
   if (cards.length > 0) {
-    // Erste Karte sofort anzeigen
+    // Erste Karte sofort
     cards[0].classList.add('visible');
   }
-  // Rest animiert verzögert
+  // Rest animiert verzögert, startend mit echtem Delay
   for (let i = 1; i < cards.length; i++) {
     setTimeout(() => {
       cards[i].classList.add('visible');
-    }, (i - 1) * 120); // Animation startet für zweite Karte, dann dritte usw.
+    }, i * 120); // NICHT (i - 1)!
   }
 });
 
