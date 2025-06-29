@@ -32,15 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener("DOMContentLoaded", function () {
   const cards = document.querySelectorAll('.blog-card');
   if (cards.length > 0) {
-    // Entferne die Transition vor dem Sichtbarmachen!
-    cards[0].style.transition = 'none';
-    cards[0].classList.add('visible');
-    // Danach kann die Transition zurückgesetzt werden, damit Hover usw. noch funktionieren
-    setTimeout(() => {
-      cards[0].style.transition = '';
-    }, 50); // kleiner Timeout reicht
+    cards[0].classList.add('visible', 'no-transition');
   }
-  // Rest animiert verzögert
   for (let i = 1; i < cards.length; i++) {
     setTimeout(() => {
       cards[i].classList.add('visible');
