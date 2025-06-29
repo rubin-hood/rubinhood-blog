@@ -38,34 +38,3 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-
-
-
-const header = document.querySelector('.site-header');
-let lastScroll = window.scrollY;
-let ticking = false;
-
-window.addEventListener('scroll', () => {
-  if (!ticking) {
-    window.requestAnimationFrame(() => {
-      const current = window.scrollY;
-
-      if (current > 30 && current > lastScroll) { 
-        // User scrollt nach unten und ist ein Stück gescrollt
-        header.classList.add('shrink');    // Header wird schmaler
-        header.classList.add('hide');      // Header verschwindet ganz
-      } else if (current > 10 && current < lastScroll) { 
-        // User scrollt nach oben
-        header.classList.add('shrink');    // Header bleibt schmal
-        header.classList.remove('hide');   // Header wird sichtbar
-      } else if (current <= 10) {
-        // Ganz oben
-        header.classList.remove('shrink'); // Originalgröße
-        header.classList.remove('hide');
-      }
-      lastScroll = current;
-      ticking = false;
-    });
-    ticking = true;
-  }
-});
