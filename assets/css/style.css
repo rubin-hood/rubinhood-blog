@@ -429,6 +429,42 @@ footer {
   .mobile-menu-overlay.open { display: flex; }
 }
 
+/* ===============================================================
+   10. Mobile Menü-Overlay (ausklappbares Menü für Smartphones)
+   =============================================================== */
+.mobile-menu-overlay {
+  z-index: 9999;
+  position: fixed;
+  display: none;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #F6F5F1;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 4rem;
+  overflow-y: auto;
+}
+.mobile-menu-overlay.open {
+  display: flex;
+}
+body.noscroll { overflow: hidden; }
+.mobile-menu-overlay .blog-card {
+  max-width: 92vw !important;
+  width: 92vw !important;
+  min-width: unset !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+.blog-grid-single .blog-card {
+  flex: none !important;
+  min-width: 250px;
+  max-width: 600px;
+  width: 100%;
+  min-height: 0 !important;
+  height: auto !important;
+  margin-bottom: 0.5rem;
+}
 
 /* ================================================================
    9. Burger-Menü (Button für die mobile Navigation)
@@ -466,38 +502,3 @@ footer {
 .burger.open::after    { transform: rotate(-45deg); top: 14px; }
 
 
-/* ===============================================================
-   10. Mobile Menü-Overlay (ausklappbares Menü für Smartphones)
-   =============================================================== */
-.mobile-menu-overlay {
-  display: none;
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: #F6F5F1;
-  z-index: 9999;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding-top: 4rem;
-  overflow-y: auto;
-}
-.mobile-menu-overlay.open {
-  display: flex;
-}
-body.noscroll { overflow: hidden; }
-.mobile-menu-overlay .blog-card {
-  max-width: 92vw !important;
-  width: 92vw !important;
-  min-width: unset !important;
-  margin-left: auto;
-  margin-right: auto;
-}
-.blog-grid-single .blog-card {
-  flex: none !important;
-  min-width: 250px;
-  max-width: 600px;
-  width: 100%;
-  min-height: 0 !important;
-  height: auto !important;
-  margin-bottom: 0.5rem;
-}
