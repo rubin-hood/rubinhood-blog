@@ -33,6 +33,22 @@ a:active { color: #AA0600; }
 
 /* =============================================================*/
 
+.site-header .logo img {
+  max-height: 90px;
+  height: 90px;
+  transition: max-height 0.25s, height 0.25s, opacity 0.2s;
+}
+.site-header.shrink .logo img {
+  max-height: 32px;
+  height: 32px;
+}
+.site-header.collapsed .logo img {
+  max-height: 0;
+  height: 0;
+  opacity: 0;
+}
+
+
 .site-header {
   position: sticky;
   top: 0;
@@ -58,17 +74,6 @@ a:active { color: #AA0600; }
   opacity: 0 !important;
   pointer-events: none;
   overflow: hidden;
-}
-
-.site-header .logo img {
-  height: 90px;
-  transition: height 0.25s cubic-bezier(.5,.01,0,1);
-}
-.site-header.shrink .logo img {
-  height: 32px;
-}
-.site-header.collapsed .logo img {
-  height: 0;
 }
 
 
