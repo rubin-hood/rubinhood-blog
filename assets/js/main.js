@@ -29,16 +29,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('appear');
-      observer.unobserve(entry.target);
-    }
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.blog-teaser-grid .blog-card');
+  cards.forEach((card, i) => {
+    setTimeout(() => {
+      card.classList.add('appear');
+    }, i === 0 ? 0 : 400 + i * 350);
   });
 });
-document.querySelectorAll('.blog-card').forEach(card => {
-  observer.observe(card);
-});
-
 
