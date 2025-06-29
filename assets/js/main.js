@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   cards.forEach((card, i) => {
     setTimeout(() => {
       card.classList.add('appear');
-    }, i === 0 ? 0 : 250 + i * 120);
+    }, i === 0 ? 0 : 400 + i * 350);
   });
 });
 
