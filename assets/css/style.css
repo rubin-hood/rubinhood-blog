@@ -33,20 +33,6 @@ a:active { color: #AA0600; }
 
 /* =============================================================*/
 
-.site-header .logo img {
-  max-height: 90px;
-  height: 90px;
-  transition: max-height 0.25s, height 0.25s, opacity 0.2s;
-}
-.site-header.shrink .logo img {
-  max-height: 32px;
-  height: 32px;
-}
-.site-header.collapsed .logo img {
-  max-height: 0;
-  height: 0;
-  opacity: 0;
-}
 
 
 .site-header {
@@ -58,15 +44,34 @@ a:active { color: #AA0600; }
   z-index: 100;
   transition: 
     height 0.25s cubic-bezier(.5,.01,0,1),
-    opacity 0.15s linear;
+    opacity 0.15s linear,
+    padding 0.25s cubic-bezier(.5,.01,0,1);
   display: flex;
   align-items: center;
   /* padding und andere styles wie gehabt */
+  padding: 0.5rem 1rem;
+  /* Falls nötig: */
+  overflow: hidden;
+}
+
+.site-header .logo img {
+  height: 90px;
+  max-height: 90px;
+  transition: 
+    height 0.25s cubic-bezier(.5,.01,0,1),
+    max-height 0.25s cubic-bezier(.5,.01,0,1),
+    opacity 0.15s linear;
 }
 
 .site-header.shrink {
-  height: 36px;      /* Endgröße (anpassbar!) */
-  opacity: 0.92;     /* optional leicht transparent */
+  height: 36px;
+  opacity: 0.92;
+  padding: 0.1rem 1rem;
+}
+
+.site-header.shrink .logo img {
+  height: 32px;
+  max-height: 32px;
 }
 
 .site-header.collapsed {
@@ -74,7 +79,17 @@ a:active { color: #AA0600; }
   opacity: 0 !important;
   pointer-events: none;
   overflow: hidden;
+  padding: 0 !important;
 }
+
+.site-header.collapsed .logo img {
+  height: 0 !important;
+  max-height: 0 !important;
+  opacity: 0 !important;
+}
+
+
+
 
 
 
