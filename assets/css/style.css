@@ -60,6 +60,18 @@ a:active { color: #AA0600; }
   overflow: hidden;
 }
 
+.site-header .logo img {
+  height: 90px;
+  transition: height 0.25s cubic-bezier(.5,.01,0,1);
+}
+.site-header.shrink .logo img {
+  height: 32px;
+}
+.site-header.collapsed .logo img {
+  height: 0;
+}
+
+
 
 /* =============================================================*/
 
