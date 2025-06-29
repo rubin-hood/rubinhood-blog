@@ -131,6 +131,31 @@ main {
   z-index: 2;
 }
 
+/*---------------------------------------------------*/
+
+/* Animation für das Hochfahren der Karten */
+@keyframes blogCardFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.blog-card {
+  opacity: 0; /* Startzustand, damit sie nicht sofort sichtbar sind */
+  transform: translateY(50px);
+  /* das wird von JS überschrieben */
+}
+.blog-card.visible {
+  animation: blogCardFadeInUp 0.7s cubic-bezier(.4,2,.6,1) forwards;
+}
+
+/*---------------------------------------------------*/
+
 .card-date {
   display: block;
   color: #888;

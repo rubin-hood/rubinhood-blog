@@ -27,4 +27,13 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+  const cards = document.querySelectorAll('.blog-teaser-grid .blog-card');
+  cards.forEach((card, i) => {
+    setTimeout(() => {
+      card.classList.add('visible');
+    }, 120 * i); // 120ms Abstand für jede Karte, kannst du anpassen
+  });
+});
+
 
