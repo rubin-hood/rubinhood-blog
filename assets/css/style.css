@@ -336,8 +336,8 @@ footer {
   .mobile-menu-overlay .social-icons { gap: 2rem; }
   .blog-card {
     min-width: unset;
-    max-width: 95vw;
-    width: 95vw;
+    max-width: 95vw !important;
+    width: 95vw !important;
     box-sizing: border-box;
     padding: 0.5rem;
   }
