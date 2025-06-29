@@ -195,9 +195,8 @@ main {
 .blog-layout {
   display: flex;
   gap: 2rem;
-  flex-direction: column;
-  height: auto;
-  overflow: visible;
+  height: 100vh;
+  overflow: hidden;
 }
 .blog-sidebar {
   border-right: 2px solid #e0e0e0;
@@ -207,11 +206,6 @@ main {
   width: 480px;
   max-width: 520px;
   flex: 0 0 480px;
-}
-.blog-content,
-.blog-sidebar {
-  max-height: none;     /* <-- statt 100vh */
-  overflow-y: visible;  /* <-- statt auto */
 }
 .blog-content {
   flex: 4 1 1200px;
@@ -321,7 +315,7 @@ footer {
     padding: 0.5rem;
   }
   
-    .mobile-divider {
+  .mobile-divider {
     border: none;
     border-top: 3px solid #ccc;   /* Farbe und Dicke der Linie */
     width: 85%;                   /* Länge der Linie, kannst du anpassen */
@@ -333,6 +327,19 @@ footer {
     min-width: unset !important;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .blog-layout {
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+  .blog-content,
+  .blog-sidebar {
+    max-height: none;
+    overflow-y: visible;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
