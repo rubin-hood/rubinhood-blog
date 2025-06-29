@@ -1,3 +1,9 @@
+.blog-card {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+
 /* =============================================
    1. Grundlegende Seiten-Einstellungen (Reset)
    ============================================= */
@@ -335,9 +341,9 @@ footer {
   }
   .mobile-menu-overlay .social-icons { gap: 2rem; }
   .blog-card {
-    min-width: unset !important;
-    max-width: 95vw !important;
-    width: 95vw !important;
+    min-width: unset;
+    max-width: 95vw;
+    width: 95vw;
     box-sizing: border-box;
     padding: 0.5rem;
   }
