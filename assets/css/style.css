@@ -195,8 +195,9 @@ main {
 .blog-layout {
   display: flex;
   gap: 2rem;
-  height: 100vh;
-  overflow: hidden;
+  flex-direction: column;
+  height: auto;
+  overflow: visible;
 }
 .blog-sidebar {
   border-right: 2px solid #e0e0e0;
@@ -206,6 +207,11 @@ main {
   width: 480px;
   max-width: 520px;
   flex: 0 0 480px;
+}
+.blog-content,
+.blog-sidebar {
+  max-height: none;     /* <-- statt 100vh */
+  overflow-y: visible;  /* <-- statt auto */
 }
 .blog-content {
   flex: 4 1 1200px;
