@@ -53,36 +53,5 @@ document.querySelectorAll('.blog-card').forEach(card => {
 //-------------------------
 
 
-// Smooth shrinking Header beim Scrollen
-(function() {
-  const header = document.querySelector('.site-header');
-  if (!header) return;
-
-  let lastScrollY = window.scrollY;
-  let ticking = false;
-
-  function updateHeader() {
-    const scrollY = window.scrollY;
-    // Ab 20px beginnt der Header zu schrumpfen, ab 180px wird er komplett ausgeblendet
-    if (scrollY < 20) {
-      header.classList.remove('shrink', 'hide');
-    } else if (scrollY < 180) {
-      header.classList.add('shrink');
-      header.classList.remove('hide');
-    } else {
-      header.classList.add('hide');
-      header.classList.remove('shrink');
-    }
-    ticking = false;
-  }
-
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      window.requestAnimationFrame(updateHeader);
-      ticking = true;
-    }
-  });
-})();
-
 
 

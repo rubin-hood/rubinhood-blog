@@ -33,72 +33,6 @@ a:active { color: #AA0600; }
 
 /*--------------------------------------------------------*/
 
-/* ===========================================
-   Dynamischer, smooth shrink & hide Header
-   =========================================== */
-
-.site-header {
-  /* Neu: Wir steuern Höhe und Sichtbarkeit via CSS Variablen */
-  --header-height: 90px;   /* initial, wie dein Logo */
-  --header-opacity: 1;
-  height: var(--header-height);
-  opacity: var(--header-opacity);
-  transition:
-    height 0.36s cubic-bezier(.4, .9, .6, 1),
-    opacity 0.32s cubic-bezier(.4, .9, .6, 1);
-  /* Fixieren oben */
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: #F6F5F1;
-  /* Optional: kleiner Schatten für bessere Sichtbarkeit */
-  box-shadow: 0 2px 12px -10px rgba(30,60,40,0.12);
-  will-change: height, opacity;
-}
-
-.logo img {
-  /* Smooth skalieren des Logos */
-  transition: height 0.36s cubic-bezier(.4, .9, .6, 1);
-  height: 90px;
-}
-
-/* Bei "kleiner" Header: verkleinern und ausblenden */
-.site-header.shrink {
-  --header-height: 44px;
-}
-.site-header.hide {
-  --header-height: 0px;
-  --header-opacity: 0;
-  pointer-events: none;
-}
-
-/* Logo wird mit Header mit-skaliert */
-.site-header.shrink .logo img {
-  height: 44px;
-}
-.site-header.hide .logo img {
-  height: 0px;
-}
-
-/* Optional: Navigation & Socials smooth ein-/ausblenden */
-.site-header.hide .site-nav,
-.site-header.hide .social-icons,
-.site-header.hide .burger {
-  opacity: 0;
-  transition: opacity 0.18s;
-  pointer-events: none;
-}
-.site-header .site-nav,
-.site-header .social-icons,
-.site-header .burger {
-  opacity: 1;
-  transition: opacity 0.18s;
-}
-
-/* Optional: Kein Überspringen des Contents */
-body {
-  scroll-padding-top: 90px;
-}
 
 
 
@@ -436,15 +370,6 @@ footer {
     padding-left: 0;
     padding-right: 0;
   }
-
-    .burger {
-    display: block !important;
-    position: fixed;   /* Jetzt immer oben rechts über dem Overlay */
-    top: 24px;
-    right: 28px;
-    margin-top: 0;
-    z-index: 301;      /* Noch höher als Overlay */
-  }
 }
 
 /* ================================================================
@@ -469,12 +394,12 @@ footer {
   display: none;
   background: none;
   border: none;
-  width: 38px;
-  height: 32px;
+  width: 38px;     /* kleiner */
+  height: 32px;    /* kleiner */
   cursor: pointer;
-  margin-top: 8px;
-  position: relative;  /* Desktop default, wird auf Mobile überschrieben */
-  z-index: 301;
+  position: relative;
+  z-index: 11;
+  margin-top: 8px; /* oder top: 8px; bei position: absolute/fixed */
 }
 
 .burger::before,
@@ -504,7 +429,6 @@ footer {
 .mobile-menu-overlay {
   display: none;
   position: fixed;
-  z-index: 200;
   top: 0; left: 0; right: 0; bottom: 0;
   background: #F6F5F1;
   z-index: 10;
@@ -516,7 +440,6 @@ footer {
 }
 .mobile-menu-overlay.open {
   display: flex;
-  z-index: 200 !important;
 }
 body.noscroll { overflow: hidden; }
 .mobile-menu-overlay .blog-card {
