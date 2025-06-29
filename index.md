@@ -13,7 +13,7 @@ title: Home
 </div>
 
 <div class="blog-teaser-grid">
-  {% for post in site.posts limit:6 %}
+  {% for post in site.posts limit:12 %}
 <a class="blog-card" href="{{ post.url | relative_url }}">
   <div class="card-img">
     {% if post.image %}
