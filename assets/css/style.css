@@ -123,7 +123,6 @@ main {
 
 /*---------------------------------------------------*/
 
-/* Karten-Animation: von unten nach oben + Fade-In */
 .blog-card {
   opacity: 0;
   transform: translateY(40px);
@@ -140,21 +139,15 @@ main {
   transform: translateY(0);
 }
 
-/* Vergrößern beim Hover/Fokus (gilt für alle Karten gleichzeitig) */
+/* NUR die aktiv-hoverte oder fokussierte Karte wird größer */
 .blog-card:hover,
-.blog-card:focus,
-.blog-card.is-hovered {
+.blog-card:focus {
   z-index: 10;
   scale: 1.04;
   box-shadow: 0 8px 28px -8px rgba(30,80,60,0.16);
   border-color: #009C6C !important;
 }
 
-.blog-card-group-hover .blog-card {
-  scale: 1.04;
-  box-shadow: 0 8px 28px -8px rgba(30,80,60,0.16);
-  border-color: #009C6C !important;
-}
 
 /*---------------------------------------------------*/
 
