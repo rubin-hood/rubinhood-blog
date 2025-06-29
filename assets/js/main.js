@@ -29,16 +29,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+let appearIndex = 0;
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('appear');
-      observer.unobserve(entry.target);
+      // Stagger-Delay in ms, z.B. 120ms pro Card
+      const delay = appearIndex * 120;
+      setTimeout(() => {
+        entry.target.classList.add('appear');
+        observer.unobserve(entry.target);
+      }, delay);
+      appearIndex++;
     }
   });
 });
+
 document.querySelectorAll('.blog-card').forEach(card => {
   observer.observe(card);
 });
+
 
 
