@@ -53,5 +53,48 @@ document.querySelectorAll('.blog-card').forEach(card => {
 //-------------------------
 
 
+// Smooth Collapsing Sticky Header
+let lastScroll = 0;
+let ticking = false;
+const header = document.querySelector('.site-header');
+const collapseStart = 30;  // ab wieviel px Scroll soll geschrumpft werden
+const collapseEnd = 420;   // ab wieviel px Header ganz verschwinden
+
+function onScroll() {
+  const scrollY = window.scrollY || window.pageYOffset;
+
+  if (scrollY < collapseStart) {
+    header.classList.remove('shrink');
+    header.classList.remove('hide');
+  } else if (scrollY >= collapseStart && scrollY < collapseEnd) {
+    header.classList.add('shrink');
+    header.classList.remove('hide');
+    // Dynamische Höhe/Transparenz (optional):
+    let percent = (scrollY - collapseStart) / (collapseEnd - collapseStart);
+    percent = Math.min(1, Math.max(0, percent));
+    header.style.height = `${110 - (56 * percent)}px`;
+    header.style.opacity = `${1 - (0.95 * percent)}`;
+  } else {
+    header.classList.add('hide');
+    header.style.height = '0px';
+    header.style.opacity = '0';
+  }
+  ticking = false;
+}
+
+// Für ultra smoothness -> requestAnimationFrame
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    window.requestAnimationFrame(onScroll);
+    ticking = true;
+  }
+});
+
+// Optional: Reset bei Seitenwechsel (falls SPA)
+window.addEventListener('pageshow', () => {
+  header.classList.remove('shrink', 'hide');
+  header.style.height = '';
+  header.style.opacity = '';
+});
 
 
