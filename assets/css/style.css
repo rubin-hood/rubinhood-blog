@@ -113,10 +113,10 @@ main {
   min-width: 350px;
   max-width: 900px;
   margin-bottom: 1rem;
+  transition: border-color .2s;
   width: 100%;
   min-height: 0 !important;
   height: auto !important;
-  opacity: 0;
   transform: translateY(50px) scale(1);
   transition: 
     transform 0.40s cubic-bezier(.4,2,.6,1), 
