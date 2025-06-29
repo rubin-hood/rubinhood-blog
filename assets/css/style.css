@@ -33,68 +33,36 @@ a:active { color: #AA0600; }
 
 /* =============================================================*/
 
-/* Header Standardzustand */
+
+
 .site-header {
   position: sticky;
   top: 0;
   width: 100%;
-  height: 90px;
+  height: 90px; /* Startgröße */
   background: #F6F5F1;
   z-index: 100;
+  transition: 
+    height 0.25s cubic-bezier(.5,.01,0,1),
+    opacity 0.15s linear;
   display: flex;
   align-items: center;
-  padding: 0.5rem 1rem;
-  transition:
-    height 0.25s cubic-bezier(.5,.01,0,1),
-    padding 0.25s cubic-bezier(.5,.01,0,1),
-    box-shadow 0.18s,
-    opacity 0.18s;
-  box-shadow: none;
-  /* Kein overflow:hidden im Header, sonst wird Inhalt abgeschnitten! */
+  /* padding und andere styles wie gehabt */
 }
 
-.site-header .logo img {
-  height: 90px;
-  max-height: 90px;
-  transition:
-    height 0.25s cubic-bezier(.5,.01,0,1),
-    max-height 0.25s cubic-bezier(.5,.01,0,1);
-}
-
-/* Schrumpf-Zustand */
 .site-header.shrink {
-  height: 38px;
-  padding: 0.1rem 1rem;
-  box-shadow: 0 2px 10px 0 rgba(40,80,40,0.07);
+  height: 36px;      /* Endgröße (anpassbar!) */
+  opacity: 0.92;     /* optional leicht transparent */
 }
 
-.site-header.shrink .logo img {
-  height: 30px;
-  max-height: 30px;
+.site-header.collapsed {
+  height: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none;
+  overflow: hidden;
 }
 
-/* Navigation (Beispiel) */
-.site-nav ul {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.site-nav a {
-  text-decoration: none;
-  color: #009C6C;
-  font-size: 1.3rem;
-}
-.site-nav a.active { color: #AA0600; }
 
-/* Main Abstand oben */
-main {
-  margin-top: 2rem;
-  /* Optional: falls viel Inhalt, mehr Abstand oben */
-}
-
-/* Responsiv? Gern nach Wunsch ergänzen! */
 
 
 
