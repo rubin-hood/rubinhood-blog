@@ -54,10 +54,11 @@ document.querySelectorAll('.blog-card').forEach(card => {
 
 
 // Smooth Collapsing Sticky Header
-const header = document.querySelector('.site-header');
-const collapseStart = 0;    // ab 0px scrollen fängt das shrinking an
-const collapseEnd = 120;    // bei 120px ist der Header komplett weg
+let lastScroll = 0;
 let ticking = false;
+const header = document.querySelector('.site-header');
+const collapseStart = 30;  // ab wieviel px Scroll soll geschrumpft werden
+const collapseEnd = 420;   // ab wieviel px Header ganz verschwinden
 
 function onScroll() {
   const scrollY = window.scrollY || window.pageYOffset;
@@ -65,16 +66,14 @@ function onScroll() {
   if (scrollY < collapseStart) {
     header.classList.remove('shrink');
     header.classList.remove('hide');
-    header.style.height = '';
-    header.style.opacity = '';
   } else if (scrollY >= collapseStart && scrollY < collapseEnd) {
     header.classList.add('shrink');
     header.classList.remove('hide');
+    // Dynamische Höhe/Transparenz (optional):
     let percent = (scrollY - collapseStart) / (collapseEnd - collapseStart);
     percent = Math.min(1, Math.max(0, percent));
-    // Animation: Höhe & Transparenz gleichzeitig, sehr schnell
-    header.style.height = `${110 - (56 * percent)}px`;        // von 110px auf 54px
-    header.style.opacity = `${1 - percent}`;                  // von 1 auf 0
+    header.style.height = `${110 - (56 * percent)}px`;
+    header.style.opacity = `${1 - (0.95 * percent)}`;
   } else {
     header.classList.add('hide');
     header.style.height = '0px';
@@ -83,6 +82,7 @@ function onScroll() {
   ticking = false;
 }
 
+// Für ultra smoothness -> requestAnimationFrame
 window.addEventListener('scroll', () => {
   if (!ticking) {
     window.requestAnimationFrame(onScroll);
@@ -90,11 +90,11 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// Optional: Reset bei Seitenwechsel (falls SPA)
 window.addEventListener('pageshow', () => {
   header.classList.remove('shrink', 'hide');
   header.style.height = '';
   header.style.opacity = '';
 });
-
 
 
