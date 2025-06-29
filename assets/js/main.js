@@ -51,66 +51,38 @@ document.querySelectorAll('.blog-card').forEach(card => {
 
 
 //-------------------------
-// Smooth Sticky Shrinking Header
-(function() {
-  const header = document.getElementById('site-header');
-  let lastScroll = window.scrollY;
-  let ticking = false;
-  let shrinkTrigger = 36; // Pixel nach denen Header beginnt zu schrumpfen
-  let hideTrigger = 240;  // Pixel nach denen Header ausblendet
 
-  function onScroll() {
-    const y = window.scrollY;
-    // Header nie ausblenden, wenn das mobile Menü offen ist!
-    const burgerOpen = document.body.classList.contains('mobile-menu-open');
-    if (burgerOpen) {
-      header.classList.remove('hide');
-      return;
-    }
-    // Animation
-    if (y > shrinkTrigger && y <= hideTrigger) {
+
+// Smooth shrinking Header beim Scrollen
+(function() {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  function updateHeader() {
+    const scrollY = window.scrollY;
+    // Ab 20px beginnt der Header zu schrumpfen, ab 180px wird er komplett ausgeblendet
+    if (scrollY < 20) {
+      header.classList.remove('shrink', 'hide');
+    } else if (scrollY < 180) {
       header.classList.add('shrink');
       header.classList.remove('hide');
-    } else if (y > hideTrigger) {
-      header.classList.add('hide');
     } else {
-      header.classList.remove('shrink', 'hide');
+      header.classList.add('hide');
+      header.classList.remove('shrink');
     }
-    lastScroll = y;
+    ticking = false;
   }
 
   window.addEventListener('scroll', function() {
     if (!ticking) {
-      window.requestAnimationFrame(function() {
-        onScroll();
-        ticking = false;
-      });
+      window.requestAnimationFrame(updateHeader);
       ticking = true;
     }
   });
 })();
-
-// Mobile Burger Menü-Öffnen/Schließen + Header Fix
-document.addEventListener('DOMContentLoaded', function() {
-  const burger = document.getElementById('burger-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  burger?.addEventListener('click', function() {
-    const isOpen = burger.classList.toggle('open');
-    mobileMenu.classList.toggle('open', isOpen);
-    document.body.classList.toggle('noscroll', isOpen);
-    document.body.classList.toggle('mobile-menu-open', isOpen);
-  });
-
-  // Menü schließen beim Klick außerhalb (optional)
-  mobileMenu?.addEventListener('click', function(e) {
-    if (e.target === mobileMenu) {
-      burger.classList.remove('open');
-      mobileMenu.classList.remove('open');
-      document.body.classList.remove('noscroll', 'mobile-menu-open');
-    }
-  });
-});
-
 
 
 
