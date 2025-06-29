@@ -27,17 +27,24 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+
+
 document.addEventListener("DOMContentLoaded", function () {
   const cards = document.querySelectorAll('.blog-card');
   if (cards.length > 0) {
-    // Erste Karte sofort
+    // Entferne die Transition vor dem Sichtbarmachen!
+    cards[0].style.transition = 'none';
     cards[0].classList.add('visible');
+    // Danach kann die Transition zurückgesetzt werden, damit Hover usw. noch funktionieren
+    setTimeout(() => {
+      cards[0].style.transition = '';
+    }, 50); // kleiner Timeout reicht
   }
-  // Rest animiert verzögert, startend mit echtem Delay
+  // Rest animiert verzögert
   for (let i = 1; i < cards.length; i++) {
     setTimeout(() => {
       cards[i].classList.add('visible');
-    }, i * 120); // NICHT (i - 1)!
+    }, i * 120);
   }
 });
 
