@@ -51,5 +51,41 @@ document.querySelectorAll('.blog-card').forEach(card => {
 
 
 //-------------------------
+// Smooth Collapsing Sticky Header
+
+const header = document.querySelector('.site-header');
+let lastScrollY = window.scrollY;
+let ticking = false;
+let collapsed = false;
+
+function onScroll() {
+  const currentScroll = window.scrollY;
+
+  if (currentScroll > 20 && currentScroll < 200) {
+    // Header wird kleiner
+    header.classList.add('shrink');
+    header.classList.remove('collapse');
+    collapsed = false;
+  } else if (currentScroll >= 200) {
+    // Header komplett weg
+    header.classList.remove('shrink');
+    header.classList.add('collapse');
+    collapsed = true;
+  } else {
+    // Header komplett sichtbar
+    header.classList.remove('shrink');
+    header.classList.remove('collapse');
+    collapsed = false;
+  }
+  lastScrollY = currentScroll;
+  ticking = false;
+}
+
+window.addEventListener('scroll', function() {
+  if (!ticking) {
+    window.requestAnimationFrame(onScroll);
+    ticking = true;
+  }
+});
 
 
