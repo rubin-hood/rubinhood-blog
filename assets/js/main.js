@@ -29,6 +29,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+// Karten beim Laden animiert erscheinen lassen
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.blog-teaser-grid .blog-card');
+  cards.forEach((card, i) => {
+    setTimeout(() => {
+      card.classList.add('appear');
+    }, i === 0 ? 0 : 250 + i * 120); // Erste sofort, Rest verzögert
+  });
+
+  // Alle Karten gleichzeitig vergrößern beim Hover/Fokus einer Karte
+  const grid = document.querySelector('.blog-teaser-grid');
+  if (!grid) return;
+
+  function addGroupHover() {
+    grid.classList.add('blog-card-group-hover');
+  }
+  function removeGroupHover() {
+    grid.classList.remove('blog-card-group-hover');
+  }
+
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', addGroupHover);
+    card.addEventListener('focusin', addGroupHover);
+    card.addEventListener('mouseleave', removeGroupHover);
+    card.addEventListener('focusout', removeGroupHover);
+  });
+});
 
 
 
