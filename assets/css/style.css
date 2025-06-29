@@ -458,3 +458,42 @@ body.noscroll { overflow: hidden; }
   height: auto !important;
   margin-bottom: 0.5rem;
 }
+
+
+
+
+
+@supports (animation-timeline: works) {
+  /* Definiere Header-Scroll-Animation: */
+  @keyframes header-shrink-fade {
+    to {
+      opacity: 0;
+      transform: scale(0.8) translateY(-60px);
+    }
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    background: #F6F5F1e6; /* leicht durchsichtig, wirkt smooth */
+    transition: box-shadow 0.3s;
+    will-change: opacity, transform;
+    animation-name: header-shrink-fade;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(.4,.01,.19,.99);
+    animation-timeline: scroll();
+    animation-range: 0 180px; /* Nach 180px ist Header weg */
+  }
+}
+
+@supports not (animation-timeline: works) {
+  /* Fallback: Header bleibt einfach stehen (oder z.B. sticky/shadow) */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    background: #F6F5F1e6;
+    transition: box-shadow 0.3s;
+  }
+}
