@@ -36,16 +36,14 @@ a:active { color: #AA0600; }
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 101;
   width: 100%;
   z-index: 100;
-  /* Anfangsgröße */
   height: 110px;
   background: rgba(25, 25, 28, 0.95);
   transition:
-    height 0.6s cubic-bezier(0.4,0,0.2,1),
-    opacity 0.6s cubic-bezier(0.4,0,0.2,1),
-    filter 0.4s;
+    height 0.25s cubic-bezier(0.4,0,0.2,1),
+    opacity 0.18s cubic-bezier(0.4,0,0.2,1),
+    filter 0.15s;
   will-change: height, opacity;
   display: flex;
   align-items: center;
@@ -53,8 +51,9 @@ a:active { color: #AA0600; }
 }
 
 .site-header.shrink {
+  /* Die Werte werden dynamisch per JS gesetzt, aber für Fallback: */
   height: 54px;
-  opacity: 0.92;
+  opacity: 0.3;
   filter: blur(0.2px);
 }
 
@@ -67,7 +66,7 @@ a:active { color: #AA0600; }
 
 .site-header .logo img {
   height: 60px;
-  transition: height 0.6s cubic-bezier(0.4,0,0.2,1);
+  transition: height 0.22s cubic-bezier(0.4,0,0.2,1);
 }
 .site-header.shrink .logo img {
   height: 32px;
