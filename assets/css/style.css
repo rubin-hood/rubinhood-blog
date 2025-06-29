@@ -429,6 +429,47 @@ footer {
   .mobile-menu-overlay.open { display: flex; }
 }
 
+
+/* ================================================================
+   9. Burger-Menü (Button für die mobile Navigation)
+   ================================================================ */
+.burger {
+  display: none;
+  background: none;
+  border: none;
+  width: 38px;
+  height: 32px;
+  cursor: pointer;
+  position: relative;
+  z-index: 10001; /* Über dem Header, aber UNTER dem Overlay */
+  margin-top: 8px;
+}
+@media (max-width: 900px) {
+  .burger {
+    display: block;
+  }
+}
+.burger::before,
+.burger::after,
+.burger span {
+  content: '';
+  display: block;
+  background: #009C6C;
+  height: 3px;
+  border-radius: 2px;
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  transition: all 0.3s;
+}
+.burger::before { top: 6px; }
+.burger span    { top: 14px; }
+.burger::after  { top: 22px; }
+.burger.open span      { opacity: 0; }
+.burger.open::before   { transform: rotate(45deg); top: 14px; }
+.burger.open::after    { transform: rotate(-45deg); top: 14px; }
+
+
 /* ===============================================================
    10. Mobile Menü-Overlay (ausklappbares Menü für Smartphones)
    =============================================================== */
@@ -438,15 +479,19 @@ footer {
   display: none;
   top: 0; left: 0; right: 0; bottom: 0;
   background: #F6F5F1;
-
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   padding-top: 4rem;
   overflow-y: auto;
+  width: 100vw;
+  height: 100vh;
+  transition: opacity 0.3s;
 }
 .mobile-menu-overlay.open {
   display: flex;
+  opacity: 1;
+  pointer-events: all;
 }
 body.noscroll { overflow: hidden; }
 .mobile-menu-overlay .blog-card {
@@ -466,39 +511,20 @@ body.noscroll { overflow: hidden; }
   margin-bottom: 0.5rem;
 }
 
-/* ================================================================
-   9. Burger-Menü (Button für die mobile Navigation)
-   ================================================================ */
-.burger {
-  display: none;
+/* =============== Schließen-Button im Overlay =============== */
+.menu-close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  font-size: 48px;
+  color: #009C6C;
   background: none;
   border: none;
-  width: 38px;     /* kleiner */
-  height: 32px;    /* kleiner */
+  z-index: 10001;   /* Noch über dem Overlay-Inhalt */
   cursor: pointer;
-  position: relative;
-  z-index: 11;
-  margin-top: 8px; /* oder top: 8px; bei position: absolute/fixed */
+  opacity: 0.88;
+  transition: opacity 0.15s;
 }
-
-.burger::before,
-.burger::after,
-.burger span {
-  content: '';
-  display: block;
-  background: #009C6C;
-  height: 3px;        /* ggf. auch hier kleiner! */
-  border-radius: 2px;
-  position: absolute;
-  left: 4px;
-  right: 4px;
-  transition: all 0.3s;
+.menu-close:hover {
+  opacity: 1;
 }
-.burger::before { top: 6px; }
-.burger span    { top: 14px; }
-.burger::after  { top: 22px; }
-.burger.open span      { opacity: 0; }
-.burger.open::before   { transform: rotate(45deg); top: 14px; }
-.burger.open::after    { transform: rotate(-45deg); top: 14px; }
-
-
