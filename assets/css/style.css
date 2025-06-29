@@ -7,285 +7,512 @@
 html, body {
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-family: system-ui, sans-serif;
   background: #F6F5F1;
   color: #222;
-  scroll-behavior: smooth;
 }
 a {
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.18s;
+  text-decoration: none !important;
+  color: #009C6C;
 }
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  border: 0;
-}
-ul, ol {
-  padding-left: 1.3em;
-}
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  margin-top: 0;
-}
-button, input, select, textarea {
-  font-family: inherit;
-  font-size: 1rem;
-  outline: none;
-}
-hr {
-  border: 0;
-  border-top: 1.2px solid #ececec;
-  margin: 2rem 0;
-}
+a:visited { color: #009C6C; }
+a:hover, a:focus { color: #AA0600; }
+a:active { color: #AA0600; }
 
-/* =============================================
-   2. Sticky Header mit Animation
-   ============================================= */
+
+/* =============================================================
+   2. Header und Navigation (Desktop-Ansicht)
+   ============================================================= */
 .site-header {
-  position: sticky;
-  top: 0; left: 0; width: 100%;
-  z-index: 1000;
-  background: #fff;
-  transition:
-    height 0.35s cubic-bezier(.4,.35,.22,1),
-    padding 0.35s cubic-bezier(.4,.35,.22,1),
-    box-shadow 0.25s,
-    transform 0.4s cubic-bezier(.4,.35,.22,1),
-    opacity 0.3s;
-  height: 80px;
-  padding: 0 2.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 1px 16px rgba(0,0,0,0.03);
+  /* border-bottom: 2px solid #222; */
+  padding: 0.5rem 1rem;
+}
+
+/*--------------------------------------------------------*/
+
+.site-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20; /* Muss über dem .mobile-menu-overlay (z-index: 10) stehen! */
+  background: #F6F5F1f8; /* leicht transparent für Smoothness */
+  box-shadow: 0 2px 24px -14px rgba(20,40,34,0.06);
+  transition:
+    height 0.35s cubic-bezier(.55,.08,.28,.98),
+    padding 0.35s cubic-bezier(.55,.08,.28,.98),
+    background 0.3s,
+    opacity 0.38s cubic-bezier(.55,.08,.28,.98),
+    box-shadow 0.38s cubic-bezier(.55,.08,.28,.98);
+  height: 96px;
+  padding: 0.5rem 1rem;
   opacity: 1;
+  will-change: height, opacity, padding;
 }
 
-.site-header.shrunk {
-  height: 48px;
-  padding: 0 1.5rem;
-  box-shadow: 0 1px 10px rgba(0,0,0,0.07);
+/* Geschrumpfter und ausgeblendeter Zustand */
+.site-header.shrink {
+  height: 54px;
+  padding: 0.12rem 1rem;
+  background: #F6F5F1ee;
+  box-shadow: 0 2px 10px -8px rgba(20,40,34,0.08);
+}
+.site-header.hide {
+  opacity: 0;
+  pointer-events: none;
+  height: 0 !important;
+  padding: 0 1rem;
+  box-shadow: none;
 }
 
-.site-header.hidden {
-  transform: translateY(-120%);
+/* Logo skalieren beim Shrink */
+.site-header .logo img {
+  transition: height 0.35s cubic-bezier(.55,.08,.28,.98);
+}
+.site-header.shrink .logo img {
+  height: 54px;
+}
+.site-header.hide .logo img {
+  height: 0;
+}
+
+/* Optional: Burger auch sanft mitskalieren */
+.site-header .burger {
+  transition: margin-top 0.35s cubic-bezier(.55,.08,.28,.98);
+}
+.site-header.shrink .burger {
+  margin-top: 2px;
+}
+.site-header.hide .burger {
   opacity: 0;
 }
 
-/* Logo scaling */
-.logo img {
-  height: 52px;
-  max-width: 170px;
-  transition: height 0.33s cubic-bezier(.4,.35,.22,1), filter 0.22s;
-  filter: brightness(1) saturate(1);
-}
-.site-header.shrunk .logo img {
-  height: 32px;
-  filter: brightness(0.88) saturate(1.1);
+/* Mobile: Header immer sichtbar bei offenem Menü */
+@media (max-width: 900px) {
+  .site-header.hide {
+    opacity: 1 !important;
+    height: 54px !important;
+    pointer-events: auto !important;
+  }
 }
 
-/* =============================================
-   3. Navigation Desktop
-   ============================================= */
-.site-nav {
+
+
+/*--------------------------------------------------------*/
+
+.logo img { height: 90px; }
+.site-nav ul {
   display: flex;
-  gap: 2.2rem;
-  align-items: center;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
 }
 .site-nav a {
-  font-weight: 500;
-  font-size: 1.09rem;
-  color: #222;
-  position: relative;
+  text-decoration: none;
+  color: #009C6C;
+  font-size: 1.3rem;
 }
-.site-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: -4px; height: 2px;
-  background: #c52639;
-  opacity: 0;
-  transition: opacity 0.19s, transform 0.22s;
-  transform: scaleX(0.3);
-  border-radius: 2px;
-}
-.site-nav a:hover, .site-nav a:focus {
-  color: #c52639;
-}
-.site-nav a:hover::after, .site-nav a:focus::after {
-  opacity: 0.7;
-  transform: scaleX(1);
-}
-
-/* =============================================
-   4. Social Icons
-   ============================================= */
+.site-nav a:hover { color: #AA0600; }
+.site-nav a.active { color: #AA0600; }
 .social-icons {
   display: flex;
-  gap: 0.6rem;
   align-items: center;
+  gap: 1rem;
 }
 .icon-link {
-  display: inline-flex;
+  display: inline-block;
+  position: relative;
+  width: 24px;
+  height: 20px;
+  overflow: hidden;
+  vertical-align: middle;
+}
+.icon-link .icon-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;
+  transition: opacity 0.2s;
+  display: block;
+}
+.icon-link .hover { opacity: 0; pointer-events: none; }
+.icon-link:hover .hover { opacity: 1; pointer-events: auto; }
+.icon-link:hover .normal { opacity: 0; }
+
+
+/* ===========================================================
+   3. Hauptbereich (Main Content)
+   =========================================================== */
+main {
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.page-content.narrow {
+  max-width: 750px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.intro { margin-bottom: 2rem; }
+.intro .underline { text-decoration: none; }
+
+
+/* ===========================================================
+   4. Blog-Grid und Blog-Karten
+   =========================================================== */
+.blog-teaser-grid, .blog-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0rem 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+.blog-grid-single {
+  flex-direction: column;
+  align-items: center;
+}
+.blog-card {
+  flex: 1 1 150px;
+  box-sizing: border-box;
+  background: #FCFBF7;
+  border-radius: 7px;
+  display: flex;
+  align-items: flex-start;
+  padding: 0.75rem;
+  min-width: 350px;
+  max-width: 900px;
+  margin-bottom: 1rem;
+  transition: border-color .2s;
+  width: 100%;
+  min-height: 0 !important;
+  height: auto !important;
+
+}
+
+
+/*---------------------------------------------------*/
+
+.blog-card {
+  opacity: 0;
+  transform: translateY(100px);
+  transition:
+    opacity 1.2s cubic-bezier(.3, .7, .4, 1),
+    transform 1.2s cubic-bezier(.3, .7, .4, 1),
+    box-shadow 0.25s,
+    scale 0.25s;
+  will-change: opacity, transform, scale;
+}
+
+.blog-card.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.blog-card:hover,
+.blog-card:focus {
+  z-index: 10;
+  scale: 1.04;
+  box-shadow: 0 8px 28px -8px rgba(30,80,60,0.16);
+  border-color: #009C6C !important;
+}
+
+
+/*---------------------------------------------------*/
+
+
+.card-date {
+  display: block;
+  color: #888;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.blog-teaser-grid .blog-card {
+  border: 1px solid #c4c4c4 !important;
+}
+.card-content {
+  flex: 1;
+}
+.blog-card .card-img {
+  min-width: 120px;
+  min-height: 120px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  padding: 5px;
-  border-radius: 50%;
-  transition: background 0.15s;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-right: 1rem;
 }
-.icon-link:hover, .icon-link:focus {
-  background: #f4f3f3;
-}
-.icon-img {
-  width: 23px;
-  height: 23px;
+.blog-card .card-img img {
+  max-width: 120px;
+  object-fit: cover;
+  border-radius: 4px;
   display: block;
-  transition: opacity 0.18s;
-  pointer-events: none;
 }
-.icon-img.hover { opacity: 0; position: absolute; left: 0; top: 0;}
-.icon-link:hover .icon-img.hover { opacity: 1; }
-.icon-link:hover .icon-img.normal { opacity: 0; }
+.blog-card .card-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #009C6C !important;
+  text-decoration: none !important;
+}
+.blog-card:hover .card-title,
+.blog-card .card-title:hover {
+  color: #AA0600 !important;
+  text-decoration: underline !important;
+  cursor: pointer;
+}
+.blog-card .card-desc {
+  font-size: 1rem;
+  color: #444;
+}
+.card-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.blog-sidebar .blog-card.active .card-title {
+  color: #AA0600 !important;
+  font-weight: bold;
+}
 
-/* =============================================
-   5. Burger Menü (nur Mobile)
-   ============================================= */
+
+/* =============================================================
+   5. Blogpost-Layout: Sidebar & Content
+   ============================================================= */
+.blog-layout {
+  display: flex;
+  gap: 2rem;
+  height: 100vh;
+  overflow: hidden;
+}
+.blog-sidebar {
+  border-right: 2px solid #e0e0e0;
+  padding-right: 2rem;
+  box-sizing: border-box;
+  min-width: 400px;
+  width: 480px;
+  max-width: 520px;
+  flex: 0 0 480px;
+}
+.blog-content {
+  flex: 4 1 1200px;
+  padding-left: 2rem;
+  overflow-y: auto;
+  max-height: 100vh;
+  box-sizing: border-box;
+  padding: 2rem 2rem 3rem 0;
+}
+.blog-content img,
+.blog-content iframe,
+.blog-content video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  box-sizing: border-box;
+}
+.blog-content table {
+  max-width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+.blog-sidebar,
+.blog-content {
+  overflow-y: auto;
+  max-height: 100vh;
+}
+.blog-sidebar .blog-card {
+  width: 100%;
+  max-width: unset !important;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-width: 220px;
+}
+.blog-sidebar .card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+
+/* =============================================================
+   6. Footer – Fußzeile der Seite
+   ============================================================= */
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  margin: 2rem 0 1rem 0;
+}
+.footer-links {
+  margin-bottom: 0.5rem;
+}
+.footer-links a:hover {
+  color: #AA0600;
+  text-decoration: underline;
+}
+
+
+/* =============================================================
+   7. Responsive Design & Mobile-Menü (Bildschirme ≤ 900px)
+   ============================================================= */
+@media (max-width: 900px) {
+  .blog-teaser-grid, .blog-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .blog-layout { flex-direction: column; }
+  .blog-sidebar { display: none; }
+  .blog-content { width: 100%; }
+  .site-nav, .site-header .social-icons { display: none; }
+  .burger { display: block !important; }
+  .mobile-menu-overlay { display: none; }
+  .mobile-menu-overlay.open { display: flex; }
+  .mobile-menu-overlay > nav { margin-bottom: 2rem !important; }
+  .mobile-menu-overlay > .social-icons { margin-bottom: 3rem !important; }
+  .mobile-menu-overlay nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0 0 2rem 0;
+  }
+  .mobile-menu-overlay nav a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 2;
+    text-align: center;
+  }
+  .mobile-menu-overlay .icon-link {
+    width: 40px;
+    height: 40px;
+  }
+  .mobile-menu-overlay .icon-img {
+    width: 100%;
+    height: 100%;
+  }
+  .mobile-menu-overlay .social-icons { gap: 2rem; }
+  .blog-card {
+    min-width: unset;
+    max-width: 95vw;
+    width: 95vw;
+    box-sizing: border-box;
+    padding: 0.5rem;
+  }
+  
+  .mobile-divider {
+    border: none;
+    border-top: 3px solid #ccc;   /* Farbe und Dicke der Linie */
+    width: 85%;                   /* Länge der Linie, kannst du anpassen */
+    margin: 2.5rem 0 2rem 0;      /* Abstand oben/unten */
+  }
+  .blog-teaser-grid .blog-card {
+    max-width: 900px !important;
+    width: 100%;
+    min-width: unset !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .blog-layout {
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+  .blog-content,
+  .blog-sidebar {
+    max-height: none;
+    overflow-y: visible;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* ================================================================
+   8. Feine Mobile-Anpassungen für sehr kleine Bildschirme (≤ 600px)
+   ================================================================ */
+@media (max-width: 600px) {
+  .icon-link { width: 24px; }
+  .icon-img { height: 24px; }
+  .site-header { flex-direction: row; gap: 0; }
+  .blog-card { padding: 0.25rem; }
+  .site-nav, .site-header .social-icons { display: none; }
+  .burger { display: block !important; }
+  .mobile-menu-overlay { display: none; }
+  .mobile-menu-overlay.open { display: flex; }
+}
+
+
+/* ================================================================
+   9. Burger-Menü (Button für die mobile Navigation)
+   ================================================================ */
 .burger {
   display: none;
-  position: relative;
-  width: 42px;
-  height: 42px;
   background: none;
   border: none;
+  width: 38px;     /* kleiner */
+  height: 32px;    /* kleiner */
   cursor: pointer;
-  margin-left: 0.5rem;
-  z-index: 1200;
+  position: relative;
+  z-index: 11;
+  margin-top: 8px; /* oder top: 8px; bei position: absolute/fixed */
 }
-.burger span, .burger span:before, .burger span:after {
-  display: block;
-  position: absolute;
-  width: 26px;
-  height: 3px;
-  background: #1a1a1a;
-  border-radius: 2px;
-  transition: 0.25s;
-  left: 8px;
-}
-.burger span { top: 19px; }
-.burger span:before { content: ""; top: -8px; }
-.burger span:after  { content: ""; top: 8px; }
-.burger.open span { background: transparent; }
-.burger.open span:before { transform: rotate(45deg) translate(5px,5px);}
-.burger.open span:after  { transform: rotate(-45deg) translate(5px,-5px);}
 
-/* =============================================
-   6. Mobile Menü Overlay
-   ============================================= */
+.burger::before,
+.burger::after,
+.burger span {
+  content: '';
+  display: block;
+  background: #009C6C;
+  height: 3px;        /* ggf. auch hier kleiner! */
+  border-radius: 2px;
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  transition: all 0.3s;
+}
+.burger::before { top: 6px; }
+.burger span    { top: 14px; }
+.burger::after  { top: 22px; }
+.burger.open span      { opacity: 0; }
+.burger.open::before   { transform: rotate(45deg); top: 14px; }
+.burger.open::after    { transform: rotate(-45deg); top: 14px; }
+
+
+/* ===============================================================
+   10. Mobile Menü-Overlay (ausklappbares Menü für Smartphones)
+   =============================================================== */
 .mobile-menu-overlay {
   display: none;
   position: fixed;
-  inset: 0;
-  z-index: 999;
-  background: rgba(255,255,255,0.98);
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #F6F5F1;
+  z-index: 10;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 4rem;
   overflow-y: auto;
-  padding-top: 80px; /* Platz für Header! */
-  transition: opacity 0.32s cubic-bezier(.4,.35,.22,1);
-  opacity: 0;
-  pointer-events: none;
 }
 .mobile-menu-overlay.open {
-  display: block;
-  opacity: 1;
-  pointer-events: auto;
-  animation: fadeIn 0.19s;
-}
-@keyframes fadeIn {
-  from { opacity: 0;}
-  to { opacity: 1;}
-}
-
-/* Inhalt Mobile Menü */
-.mobile-menu-overlay nav {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.6rem;
-  padding: 0 2rem;
 }
-.mobile-menu-overlay .social-icons {
-  margin: 1.2rem 2rem 0 2rem;
-  justify-content: flex-start;
-}
-.footer-links {
-  margin: 2.5rem 2rem 1.5rem 2rem;
-  font-size: 0.97rem;
-  color: #888;
-  text-align: left;
-}
-.mobile-divider {
-  margin: 1.7rem 0 1rem 0;
-  border: 0;
-  border-top: 1.5px solid #eee;
-  width: 90%;
-}
-
-.mobile-blog-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin: 0 2rem 2.5rem 2rem;
-}
-.blog-card {
-  display: flex;
-  gap: 1rem;
-  padding: 0.85rem 1rem;
-  background: #faf7f7;
-  border-radius: 12px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.03);
-  text-decoration: none;
-  color: #161616;
-  align-items: flex-start;
-  transition: box-shadow 0.17s;
-}
-.blog-card:hover {
-  box-shadow: 0 2px 14px rgba(197,38,57,0.06);
-}
-.card-img img {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 7px;
-  background: #e2e2e2;
-}
-.card-title { font-weight: 600; font-size: 1.06rem; }
-.card-date { font-size: 0.97rem; color: #888; }
-.card-desc { font-size: 0.96rem; margin-top: 0.3rem; color: #595959; }
-
-/* =============================================
-   7. Bloglisten & Grid Desktop
-   ============================================= */
-.blog-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.3rem;
-  margin: 2rem auto;
-  max-width: 660px;
-}
-.blog-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2.1rem;
-  margin: 2rem auto;
-  max-width: 1200px;
-}
-.blog-grid .blog-card {
-  flex: 1 1 320px;
-  max-width: 390px;
-  min-width: 220px;
-  margin-bottom: 0;
+body.noscroll { overflow: hidden; }
+.mobile-menu-overlay .blog-card {
+  max-width: 92vw !important;
+  width: 92vw !important;
+  min-width: unset !important;
+  margin-left: auto;
+  margin-right: auto;
 }
 .blog-grid-single .blog-card {
   flex: none !important;
@@ -295,39 +522,4 @@ hr {
   min-height: 0 !important;
   height: auto !important;
   margin-bottom: 0.5rem;
-}
-
-/* =============================================
-   8. Medienabfragen (Responsivität)
-   ============================================= */
-@media (max-width: 900px) {
-  .site-header {
-    padding: 0 1rem;
-  }
-  .site-nav {
-    display: none;
-  }
-  .burger {
-    display: block;
-  }
-  .blog-list, .blog-grid, .mobile-blog-list {
-    max-width: 98vw;
-    margin-left: 0.5vw;
-    margin-right: 0.5vw;
-  }
-}
-@media (min-width: 901px) {
-  .mobile-menu-overlay {
-    display: none !important;
-  }
-  .burger {
-    display: none !important;
-  }
-}
-
-/* =============================================
-   9. Body Scroll Lock bei Mobile Menü
-   ============================================= */
-body.menu-open {
-  overflow: hidden !important;
 }

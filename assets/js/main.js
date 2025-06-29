@@ -53,58 +53,64 @@ document.querySelectorAll('.blog-card').forEach(card => {
 //-------------------------
 
 
+// Smooth Sticky Shrinking Header
+(function() {
+  const header = document.getElementById('site-header');
+  let lastScroll = window.scrollY;
+  let ticking = false;
+  let shrinkTrigger = 36; // Pixel nach denen Header beginnt zu schrumpfen
+  let hideTrigger = 240;  // Pixel nach denen Header ausblendet
 
-// === Sticky Header Animation ===
-let lastScrollY = window.scrollY;
-let ticking = false;
-let header = document.querySelector('.site-header');
-let shrinkPoint = 60;
-let hidePoint = 180;
+  function onScroll() {
+    const y = window.scrollY;
+    // Header nie ausblenden, wenn das mobile Menü offen ist!
+    const burgerOpen = document.body.classList.contains('mobile-menu-open');
+    if (burgerOpen) {
+      header.classList.remove('hide');
+      return;
+    }
+    // Animation
+    if (y > shrinkTrigger && y <= hideTrigger) {
+      header.classList.add('shrink');
+      header.classList.remove('hide');
+    } else if (y > hideTrigger) {
+      header.classList.add('hide');
+    } else {
+      header.classList.remove('shrink', 'hide');
+    }
+    lastScroll = y;
+  }
 
-function onScroll() {
-  let currentY = window.scrollY;
-  // Shrink header when scrolled down a bit
-  if (currentY > shrinkPoint && currentY < hidePoint) {
-    header.classList.add('shrunk');
-    header.classList.remove('hidden');
-  } else if (currentY >= hidePoint && currentY > lastScrollY) {
-    // Hide header on further scroll down
-    header.classList.add('hidden');
-  } else {
-    // Show full header when at top or scrolling up
-    header.classList.remove('shrunk');
-    header.classList.remove('hidden');
-  }
-  lastScrollY = currentY;
-  ticking = false;
-}
-window.addEventListener('scroll', function() {
-  if (!ticking) {
-    window.requestAnimationFrame(onScroll);
-    ticking = true;
-  }
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      window.requestAnimationFrame(function() {
+        onScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+})();
+
+
+// Mobile Burger Menü-Öffnen/Schließen + Header Fix
+document.addEventListener('DOMContentLoaded', function() {
+  const burger = document.getElementById('burger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  burger?.addEventListener('click', function() {
+    const isOpen = burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open', isOpen);
+    document.body.classList.toggle('noscroll', isOpen);
+    document.body.classList.toggle('mobile-menu-open', isOpen);
+  });
+
+  // Menü schließen beim Klick außerhalb (optional)
+  mobileMenu?.addEventListener('click', function(e) {
+    if (e.target === mobileMenu) {
+      burger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.classList.remove('noscroll', 'mobile-menu-open');
+    }
+  });
 });
 
-// === Mobile Burger Navigation ===
-const burgerBtn = document.getElementById('burger-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-
-burgerBtn.addEventListener('click', function() {
-  burgerBtn.classList.toggle('open');
-  mobileMenu.classList.toggle('open');
-  // Prevent scroll behind mobile menu
-  if (mobileMenu.classList.contains('open')) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "";
-  }
-});
-
-// Klick auf Overlay (außerhalb Nav schließt Menü)
-mobileMenu.addEventListener('click', function(e) {
-  if (e.target === mobileMenu) {
-    burgerBtn.classList.remove('open');
-    mobileMenu.classList.remove('open');
-    document.body.style.overflow = "";
-  }
-});
