@@ -27,18 +27,78 @@ a:active { color: #AA0600; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* border-bottom: 2px solid #222; */
+
+  /* Sticky + Animation */
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background: #F6F5F1f8;
+  box-shadow: 0 2px 24px -14px rgba(20,40,34,0.06);
+  transition:
+    height 0.35s cubic-bezier(.55,.08,.28,.98),
+    padding 0.35s cubic-bezier(.55,.08,.28,.98),
+    background 0.3s,
+    opacity 0.38s cubic-bezier(.55,.08,.28,.98),
+    box-shadow 0.38s cubic-bezier(.55,.08,.28,.98);
+  height: 96px;
   padding: 0.5rem 1rem;
+  opacity: 1;
+  will-change: height, opacity, padding;
+}
+
+/* Geschrumpfter und ausgeblendeter Zustand */
+.site-header.shrink {
+  height: 54px;
+  padding: 0.12rem 1rem;
+  background: #F6F5F1ee;
+  box-shadow: 0 2px 10px -8px rgba(20,40,34,0.08);
+}
+.site-header.hide {
+  opacity: 0;
+  pointer-events: none;
+  height: 0 !important;
+  padding: 0 1rem;
+  box-shadow: none;
+}
+
+/* Logo skalieren beim Shrink */
+.site-header .logo img {
+  height: 90px;
+  transition: height 0.35s cubic-bezier(.55,.08,.28,.98);
+}
+.site-header.shrink .logo img {
+  height: 54px;
+}
+.site-header.hide .logo img {
+  height: 0;
+}
+
+/* Optional: Burger auch sanft mitskalieren */
+.site-header .burger {
+  transition: margin-top 0.35s cubic-bezier(.55,.08,.28,.98), opacity 0.2s;
+}
+.site-header.shrink .burger {
+  margin-top: 2px;
+}
+.site-header.hide .burger {
+  opacity: 0;
+}
+
+/* Mobile: Header immer sichtbar bei offenem Menü */
+@media (max-width: 900px) {
+  .site-header.hide {
+    opacity: 1 !important;
+    height: 54px !important;
+    pointer-events: auto !important;
+  }
 }
 
 /*--------------------------------------------------------*/
 
-
-
-
 /*--------------------------------------------------------*/
 
-.logo img { height: 90px; }
 .site-nav ul {
   display: flex;
   list-style: none;
@@ -121,20 +181,8 @@ main {
   min-width: 350px;
   max-width: 900px;
   margin-bottom: 1rem;
-  transition: border-color .2s;
-  width: 100%;
-  min-height: 0 !important;
-  height: auto !important;
-
-}
-
-
-/*---------------------------------------------------*/
-
-.blog-card {
-  opacity: 0;
-  transform: translateY(100px);
   transition:
+    border-color .2s,
     opacity 1.2s cubic-bezier(.3, .7, .4, 1),
     transform 1.2s cubic-bezier(.3, .7, .4, 1),
     box-shadow 0.25s,
@@ -142,11 +190,15 @@ main {
   will-change: opacity, transform, scale;
 }
 
+/* Blogcard-Animation beim Laden */
+.blog-card {
+  opacity: 0;
+  transform: translateY(100px);
+}
 .blog-card.appear {
   opacity: 1;
   transform: translateY(0);
 }
-
 
 .blog-card:hover,
 .blog-card:focus {
@@ -155,9 +207,6 @@ main {
   box-shadow: 0 8px 28px -8px rgba(30,80,60,0.16);
   border-color: #009C6C !important;
 }
-
-
-/*---------------------------------------------------*/
 
 
 .card-date {
@@ -218,87 +267,7 @@ main {
 }
 
 
-/* =============================================================
-   5. Blogpost-Layout: Sidebar & Content
-   ============================================================= */
-.blog-layout {
-  display: flex;
-  gap: 2rem;
-  height: 100vh;
-  overflow: hidden;
-}
-.blog-sidebar {
-  border-right: 2px solid #e0e0e0;
-  padding-right: 2rem;
-  box-sizing: border-box;
-  min-width: 400px;
-  width: 480px;
-  max-width: 520px;
-  flex: 0 0 480px;
-}
-.blog-content {
-  flex: 4 1 1200px;
-  padding-left: 2rem;
-  overflow-y: auto;
-  max-height: 100vh;
-  box-sizing: border-box;
-  padding: 2rem 2rem 3rem 0;
-}
-.blog-content img,
-.blog-content iframe,
-.blog-content video {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 1.5rem auto;
-  box-sizing: border-box;
-}
-.blog-content table {
-  max-width: 100%;
-  overflow-x: auto;
-  display: block;
-}
-.blog-sidebar,
-.blog-content {
-  overflow-y: auto;
-  max-height: 100vh;
-}
-.blog-sidebar .blog-card {
-  width: 100%;
-  max-width: unset !important;
-  flex: 1 1 auto;
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  min-width: 220px;
-}
-.blog-sidebar .card-content {
-  flex: 1;
-  min-width: 0;
-}
-
-
-/* =============================================================
-   6. Footer – Fußzeile der Seite
-   ============================================================= */
-footer {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #666;
-  margin: 2rem 0 1rem 0;
-}
-.footer-links {
-  margin-bottom: 0.5rem;
-}
-.footer-links a:hover {
-  color: #AA0600;
-  text-decoration: underline;
-}
-
-
-/* =============================================================
-   7. Responsive Design & Mobile-Menü (Bildschirme ≤ 900px)
-   ============================================================= */
+/* Responsive Design & Mobile-Menü (Bildschirme ≤ 900px) */
 @media (max-width: 900px) {
   .blog-teaser-grid, .blog-grid {
     flex-direction: column;
@@ -343,12 +312,17 @@ footer {
     box-sizing: border-box;
     padding: 0.5rem;
   }
-  
+
+  /* Header bleibt sticky über Menü */
+  .mobile-menu-overlay {
+    padding-top: 54px;
+  }
+
   .mobile-divider {
     border: none;
-    border-top: 3px solid #ccc;   /* Farbe und Dicke der Linie */
-    width: 85%;                   /* Länge der Linie, kannst du anpassen */
-    margin: 2.5rem 0 2rem 0;      /* Abstand oben/unten */
+    border-top: 3px solid #ccc;
+    width: 85%;
+    margin: 2.5rem 0 2rem 0;
   }
   .blog-teaser-grid .blog-card {
     max-width: 900px !important;
@@ -372,9 +346,7 @@ footer {
   }
 }
 
-/* ================================================================
-   8. Feine Mobile-Anpassungen für sehr kleine Bildschirme (≤ 600px)
-   ================================================================ */
+/* Feine Mobile-Anpassungen für sehr kleine Bildschirme (≤ 600px) */
 @media (max-width: 600px) {
   .icon-link { width: 24px; }
   .icon-img { height: 24px; }
@@ -386,46 +358,53 @@ footer {
   .mobile-menu-overlay.open { display: flex; }
 }
 
-
-/* ================================================================
-   9. Burger-Menü (Button für die mobile Navigation)
-   ================================================================ */
+/* Burger-Menü (Button für die mobile Navigation) */
 .burger {
   display: none;
   background: none;
   border: none;
-  width: 38px;     /* kleiner */
-  height: 32px;    /* kleiner */
+  width: 38px;
+  height: 32px;
   cursor: pointer;
   position: relative;
   z-index: 11;
-  margin-top: 8px; /* oder top: 8px; bei position: absolute/fixed */
+  margin-top: 8px;
 }
-
-.burger::before,
-.burger::after,
-.burger span {
+.burger span, 
+.burger::before, 
+.burger::after {
   content: '';
   display: block;
-  background: #009C6C;
-  height: 3px;        /* ggf. auch hier kleiner! */
-  border-radius: 2px;
   position: absolute;
-  left: 4px;
-  right: 4px;
-  transition: all 0.3s;
+  left: 5px;
+  right: 5px;
+  height: 3px;
+  background: #009C6C;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(.55,.08,.28,.98);
 }
-.burger::before { top: 6px; }
-.burger span    { top: 14px; }
-.burger::after  { top: 22px; }
-.burger.open span      { opacity: 0; }
-.burger.open::before   { transform: rotate(45deg); top: 14px; }
-.burger.open::after    { transform: rotate(-45deg); top: 14px; }
+.burger::before {
+  top: 7px;
+}
+.burger span {
+  top: 14px;
+}
+.burger::after {
+  top: 21px;
+}
+.burger.open::before {
+  top: 14px;
+  transform: rotate(45deg);
+}
+.burger.open span {
+  opacity: 0;
+}
+.burger.open::after {
+  top: 14px;
+  transform: rotate(-45deg);
+}
 
-
-/* ===============================================================
-   10. Mobile Menü-Overlay (ausklappbares Menü für Smartphones)
-   =============================================================== */
+/* Mobile Menü-Overlay (ausklappbares Menü für Smartphones) */
 .mobile-menu-overlay {
   display: none;
   position: fixed;
@@ -449,7 +428,7 @@ body.noscroll { overflow: hidden; }
   margin-left: auto;
   margin-right: auto;
 }
-.blog-grid-single .blog-card {
+.blog-grid-single .blog-card { 
   flex: none !important;
   min-width: 250px;
   max-width: 600px;
