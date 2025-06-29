@@ -29,17 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  const cards = document.querySelectorAll('.blog-card');
-  if (cards.length > 0) {
-    cards[0].classList.add('visible', 'no-transition');
-  }
-  for (let i = 1; i < cards.length; i++) {
-    setTimeout(() => {
-      cards[i].classList.add('visible');
-    }, i * 120);
-  }
-});
+
 
 
 
