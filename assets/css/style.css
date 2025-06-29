@@ -495,6 +495,7 @@ footer {
 .mobile-menu-overlay {
   display: none;
   position: fixed;
+  z-index: 200;
   top: 0; left: 0; right: 0; bottom: 0;
   background: #F6F5F1;
   z-index: 10;
@@ -506,6 +507,7 @@ footer {
 }
 .mobile-menu-overlay.open {
   display: flex;
+  z-index: 200 !important;
 }
 body.noscroll { overflow: hidden; }
 .mobile-menu-overlay .blog-card {
