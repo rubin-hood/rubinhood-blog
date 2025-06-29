@@ -51,41 +51,52 @@ document.querySelectorAll('.blog-card').forEach(card => {
 
 
 //-------------------------
-// Smooth Collapsing Sticky Header
+// Smooth, dynamisch schrumpfender und ausblendender Header
 
-const header = document.querySelector('.site-header');
-let lastScrollY = window.scrollY;
-let ticking = false;
-let collapsed = false;
+document.addEventListener("DOMContentLoaded", function () {
+  const header = document.querySelector('.site-header');
+  const logoImg = header.querySelector('.logo img');
 
-function onScroll() {
-  const currentScroll = window.scrollY;
+  // Werte ggf. anpassen:
+  const maxHeaderHeight = 90; // px
+  const minHeaderHeight = 38; // px
+  const maxLogoHeight   = 90;
+  const minLogoHeight   = 32;
+  const scrollMax       = 180; // Wie viel px schrumpft? Danach nicht mehr
+  const hideAfter       = 250; // Ab wann wird Header komplett ausgeblendet?
 
-  if (currentScroll > 20 && currentScroll < 200) {
-    // Header wird kleiner
-    header.classList.add('shrink');
-    header.classList.remove('collapse');
-    collapsed = false;
-  } else if (currentScroll >= 200) {
-    // Header komplett weg
-    header.classList.remove('shrink');
-    header.classList.add('collapse');
-    collapsed = true;
-  } else {
-    // Header komplett sichtbar
-    header.classList.remove('shrink');
-    header.classList.remove('collapse');
-    collapsed = false;
+  let ticking = false;
+
+  function handleHeaderShrink() {
+    const scrollY = window.scrollY;
+    const clamp = (val, min, max) => Math.max(min, Math.min(max, val));
+    const sY = clamp(scrollY, 0, scrollMax);
+
+    // Lineares Interpolieren
+    const headerHeight = maxHeaderHeight - ((sY / scrollMax) * (maxHeaderHeight - minHeaderHeight));
+    const logoHeight   = maxLogoHeight - ((sY / scrollMax) * (maxLogoHeight - minLogoHeight));
+
+    header.style.height = `${headerHeight}px`;
+    header.style.minHeight = `${headerHeight}px`;
+    logoImg.style.height = `${logoHeight}px`;
+
+    // Optional: Header komplett ausblenden, wenn sehr weit gescrollt
+    if (scrollY > hideAfter) {
+      header.classList.add('header-hidden');
+    } else {
+      header.classList.remove('header-hidden');
+    }
+
+    ticking = false;
   }
-  lastScrollY = currentScroll;
-  ticking = false;
-}
 
-window.addEventListener('scroll', function() {
-  if (!ticking) {
-    window.requestAnimationFrame(onScroll);
-    ticking = true;
-  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(handleHeaderShrink);
+      ticking = true;
+    }
+  });
 });
+
 
 
