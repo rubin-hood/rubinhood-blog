@@ -53,36 +53,16 @@ document.querySelectorAll('.blog-card').forEach(card => {
 //-------------------------
 
 const header = document.querySelector('.site-header');
-
 let lastScroll = 0;
 let ticking = false;
-let collapsed = false;
 
 function onScroll() {
   const scrollY = window.scrollY;
 
-  // Header schrumpft zwischen 0px und 120px Scroll
-  if (scrollY < 120) {
-    header.classList.remove('collapsed');
-    header.classList.remove('shrink');
-    header.style.height = 90 - (54 * (scrollY / 120)) + 'px'; // von 90 auf 36 px
-    header.style.opacity = (1 - 0.08 * (scrollY / 120)).toString();
-    collapsed = false;
-  } else if (scrollY >= 120 && scrollY < 200) {
-    // Header bleibt geschrumpft
-    header.classList.remove('collapsed');
+  if (scrollY > 40) {
     header.classList.add('shrink');
-    header.style.height = '36px';
-    header.style.opacity = '0.92';
-    collapsed = false;
   } else {
-    // Header komplett weg
-    if (!collapsed) {
-      header.classList.add('collapsed');
-      header.style.height = '0px';
-      header.style.opacity = '0';
-      collapsed = true;
-    }
+    header.classList.remove('shrink');
   }
 }
 
@@ -95,3 +75,4 @@ window.addEventListener('scroll', function() {
     ticking = true;
   }
 });
+
