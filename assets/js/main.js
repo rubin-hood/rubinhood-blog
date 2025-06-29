@@ -34,7 +34,6 @@ let appearIndex = 0;
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      // Stagger-Delay in ms, z.B. 120ms pro Card
       const delay = appearIndex * 120;
       setTimeout(() => {
         entry.target.classList.add('appear');
@@ -43,11 +42,15 @@ const observer = new IntersectionObserver((entries) => {
       appearIndex++;
     }
   });
+}, {
+  threshold: 0,
+  rootMargin: '0px 0px -40% 0px'
 });
 
 document.querySelectorAll('.blog-card').forEach(card => {
   observer.observe(card);
 });
+
 
 
 
