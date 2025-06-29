@@ -51,6 +51,25 @@ document.querySelectorAll('.blog-card').forEach(card => {
 
 
 //-------------------------
+// main.js
+const header = document.querySelector('.site-header');
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+  const scroll = window.scrollY;
+  // Max Höhe des Headers
+  const maxHeight = 90;
+  // Minimalhöhe (z.B. 44)
+  const minHeight = 44;
+  // Bis zu welchem Scrollwert soll der Header kleiner werden?
+  const maxScroll = 120;
+  // Errechne neue Höhe
+  let newHeight = maxHeight - ((maxHeight - minHeight) * Math.min(scroll, maxScroll) / maxScroll);
+  // Optional Opacity
+  let newOpacity = 1 - Math.min(scroll, maxScroll) / maxScroll;
+  header.style.height = `${newHeight}px`;
+  header.style.opacity = newOpacity > 0.1 ? newOpacity : 0;
+});
 
 
 
