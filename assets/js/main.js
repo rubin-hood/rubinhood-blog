@@ -29,22 +29,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-let appearIndex = 0;
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const delay = appearIndex * 120;
-      setTimeout(() => {
-        entry.target.classList.add('appear');
-        observer.unobserve(entry.target);
-      }, delay);
-      appearIndex++;
-    }
+const observer = new IntersectionObserver((entries, observer) => {
+  // Sortiere entries nach ihrer Position im DOM (optional)
+  const visible = entries.filter(entry => entry.isIntersecting);
+  visible.forEach((entry, i) => {
+    setTimeout(() => {
+      entry.target.classList.add('appear');
+      observer.unobserve(entry.target);
+    }, i * 100); // 100ms Staffelung pro sichtbarer Card
   });
 }, {
   threshold: 0,
-  rootMargin: '0px 0px -40% 0px'
+  rootMargin: '0px'
 });
 
 document.querySelectorAll('.blog-card').forEach(card => {
