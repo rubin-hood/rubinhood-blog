@@ -54,3 +54,57 @@ document.querySelectorAll('.blog-card').forEach(card => {
 
 
 
+// === Sticky Header Animation ===
+let lastScrollY = window.scrollY;
+let ticking = false;
+let header = document.querySelector('.site-header');
+let shrinkPoint = 60;
+let hidePoint = 180;
+
+function onScroll() {
+  let currentY = window.scrollY;
+  // Shrink header when scrolled down a bit
+  if (currentY > shrinkPoint && currentY < hidePoint) {
+    header.classList.add('shrunk');
+    header.classList.remove('hidden');
+  } else if (currentY >= hidePoint && currentY > lastScrollY) {
+    // Hide header on further scroll down
+    header.classList.add('hidden');
+  } else {
+    // Show full header when at top or scrolling up
+    header.classList.remove('shrunk');
+    header.classList.remove('hidden');
+  }
+  lastScrollY = currentY;
+  ticking = false;
+}
+window.addEventListener('scroll', function() {
+  if (!ticking) {
+    window.requestAnimationFrame(onScroll);
+    ticking = true;
+  }
+});
+
+// === Mobile Burger Navigation ===
+const burgerBtn = document.getElementById('burger-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+burgerBtn.addEventListener('click', function() {
+  burgerBtn.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  // Prevent scroll behind mobile menu
+  if (mobileMenu.classList.contains('open')) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
+});
+
+// Klick auf Overlay (außerhalb Nav schließt Menü)
+mobileMenu.addEventListener('click', function(e) {
+  if (e.target === mobileMenu) {
+    burgerBtn.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = "";
+  }
+});
