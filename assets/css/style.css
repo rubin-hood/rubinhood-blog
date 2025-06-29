@@ -117,41 +117,10 @@ main {
   width: 100%;
   min-height: 0 !important;
   height: auto !important;
-
-  opacity: 0;
-  transform: translateY(50px) scale(1);
-  transition: 
-    transform 1.40s cubic-bezier(.4,2,.6,1), 
-    box-shadow 1.40s cubic-bezier(.4,2,.6,1),
-    opacity 0.7s;
 }
 
 /*---------------------------------------------------*/
 
-/* Animation für das Hochfahren der Karten */
-@keyframes blogCardFadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(50px) scale(1);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-.blog-card.visible {
-  animation: blogCardFadeInUp 0.7s cubic-bezier(.4,2,.6,1) forwards;
-}
-
-/* Vergrößern bei Hover und Fokus */
-.blog-card.visible:hover,
-.blog-card.visible:focus-visible {
-  /* Kombination aus translateY und scale! */
-  transform: translateY(0) scale(1.07);
-  box-shadow: 0 6px 30px 0 rgba(0,0,0,0.13);
-  z-index: 2;
-  opacity: 1;
-}
 
 /*---------------------------------------------------*/
 
