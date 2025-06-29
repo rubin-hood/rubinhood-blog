@@ -129,7 +129,30 @@ main {
 
 /*---------------------------------------------------*/
 
+.blog-card {
+  opacity: 0;
+  transform: translateY(100px);
+  transition:
+    opacity 1.2s cubic-bezier(.3, .7, .4, 1),
+    transform 1.2s cubic-bezier(.3, .7, .4, 1),
+    box-shadow 0.25s,
+    scale 0.25s;
+  will-change: opacity, transform, scale;
+}
 
+.blog-card.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.blog-card:hover,
+.blog-card:focus {
+  z-index: 10;
+  scale: 1.04;
+  box-shadow: 0 8px 28px -8px rgba(30,80,60,0.16);
+  border-color: #009C6C !important;
+}
 
 
 /*---------------------------------------------------*/
