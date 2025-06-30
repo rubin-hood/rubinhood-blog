@@ -88,31 +88,6 @@ document.querySelectorAll('.blog-card').forEach(card => {
 })();
 
 
-const burgerBtn = document.getElementById('burger-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const header = document.querySelector('.site-header');
-
-function updateHeaderForMenu() {
-  // Wenn das Overlay sichtbar ist (z.B. Klasse "open" oder display:block)
-  const menuIsOpen = mobileMenu.classList.contains('open') || mobileMenu.style.display === 'block';
-
-  if (menuIsOpen) {
-    header.classList.add('hide-for-menu');
-  } else {
-    header.classList.remove('hide-for-menu');
-  }
-}
-
-// Achte darauf, dass beim Öffnen und Schließen immer aktualisiert wird!
-burgerBtn.addEventListener('click', () => {
-  setTimeout(updateHeaderForMenu, 10); // kleinen Delay, bis Klasse gesetzt ist
-});
-
-// Auch beim Schließen über anderen Mechanismus (z.B. Close-Button im Menü):
-mobileMenu.addEventListener('transitionend', updateHeaderForMenu); // falls Menü animiert
-mobileMenu.addEventListener('click', updateHeaderForMenu);         // falls Menü per Klick schließt
-window.addEventListener('resize', updateHeaderForMenu);            // falls Größe sich ändert
-
 
 
 
