@@ -469,7 +469,6 @@ footer {
   justify-content: flex-start;
   padding-top: 4rem;
   overflow-y: auto;
-  box-shadow: 0 2px 24px 0 rgba(0,0,0,0.05);
 }
 .mobile-menu-overlay.open {
   display: flex;
@@ -490,4 +489,24 @@ body.noscroll { overflow: hidden; }
   min-height: 0 !important;
   height: auto !important;
   margin-bottom: 0.5rem;
+}
+
+
+.close-menu {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  font-size: 2.4rem;
+  color: #009C6C;
+  background: transparent;
+  border: none;
+  z-index: 2100;   /* Noch höher als Overlay, damit es immer sichtbar ist */
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.close-menu:hover {
+  color: #AA0600;
 }
