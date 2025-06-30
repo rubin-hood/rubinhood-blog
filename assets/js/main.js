@@ -96,14 +96,6 @@ document.querySelectorAll('.blog-card').forEach(card => {
 
 
 
-// Falls Menü offen -> Header bleibt sichtbar
-const burgerBtn = document.getElementById('burger-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-
-burgerBtn.addEventListener('click', () => {
-  header.classList.remove('hide');
-});
-
 
 
 
