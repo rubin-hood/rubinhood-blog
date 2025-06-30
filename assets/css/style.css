@@ -66,6 +66,12 @@ a:active { color: #AA0600; }
   transition: height 0.25s cubic-bezier(.4,0,.2,1);
 }
 
+.site-header.hide-for-menu {
+  opacity: 0 !important;
+  pointer-events: none;
+  transition: opacity 0.25s cubic-bezier(.4,0,.2,1);
+}
+
 
 
 /*--------------------------------------------------------*/
