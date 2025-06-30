@@ -51,6 +51,48 @@ document.querySelectorAll('.blog-card').forEach(card => {
 
 
 //-------------------------
+// Sticky Smooth Header Animation
+(function() {
+  const header = document.querySelector('.site-header');
+  let lastScroll = window.scrollY;
+  let ticking = false;
+  let hidden = false;
+
+  function onScroll() {
+    const currentScroll = window.scrollY;
+
+    // Shrink, wenn mehr als 30px gescrollt
+    if (currentScroll > 30) {
+      header.classList.add('shrink');
+    } else {
+      header.classList.remove('shrink');
+    }
+
+    // Nach unten scrollen -> Header ausblenden
+    if (currentScroll > lastScroll && currentScroll > 120) {
+      if (!hidden) {
+        header.classList.add('hide');
+        hidden = true;
+      }
+    }
+    // Nach oben scrollen -> Header wieder einblenden
+    else {
+      if (hidden) {
+        header.classList.remove('hide');
+        hidden = false;
+      }
+    }
+    lastScroll = currentScroll;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(onScroll);
+      ticking = true;
+    }
+  });
+})();
 
 
 
