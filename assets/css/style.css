@@ -34,49 +34,38 @@ a:active { color: #AA0600; }
 /*--------------------------------------------------------*/
 
 .site-header {
+  /* Dynamische Variablen für Animation */
+  --header-height: 84px;
+  --header-padding: 2rem;
+  --header-opacity: 1;
+
   position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(246, 245, 241, 0.96);
+  background: #F6F5F1;
   box-shadow: 0 2px 24px 0 rgba(0,0,0,0.05);
   transition: 
-    height 0.4s cubic-bezier(.4,0,.2,1),
-    padding 0.4s cubic-bezier(.4,0,.2,1),
-    opacity 0.35s cubic-bezier(.4,0,.2,1),
-    box-shadow 0.4s cubic-bezier(.4,0,.2,1),
-    background 0.4s cubic-bezier(.4,0,.2,1);
-  height: 84px;
-  padding: 0 2rem;
-  opacity: 1;
+    height 0.25s cubic-bezier(.4,0,.2,1),
+    padding 0.25s cubic-bezier(.4,0,.2,1),
+    opacity 0.25s cubic-bezier(.4,0,.2,1),
+    box-shadow 0.25s cubic-bezier(.4,0,.2,1),
+    background 0.25s cubic-bezier(.4,0,.2,1);
+  height: var(--header-height);
+  padding: 0 var(--header-padding);
+  opacity: var(--header-opacity);
   backdrop-filter: blur(8px);
+  will-change: height, opacity, padding;
 }
 
-/* Kleiner, wenn gescrollt */
-.site-header.shrink {
-  height: 44px;
-  padding: 0 1rem;
-  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.12);
-  opacity: 0.92;
-}
-
-.site-header.hide {
-  opacity: 0;
-  pointer-events: none;
-  transition:
-    opacity 0.45s cubic-bezier(.4,0,.2,1),
-    height 0.35s cubic-bezier(.4,0,.2,1);
-}
-
-/* Logo und Nav skalieren */
+/* Logo dynamisch */
 .site-header .logo img {
-  transition: height 0.4s cubic-bezier(.4,0,.2,1);
-  height: 44px;
+  --logo-height: 44px;
+  height: var(--logo-height);
+  transition: height 0.25s cubic-bezier(.4,0,.2,1);
 }
-.site-header.shrink .logo img {
-  height: 30px;
-}
+
 
 
 /*--------------------------------------------------------*/

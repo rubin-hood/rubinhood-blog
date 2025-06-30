@@ -51,48 +51,42 @@ document.querySelectorAll('.blog-card').forEach(card => {
 
 
 //-------------------------
-// Sticky Smooth Header Animation
+// Progressive Sticky Header Animation
 (function() {
   const header = document.querySelector('.site-header');
-  let lastScroll = window.scrollY;
-  let ticking = false;
-  let hidden = false;
+  const logoImg = header.querySelector('.logo img');
+  
+  // Anpassen: Wie weit soll der Header schrumpfen?
+  const maxScroll = 200;    // Bis zu 200px scrollen
+  const maxHeight = 84;     // Ursprungs-Höhe Header
+  const minHeight = 0;      // Ziel-Höhe (komplett weg)
+  const maxLogo = 44;       // Ursprungs-Höhe Logo
+  const minLogo = 0;        // Ziel-Höhe Logo (verschwinden)
+  const maxPadding = 2;     // Padding in rem
+  const minPadding = 0;     // Ziel-Padding
 
-  function onScroll() {
-    const currentScroll = window.scrollY;
+  window.addEventListener('scroll', function() {
+    let scroll = window.scrollY;
+    if (scroll < 0) scroll = 0;
+    if (scroll > maxScroll) scroll = maxScroll;
 
-    // Shrink, wenn mehr als 30px gescrollt
-    if (currentScroll > 30) {
-      header.classList.add('shrink');
-    } else {
-      header.classList.remove('shrink');
-    }
+    const t = scroll / maxScroll; // 0 bis 1
 
-    // Nach unten scrollen -> Header ausblenden
-    if (currentScroll > lastScroll && currentScroll > 120) {
-      if (!hidden) {
-        header.classList.add('hide');
-        hidden = true;
-      }
-    }
-    // Nach oben scrollen -> Header wieder einblenden
-    else {
-      if (hidden) {
-        header.classList.remove('hide');
-        hidden = false;
-      }
-    }
-    lastScroll = currentScroll;
-    ticking = false;
-  }
+    // Dynamische Werte berechnen
+    const newHeight = maxHeight - (maxHeight - minHeight) * t;
+    const newLogo = maxLogo - (maxLogo - minLogo) * t;
+    const newPadding = maxPadding - (maxPadding - minPadding) * t;
+    const newOpacity = 1 - t;
 
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(onScroll);
-      ticking = true;
-    }
+    // Variablen setzen
+    header.style.setProperty('--header-height', `${newHeight}px`);
+    header.style.setProperty('--header-padding', `${newPadding}rem`);
+    header.style.setProperty('--header-opacity', newOpacity);
+
+    logoImg.style.setProperty('--logo-height', `${newLogo}px`);
   });
 })();
+
 
 
 
