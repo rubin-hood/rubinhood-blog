@@ -505,58 +505,66 @@ body.noscroll { overflow: hidden; }
 
 
 /* ======= Double Underline Hover Effekt für Navigation ======= */
-.site-nav a {
-  transition: letter-spacing 1.2s cubic-bezier(.4,0,.2,1);
-}
-
-.site-nav a:hover,
-.site-nav a:focus {
-  letter-spacing: 0.28em;
-  transition: letter-spacing 1.1s cubic-bezier(.4,0,.2,1);
-}
-
-
-
-
-
+/* --- Basis für Navigation --- */
 .site-nav a {
   position: relative;
   overflow: visible;
   padding: 0.35em 0;
-  transition: color .3s cubic-bezier(.4,0,.2,1);
+  color: #009C6C;
+  font-size: 1.3rem;
+  text-decoration: none;
+  transition:
+    color 0.3s cubic-bezier(.4,0,.2,1),
+    letter-spacing 1.2s cubic-bezier(.4,0,.2,1);
 }
 
+/* --- Letter Spacing Animation auf Hover/Fokus --- */
+.site-nav a:hover,
+.site-nav a:focus {
+  letter-spacing: 0.28em;
+  color: #AA0600;
+  transition:
+    color 0.3s cubic-bezier(.4,0,.2,1),
+    letter-spacing 1.1s cubic-bezier(.4,0,.2,1);
+}
+
+/* --- Aktiver Zustand (z.B. für aktuelle Seite) --- */
+.site-nav a.active {
+  color: #AA0600;
+}
+
+/* --- Doppelte Linien Animation oben & unten --- */
 .site-nav a::before,
 .site-nav a::after {
   content: '';
   position: absolute;
-  left: 50%;   /* Start in der Mitte */
+  left: 50%;       /* Startet in der Mitte */
   width: 0;
   height: 2px;
   background: #009C6C;
   transition:
-    width .35s cubic-bezier(.4,0,.2,1),
-    left .35s cubic-bezier(.4,0,.2,1);
+    width 0.35s cubic-bezier(.4,0,.2,1),
+    left 0.35s cubic-bezier(.4,0,.2,1);
   z-index: 1;
   pointer-events: none;
   border-radius: 2px;
 }
 
 .site-nav a::before {
-  top: -6px;   /* Abstand oben */
+  top: -6px;      /* Linie oberhalb des Textes */
 }
-
 .site-nav a::after {
-  bottom: -6px; /* Abstand unten */
+  bottom: -6px;   /* Linie unterhalb des Textes */
 }
 
 .site-nav a:hover::before,
-.site-nav a.active::before,
 .site-nav a:focus::before,
+.site-nav a.active::before,
 .site-nav a:hover::after,
-.site-nav a.active::after,
-.site-nav a:focus::after {
-  width: 100%;     /* Dehnt sich auf ganze Link-Breite aus */
-  left: 0;         /* Von der Mitte zu den Seiten */
-  background: #009C6C; /* Farbe */
+.site-nav a:focus::after,
+.site-nav a.active::after {
+  width: 100%;    /* Dehnt sich auf ganze Link-Breite aus */
+  left: 0;
+  background: #009C6C;
 }
+
