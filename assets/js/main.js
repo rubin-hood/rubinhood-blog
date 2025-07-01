@@ -1,93 +1,96 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const searchInput = document.getElementById('search-input');
-  if (!searchInput) return;
+// ================================
+// 1. Initialisierung nach Laden der Seite
+// ================================
+document.addEventListener('DOMContentLoaded', function() {
+  // --------- Variablen für die wichtigsten Elemente ---------
+  var burger = document.getElementById('burger-btn');      // Burger-Menü-Button
+  var menu = document.getElementById('mobile-menu');       // Overlay für das mobile Menü
 
-  const searchResults = document.getElementById('search-results');
-  const allPosts = document.getElementById('all-posts');
-  let posts = [];
+  // ================================
+  // 2. Burger-Button: Öffnen & Schließen des Menüs
+  // ================================
+  burger.addEventListener('click', function() {
+    menu.classList.toggle('open');                // Overlay ein-/ausblenden
+    burger.classList.toggle('open');              // Button animieren (z.B. Kreuz)
+    document.body.classList.toggle('noscroll');   // Body darf nicht scrollen bei offenem Menü
+  });
 
-  function highlight(text, search) {
-    const re = new RegExp(`(${search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-    return text.replace(re, '<mark>$1</mark>');
-  }
-
-  function extractSnippet(text, query, maxSentences = 3) {
-    if (!text) return '';
-    const sentences = text.split(/(?<=[.?!])\s+/);
-    const idx = sentences.findIndex(s => s.toLowerCase().includes(query.toLowerCase()));
-    if (idx === -1) {
-      // Wenn kein Satz, dann einfach die ersten Sätze als Fallback
-      return highlight(sentences.slice(0, maxSentences).join(' '), query);
+  // ================================
+  // 3. Fenstergröße überwachen: Menü bei großem Bildschirm schließen
+  // ================================
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 900) {                      // Breakpoint anpassen an dein CSS!
+      menu.classList.remove('open');                    // Overlay ausblenden
+      burger.classList.remove('open');                  // Button zurücksetzen
+      document.body.classList.remove('noscroll');       // Body wieder scrollbar machen
     }
-    // Hole bis zu maxSentences rund um den Treffer
-    const start = Math.max(0, idx - 1);
-    const end = Math.min(sentences.length, idx + maxSentences - 1);
-    return highlight(sentences.slice(start, end).join(' '), query);
-  }
+  });
+});
 
-  fetch('/rubinhood-blog/assets/js/search.json')
-    .then(r => r.json())
-    .then(data => {
-      posts = data;
-      searchInput.addEventListener('input', function () {
-        const query = this.value.trim();
-        if (query.length === 0) {
-          searchResults.innerHTML = '';
-          searchResults.style.display = 'none';
-          allPosts.style.display = '';
-          return;
-        }
 
-        allPosts.style.display = 'none';
-        searchResults.style.display = '';
 
-        const qLower = query.toLowerCase();
+const observer = new IntersectionObserver((entries, observer) => {
+  // Sortiere entries nach ihrer Position im DOM (optional)
+  const visible = entries.filter(entry => entry.isIntersecting);
+  visible.forEach((entry, i) => {
+    setTimeout(() => {
+      entry.target.classList.add('appear');
+      observer.unobserve(entry.target);
+    }, i * 100); // 100ms Staffelung pro sichtbarer Card
+  });
+}, {
+  threshold: 0,
+  rootMargin: '0px'
+});
 
-        const filtered = posts.filter(post =>
-          post.title.toLowerCase().includes(qLower) ||
-          (post.excerpt && post.excerpt.toLowerCase().includes(qLower))
-        );
+document.querySelectorAll('.blog-card').forEach(card => {
+  observer.observe(card);
+});
 
-        if (filtered.length === 0) {
-          searchResults.innerHTML = '<p>Keine Ergebnisse gefunden.</p>';
-          return;
-        }
 
-        searchResults.innerHTML = filtered.map(post => {
-          let snippet = '';
-          if (post.title.toLowerCase().includes(qLower)) {
-            // Zeige immer den Titel + die ersten 2 Sätze aus dem Excerpt
-            snippet = highlight(post.title, query);
-            if (post.excerpt) {
-              snippet += '<br>' + extractSnippet(post.excerpt, query, 2);
-            }
-          }
-          else if (post.excerpt && post.excerpt.toLowerCase().includes(qLower)) {
-            snippet = extractSnippet(post.excerpt, query, 3);
-          } else {
-            snippet = highlight(post.title, query);
-          }
 
-          // Bild links
-          let imageHtml = '';
-          if (post.image) {
-            imageHtml = `<div class="search-result-image"><img src="${post.image}" alt=""></div>`;
-          } else {
-            imageHtml = `<div class="search-result-image search-result-noimg">Kein Bild</div>`;
-          }
 
-          return `
-            <div class="search-result-hit">
-              <a href="${post.url}">
-                ${imageHtml}
-                <div class="search-result-text">
-                  <div class="hit-title">${post.title}</div>
-                  <div class="hit-snippet">${snippet}</div>
-                </div>
-              </a>
-            </div>
-          `;
-        }).join('');
-      });
-    });
+//-------------------------
+// Progressive Sticky Header Animation
+(function() {
+  const header = document.querySelector('.site-header');
+  const logoImg = header.querySelector('.logo img');
+  
+  // Anpassen: Wie weit soll der Header schrumpfen?
+  const maxScroll = 200;    // Bis zu 200px scrollen
+  const maxHeight = 84;     // Ursprungs-Höhe Header
+  const minHeight = 0;      // Ziel-Höhe (komplett weg)
+  const maxLogo = 44;       // Ursprungs-Höhe Logo
+  const minLogo = 0;        // Ziel-Höhe Logo (verschwinden)
+  const maxPadding = 2;     // Padding in rem
+  const minPadding = 0;     // Ziel-Padding
+
+  window.addEventListener('scroll', function() {
+    let scroll = window.scrollY;
+    if (scroll < 0) scroll = 0;
+    if (scroll > maxScroll) scroll = maxScroll;
+
+    const t = scroll / maxScroll; // 0 bis 1
+
+    // Dynamische Werte berechnen
+    const newHeight = maxHeight - (maxHeight - minHeight) * t;
+    const newLogo = maxLogo - (maxLogo - minLogo) * t;
+    const newPadding = maxPadding - (maxPadding - minPadding) * t;
+    const newOpacity = 1 - t;
+
+    // Variablen setzen
+    header.style.setProperty('--header-height', `${newHeight}px`);
+    header.style.setProperty('--header-padding', `${newPadding}rem`);
+    header.style.setProperty('--header-opacity', newOpacity);
+
+    logoImg.style.setProperty('--logo-height', `${newLogo}px`);
+  });
+})();
+
+
+
+const closeMenuBtn = document.querySelector('.close-menu');
+closeMenuBtn.addEventListener('click', () => {
+  mobileMenu.classList.remove('open');
+  document.body.classList.remove('noscroll'); // optional, falls du das nutzt
 });
