@@ -96,11 +96,13 @@ document.querySelectorAll('.blog-card').forEach(card => {
 //////////////
 document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('search-input');
+  if (!searchInput) return; // Stoppt das Skript, wenn das Feld nicht existiert!
+
   const searchResults = document.getElementById('search-results');
   const allPosts = document.getElementById('all-posts');
   let posts = [];
 
-  fetch('/rubinhood-blog/assets/js/search.json') // passe baseurl ggf. an
+  fetch('/rubinhood-blog/assets/js/search.json')
     .then(response => response.json())
     .then(data => { posts = data; });
 
@@ -137,6 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
     `).join('');
   });
 });
+
 
 
 
