@@ -3,15 +3,6 @@ layout: default
 title: Home
 ---
 
-<div class="intro">
-  <p>Der <span class="underline">digitale</span> Wald, in dem <span class="underline">Kreativität</span> und <span class="underline">Technologie aufeinandertreffen</span>.</p>
-  <h2>Welcome to my website showcasing my passion for IT projects.</h2>
-  <p>
-    This website is hosted on a Raspberry Pi 5 running PHP to provide a modern and interactive experience.
-    The complete source code is available in my <a href="https://github.com/">GitHub</a> repository.
-  </p>
-</div>
-
 *Der digitale Wald, in dem Kreativität und Technologie aufeinander treffen.*
 
 # Willkommen auf meiner Website, die meine Leidenschaft für IT-Projekte zeigt.
