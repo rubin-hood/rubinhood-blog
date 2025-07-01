@@ -513,3 +513,17 @@ body.noscroll { overflow: hidden; }
 }
 
 
+.site-nav a {
+  position: relative;
+  overflow: visible;
+}
+.site-nav a::before,
+.site-nav a::after {
+  content: '';
+  position: absolute; width: 48%; height: 2px; background: #009C6C;
+  bottom: -4px; transition: transform .3s;
+}
+.site-nav a::before { left: 0; transform: scaleX(0); }
+.site-nav a::after  { right: 0; transform: scaleX(0); }
+.site-nav a:hover::before, .site-nav a.active::before  { transform: scaleX(1); }
+.site-nav a:hover::after,  .site-nav a.active::after   { transform: scaleX(1); }
