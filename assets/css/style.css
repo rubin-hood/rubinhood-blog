@@ -559,13 +559,14 @@ body.noscroll { overflow: hidden; }
 /* Social Icons sanft vergrößern (nur Desktop!) */
 @media (hover: hover) and (pointer: fine) {
   .site-header .social-icons .icon-link {
-    transition: transform 0.28s cubic-bezier(.4,0,.2,1), box-shadow 0.18s cubic-bezier(.4,0,.2,1);
+    transition: transform 0.48s cubic-bezier(.33,1,.55,1), box-shadow 0.24s cubic-bezier(.33,1,.55,1);
     will-change: transform;
   }
   .site-header .social-icons .icon-link:hover,
   .site-header .social-icons .icon-link:focus {
-    transform: scale(1.32) rotate(-5deg);
-    box-shadow: 0 4px 20px -8px rgba(30,160,120,0.12);
+    transform: scale(1.45);
+    box-shadow: 0 6px 28px -8px rgba(30,160,120,0.13);
     z-index: 2;
   }
 }
+
