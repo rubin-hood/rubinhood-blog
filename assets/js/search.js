@@ -1,3 +1,7 @@
+console.log("search.js geladen!");
+alert("search.js geladen!");
+
+
 document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('search-input');
   const searchResults = document.getElementById('search-results');
