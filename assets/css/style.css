@@ -668,9 +668,6 @@ body.noscroll { overflow: hidden; }
 }
 
 #search-results {
-  background: #fffbe6 !important;
-  min-height: 200px !important;
-  border: 2px dashed orange !important;
   color: #000 !important;
   display: grid !important;
   grid-gap: 1.5em !important;
@@ -681,7 +678,6 @@ body.noscroll { overflow: hidden; }
 #search-results .blog-card {
   background: #fff !important;
   color: #000 !important;
-  border: 2px solid #e44 !important;
   display: block !important;
   opacity: 1 !important;
   visibility: visible !important;
