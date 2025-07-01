@@ -87,3 +87,52 @@ document.querySelectorAll('.blog-card').forEach(card => {
   });
 })();
 
+
+
+
+
+//Suchfunktion
+
+document.addEventListener('DOMContentLoaded', function () {
+  var searchInput = document.getElementById('search-input');
+  var searchResults = document.getElementById('search-results');
+  var idx, posts = [];
+
+  fetch('/rubinhood-blog/search.json')
+    .then(response => response.json())
+    .then(data => {
+      posts = data;
+      idx = lunr(function () {
+        this.ref('url');
+        this.field('title', { boost: 10 });
+        this.field('content');
+        posts.forEach(function (doc) {
+          this.add(doc);
+        }, this);
+      });
+    });
+
+  searchInput.addEventListener('input', function () {
+    var query = this.value.trim();
+    searchResults.innerHTML = '';
+    if (query.length < 2) return;
+
+    var results = idx.search(query + '*');
+    if (results.length === 0) {
+      searchResults.innerHTML = '<p>Keine Treffer gefunden.</p>';
+      return;
+    }
+
+    var html = '<ul class="search-result-list">';
+    results.forEach(function (result) {
+      var post = posts.find(p => p.url === result.ref);
+      html += `<li><a href="${post.url}">${post.title}</a><br>
+      <span class="search-date">${post.date}</span><br>
+      <span class="search-excerpt">${post.excerpt}</span></li>`;
+    });
+    html += '</ul>';
+    searchResults.innerHTML = html;
+  });
+});
+
+

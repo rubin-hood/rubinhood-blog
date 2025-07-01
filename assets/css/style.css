@@ -570,3 +570,32 @@ body.noscroll { overflow: hidden; }
   }
 }
 
+
+
+/*Suchfunktion*/
+#search-results {
+  position: absolute;
+  background: #fff;
+  border: 1px solid #ddd;
+  max-height: 380px;
+  overflow-y: auto;
+  z-index: 1001;
+  min-width: 300px;
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,0.08);
+  padding: 0.7em 1em;
+}
+
+.search-result-list {
+  list-style: none;
+  margin: 0; padding: 0;
+}
+.search-result-list li {
+  margin-bottom: 1.5em;
+}
+.search-date {
+  color: #888; font-size: 0.9em;
+}
+.search-excerpt {
+  color: #555; font-size: 0.98em;
+}
+
