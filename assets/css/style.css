@@ -84,7 +84,7 @@ a:active { color: #AA0600; }
   font-size: 1.3rem;
 }
 .site-nav a:hover { color: #AA0600; }
-.site-nav a.active { color: #AA0600; }
+/*.site-nav a.active { color: #AA0600; }*/
 .social-icons {
   display: flex;
   align-items: center;
