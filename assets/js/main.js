@@ -89,13 +89,6 @@ document.querySelectorAll('.blog-card').forEach(card => {
 
 
 
-const closeMenuBtn = document.querySelector('.close-menu');
-closeMenuBtn.addEventListener('click', () => {
-  mobileMenu.classList.remove('open');
-  document.body.classList.remove('noscroll'); // optional, falls du das nutzt
-});
-
-
 
 
 
