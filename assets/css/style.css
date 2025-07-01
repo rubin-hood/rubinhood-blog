@@ -595,10 +595,40 @@ body.noscroll { overflow: hidden; }
   align-items: center;
   width: 100%;
 }
+.search-result-image {
+  flex: 0 0 76px;
+  width: 76px;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.2em;
+  background: #f6f6f6;
+  border-radius: 7px;
+  overflow: hidden;
+}
+.search-result-image img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 7px;
+  display: block;
+}
+.search-result-noimg {
+  width: 72px;
+  height: 72px;
+  background: #e0e0e0;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  font-size: 0.95em;
+  font-style: italic;
+}
 .search-result-text {
   flex: 1 1 0%;
   min-width: 0;
-  padding-right: 1.2em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -623,64 +653,20 @@ body.noscroll { overflow: hidden; }
   border-radius: 3px;
   padding: 0 2px;
 }
-.search-result-image {
-  flex: 0 0 76px;
-  width: 76px;
-  height: 76px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: auto;
-  background: #f6f6f6;
-  border-radius: 7px;
-  overflow: hidden;
-}
-.search-result-image img {
-  width: 72px;
-  height: 72px;
-  object-fit: cover;
-  border-radius: 7px;
-  display: block;
-}
-.search-result-noimg {
-  width: 72px;
-  height: 72px;
-  background: #e0e0e0;
-  color: #888;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 7px;
-  font-size: 0.95em;
-  font-style: italic;
-}
-
 #search-results p {
   text-align: center;
   color: #888;
   font-size: 1.15em;
   margin: 2em 0;
 }
-
-/* Für mobile Screens etwas kleiner! */
+/* Mobil */
 @media (max-width: 600px) {
-  .search-result-hit {
+  .search-result-hit, .search-result-hit a {
     flex-direction: column;
     align-items: flex-start;
-    padding: 0.9em 0.7em;
-  }
-  .search-result-hit a {
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-  }
-  .search-result-text {
-    padding-right: 0.4em;
-    margin-bottom: 0.8em;
   }
   .search-result-image {
-    margin-left: 0;
-    margin-bottom: 0.8em;
+    margin: 0 0 0.8em 0;
     width: 62px;
     height: 62px;
   }

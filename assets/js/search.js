@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         searchResults.innerHTML = filtered.map(post => {
           let snippet = '';
-          // Nur Satz mit Treffer, sonst Excerpt ganz
           if (post.title.toLowerCase().includes(qLower)) {
             snippet = highlight(post.title, query);
           }
@@ -53,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
             snippet = highlight(post.title, query);
           }
 
-          // Bild rechts, wenn vorhanden
+          // Bild links
           let imageHtml = '';
           if (post.image) {
             imageHtml = `<div class="search-result-image"><img src="${post.image}" alt=""></div>`;
@@ -64,11 +63,11 @@ document.addEventListener('DOMContentLoaded', function () {
           return `
             <div class="search-result-hit">
               <a href="${post.url}">
+                ${imageHtml}
                 <div class="search-result-text">
                   <div class="hit-title">${post.title}</div>
                   <div class="hit-snippet">${snippet}</div>
                 </div>
-                ${imageHtml}
               </a>
             </div>
           `;
