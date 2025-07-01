@@ -87,77 +87,52 @@ document.querySelectorAll('.blog-card').forEach(card => {
   });
 })();
 
-const filtered = posts.filter(post =>
-  (post.title && post.title.toLowerCase().includes(query)) ||
-  (post.excerpt && post.excerpt.toLowerCase().includes(query)) ||
-  (post.content && post.content.toLowerCase().includes(query))
-);
 
-console.log("Gefundene Treffer:", filtered); // <--- NEU!
-//////////////////
-function renderCard(post) {
-  return `
-    <a class="blog-card" href="${post.url}">
-      <div class="card-img">
-        ${post.image ? `<img src="${post.image}" alt="${post.title}">` : `<div class="no-img">Bild</div>`}
-      </div>
-      <div class="card-content">
-        <div class="card-title">${post.title}</div>
-        <time class="card-date">${post.date}</time>
-        <div class="card-desc">${post.excerpt}</div>
-      </div>
-    </a>
-  `;
-}
 
+//////////////
 document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('search-input');
-  const resultsContainer = document.getElementById('search-results');
-  const blogList = document.getElementById('blog-list');
+  const searchResults = document.getElementById('search-results');
+  const allPosts = document.getElementById('all-posts');
   let posts = [];
 
-  fetch('/rubinhood-blog/assets/js/search.json')
+  fetch('/rubinhood-blog/assets/js/search.json') // passe baseurl ggf. an
     .then(response => response.json())
-    .then(data => {
-      posts = data;
-      // Debug-Ausgabe: Zeigt, ob Daten geladen wurden!
-      console.log("Geladene Posts:", posts);
+    .then(data => { posts = data; });
 
-      searchInput.addEventListener('input', function() {
-        const query = this.value.trim().toLowerCase();
+  searchInput.addEventListener('input', function() {
+    const query = this.value.trim().toLowerCase();
+    if(query.length === 0) {
+      searchResults.innerHTML = '';
+      allPosts.style.display = '';
+      return;
+    }
+    allPosts.style.display = 'none';
 
-        if (!query || query.length < 2) {
-          resultsContainer.innerHTML = '';
-          blogList.style.display = '';
-          return;
-        }
+    const filtered = posts.filter(post =>
+      post.title.toLowerCase().includes(query) ||
+      (post.excerpt && post.excerpt.toLowerCase().includes(query))
+    );
 
-        // Suche durchführen
-        const filtered = posts.filter(post =>
-          (post.title && post.title.toLowerCase().includes(query)) ||
-          (post.excerpt && post.excerpt.toLowerCase().includes(query)) ||
-          (post.content && post.content.toLowerCase().includes(query))
-        );
+    if(filtered.length === 0) {
+      searchResults.innerHTML = '<p>Keine Ergebnisse gefunden.</p>';
+      return;
+    }
 
-        // Debug-Ausgabe: Zeigt die Treffer!
-        console.log("Gefundene Treffer:", filtered);
-
-        blogList.style.display = 'none';
-        resultsContainer.innerHTML = `<div class="search-header">Suchergebnisse für "${searchInput.value}":</div>`;
-
-        if (filtered.length === 0) {
-          resultsContainer.innerHTML += '<div>Keine Treffer.</div>';
-        } else {
-          resultsContainer.innerHTML += `<div class="blog-grid blog-grid-single">` +
-            filtered.map(renderCard).join('') +
-            `</div>`;
-        }
-      });
-    })
-    .catch(err => {
-      resultsContainer.innerHTML = '<div>Suche derzeit nicht verfügbar.</div>';
-      console.error(err);
-    });
+    searchResults.innerHTML = filtered.map(post => `
+      <a class="blog-card" href="${post.url}">
+        <div class="card-img">
+          ${post.image ? `<img src="${post.image}" alt="${post.title}">` : 'Bild'}
+        </div>
+        <div class="card-content">
+          <div class="card-title">${post.title}</div>
+          <time class="card-date">${post.date}</time>
+          <div class="card-desc">${post.excerpt}</div>
+        </div>
+      </a>
+    `).join('');
+  });
 });
+
 
 

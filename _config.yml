@@ -4,5 +4,5 @@ baseurl: "/rubinhood-blog"
 url: ""
 theme: null
 exclude: [Gemfile, Gemfile.lock, node_modules, vendor]
-include:
-  - assets/js/search.json
+
+

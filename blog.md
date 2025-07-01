@@ -3,17 +3,17 @@ layout: default
 title: Blog
 ---
 
-<input type="text" id="search-input" placeholder="Suche im Blog..." autocomplete="off">
-<div id="search-results"></div>
-
-<div id="blog-list" class="blog-grid blog-grid-single">
+<input type="text" id="search-input" placeholder="Suche im Blog..." autocomplete="off" style="margin-bottom:2em; width:100%;padding:0.6em; font-size:1.1em;" />
+<div id="search-results" class="blog-grid blog-grid-single"></div>
+<div id="all-posts" class="blog-grid blog-grid-single">
+  <!-- Hier bleibt deine bestehende Schleife mit den Kacheln! -->
   {% for post in site.posts %}
     <a class="blog-card" href="{{ post.url | relative_url }}">
       <div class="card-img">
         {% if post.image %}
           <img src="{{ post.image }}" alt="{{ post.title }}">
         {% else %}
-          <div class="no-img">Bild</div>
+          Bild
         {% endif %}
       </div>
       <div class="card-content">

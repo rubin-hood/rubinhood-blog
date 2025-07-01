@@ -2,14 +2,14 @@
 layout: null
 ---
 [
-  {% for post in site.posts %}
-    {
-      "title": {{ post.title | jsonify }},
-      "url": "{{ post.url | relative_url }}",
-      "date": "{{ post.date | date: '%d.%m.%Y' }}",
-      "excerpt": {{ post.excerpt | strip_html | truncate: 160 | jsonify }},
-      "content": {{ post.content | strip_html | normalize_whitespace | jsonify }},
-      "image": {% if post.image %}"{{ post.image }}"{% else %}null{% endif %}
-    }{% if forloop.last == false %},{% endif %}
-  {% endfor %}
+{% assign posts = site.posts | sort: 'date' | reverse %}
+{% for post in posts %}
+  {
+    "title": {{ post.title | jsonify }},
+    "url": "{{ post.url | relative_url }}",
+    "date": "{{ post.date | date: '%d.%m.%Y' }}",
+    "excerpt": {{ post.excerpt | strip_html | truncate: 140 | jsonify }},
+    "image": {% if post.image %}{{ post.image | jsonify }}{% else %}null{% endif %}
+  }{% unless forloop.last %},{% endunless %}
+{% endfor %}
 ]
