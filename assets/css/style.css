@@ -647,7 +647,7 @@ body.noscroll { overflow: hidden; }
   word-break: break-word;
 }
 .search-result-hit mark {
-  background: #f7e386;
+  background: transparent;
   color: #bb1818;
   font-weight: bold;
   border-radius: 3px;
