@@ -96,3 +96,9 @@ document.querySelectorAll('.blog-card').forEach(card => {
 
 
 
+const sidebar = document.querySelector('.blog-sidebar');
+const toggleBtn = document.querySelector('.sidebar-toggle');
+
+toggleBtn.addEventListener('click', function() {
+  sidebar.classList.toggle('collapsed');
+});
