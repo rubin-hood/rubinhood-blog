@@ -54,27 +54,36 @@ document.querySelectorAll('.blog-card').forEach(card => {
 // Progressive Sticky Header Animation
 (function() {
   const header = document.querySelector('.site-header');
-  let lastScrollY = window.scrollY;
-  let ticking = false;
-  let hideAt = 20; // Ab wie viel px soll der Header verschwinden?
+  const logoImg = header.querySelector('.logo img');
+  
+  // Anpassen: Wie weit soll der Header schrumpfen?
+  const maxScroll = 200;    // Bis zu 200px scrollen
+  const maxHeight = 110;     // Ursprungs-Höhe Header
+  const minHeight = 0;      // Ziel-Höhe (komplett weg)
+  const maxLogo = 100;       // Ursprungs-Höhe Logo
+  const minLogo = 0;        // Ziel-Höhe Logo (verschwinden)
+  const maxPadding = 2;     // Padding in rem
+  const minPadding = 0;     // Ziel-Padding
 
-  function onScroll() {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        if (window.scrollY > hideAt) {
-          header.classList.add('hide');
-        } else {
-          header.classList.remove('hide');
-        }
-        lastScrollY = window.scrollY;
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }
+  window.addEventListener('scroll', function() {
+    let scroll = window.scrollY;
+    if (scroll < 0) scroll = 0;
+    if (scroll > maxScroll) scroll = maxScroll;
 
-  window.addEventListener('scroll', onScroll);
+    const t = scroll / maxScroll; // 0 bis 1
+
+    // Dynamische Werte berechnen
+    const newHeight = maxHeight - (maxHeight - minHeight) * t;
+    const newLogo = maxLogo - (maxLogo - minLogo) * t;
+    const newPadding = maxPadding - (maxPadding - minPadding) * t;
+    const newOpacity = 1 - t;
+
+    // Variablen setzen
+    header.style.setProperty('--header-height', `${newHeight}px`);
+    header.style.setProperty('--header-padding', `${newPadding}rem`);
+    header.style.setProperty('--header-opacity', newOpacity);
+
+    logoImg.style.setProperty('--logo-height', `${newLogo}px`);
+  });
 })();
-
-
 

@@ -34,30 +34,37 @@ a:active { color: #AA0600; }
 /*--------------------------------------------------------*/
 
 .site-header {
-  position: fixed;        /* Neu: fixed statt sticky */
-  top: 0; left: 0; width: 100%;
+  /* Dynamische Variablen für Animation */
+  --header-height: 110px;
+  --header-padding: 2rem;
+  --header-opacity: 1;
+
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
   background: #F6F5F1;
-  box-shadow: 0 2px 24px 0 rgba(0,0,0,0.05);
-  transition:
-    transform 0.6s cubic-bezier(.4,0,.2,1),
-    opacity 0.6s cubic-bezier(.4,0,.2,1),
-    height 0.6s cubic-bezier(.4,0,.2,1),
-    padding 0.6s cubic-bezier(.4,0,.2,1);
-  will-change: transform, opacity, height, padding;
-  opacity: 1;
-  pointer-events: auto;
-}
-.site-header.hide {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-100%);
-}
-body {
-  /* Füge oben Padding hinzu, damit Content nicht "verloren" geht */
-  padding-top: 110px;  /* Passe an deine Header-Höhe an */
+  /* box-shadow: 0 2px 24px 0 rgba(0,0,0,0.05);*/
+  transition: 
+    height 0.25s cubic-bezier(.4,0,.2,1),
+    padding 0.25s cubic-bezier(.4,0,.2,1),
+    opacity 0.25s cubic-bezier(.4,0,.2,1),
+    box-shadow 0.25s cubic-bezier(.4,0,.2,1),
+    background 0.25s cubic-bezier(.4,0,.2,1);
+  height: var(--header-height);
+  padding: 0 var(--header-padding);
+  opacity: var(--header-opacity);
+  backdrop-filter: blur(8px);
+  will-change: height, opacity, padding;
 }
 
+/* Logo dynamisch */
+.site-header .logo img {
+  --logo-height: 100px;
+  height: var(--logo-height);
+  transition: height 0.25s cubic-bezier(.4,0,.2,1);
+}
 
 
 
