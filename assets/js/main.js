@@ -111,7 +111,6 @@ function renderCard(post) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  console.log("JS geladen!"); // Zum Debuggen
   const searchInput = document.getElementById('search-input');
   const resultsContainer = document.getElementById('search-results');
   const blogList = document.getElementById('blog-list');
@@ -121,6 +120,8 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(response => response.json())
     .then(data => {
       posts = data;
+      // Debug-Ausgabe: Zeigt, ob Daten geladen wurden!
+      console.log("Geladene Posts:", posts);
 
       searchInput.addEventListener('input', function() {
         const query = this.value.trim().toLowerCase();
@@ -138,19 +139,19 @@ document.addEventListener('DOMContentLoaded', function() {
           (post.content && post.content.toLowerCase().includes(query))
         );
 
-        blogList.style.display = 'none';
+        // Debug-Ausgabe: Zeigt die Treffer!
+        console.log("Gefundene Treffer:", filtered);
 
+        blogList.style.display = 'none';
         resultsContainer.innerHTML = `<div class="search-header">Suchergebnisse für "${searchInput.value}":</div>`;
 
         if (filtered.length === 0) {
           resultsContainer.innerHTML += '<div>Keine Treffer.</div>';
-          return;
+        } else {
+          resultsContainer.innerHTML += `<div class="blog-grid blog-grid-single">` +
+            filtered.map(renderCard).join('') +
+            `</div>`;
         }
-
-        // Gefundene Beiträge als Karten anzeigen
-        resultsContainer.innerHTML += `<div class="blog-grid blog-grid-single">` +
-          filtered.map(post => renderCard(post)).join('') +
-          `</div>`;
       });
     })
     .catch(err => {
