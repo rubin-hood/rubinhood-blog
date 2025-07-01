@@ -2,17 +2,18 @@
 layout: default
 title: Blog
 ---
+
 <input type="text" id="search-input" placeholder="Suche im Blog..." autocomplete="off">
 <div id="search-results"></div>
 
-<div class="blog-grid blog-grid-single">
+<div id="blog-list" class="blog-grid blog-grid-single">
   {% for post in site.posts %}
     <a class="blog-card" href="{{ post.url | relative_url }}">
       <div class="card-img">
         {% if post.image %}
           <img src="{{ post.image }}" alt="{{ post.title }}">
         {% else %}
-          Bild
+          <div class="no-img">Bild</div>
         {% endif %}
       </div>
       <div class="card-content">
@@ -25,5 +26,6 @@ title: Blog
     </a>
   {% endfor %}
 </div>
+
 
 

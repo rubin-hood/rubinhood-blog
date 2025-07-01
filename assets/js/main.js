@@ -99,7 +99,6 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(data => {
       posts = data;
 
-      // Erst hier das Event aktivieren!
       searchInput.addEventListener('input', function() {
         const query = this.value.trim().toLowerCase();
         resultsContainer.innerHTML = '';
@@ -109,6 +108,9 @@ document.addEventListener('DOMContentLoaded', function() {
           return;
         }
 
+        // Optional: Überschrift mit Suchbegriff
+        resultsContainer.innerHTML = `<div class="search-header">Suchergebnisse für "${searchInput.value}":</div>`;
+
         const filtered = posts.filter(post =>
           post.title.toLowerCase().includes(query) ||
           post.excerpt.toLowerCase().includes(query) ||
@@ -116,27 +118,14 @@ document.addEventListener('DOMContentLoaded', function() {
         );
 
         if (filtered.length === 0) {
-          resultsContainer.innerHTML = '<div>Keine Treffer.</div>';
+          resultsContainer.innerHTML += '<div>Keine Treffer.</div>';
           return;
         }
 
         filtered.forEach(post => {
-          const postElem = document.createElement('div');
-          postElem.classList.add('search-result-item');
-          postElem.innerHTML = `
-            <a href="${post.url}">
-              <strong>${post.title}</strong><br>
-              <small>${post.date}</small><br>
-              <span>${post.excerpt}</span>
-            </a>
-          `;
-          resultsContainer.appendChild(postElem);
+          resultsContainer.innerHTML += renderCard(post);
         });
       });
-    })
-    .catch(err => {
-      resultsContainer.innerHTML = '<div>Suche derzeit nicht verfügbar.</div>';
-      console.error(err);
     });
 });
 
