@@ -574,92 +574,6 @@ body.noscroll { overflow: hidden; }
 
 
 /*-----------SUchfunktion-----------*/
-.search-header {
-  font-size: 1.1em;
-  margin: 2em 0 1.2em 0;
-  font-weight: bold;
-}
-
-.search-card {
-  display: flex;
-  align-items: flex-start;
-  background: #fafafa;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-  padding: 1.5em;
-  margin-bottom: 2em;
-}
-
-.search-card-img img {
-  width: 180px;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-.search-card-img {
-  flex: 0 0 180px;
-  margin-right: 2em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #eee;
-  border-radius: 8px;
-  min-height: 110px;
-}
-
-.search-card-content {
-  flex: 1 1 auto;
-}
-
-.search-card-title {
-  font-size: 1.3em;
-  color: #1eae82;
-  font-weight: bold;
-  text-decoration: none;
-  margin-bottom: 0.3em;
-  display: inline-block;
-}
-
-.search-card-date {
-  color: #888;
-  font-size: 0.97em;
-  margin-bottom: 0.7em;
-}
-
-.search-card-excerpt {
-  margin-bottom: 1.5em;
-  color: #222;
-}
-
-.search-card-btn {
-  display: inline-block;
-  background: #1eae82;
-  color: #fff;
-  padding: 0.5em 1.3em;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 1em;
-  font-weight: 500;
-  transition: background 0.2s;
-}
-
-.search-card-btn:hover {
-  background: #14805d;
-}
-
-.no-img {
-  width: 180px;
-  height: 110px;
-  background: #ddd;
-  color: #666;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  font-size: 0.9em;
-}
-
 #search-results p {
   text-align: center;
   color: #888;
@@ -667,6 +581,12 @@ body.noscroll { overflow: hidden; }
   margin: 2em 0;
 }
 
+#search-results {
+  color: #000 !important;
+  display: grid !important;
+  grid-gap: 1.5em !important;
+  z-index: 1000 !important;
+}
 #search-results .blog-card {
   background: #fff !important;
   color: #000 !important;
@@ -676,17 +596,4 @@ body.noscroll { overflow: hidden; }
   min-height: 80px !important;
   font-size: 1.2em !important;
 }
-
-
-
-#search-results .blog-card {
-  background: #fff !important;
-  color: #000 !important;
-  display: block !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  min-height: 80px !important;
-  font-size: 1.2em !important;
-}
-
 
