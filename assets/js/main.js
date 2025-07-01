@@ -96,9 +96,60 @@ document.querySelectorAll('.blog-card').forEach(card => {
 
 
 
-const sidebar = document.querySelector('.blog-sidebar');
-const toggleBtn = document.querySelector('.sidebar-toggle');
+/////////////////////////
+const sidebar = document.getElementById('sidebar');
+const dragHandle = document.getElementById('sidebar-drag');
+let isDragging = false;
+let startX = 0;
+let startSidebarX = 0;
+let sidebarOpen = true; // Sidebar sichtbar
 
-toggleBtn.addEventListener('click', function() {
-  sidebar.classList.toggle('collapsed');
+function setSidebarCollapsed(collapsed) {
+  if (collapsed) {
+    sidebar.classList.add('collapsed');
+    sidebarOpen = false;
+  } else {
+    sidebar.classList.remove('collapsed');
+    sidebarOpen = true;
+  }
+}
+
+// Start Drag
+function onDragStart(e) {
+  isDragging = true;
+  startX = e.touches ? e.touches[0].clientX : e.clientX;
+  document.body.style.userSelect = "none";
+}
+function onDragMove(e) {
+  if (!isDragging) return;
+  let currentX = e.touches ? e.touches[0].clientX : e.clientX;
+  let delta = currentX - startX;
+
+  // Wenn nach links gezogen wird und ausreichend weit: einklappen
+  if (sidebarOpen && delta < -40) {
+    setSidebarCollapsed(true);
+    isDragging = false;
+  }
+  // Wenn nach rechts gezogen wird und Sidebar zu ist: ausklappen
+  if (!sidebarOpen && delta > 40) {
+    setSidebarCollapsed(false);
+    isDragging = false;
+  }
+}
+function onDragEnd() {
+  isDragging = false;
+  document.body.style.userSelect = "";
+}
+
+// Events (Maus UND Touch)
+dragHandle.addEventListener('mousedown', onDragStart);
+dragHandle.addEventListener('touchstart', onDragStart, {passive:true});
+window.addEventListener('mousemove', onDragMove);
+window.addEventListener('touchmove', onDragMove, {passive:true});
+window.addEventListener('mouseup', onDragEnd);
+window.addEventListener('touchend', onDragEnd);
+
+// Optional: Klick auf Drag-Handle öffnet wieder (wenn zu)
+dragHandle.addEventListener('click', () => {
+  if (!sidebarOpen) setSidebarCollapsed(false);
 });

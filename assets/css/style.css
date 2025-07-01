@@ -273,34 +273,53 @@ main {
 /*----------------------------------------*/
 
 .blog-sidebar {
-  transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+  position: relative;
+  transition: transform 0.3s cubic-bezier(.4,0,.2,1), min-width 0.3s, width 0.3s;
   will-change: transform;
+  z-index: 100;
 }
 
-/* Sidebar versteckt (nach links rausfahren) */
-.blog-sidebar.collapsed {
-  transform: translateX(-100%);
-}
-
-/* Optional: Button fixieren */
-.sidebar-toggle {
+/* Drag-Bar: schmales Rechteck am Rand */
+.drag-handle {
   position: absolute;
-  top: 10px;
-  right: -18px; /* So, dass der Button bei versteckter Sidebar sichtbar bleibt */
-  z-index: 1500;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #F6F5F1;
-  border: 1px solid #aaa;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-  cursor: pointer;
-  transition: right 0.3s;
+  top: 0;
+  right: 0;
+  width: 12px;
+  height: 100%;
+  cursor: ew-resize;
+  background: linear-gradient(to left, #ccc 40%, transparent);
+  opacity: 0.35;
+  z-index: 110;
+  border-radius: 0 6px 6px 0;
+  transition: opacity 0.2s;
+}
+.drag-handle:hover {
+  opacity: 0.9;
 }
 
-.blog-sidebar.collapsed .sidebar-toggle {
-  right: -32px; /* Button bleibt sichtbar */
+/* Sidebar versteckt */
+.blog-sidebar.collapsed {
+  transform: translateX(-96%);
+  min-width: 0 !important;
+  width: 24px !important;
+  max-width: 24px !important;
+  overflow: visible !important;
 }
+.blog-sidebar.collapsed .blog-list {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.blog-sidebar.collapsed .drag-handle {
+  background: linear-gradient(to left, #bbb 80%, transparent);
+  opacity: 0.7;
+}
+
+/* Optional: Content auf volle Breite */
+.blog-sidebar.collapsed ~ .blog-content {
+  margin-left: 0 !important;
+}
+
 
 /*----------------------------------------*/
 

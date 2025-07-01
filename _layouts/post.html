@@ -4,7 +4,7 @@ layout: default
 
 <div class="blog-layout">
   <aside class="blog-sidebar">
-    <button class="sidebar-toggle" aria-label="Sidebar ein-/ausblenden">⮜</button>
+  <div class="drag-handle" id="sidebar-drag"></div>
 <div class="blog-list">
   {% for post in site.posts %}
     <a class="blog-card{% if post.url == page.url %} active{% endif %}" href="{{ post.url | relative_url }}">
