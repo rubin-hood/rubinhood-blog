@@ -505,14 +505,16 @@ body.noscroll { overflow: hidden; }
 
 
 /* ======= Double Underline Hover Effekt für Navigation ======= */
+.site-nav a {
+  transition: letter-spacing 0.9s cubic-bezier(.4,0,.2,1);
+}
+
 .site-nav a:hover,
 .site-nav a:focus {
   letter-spacing: 0.28em;
-  transition: letter-spacing 0.21s cubic-bezier(.4,0,.2,1);
+  transition: letter-spacing 0.22s cubic-bezier(.4,0,.2,1);
 }
-.site-nav a {
-  transition: letter-spacing 0.54s cubic-bezier(.4,0,.2,1);
-}
+
 
 
 
