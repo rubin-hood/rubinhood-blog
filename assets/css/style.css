@@ -507,50 +507,19 @@ body.noscroll { overflow: hidden; }
 /* ======= Double Underline Hover Effekt für Navigation ======= */
 .site-nav a {
   position: relative;
-  overflow: visible;
-  padding: 0.2em 0.1em;   /* ein bisschen mehr Platz oben/unten, optional */
-  transition: color 0.2s cubic-bezier(.4,0,.2,1);
+  padding-bottom: 4px;
 }
-
-.site-nav a::before,
 .site-nav a::after {
   content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 2px;
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: 3px;
   background: #009C6C;
   border-radius: 2px;
   transform: scaleX(0);
-  transition: transform 0.32s cubic-bezier(.44,.09,.46,1.13);
-  pointer-events: none;
+  transition: transform .32s cubic-bezier(.44,.09,.46,1.13);
 }
-
-.site-nav a::before {
-  top: -5px;  /* Linie oben */
-}
-
-.site-nav a::after {
-  bottom: -5px; /* Linie unten */
-}
-
-.site-nav a:hover::before,
-.site-nav a:focus::before,
 .site-nav a:hover::after,
-.site-nav a:focus::after {
-  transform: scaleX(1);
-}
-
-.site-nav a:hover,
-.site-nav a:focus {
-  color: #AA0600;
-}
-
-.site-nav a.active::before,
 .site-nav a.active::after {
   transform: scaleX(1);
-  background: #AA0600; /* Linie für aktiven Link rot */
 }
-.site-nav a.active {
-  color: #AA0600;
-}
+
