@@ -1,7 +1,3 @@
-window.onerror = function(message, source, lineno, colno, error) {
-  alert('JS-Fehler: ' + message);
-};
-
 // ================================
 // 1. Initialisierung nach Laden der Seite
 // ================================
@@ -97,38 +93,30 @@ document.querySelectorAll('.blog-card').forEach(card => {
 document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('search-input');
   if (!searchInput) return;
-
   const searchResults = document.getElementById('search-results');
   const allPosts = document.getElementById('all-posts');
   let posts = [];
-
-  // Suche-Handler erst setzen, wenn Daten geladen!
   fetch('/rubinhood-blog/assets/js/search.json')
-    .then(response => response.json())
+    .then(r => r.json())
     .then(data => {
       posts = data;
-
-      // Jetzt erst Event-Listener setzen!
       searchInput.addEventListener('input', function() {
         const query = this.value.trim().toLowerCase();
-
         if(query.length === 0) {
           searchResults.innerHTML = '';
           allPosts.style.display = '';
           return;
         }
         allPosts.style.display = 'none';
-
         const filtered = posts.filter(post =>
           post.title.toLowerCase().includes(query) ||
           (post.excerpt && post.excerpt.toLowerCase().includes(query))
         );
-
+        console.log("Gefundene Treffer:", filtered); // Debug!
         if(filtered.length === 0) {
           searchResults.innerHTML = '<p>Keine Ergebnisse gefunden.</p>';
           return;
         }
-
         searchResults.innerHTML = filtered.map(post => `
           <a class="blog-card" href="${post.url}">
             <div class="card-img">
@@ -141,9 +129,11 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
           </a>
         `).join('');
+        console.log("Neues HTML:", searchResults.innerHTML);
       });
     });
 });
+
 
 
 
