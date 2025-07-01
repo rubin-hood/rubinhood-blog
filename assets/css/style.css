@@ -573,7 +573,7 @@ body.noscroll { overflow: hidden; }
 
 
 
-/*----------------------*/
+/*-----------SUchfunktion-----------*/
 .search-header {
   font-size: 1.1em;
   margin: 2em 0 1.2em 0;
@@ -667,12 +667,16 @@ body.noscroll { overflow: hidden; }
   margin: 2em 0;
 }
 
-#search-results {
+#search-results .blog-card {
+  background: #fff !important;
   color: #000 !important;
-  display: grid !important;
-  grid-gap: 1.5em !important;
-  z-index: 1000 !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  min-height: 80px !important;
+  font-size: 1.2em !important;
 }
+
 
 
 #search-results .blog-card {
