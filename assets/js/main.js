@@ -96,49 +96,55 @@ document.querySelectorAll('.blog-card').forEach(card => {
 //////////////
 document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('search-input');
-  if (!searchInput) return; // Stoppt das Skript, wenn das Feld nicht existiert!
+  if (!searchInput) return;
 
   const searchResults = document.getElementById('search-results');
   const allPosts = document.getElementById('all-posts');
   let posts = [];
 
+  // Suche-Handler erst setzen, wenn Daten geladen!
   fetch('/rubinhood-blog/assets/js/search.json')
     .then(response => response.json())
-    .then(data => { posts = data; });
+    .then(data => {
+      posts = data;
 
-  searchInput.addEventListener('input', function() {
-    const query = this.value.trim().toLowerCase();
-    if(query.length === 0) {
-      searchResults.innerHTML = '';
-      allPosts.style.display = '';
-      return;
-    }
-    allPosts.style.display = 'none';
+      // Jetzt erst Event-Listener setzen!
+      searchInput.addEventListener('input', function() {
+        const query = this.value.trim().toLowerCase();
 
-    const filtered = posts.filter(post =>
-      post.title.toLowerCase().includes(query) ||
-      (post.excerpt && post.excerpt.toLowerCase().includes(query))
-    );
+        if(query.length === 0) {
+          searchResults.innerHTML = '';
+          allPosts.style.display = '';
+          return;
+        }
+        allPosts.style.display = 'none';
 
-    if(filtered.length === 0) {
-      searchResults.innerHTML = '<p>Keine Ergebnisse gefunden.</p>';
-      return;
-    }
+        const filtered = posts.filter(post =>
+          post.title.toLowerCase().includes(query) ||
+          (post.excerpt && post.excerpt.toLowerCase().includes(query))
+        );
 
-    searchResults.innerHTML = filtered.map(post => `
-      <a class="blog-card" href="${post.url}">
-        <div class="card-img">
-          ${post.image ? `<img src="${post.image}" alt="${post.title}">` : 'Bild'}
-        </div>
-        <div class="card-content">
-          <div class="card-title">${post.title}</div>
-          <time class="card-date">${post.date}</time>
-          <div class="card-desc">${post.excerpt}</div>
-        </div>
-      </a>
-    `).join('');
-  });
+        if(filtered.length === 0) {
+          searchResults.innerHTML = '<p>Keine Ergebnisse gefunden.</p>';
+          return;
+        }
+
+        searchResults.innerHTML = filtered.map(post => `
+          <a class="blog-card" href="${post.url}">
+            <div class="card-img">
+              ${post.image ? `<img src="${post.image}" alt="${post.title}">` : 'Bild'}
+            </div>
+            <div class="card-content">
+              <div class="card-title">${post.title}</div>
+              <time class="card-date">${post.date}</time>
+              <div class="card-desc">${post.excerpt}</div>
+            </div>
+          </a>
+        `).join('');
+      });
+    });
 });
+
 
 
 
