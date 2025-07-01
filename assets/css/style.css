@@ -61,7 +61,7 @@ a:active { color: #AA0600; }
 
 /* Logo dynamisch */
 .site-header .logo img {
-  --logo-height: 110px;
+  --logo-height: 100px;
   height: var(--logo-height);
   transition: height 0.25s cubic-bezier(.4,0,.2,1);
 }
@@ -70,7 +70,7 @@ a:active { color: #AA0600; }
 
 /*--------------------------------------------------------*/
 
-.logo img { height: 110px; }
+.logo img { height: 90px; }
 .site-nav ul {
   display: flex;
   list-style: none;
