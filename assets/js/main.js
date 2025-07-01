@@ -92,7 +92,6 @@ document.querySelectorAll('.blog-card').forEach(card => {
 
 
 //Suchfunktion
-
 document.addEventListener('DOMContentLoaded', function () {
   var searchInput = document.getElementById('search-input');
   var searchResults = document.getElementById('search-results');

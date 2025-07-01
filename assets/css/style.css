@@ -573,24 +573,61 @@ body.noscroll { overflow: hidden; }
 
 
 /*Suchfunktion*/
-.blog-search {
+/* Blog-Suche zentriert */
+#site-search {
+  width: 100%;
+  max-width: 380px;
+  margin: 2rem auto 2.5rem auto;
   display: flex;
-  justify-content: flex-end;
-  margin-bottom: 1.6rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 #search-input {
-  font-size: 1.13rem;
+  width: 100%;
   padding: 0.45em 1em;
-  border-radius: 1.6em;
-  border: 1.5px solid #c4e7d2;
-  background: #fafaf7;
-  min-width: 210px;
-  transition: border-color 0.2s;
+  font-size: 1.11rem;
+  border: 1.5px solid #c1c1b1;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color .2s;
+  background: #fff;
 }
+
 #search-input:focus {
   border-color: #009C6C;
-  outline: none;
+  box-shadow: 0 2px 16px -8px #009c6c20;
+}
+#search-results {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.search-result-list {
+  padding-left: 0;
+  list-style: none;
+}
+.search-result-list li {
+  margin-bottom: 1.4rem;
+  border-bottom: 1px solid #ececec;
+  padding-bottom: 1rem;
+}
+.search-result-list a {
+  font-weight: bold;
+  color: #009C6C;
+  font-size: 1.08rem;
+}
+.search-result-list a:hover {
+  color: #AA0600;
+}
+.search-date {
+  color: #888;
+  font-size: 0.95em;
+}
+.search-excerpt {
+  display: block;
+  color: #333;
+  font-size: 1em;
 }
 
 

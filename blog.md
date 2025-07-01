@@ -4,8 +4,9 @@ title: Blog
 ---
 
 <!-- Suchmaske oben einfügen -->
-<form id="site-search" class="blog-search" action="#" autocomplete="off">
-  <input id="search-input" type="search" placeholder="Blog durchsuchen …" aria-label="Suche">
+<form id="site-search" action="#" autocomplete="off">
+  <input id="search-input" type="search" placeholder="Suchen …" aria-label="Suche">
+  <div id="search-results"></div>
 </form>
 
 <!-- Optional: Ergebnisse hier ausgeben -->
