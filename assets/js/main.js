@@ -92,19 +92,19 @@ console.log("Card für:", post.title);
 // Funktion für die Blog-Card
 function renderCard(post) {
   return `
-    <div class="search-card">
-      <div class="search-card-img">
+    <a class="blog-card" href="${post.url}">
+      <div class="card-img">
         ${post.image ? `<img src="${post.image}" alt="${post.title}">` : `<div class="no-img">Bild</div>`}
       </div>
-      <div class="search-card-content">
-        <a class="search-card-title" href="${post.url}">${post.title}</a>
-        <div class="search-card-date">${post.date}</div>
-        <div class="search-card-excerpt">${post.excerpt}</div>
-        <a class="search-card-btn" href="${post.url}">READ MORE</a>
+      <div class="card-content">
+        <div class="card-title">${post.title}</div>
+        <time class="card-date">${post.date}</time>
+        <div class="card-desc">${post.excerpt}</div>
       </div>
-    </div>
+    </a>
   `;
 }
+
 
 document.addEventListener('DOMContentLoaded', function() {
   console.log("JS geladen!"); // Kontrolle!
