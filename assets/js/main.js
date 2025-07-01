@@ -54,47 +54,27 @@ document.querySelectorAll('.blog-card').forEach(card => {
 // Progressive Sticky Header Animation
 (function() {
   const header = document.querySelector('.site-header');
-  const logoImg = header.querySelector('.logo img');
-  
-  // Konfiguration – anpassen nach Geschmack
-  const maxScroll = 160;    // Wie viel Pixel, bis Header ganz wegslidet?
-  const maxHeight = 110;    // Start-Höhe Header (wie dein Design)
-  const minHeight = 36;     // Kleinste Höhe Header (sollte nicht 0 sein!)
-  const maxLogo = 100;      // Logo groß
-  const minLogo = 24;       // Logo klein
-  const maxPadding = 2;     // Padding links/rechts in rem
-  const minPadding = 0.5;   // Minimalpadding
-  const fadeOutStart = 0.2; // Ab 20% Scroll beginnt Opazität zu sinken
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+  let hideAt = 20; // Ab wie viel px soll der Header verschwinden?
 
-  window.addEventListener('scroll', function() {
-    let scroll = window.scrollY;
-    if (scroll < 0) scroll = 0;
-    if (scroll > maxScroll) scroll = maxScroll;
-    const t = scroll / maxScroll; // 0 = oben, 1 = maxScroll
-
-    // Animation: sanft schrumpfen
-    const newHeight = maxHeight - (maxHeight - minHeight) * t;
-    const newLogo = maxLogo - (maxLogo - minLogo) * t;
-    const newPadding = maxPadding - (maxPadding - minPadding) * t;
-
-    // Animation: sanft Opazität verringern, aber erst nach etwas Scroll
-    let newOpacity = 1;
-    if (t > fadeOutStart) {
-      newOpacity = 1 - ((t - fadeOutStart) / (1 - fadeOutStart)); // linear fade ab 20%
-      if (newOpacity < 0) newOpacity = 0;
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        if (window.scrollY > hideAt) {
+          header.classList.add('hide');
+        } else {
+          header.classList.remove('hide');
+        }
+        lastScrollY = window.scrollY;
+        ticking = false;
+      });
+      ticking = true;
     }
+  }
 
-    // Animation: Slide-Out, sobald fast ganz oben (z.B. ab t > 0.97)
-    let newTranslate = '0%';
-    if (t > 0.97) newTranslate = '-100%';
-
-    // Setzen der CSS-Variablen
-    header.style.setProperty('--header-height', `${newHeight}px`);
-    header.style.setProperty('--header-padding', `${newPadding}rem`);
-    header.style.setProperty('--header-opacity', newOpacity);
-    header.style.setProperty('--header-translate', newTranslate);
-    logoImg.style.setProperty('--logo-height', `${newLogo}px`);
-  });
+  window.addEventListener('scroll', onScroll);
 })();
+
 
 

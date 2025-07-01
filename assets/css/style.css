@@ -34,35 +34,30 @@ a:active { color: #AA0600; }
 /*--------------------------------------------------------*/
 
 .site-header {
-  /* Dynamische Variablen für Animation */
-  --header-height: 110px;
-  --header-padding: 2rem;
-  --header-opacity: 1;
-
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
+  position: fixed;        /* Neu: fixed statt sticky */
+  top: 0; left: 0; width: 100%;
   z-index: 1000;
   background: #F6F5F1;
-  /* box-shadow: 0 2px 24px 0 rgba(0,0,0,0.05);*/
-  transform: translateY(var(--header-translate, 0%));
+  box-shadow: 0 2px 24px 0 rgba(0,0,0,0.05);
   transition:
-    height 0.32s cubic-bezier(.4,0,.2,1),
-    padding 0.32s cubic-bezier(.4,0,.2,1),
-    opacity 0.55s cubic-bezier(.4,0,.2,1),
-    box-shadow 0.25s cubic-bezier(.4,0,.2,1),
-    background 0.25s cubic-bezier(.4,0,.2,1),
-    transform 0.45s cubic-bezier(.4,0,.2,1);
-  height: var(--header-height, 110px);
-  padding: 0 var(--header-padding, 2rem);
-  opacity: var(--header-opacity, 1);
-  will-change: height, opacity, padding, transform;
+    transform 0.6s cubic-bezier(.4,0,.2,1),
+    opacity 0.6s cubic-bezier(.4,0,.2,1),
+    height 0.6s cubic-bezier(.4,0,.2,1),
+    padding 0.6s cubic-bezier(.4,0,.2,1);
+  will-change: transform, opacity, height, padding;
+  opacity: 1;
+  pointer-events: auto;
 }
-.site-header .logo img {
-  height: var(--logo-height, 100px);
-  transition: height 0.32s cubic-bezier(.4,0,.2,1);
+.site-header.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-100%);
 }
+body {
+  /* Füge oben Padding hinzu, damit Content nicht "verloren" geht */
+  padding-top: 110px;  /* Passe an deine Header-Höhe an */
+}
+
 
 
 
