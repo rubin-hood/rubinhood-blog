@@ -676,11 +676,17 @@ body.noscroll { overflow: hidden; }
   grid-gap: 1.5em !important;
   z-index: 1000 !important;
 }
+
+
 #search-results .blog-card {
-  border: 2px solid #f90 !important;
   background: #fff !important;
   color: #000 !important;
+  border: 2px solid #e44 !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  min-height: 80px !important;
+  font-size: 1.2em !important;
 }
-
 
 
