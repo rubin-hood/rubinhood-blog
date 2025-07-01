@@ -87,7 +87,13 @@ document.querySelectorAll('.blog-card').forEach(card => {
   });
 })();
 
-console.log("Card für:", post.title);
+const filtered = posts.filter(post =>
+  (post.title && post.title.toLowerCase().includes(query)) ||
+  (post.excerpt && post.excerpt.toLowerCase().includes(query)) ||
+  (post.content && post.content.toLowerCase().includes(query))
+);
+
+console.log("Gefundene Treffer:", filtered); // <--- NEU!
 //////////////////
 function renderCard(post) {
   return `
