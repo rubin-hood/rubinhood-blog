@@ -660,7 +660,12 @@ body.noscroll { overflow: hidden; }
   font-size: 0.9em;
 }
 
-
+#search-results p {
+  text-align: center;
+  color: #888;
+  font-size: 1.15em;
+  margin: 2em 0;
+}
 
 
 

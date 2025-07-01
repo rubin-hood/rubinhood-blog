@@ -4,9 +4,12 @@ title: Blog
 ---
 
 <input type="text" id="search-input" placeholder="Suche im Blog..." autocomplete="off" style="margin-bottom:2em; width:100%;padding:0.6em; font-size:1.1em;" />
-<div id="search-results" class="blog-grid blog-grid-single"></div>
+
+<!-- Ergebnisse der Suche (Grid bleibt erhalten) -->
+<div id="search-results" class="blog-grid blog-grid-single" style="display:none;"></div>
+
+<!-- Alle Beiträge (Grid bleibt erhalten) -->
 <div id="all-posts" class="blog-grid blog-grid-single">
-  <!-- Hier bleibt deine bestehende Schleife mit den Kacheln! -->
   {% for post in site.posts %}
     <a class="blog-card" href="{{ post.url | relative_url }}">
       <div class="card-img">
@@ -26,6 +29,9 @@ title: Blog
     </a>
   {% endfor %}
 </div>
+
+<!-- Suche-Logik: search.js am besten nur auf dieser Seite laden -->
+<script src="{{ '/assets/js/search.js' | relative_url }}"></script>
 
 
 
