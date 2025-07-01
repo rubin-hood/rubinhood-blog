@@ -23,5 +23,3 @@ title: Blog
     </a>
   {% endfor %}
 </div>
-
-
