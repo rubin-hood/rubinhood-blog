@@ -46,24 +46,22 @@ a:active { color: #AA0600; }
   z-index: 1000;
   background: #F6F5F1;
   /* box-shadow: 0 2px 24px 0 rgba(0,0,0,0.05);*/
-  transition: 
-    height 0.25s cubic-bezier(.4,0,.2,1),
-    padding 0.25s cubic-bezier(.4,0,.2,1),
-    opacity 0.25s cubic-bezier(.4,0,.2,1),
+  transform: translateY(var(--header-translate, 0%));
+  transition:
+    height 0.32s cubic-bezier(.4,0,.2,1),
+    padding 0.32s cubic-bezier(.4,0,.2,1),
+    opacity 0.55s cubic-bezier(.4,0,.2,1),
     box-shadow 0.25s cubic-bezier(.4,0,.2,1),
-    background 0.25s cubic-bezier(.4,0,.2,1);
-  height: var(--header-height);
-  padding: 0 var(--header-padding);
-  opacity: var(--header-opacity);
-  backdrop-filter: blur(8px);
-  will-change: height, opacity, padding;
+    background 0.25s cubic-bezier(.4,0,.2,1),
+    transform 0.45s cubic-bezier(.4,0,.2,1);
+  height: var(--header-height, 110px);
+  padding: 0 var(--header-padding, 2rem);
+  opacity: var(--header-opacity, 1);
+  will-change: height, opacity, padding, transform;
 }
-
-/* Logo dynamisch */
 .site-header .logo img {
-  --logo-height: 100px;
-  height: var(--logo-height);
-  transition: height 0.25s cubic-bezier(.4,0,.2,1);
+  height: var(--logo-height, 100px);
+  transition: height 0.32s cubic-bezier(.4,0,.2,1);
 }
 
 

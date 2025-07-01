@@ -56,34 +56,45 @@ document.querySelectorAll('.blog-card').forEach(card => {
   const header = document.querySelector('.site-header');
   const logoImg = header.querySelector('.logo img');
   
-  // Anpassen: Wie weit soll der Header schrumpfen?
-  const maxScroll = 200;    // Bis zu 200px scrollen
-  const maxHeight = 110;     // Ursprungs-Höhe Header
-  const minHeight = 0;      // Ziel-Höhe (komplett weg)
-  const maxLogo = 100;       // Ursprungs-Höhe Logo
-  const minLogo = 0;        // Ziel-Höhe Logo (verschwinden)
-  const maxPadding = 2;     // Padding in rem
-  const minPadding = 0;     // Ziel-Padding
+  // Konfiguration – anpassen nach Geschmack
+  const maxScroll = 160;    // Wie viel Pixel, bis Header ganz wegslidet?
+  const maxHeight = 110;    // Start-Höhe Header (wie dein Design)
+  const minHeight = 36;     // Kleinste Höhe Header (sollte nicht 0 sein!)
+  const maxLogo = 100;      // Logo groß
+  const minLogo = 24;       // Logo klein
+  const maxPadding = 2;     // Padding links/rechts in rem
+  const minPadding = 0.5;   // Minimalpadding
+  const fadeOutStart = 0.2; // Ab 20% Scroll beginnt Opazität zu sinken
 
   window.addEventListener('scroll', function() {
     let scroll = window.scrollY;
     if (scroll < 0) scroll = 0;
     if (scroll > maxScroll) scroll = maxScroll;
+    const t = scroll / maxScroll; // 0 = oben, 1 = maxScroll
 
-    const t = scroll / maxScroll; // 0 bis 1
-
-    // Dynamische Werte berechnen
+    // Animation: sanft schrumpfen
     const newHeight = maxHeight - (maxHeight - minHeight) * t;
     const newLogo = maxLogo - (maxLogo - minLogo) * t;
     const newPadding = maxPadding - (maxPadding - minPadding) * t;
-    const newOpacity = 1 - t;
 
-    // Variablen setzen
+    // Animation: sanft Opazität verringern, aber erst nach etwas Scroll
+    let newOpacity = 1;
+    if (t > fadeOutStart) {
+      newOpacity = 1 - ((t - fadeOutStart) / (1 - fadeOutStart)); // linear fade ab 20%
+      if (newOpacity < 0) newOpacity = 0;
+    }
+
+    // Animation: Slide-Out, sobald fast ganz oben (z.B. ab t > 0.97)
+    let newTranslate = '0%';
+    if (t > 0.97) newTranslate = '-100%';
+
+    // Setzen der CSS-Variablen
     header.style.setProperty('--header-height', `${newHeight}px`);
     header.style.setProperty('--header-padding', `${newPadding}rem`);
     header.style.setProperty('--header-opacity', newOpacity);
-
+    header.style.setProperty('--header-translate', newTranslate);
     logoImg.style.setProperty('--logo-height', `${newLogo}px`);
   });
 })();
+
 
