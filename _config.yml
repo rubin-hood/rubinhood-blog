@@ -4,15 +4,3 @@ baseurl: "/rubinhood-blog"
 url: ""
 theme: null
 exclude: [Gemfile, Gemfile.lock, node_modules, vendor]
-
-
-collections:
-  posts:
-    output: true
-
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
