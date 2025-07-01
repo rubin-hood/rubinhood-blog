@@ -3,6 +3,14 @@ layout: default
 title: Blog
 ---
 
+<!-- Suchmaske oben einfügen -->
+<form id="site-search" class="blog-search" action="#" autocomplete="off">
+  <input id="search-input" type="search" placeholder="Blog durchsuchen …" aria-label="Suche">
+</form>
+
+<!-- Optional: Ergebnisse hier ausgeben -->
+<div id="search-results"></div>
+
 <div class="blog-grid blog-grid-single">
   {% for post in site.posts %}
     <a class="blog-card" href="{{ post.url | relative_url }}">
