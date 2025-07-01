@@ -2,6 +2,8 @@
 layout: default
 title: Blog
 ---
+<input type="text" id="search-input" placeholder="Suche im Blog..." autocomplete="off">
+<div id="search-results"></div>
 
 <div class="blog-grid blog-grid-single">
   {% for post in site.posts %}
