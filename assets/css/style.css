@@ -609,15 +609,15 @@ body.noscroll { overflow: hidden; }
   line-height: 1.7;
 }
 .search-result-hit mark {
-  background: #f7e386;
-  color: #bb1818;
+  /*background: #f7e386;*/
+  color: #AA0600;
   font-weight: bold;
   border-radius: 3px;
   padding: 0 2px;
 }
 #search-results p {
   text-align: center;
-  color: #888;
+  color: #222;
   font-size: 1.15em;
   margin: 2em 0;
 }
