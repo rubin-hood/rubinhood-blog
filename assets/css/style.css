@@ -45,7 +45,7 @@ a:active { color: #AA0600; }
   width: 100%;
   z-index: 1000;
   background: #F6F5F1;
-  box-shadow: 0 2px 24px 0 rgba(0,0,0,0.05);
+  /* box-shadow: 0 2px 24px 0 rgba(0,0,0,0.05);*/
   transition: 
     height 0.25s cubic-bezier(.4,0,.2,1),
     padding 0.25s cubic-bezier(.4,0,.2,1),
