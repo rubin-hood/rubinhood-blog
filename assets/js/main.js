@@ -92,32 +92,49 @@ document.querySelectorAll('.blog-card').forEach(card => {
 
 
 //////////////////
+// Funktion für die Blog-Card
+function renderCard(post) {
+  return `
+    <a class="blog-card" href="${post.url}">
+      <div class="card-img">
+        ${post.image ? `<img src="${post.image}" alt="${post.title}">` : `<div class="no-img">Bild</div>`}
+      </div>
+      <div class="card-content">
+        <div class="card-title">${post.title}</div>
+        <time class="card-date">${post.date}</time>
+        <div class="card-desc">${post.excerpt}</div>
+      </div>
+    </a>
+  `;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+  console.log("JS geladen!"); // Kontrolle!
   const searchInput = document.getElementById('search-input');
   const resultsContainer = document.getElementById('search-results');
+  const blogList = document.getElementById('blog-list');
   let posts = [];
 
   fetch('/rubinhood-blog/assets/js/search.json')
     .then(response => response.json())
     .then(data => {
       posts = data;
-
       searchInput.addEventListener('input', function() {
         const query = this.value.trim().toLowerCase();
-        resultsContainer.innerHTML = '';
 
-        if (query.length < 2) {
+        if (!query || query.length < 2) {
           resultsContainer.innerHTML = '';
+          blogList.style.display = '';
           return;
         }
 
-        // Optional: Überschrift mit Suchbegriff
+        blogList.style.display = 'none';
         resultsContainer.innerHTML = `<div class="search-header">Suchergebnisse für "${searchInput.value}":</div>`;
 
         const filtered = posts.filter(post =>
           post.title.toLowerCase().includes(query) ||
-          post.excerpt.toLowerCase().includes(query) ||
-          post.content.toLowerCase().includes(query)
+          (post.excerpt && post.excerpt.toLowerCase().includes(query)) ||
+          (post.content && post.content.toLowerCase().includes(query))
         );
 
         if (filtered.length === 0) {
@@ -125,10 +142,15 @@ document.addEventListener('DOMContentLoaded', function() {
           return;
         }
 
-        filtered.forEach(post => {
-          resultsContainer.innerHTML += renderCard(post);
-        });
+        resultsContainer.innerHTML += `<div class="blog-grid blog-grid-single">` +
+          filtered.map(post => renderCard(post)).join('') +
+          `</div>`;
       });
+    })
+    .catch(err => {
+      resultsContainer.innerHTML = '<div>Suche derzeit nicht verfügbar.</div>';
+      console.error(err);
     });
 });
+
 
