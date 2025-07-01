@@ -505,7 +505,6 @@ body.noscroll { overflow: hidden; }
 
 
 /* ======= Double Underline Hover Effekt für Navigation ======= */
-/* --- Basis für Navigation --- */
 .site-nav a {
   position: relative;
   overflow: visible;
@@ -518,7 +517,7 @@ body.noscroll { overflow: hidden; }
     letter-spacing 1.2s cubic-bezier(.4,0,.2,1);
 }
 
-/* --- Letter Spacing Animation auf Hover/Fokus --- */
+
 .site-nav a:hover,
 .site-nav a:focus {
   letter-spacing: 0.28em;
@@ -528,17 +527,11 @@ body.noscroll { overflow: hidden; }
     letter-spacing 1.1s cubic-bezier(.4,0,.2,1);
 }
 
-/* --- Aktiver Zustand (z.B. für aktuelle Seite) --- */
-.site-nav a.active {
-  color: #AA0600;
-}
-
-/* --- Doppelte Linien Animation oben & unten --- */
 .site-nav a::before,
 .site-nav a::after {
   content: '';
   position: absolute;
-  left: 50%;       /* Startet in der Mitte */
+  left: 50%;
   width: 0;
   height: 2px;
   background: #009C6C;
@@ -550,21 +543,16 @@ body.noscroll { overflow: hidden; }
   border-radius: 2px;
 }
 
-.site-nav a::before {
-  top: -6px;      /* Linie oberhalb des Textes */
-}
-.site-nav a::after {
-  bottom: -6px;   /* Linie unterhalb des Textes */
-}
+.site-nav a::before { top: -6px; }
+.site-nav a::after { bottom: -6px; }
 
 .site-nav a:hover::before,
 .site-nav a:focus::before,
-.site-nav a.active::before,
 .site-nav a:hover::after,
-.site-nav a:focus::after,
-.site-nav a.active::after {
-  width: 100%;    /* Dehnt sich auf ganze Link-Breite aus */
+.site-nav a:focus::after {
+  width: 100%;
   left: 0;
   background: #009C6C;
 }
+
 
