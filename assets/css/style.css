@@ -35,7 +35,7 @@ a:active { color: #AA0600; }
 
 .site-header {
   /* Dynamische Variablen für Animation */
-  --header-height: 120px;
+  --header-height: 110px;
   --header-padding: 2rem;
   --header-opacity: 1;
 
