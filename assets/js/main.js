@@ -58,9 +58,9 @@ document.querySelectorAll('.blog-card').forEach(card => {
   
   // Anpassen: Wie weit soll der Header schrumpfen?
   const maxScroll = 200;    // Bis zu 200px scrollen
-  const maxHeight = 84;     // Ursprungs-Höhe Header
+  const maxHeight = 110;     // Ursprungs-Höhe Header
   const minHeight = 0;      // Ziel-Höhe (komplett weg)
-  const maxLogo = 44;       // Ursprungs-Höhe Logo
+  const maxLogo = 100;       // Ursprungs-Höhe Logo
   const minLogo = 0;        // Ziel-Höhe Logo (verschwinden)
   const maxPadding = 2;     // Padding in rem
   const minPadding = 0;     // Ziel-Padding
