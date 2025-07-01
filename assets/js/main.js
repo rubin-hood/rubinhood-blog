@@ -1,3 +1,6 @@
+console.log('Suche-Init geladen');
+
+
 // ================================
 // 1. Initialisierung nach Laden der Seite
 // ================================
