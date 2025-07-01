@@ -32,6 +32,3 @@ title: Blog
 
 <!-- Suche-Logik: search.js am besten nur auf dieser Seite laden -->
 <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
-
-
-
