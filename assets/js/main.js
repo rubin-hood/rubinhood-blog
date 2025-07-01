@@ -1,3 +1,7 @@
+window.onerror = function(message, source, lineno, colno, error) {
+  alert('JS-Fehler: ' + message);
+};
+
 // ================================
 // 1. Initialisierung nach Laden der Seite
 // ================================
