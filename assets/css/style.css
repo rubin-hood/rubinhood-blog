@@ -268,6 +268,42 @@ main {
   max-width: 520px;
   flex: 0 0 480px;
 }
+
+
+/*----------------------------------------*/
+
+.blog-sidebar {
+  transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+  will-change: transform;
+}
+
+/* Sidebar versteckt (nach links rausfahren) */
+.blog-sidebar.collapsed {
+  transform: translateX(-100%);
+}
+
+/* Optional: Button fixieren */
+.sidebar-toggle {
+  position: absolute;
+  top: 10px;
+  right: -18px; /* So, dass der Button bei versteckter Sidebar sichtbar bleibt */
+  z-index: 1500;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #F6F5F1;
+  border: 1px solid #aaa;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: right 0.3s;
+}
+
+.blog-sidebar.collapsed .sidebar-toggle {
+  right: -32px; /* Button bleibt sichtbar */
+}
+
+/*----------------------------------------*/
+
 .blog-content {
   flex: 4 1 1200px;
   padding-left: 2rem;
