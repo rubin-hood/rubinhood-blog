@@ -573,29 +573,24 @@ body.noscroll { overflow: hidden; }
 
 
 /*Suchfunktion*/
-#search-results {
-  position: absolute;
-  background: #fff;
-  border: 1px solid #ddd;
-  max-height: 380px;
-  overflow-y: auto;
-  z-index: 1001;
-  min-width: 300px;
-  box-shadow: 0 4px 20px 0 rgba(0,0,0,0.08);
-  padding: 0.7em 1em;
+.blog-search {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.6rem;
 }
 
-.search-result-list {
-  list-style: none;
-  margin: 0; padding: 0;
+#search-input {
+  font-size: 1.13rem;
+  padding: 0.45em 1em;
+  border-radius: 1.6em;
+  border: 1.5px solid #c4e7d2;
+  background: #fafaf7;
+  min-width: 210px;
+  transition: border-color 0.2s;
 }
-.search-result-list li {
-  margin-bottom: 1.5em;
+#search-input:focus {
+  border-color: #009C6C;
+  outline: none;
 }
-.search-date {
-  color: #888; font-size: 0.9em;
-}
-.search-excerpt {
-  color: #555; font-size: 0.98em;
-}
+
 
