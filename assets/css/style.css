@@ -667,5 +667,20 @@ body.noscroll { overflow: hidden; }
   margin: 2em 0;
 }
 
+#search-results {
+  background: #fffbe6 !important;
+  min-height: 200px !important;
+  border: 2px dashed orange !important;
+  color: #000 !important;
+  display: grid !important;
+  grid-gap: 1.5em !important;
+  z-index: 1000 !important;
+}
+#search-results .blog-card {
+  border: 2px solid #f90 !important;
+  background: #fff !important;
+  color: #000 !important;
+}
+
 
 
