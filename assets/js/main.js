@@ -89,7 +89,6 @@ document.querySelectorAll('.blog-card').forEach(card => {
 
 console.log("Card für:", post.title);
 //////////////////
-// Funktion für die Blog-Card
 function renderCard(post) {
   return `
     <a class="blog-card" href="${post.url}">
@@ -105,9 +104,8 @@ function renderCard(post) {
   `;
 }
 
-
 document.addEventListener('DOMContentLoaded', function() {
-  console.log("JS geladen!"); // Kontrolle!
+  console.log("JS geladen!"); // Zum Debuggen
   const searchInput = document.getElementById('search-input');
   const resultsContainer = document.getElementById('search-results');
   const blogList = document.getElementById('blog-list');
@@ -117,6 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(response => response.json())
     .then(data => {
       posts = data;
+
       searchInput.addEventListener('input', function() {
         const query = this.value.trim().toLowerCase();
 
@@ -126,20 +125,23 @@ document.addEventListener('DOMContentLoaded', function() {
           return;
         }
 
-        blogList.style.display = 'none';
-        resultsContainer.innerHTML = `<div class="search-header">Suchergebnisse für "${searchInput.value}":</div>`;
-
+        // Suche durchführen
         const filtered = posts.filter(post =>
-          post.title.toLowerCase().includes(query) ||
+          (post.title && post.title.toLowerCase().includes(query)) ||
           (post.excerpt && post.excerpt.toLowerCase().includes(query)) ||
           (post.content && post.content.toLowerCase().includes(query))
         );
+
+        blogList.style.display = 'none';
+
+        resultsContainer.innerHTML = `<div class="search-header">Suchergebnisse für "${searchInput.value}":</div>`;
 
         if (filtered.length === 0) {
           resultsContainer.innerHTML += '<div>Keine Treffer.</div>';
           return;
         }
 
+        // Gefundene Beiträge als Karten anzeigen
         resultsContainer.innerHTML += `<div class="blog-grid blog-grid-single">` +
           filtered.map(post => renderCard(post)).join('') +
           `</div>`;
