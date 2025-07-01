@@ -94,47 +94,49 @@ document.addEventListener('DOMContentLoaded', function() {
   const resultsContainer = document.getElementById('search-results');
   let posts = [];
 
-  // Lade das JSON mit den Blogposts
-  fetch('/assets/js/search.json')
+  fetch('/rubinhood-blog/assets/js/search.json')
     .then(response => response.json())
     .then(data => {
       posts = data;
+
+      // Erst hier das Event aktivieren!
+      searchInput.addEventListener('input', function() {
+        const query = this.value.trim().toLowerCase();
+        resultsContainer.innerHTML = '';
+
+        if (query.length < 2) {
+          resultsContainer.innerHTML = '';
+          return;
+        }
+
+        const filtered = posts.filter(post =>
+          post.title.toLowerCase().includes(query) ||
+          post.excerpt.toLowerCase().includes(query) ||
+          post.content.toLowerCase().includes(query)
+        );
+
+        if (filtered.length === 0) {
+          resultsContainer.innerHTML = '<div>Keine Treffer.</div>';
+          return;
+        }
+
+        filtered.forEach(post => {
+          const postElem = document.createElement('div');
+          postElem.classList.add('search-result-item');
+          postElem.innerHTML = `
+            <a href="${post.url}">
+              <strong>${post.title}</strong><br>
+              <small>${post.date}</small><br>
+              <span>${post.excerpt}</span>
+            </a>
+          `;
+          resultsContainer.appendChild(postElem);
+        });
+      });
+    })
+    .catch(err => {
+      resultsContainer.innerHTML = '<div>Suche derzeit nicht verfügbar.</div>';
+      console.error(err);
     });
-
-  // Suchfunktion
-  searchInput.addEventListener('input', function() {
-    const query = this.value.trim().toLowerCase();
-    resultsContainer.innerHTML = '';
-
-    if (query.length < 2) {
-      resultsContainer.innerHTML = '';
-      return;
-    }
-
-    // Filtere die Posts nach Titel, Auszug oder Inhalt
-    const filtered = posts.filter(post =>
-      post.title.toLowerCase().includes(query) ||
-      post.excerpt.toLowerCase().includes(query) ||
-      post.content.toLowerCase().includes(query)
-    );
-
-    if (filtered.length === 0) {
-      resultsContainer.innerHTML = '<div>Keine Treffer.</div>';
-      return;
-    }
-
-    // Zeige die Ergebnisse an
-    filtered.forEach(post => {
-      const postElem = document.createElement('div');
-      postElem.classList.add('search-result-item');
-      postElem.innerHTML = `
-        <a href="${post.url}">
-          <strong>${post.title}</strong><br>
-          <small>${post.date}</small><br>
-          <span>${post.excerpt}</span>
-        </a>
-      `;
-      resultsContainer.appendChild(postElem);
-    });
-  });
 });
+
