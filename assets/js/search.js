@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
   let posts = [];
 
   function highlight(text, search) {
-    // Highlight alle Treffer, egal ob Groß- oder Kleinschreibung
     const re = new RegExp(`(${search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
     return text.replace(re, '<mark>$1</mark>');
   }
@@ -40,16 +39,13 @@ document.addEventListener('DOMContentLoaded', function () {
           return;
         }
 
-        // Jedes Ergebnis als kompakte Textkarte, Suchbegriff hervorgehoben
         searchResults.innerHTML = filtered.map(post => {
           let snippet = '';
-          // Falls im Titel
+          // Nur Satz mit Treffer, sonst Excerpt ganz
           if (post.title.toLowerCase().includes(qLower)) {
             snippet = highlight(post.title, query);
           }
-          // Falls im Excerpt
           else if (post.excerpt && post.excerpt.toLowerCase().includes(qLower)) {
-            // Zeige möglichst nur Satz mit Treffer, sonst Excerpt gesamt
             const sentences = post.excerpt.split(/(?<=[.?!])\s+/);
             const found = sentences.find(s => s.toLowerCase().includes(qLower));
             snippet = found ? highlight(found, query) : highlight(post.excerpt, query);
@@ -57,11 +53,22 @@ document.addEventListener('DOMContentLoaded', function () {
             snippet = highlight(post.title, query);
           }
 
+          // Bild rechts, wenn vorhanden
+          let imageHtml = '';
+          if (post.image) {
+            imageHtml = `<div class="search-result-image"><img src="${post.image}" alt=""></div>`;
+          } else {
+            imageHtml = `<div class="search-result-image search-result-noimg">Kein Bild</div>`;
+          }
+
           return `
             <div class="search-result-hit">
               <a href="${post.url}">
-                <div class="hit-title">${post.title}</div>
-                <div class="hit-snippet">${snippet}</div>
+                <div class="search-result-text">
+                  <div class="hit-title">${post.title}</div>
+                  <div class="hit-snippet">${snippet}</div>
+                </div>
+                ${imageHtml}
               </a>
             </div>
           `;
