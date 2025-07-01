@@ -1,6 +1,3 @@
-console.log('Suche-Init geladen');
-
-
 // ================================
 // 1. Initialisierung nach Laden der Seite
 // ================================
@@ -90,21 +87,22 @@ document.querySelectorAll('.blog-card').forEach(card => {
   });
 })();
 
-
+console.log("Card für:", post.title);
 //////////////////
 // Funktion für die Blog-Card
 function renderCard(post) {
   return `
-    <a class="blog-card" href="${post.url}">
-      <div class="card-img">
+    <div class="search-card">
+      <div class="search-card-img">
         ${post.image ? `<img src="${post.image}" alt="${post.title}">` : `<div class="no-img">Bild</div>`}
       </div>
-      <div class="card-content">
-        <div class="card-title">${post.title}</div>
-        <time class="card-date">${post.date}</time>
-        <div class="card-desc">${post.excerpt}</div>
+      <div class="search-card-content">
+        <a class="search-card-title" href="${post.url}">${post.title}</a>
+        <div class="search-card-date">${post.date}</div>
+        <div class="search-card-excerpt">${post.excerpt}</div>
+        <a class="search-card-btn" href="${post.url}">READ MORE</a>
       </div>
-    </a>
+    </div>
   `;
 }
 
