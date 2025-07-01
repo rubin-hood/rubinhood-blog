@@ -595,6 +595,34 @@ body.noscroll { overflow: hidden; }
   align-items: center;
   width: 100%;
 }
+.search-result-text {
+  flex: 1 1 0%;
+  min-width: 0;
+  padding-right: 1.2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hit-title {
+  font-size: 1.13em;
+  font-weight: 600;
+  color: #009C6C;
+  margin-bottom: 0.25em;
+}
+.hit-snippet {
+  color: #222;
+  font-size: 1.03em;
+  margin-bottom: 0.2em;
+  line-height: 1.7;
+  word-break: break-word;
+}
+.search-result-hit mark {
+  background: #f7e386;
+  color: #bb1818;
+  font-weight: bold;
+  border-radius: 3px;
+  padding: 0 2px;
+}
 .search-result-image {
   flex: 0 0 76px;
   width: 76px;
@@ -602,7 +630,7 @@ body.noscroll { overflow: hidden; }
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 1.2em;
+  margin-left: auto;
   background: #f6f6f6;
   border-radius: 7px;
   overflow: hidden;
@@ -626,47 +654,33 @@ body.noscroll { overflow: hidden; }
   font-size: 0.95em;
   font-style: italic;
 }
-.search-result-text {
-  flex: 1 1 0%;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.hit-title {
-  font-size: 1.13em;
-  font-weight: 600;
-  color: #009C6C;
-  margin-bottom: 0.25em;
-}
-.hit-snippet {
-  color: #222;
-  font-size: 1.03em;
-  margin-bottom: 0.2em;
-  line-height: 1.7;
-  word-break: break-word;
-}
-.search-result-hit mark {
-  background: transparent;
-  color: #bb1818;
-  font-weight: bold;
-  border-radius: 3px;
-  padding: 0 2px;
-}
+
 #search-results p {
   text-align: center;
   color: #888;
   font-size: 1.15em;
   margin: 2em 0;
 }
-/* Mobil */
+
+/* Für mobile Screens etwas kleiner! */
 @media (max-width: 600px) {
-  .search-result-hit, .search-result-hit a {
+  .search-result-hit {
     flex-direction: column;
     align-items: flex-start;
+    padding: 0.9em 0.7em;
+  }
+  .search-result-hit a {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+  .search-result-text {
+    padding-right: 0.4em;
+    margin-bottom: 0.8em;
   }
   .search-result-image {
-    margin: 0 0 0.8em 0;
+    margin-left: 0;
+    margin-bottom: 0.8em;
     width: 62px;
     height: 62px;
   }
