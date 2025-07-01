@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('search-input');
   const searchResults = document.getElementById('search-results');
   const allPosts = document.getElementById('all-posts');
-  if (!searchInput || !searchResults || !allPosts) return; // Nur auf der Blog-Seite!
+  if (!searchInput || !searchResults || !allPosts) return;
 
   let posts = [];
 
@@ -10,8 +10,12 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(r => r.json())
     .then(data => {
       posts = data;
+      console.log("Posts geladen:", posts.length);
+
       searchInput.addEventListener('input', function() {
         const query = this.value.trim().toLowerCase();
+        console.log("Suchbegriff:", query);
+
         if (query.length === 0) {
           searchResults.innerHTML = '';
           allPosts.style.display = '';
@@ -20,10 +24,16 @@ document.addEventListener('DOMContentLoaded', function() {
         allPosts.style.display = 'none';
 
         // Filtere die Treffer
-        const filtered = posts.filter(post =>
-          post.title.toLowerCase().includes(query) ||
-          (post.excerpt && post.excerpt.toLowerCase().includes(query))
-        );
+        const filtered = posts.filter(post => {
+          console.log("Check:", post.title, post.excerpt); // Zeigt alle Titel und Excerpts an
+          return (
+            post.title && post.title.toLowerCase().includes(query)
+          ) || (
+            post.excerpt && post.excerpt.toLowerCase().includes(query)
+          );
+        });
+
+        console.log("Gefundene Treffer:", filtered.length, filtered);
 
         if (filtered.length === 0) {
           searchResults.innerHTML = '<p>Keine Ergebnisse gefunden.</p>';
