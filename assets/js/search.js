@@ -33,17 +33,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         searchResults.innerHTML = filtered.map(post => `
-          <a class="blog-card" href="${post.url}">
-            <div class="card-img">
-              ${post.image ? `<img src="${post.image}" alt="${post.title}">` : 'Bild'}
-            </div>
-            <div class="card-content">
-              <div class="card-title">${post.title}</div>
-              <time class="card-date">${post.date}</time>
-              <div class="card-desc">${post.excerpt}</div>
-            </div>
-          </a>
-        `).join('');
+  <a class="blog-card" href="${post.url}">
+    <div class="card-img">
+      ${post.image ? `<img src="${post.image}" alt="${post.title}">` : 'Bild'}
+    </div>
+    <div class="card-content">
+      <div class="card-title">${post.title}</div>
+      <time class="card-date">${post.date}</time>
+      <div class="card-desc">${post.excerpt}</div>
+    </div>
+  </a>
+`).join('');
+
       });
     })
     .catch(error => {
