@@ -86,3 +86,6 @@ document.querySelectorAll('.blog-card').forEach(card => {
     logoImg.style.setProperty('--logo-height', `${newLogo}px`);
   });
 })();
+
+
+document.querySelectorAll('img:not([loading])').forEach(img => img.setAttribute('loading', 'lazy'));
