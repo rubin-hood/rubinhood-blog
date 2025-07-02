@@ -1,9 +1,13 @@
 ---
 date: 12.03.2025
+layout: post
+title: 
+excerpt: 
+image: 
 ---
 # Solution for SQL Server Connection Issues Over the Network
 
-![](../articles/Solution-for-SQL-Server-Connection-Issues-Over-the-Network/003.png)
+![](/rubinhood-blog/assets/img/Solution-for-SQL-Server-Connection-Issues-Over-the-Network/003.png)
 
 ## **Problem Statement**
 
@@ -34,7 +38,7 @@ This article provides a step-by-step guide to resolving these issues based on a 
 
 ## **Step 2: Set a Static Port 1433**
 
-![](../articles/Solution-for-SQL-Server-Connection-Issues-Over-the-Network/002.jpg)
+![](/rubinhood-blog/assets/img/Solution-for-SQL-Server-Connection-Issues-Over-the-Network/002.jpg)
 
 1. **Double-click on "TCP/IP" > Go to the "IP Addresses" tab.**
 2. Scroll down to **"IPAll"**.
@@ -84,7 +88,7 @@ This article provides a step-by-step guide to resolving these issues based on a 
 ### **Example ODBC Error Message**
 If the connection fails, you may see an error like this:
 
-![](../articles/Solution-for-SQL-Server-Connection-Issues-Over-the-Network/001.jpg)
+![](/rubinhood-blog/assets/img/Solution-for-SQL-Server-Connection-Issues-Over-the-Network/001.jpg)
 
 This error typically indicates that:
 - The server is unreachable due to a firewall or network issue.

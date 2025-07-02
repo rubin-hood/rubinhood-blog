@@ -1,5 +1,9 @@
 ---
 date: 25.01.2025
+layout: post
+title: 
+excerpt: 
+image: 
 ---
 
 # This PC doesn’t currently meet Windows 11 system requirements**
@@ -20,10 +24,10 @@ This guide shows you how to install Windows 11 on a VMware ESXi virtual machine 
 3. **Windows Setup Starts**  
    - After a few seconds, the Windows 11 logo appears, indicating that the installation process has started.
 
-![](../articles/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/001.jpg)
-![](../articles/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/002.jpg)
-![](../articles/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/003.jpg)
-![](../articles/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/004.jpg)
+![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/001.jpg)
+![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/002.jpg)
+![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/003.jpg)
+![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/004.jpg)
 
 ---
 
@@ -39,8 +43,8 @@ Without TPM and Secure Boot, the Windows 11 installation will fail.
    - Press **Shift + F10** to open the command prompt.
    - Type **`regedit`** and press **Enter**.
 
-![](../articles/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/005.jpg)
-![](../articles/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/006.jpg)
+![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/005.jpg)
+![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/006.jpg)
 
 ---
 
@@ -67,12 +71,12 @@ HKEY_LOCAL_MACHINE\SYSTEM\Setup
 - Close the registry editor and command prompt.
 - Start the installation.
 
-![](../articles/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/007.jpg)
-![](../articles/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/008.jpg)
-![](../articles/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/009.jpg)
-![](../articles/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/010.jpg)
-![](../articles/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/011.jpg)
-![](../articles/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/012.jpg)
+![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/007.jpg)
+![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/008.jpg)
+![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/009.jpg)
+![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/010.jpg)
+![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/011.jpg)
+![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/012.jpg)
 
 ---
 
@@ -99,10 +103,10 @@ HKEY_LOCAL_MACHINE\SYSTEM\Setup
 ## **Conclusion**
 With this method, you can successfully install Windows 11 on VMware ESXi, even if your VM does not meet the official requirements. The registry hack is a proven way to bypass the system checks and proceed with the installation.
 
-![](../articles/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/013.jpg)
-![](../articles/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/014.jpg)
-![](../articles/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/015.jpg)
-![](../articles/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/016.jpg)
+![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/013.jpg)
+![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/014.jpg)
+![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/015.jpg)
+![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/016.jpg)
 
 ## Happy virtualizing!
 

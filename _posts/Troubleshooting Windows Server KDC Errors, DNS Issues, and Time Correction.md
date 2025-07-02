@@ -1,11 +1,15 @@
 ---
 date: 20.02.2025
+layout: post
+title: 
+excerpt: 
+image: 
 ---
 # Troubleshooting Windows Server: KDC Errors, DNS Issues, and Time Correction
 
-![](../articles/Troubleshooting-Windows-Server-KDC-Errors-DNS-Issues-and-Time-Correction/001.jpg)
+![](/rubinhood-blog/assets/img/Troubleshooting-Windows-Server-KDC-Errors-DNS-Issues-and-Time-Correction/001.jpg)
 
-![](../articles/Troubleshooting-Windows-Server-KDC-Errors-DNS-Issues-and-Time-Correction/002.jpg)
+![](/rubinhood-blog/assets/img/Troubleshooting-Windows-Server-KDC-Errors-DNS-Issues-and-Time-Correction/002.jpg)
 
 "RUBIN-HOOD: Configuration refresh message: The system cannot access one or more event logs because of insufficient access rights, file corruption, or other reasons. For more information, see the Operational channel in the ServerManager-ManagementProvider error log on the target server."
 

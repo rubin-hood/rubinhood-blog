@@ -1,5 +1,9 @@
 ---
 date: 27.03.2022
+layout: post
+title: 
+excerpt: 
+image: 
 ---
 
 # IBM FlashSystem 5000
@@ -8,7 +12,7 @@ date: 27.03.2022
 
 Picture this: Your database queries are crawling, virtual machines are struggling to keep up, and your storage administrators are juggling multiple systems just to keep everything running. Sound familiar? Whether you're managing a growing startup or steering a mid-sized enterprise, storage challenges can be the difference between digital transformation and digital frustration. Enter the IBM FlashSystem 5000 – not just another storage solution, but a technological powerhouse that's redefining what's possible in the entry-level enterprise storage segment.
 
-![https://i.imgur.com/dx1afkq.png](../articles/IBM-FlashSystem-5000/001.jpg)
+![https://i.imgur.com/dx1afkq.png](/rubinhood-blog/assets/img/IBM-FlashSystem-5000/001.jpg)
 
 ## Architecture Deep Dive
 
@@ -186,7 +190,7 @@ Let's examine how this company achieved their remarkable 90% cost savings:
 
 ## Implementation Best Practices
 
-![https://i.imgur.com/x1GoBhV.png](../articles/IBM-FlashSystem-5000/002.jpg)
+![https://i.imgur.com/x1GoBhV.png](/rubinhood-blog/assets/img/IBM-FlashSystem-5000/002.jpg)
 
 ### Initial Deployment
 

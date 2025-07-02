@@ -1,12 +1,16 @@
 ---
 date: 13.07.2020
+layout: post
+title: 
+excerpt: 
+image: 
 ---
 
 # Guide to Network Configuration on Windows Server Datacenter Desktop
 
 This short guide explains how to configure a static IP address and DNS servers and check available IP addresses. The Fritz!Box serves as the gateway and DNS server in this setup.
 
-![](../articles/Network-Configuration-on-Windows-Server-Datacenter-Desktop/004.jpg)
+![](/rubinhood-blog/assets/img/Network-Configuration-on-Windows-Server-Datacenter-Desktop/004.jpg)
 
 ---
 
@@ -15,7 +19,7 @@ This short guide explains how to configure a static IP address and DNS servers a
 1. **Open Network Connections**:
    - Go to **Control Panel > Network and Internet > Network Connections**.
 
-   ![](../articles/Network-Configuration-on-Windows-Server-Datacenter-Desktop/001.jpg)
+   ![](/rubinhood-blog/assets/img/Network-Configuration-on-Windows-Server-Datacenter-Desktop/001.jpg)
 
 2. **Open Adapter Properties**:
    - Right-click on the network adapter and select **Properties**.
@@ -48,7 +52,7 @@ IPv4 Address. . . . . . . . . . . : 192.168.178.10
 Subnet Mask . . . . . . . . . . . : 255.255.255.0  
 Default Gateway . . . . . . . . . : 192.168.178.1  
 
-![](../articles/Network-Configuration-on-Windows-Server-Datacenter-Desktop/002.jpg)
+![](/rubinhood-blog/assets/img/Network-Configuration-on-Windows-Server-Datacenter-Desktop/002.jpg)
 ---
 
 ## 3. Check Available IP Addresses
@@ -75,7 +79,7 @@ Example output:
 192.168.178.2 is free  
 192.168.178.10 is in use  
 
-![](../articles/Network-Configuration-on-Windows-Server-Datacenter-Desktop/003.jpg)
+![](/rubinhood-blog/assets/img/Network-Configuration-on-Windows-Server-Datacenter-Desktop/003.jpg)
 
 ---
 

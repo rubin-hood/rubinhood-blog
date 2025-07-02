@@ -6,8 +6,6 @@ excerpt: Im Folgenden werfe ich einen Blick auf einen beispielhaften Netzwerkauf
 image: /rubinhood-blog/assets/img/Example-Server-Infrastructure-Setup-A-Closer-Look/0001.webp
 ---
 
-# 🖧 Beispiel-Serverinfrastruktur – Ein genauer Blick
-
 🚀 **Netzwerkaufbau im Serverraum – Ein praxisnahes Beispiel**
 
 Im Folgenden werfe ich einen Blick auf einen beispielhaften Netzwerkaufbau in einem Serverraum. Die Konfiguration zeigt, wie verschiedene Server, Speicherlösungen und Netzwerkomponenten miteinander verbunden sind, um eine leistungsfähige Infrastruktur zu bilden. Jede Komponente übernimmt dabei eine bestimmte Rolle.

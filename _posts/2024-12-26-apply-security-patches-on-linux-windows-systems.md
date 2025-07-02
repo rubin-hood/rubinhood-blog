@@ -1,10 +1,12 @@
 ---
 date: 26.12.2024
+layout: post
+title: Sicherheitspatches auf Linux/Windows-Systemen anwenden
+excerpt: Der Schutz von IT-Systemen vor Angriffen und Schwachstellen ist eine der wichtigsten Aufgaben in der Systemadministration. Eine zentrale Rolle spielen dabei Sicherheitspatches, die regelmäßig installiert werden müssen, um die Abwehr gegen neue Bedrohungen zu stärken. Dieser Beitrag zeigt, wie man auf Linux- und Windows-Systemen am besten vorgeht, um sicherzustellen, dass Patches schnell und zuverlässig angewendet werden.
+image: /rubinhood-blog/assets/img/apply-security-patches-on-linux-windows-systems/001.jpg
 ---
 
-# Sicherheitspatches auf Linux/Windows-Systemen anwenden
-
-![](../articles/apply-security-patches-on-linux-windows-systems/001.jpg)
+![](/rubinhood-blog/assets/img/apply-security-patches-on-linux-windows-systems/001.jpg)
 
 Der Schutz von IT-Systemen vor Angriffen und Schwachstellen ist eine der wichtigsten Aufgaben in der Systemadministration. Eine zentrale Rolle spielen dabei Sicherheitspatches, die regelmäßig installiert werden müssen, um die Abwehr gegen neue Bedrohungen zu stärken. Dieser Beitrag zeigt, wie man auf Linux- und Windows-Systemen am besten vorgeht, um sicherzustellen, dass Patches schnell und zuverlässig angewendet werden.
 

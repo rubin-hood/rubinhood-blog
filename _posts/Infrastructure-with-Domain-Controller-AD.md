@@ -1,10 +1,14 @@
 ---
 date: 05.04.2025
+layout: post
+title: 
+excerpt: 
+image: 
 ---
 
 # Infrastructure with Domain Controller (AD), Exchange, SQL, Windows Servers, and Clients, virtualized on VMware ESXi, hosted on a Windows 11 machine via VMware Workstation.
 
-![](../articles/Infrastructure-with-Domain-Controller-AD/001.webp)
+![](/rubinhood-blog/assets/img/Infrastructure-with-Domain-Controller-AD/001.webp)
 
 
 ### **Network Configuration of My Virtual Lab**

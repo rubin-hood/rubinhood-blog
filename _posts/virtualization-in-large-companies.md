@@ -1,10 +1,14 @@
 ---
 date: 15.4.2023
+layout: post
+title: 
+excerpt: 
+image: 
 ---
 
 # Virtualisierung im Großunternehmen: Ein Leitfaden für eine effiziente IT-Infrastruktur
 
-![](../articles/virtualization-in-large-companies/001.png)
+![](/rubinhood-blog/assets/img/virtualization-in-large-companies/001.png)
 
 In der modernen digitalen Ära ist eine leistungsfähige IT-Infrastruktur für Unternehmen unerlässlich. Besonders für Firmen mit etwa 1000 Mitarbeitern bietet die Virtualisierung enorme Vorteile. Aber wie funktioniert das Ganze? Lassen Sie uns einen Blick auf die wichtigsten Komponenten und deren Zusammenspiel werfen.
 

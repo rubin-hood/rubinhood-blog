@@ -1,11 +1,15 @@
 ---
 date: 10.06.2022
+layout: post
+title: 
+excerpt: 
+image: 
 ---
 
 # Disable Nested Virtualization on VMware Workstation with Windows 11**
 
-![Alternativtext](../articles/Disable-the-Windows-Hypervisor/001.png)
-![Alternativtext](../articles/Disable-the-Windows-Hypervisor/002.png)
+![Alternativtext](/rubinhood-blog/assets/img/Disable-the-Windows-Hypervisor/001.png)
+![Alternativtext](/rubinhood-blog/assets/img/Disable-the-Windows-Hypervisor/002.png)
 
 If you encounter the error "VMware Workstation does not support nested virtualization" when starting a virtual machine on Windows 11, the issue often stems from enabled security features like Device Guard, Credential Guard, or the Windows Hypervisor.
 
@@ -26,7 +30,7 @@ Then restart your system.
 
 If the issue persists, use the DG Readiness Tool to turn off Device Guard and Credential Guard:
 
-![Alternativtext](../articles/Disable-the-Windows-Hypervisor/003.png)
+![Alternativtext](/rubinhood-blog/assets/img/Disable-the-Windows-Hypervisor/003.png)
 
 Download the tool and run the following commands:
 
