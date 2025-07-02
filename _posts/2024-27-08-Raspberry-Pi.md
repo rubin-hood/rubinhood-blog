@@ -6,8 +6,6 @@ excerpt: Der Raspberry Pi 5 ist ein leistungsstarker Einplatinencomputer, der si
 image: /rubinhood-blog/assets/img/Raspberry-Pi/001.jpg
 ---
 
-# Installation von Ubuntu Server auf dem Raspberry Pi 5: Eine Schritt-für-Schritt-Anleitung
-
 ![](/rubinhood-blog/assets/img/Raspberry-Pi/001.jpg)
 
 ![](/rubinhood-blog/assets/img/Raspberry-Pi/002.jpg)
