@@ -52,21 +52,20 @@ document.querySelectorAll('.blog-card').forEach(card => {
 
 //-------------------------
 // Progressive Sticky Header Animation
-// Progressive Sticky Header Animation
 (function() {
   const header = document.querySelector('.site-header');
   if (!header) return;
   const logoImg = header.querySelector('.logo img');
   if (!logoImg) return;
 
-  // Parameter anpassen nach Wunsch:
-  const maxScroll = 150;    // Wie viele Pixel scrollen bis Header ganz weg
-  const maxHeight = 110;    // Ursprüngliche Höhe Header (px)
-  const minHeight = 0;      // Zielhöhe Header (px)
-  const maxLogo = 100;      // Ursprüngliche Logo-Größe (px)
-  const minLogo = 0;        // Zielgröße Logo (px)
-  const maxPadding = 2;     // Ursprüngliches Padding (rem)
-  const minPadding = 0;     // Ziel-Padding (rem)
+  // Hier: Nur 20px nötig bis Header komplett weg!
+  const maxScroll = 20;    // 20 Pixel scrollen reicht aus
+  const maxHeight = 110;   // Ursprüngliche Höhe Header (px)
+  const minHeight = 0;     // Zielhöhe Header (px)
+  const maxLogo = 100;     // Ursprüngliche Logo-Größe (px)
+  const minLogo = 0;       // Zielgröße Logo (px)
+  const maxPadding = 2;    // Ursprüngliches Padding (rem)
+  const minPadding = 0;    // Ziel-Padding (rem)
 
   window.addEventListener('scroll', function() {
     let scroll = window.scrollY;
@@ -81,7 +80,6 @@ document.querySelectorAll('.blog-card').forEach(card => {
     const newPadding = maxPadding - (maxPadding - minPadding) * t;
     const newOpacity = 1 - t;
 
-    // CSS-Variablen setzen
     header.style.setProperty('--header-height', `${newHeight}px`);
     header.style.setProperty('--header-padding', `${newPadding}rem`);
     header.style.setProperty('--header-opacity', newOpacity);
