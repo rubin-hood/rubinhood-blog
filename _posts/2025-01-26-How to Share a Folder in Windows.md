@@ -1,12 +1,10 @@
 ---
 date: 26.01.2025
 layout: post
-title: 
-excerpt: 
-image: 
+title: How to Share a Folder in Windows
+excerpt: Sharing a folder in Windows allows other users on the network to access or edit files. This can be particularly useful in office environments or at home when multiple devices are connected.
+image: /rubinhood-blog/assets/img/How-to-Share-a-Folder-in-Windows/005.png
 ---
-
-# How to Share a Folder in Windows
 
 ![](/rubinhood-blog/assets/img/How-to-Share-a-Folder-in-Windows/005.png)
 
