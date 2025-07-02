@@ -1,12 +1,10 @@
 ---
 date: 13.07.2020
 layout: post
-title: 
-excerpt: 
-image: 
+title: Guide to Network Configuration on Windows Server Datacenter Desktop
+excerpt: This short guide explains how to configure a static IP address and DNS servers and check available IP addresses. The Fritz!Box serves as the gateway and DNS server in this setup.
+image: /rubinhood-blog/assets/img/Network-Configuration-on-Windows-Server-Datacenter-Desktop/004.jpg
 ---
-
-# Guide to Network Configuration on Windows Server Datacenter Desktop
 
 This short guide explains how to configure a static IP address and DNS servers and check available IP addresses. The Fritz!Box serves as the gateway and DNS server in this setup.
 
