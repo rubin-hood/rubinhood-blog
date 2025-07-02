@@ -1,12 +1,10 @@
 ---
 date: 05.04.2025
 layout: post
-title: 
-excerpt: 
-image: 
+title: VM-Infrastruktur mit AD, Exchange, SQL auf ESXi via Workstation unter Win 11
+excerpt: In my IT lab, I have set up a sample network configuration. My entire lab environment consists of several virtualized Windows servers and Windows clients running on VMware ESXi. The entire setup is hosted on a physical Windows 11 machine with VMware Workstation installed, where ESXi 8 runs as a virtual machine.
+image: /rubinhood-blog/assets/img/Infrastructure-with-Domain-Controller-AD/001.webp
 ---
-
-# Infrastructure with Domain Controller (AD), Exchange, SQL, Windows Servers, and Clients, virtualized on VMware ESXi, hosted on a Windows 11 machine via VMware Workstation.
 
 ![](/rubinhood-blog/assets/img/Infrastructure-with-Domain-Controller-AD/001.webp)
 
