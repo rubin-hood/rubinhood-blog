@@ -52,28 +52,30 @@ document.querySelectorAll('.blog-card').forEach(card => {
 
 //-------------------------
 // Progressive Sticky Header Animation
+// Progressive Sticky Header Animation
 (function() {
   const header = document.querySelector('.site-header');
+  if (!header) return;
   const logoImg = header.querySelector('.logo img');
-  
-  // Damit es schon bei kleinstem Scroll langsam reagiert:
-  const maxScroll = 100; // z.B. schon nach 100px ist der Header ganz weg
+  if (!logoImg) return;
 
-  const maxHeight = 110; // px
-  const minHeight = 0;   // px (Header komplett weg)
-  const maxLogo   = 100; // px
-  const minLogo   = 0;   // px
-  const maxPadding = 2;  // rem
-  const minPadding = 0;  // rem
+  // Parameter anpassen nach Wunsch:
+  const maxScroll = 150;    // Wie viele Pixel scrollen bis Header ganz weg
+  const maxHeight = 110;    // Ursprüngliche Höhe Header (px)
+  const minHeight = 0;      // Zielhöhe Header (px)
+  const maxLogo = 100;      // Ursprüngliche Logo-Größe (px)
+  const minLogo = 0;        // Zielgröße Logo (px)
+  const maxPadding = 2;     // Ursprüngliches Padding (rem)
+  const minPadding = 0;     // Ziel-Padding (rem)
 
   window.addEventListener('scroll', function() {
     let scroll = window.scrollY;
     if (scroll < 0) scroll = 0;
     if (scroll > maxScroll) scroll = maxScroll;
 
-    const t = scroll / maxScroll; // 0 bis 1 (je nach Scroll)
+    const t = scroll / maxScroll; // Wert von 0 bis 1
 
-    // Interpolieren zwischen Start- und Zielwerten
+    // Dynamische Werte berechnen
     const newHeight = maxHeight - (maxHeight - minHeight) * t;
     const newLogo = maxLogo - (maxLogo - minLogo) * t;
     const newPadding = maxPadding - (maxPadding - minPadding) * t;
@@ -83,7 +85,6 @@ document.querySelectorAll('.blog-card').forEach(card => {
     header.style.setProperty('--header-height', `${newHeight}px`);
     header.style.setProperty('--header-padding', `${newPadding}rem`);
     header.style.setProperty('--header-opacity', newOpacity);
-
     logoImg.style.setProperty('--logo-height', `${newLogo}px`);
   });
 })();
