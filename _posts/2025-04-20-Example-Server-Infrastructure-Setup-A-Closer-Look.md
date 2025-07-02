@@ -1,8 +1,8 @@
 ---
 date: 20.04.2025
 layout: post
-title: Example Server Infrastructure Setup – A Closer Look
-excerpt: "In the following, I take a look at an exemplary network setup in a server room. The configuration shows how various servers, storage solutions, and network components are interconnected to form a powerful infrastructure."
+title: Beispiel-Serverinfrastruktur – Ein genauer Blick
+excerpt:
 image: /rubinhood-blog/assets/img/Example-Server-Infrastructure-Setup-A-Closer-Look/0001.webp
 ---
 
