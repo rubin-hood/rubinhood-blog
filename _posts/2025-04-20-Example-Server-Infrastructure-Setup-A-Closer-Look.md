@@ -6,11 +6,11 @@ excerpt: "In the following, I take a look at an exemplary network setup in a ser
 image: /rubinhood-blog/assets/img/Example-Server-Infrastructure-Setup-A-Closer-Look/0001.webp
 ---
 
-# 🖧 Example Server Infrastructure Setup – A Closer Look
+# 🖧 Beispiel-Serverinfrastruktur – Ein genauer Blick
 
-🚀 **Server Room Network Setup Overview – A Practical Example**
+🚀 **Netzwerkaufbau im Serverraum – Ein praxisnahes Beispiel**
 
-In the following, I take a look at an exemplary network setup in a server room. The configuration shows how various servers, storage solutions, and network components are interconnected to form a powerful infrastructure. Each component plays a specific role.
+Im Folgenden werfe ich einen Blick auf einen beispielhaften Netzwerkaufbau in einem Serverraum. Die Konfiguration zeigt, wie verschiedene Server, Speicherlösungen und Netzwerkomponenten miteinander verbunden sind, um eine leistungsfähige Infrastruktur zu bilden. Jede Komponente übernimmt dabei eine bestimmte Rolle.
 
 ![](/rubinhood-blog/assets/img/Example-Server-Infrastructure-Setup-A-Closer-Look/0001.webp)
 
@@ -18,11 +18,11 @@ In the following, I take a look at an exemplary network setup in a server room. 
 
 ---
 
-🏢 **The Core: HPE ProLiant ML350 Tower Servers (4x)**
+🏢 **Das Herzstück: HPE ProLiant ML350 Tower Server (4x)**
 
-These four tower servers are versatile all-rounders. Each is connected to the central switch via **2x RJ45** – standard Ethernet for regular network traffic. Additionally, each server has a connection via **iLO (Integrated Lights-Out)**, a dedicated management interface for remote monitoring and maintenance.
+Diese vier Tower-Server sind vielseitige Allrounder. Jeder ist über **2x RJ45** – also Standard-Ethernet – mit dem zentralen Switch verbunden, um den regulären Netzwerkverkehr zu ermöglichen. Zusätzlich besitzt jeder Server eine Verbindung über **iLO (Integrated Lights-Out)** – eine dedizierte Management-Schnittstelle für Fernwartung und -überwachung.
 
-Two of these servers are also directly connected to an **IBM FlashSystem 5000** via **2x SFP+ (10 Gbit/s fiber connection)**. This high-speed link ensures fast access to flash storage, ideal for demanding workloads.
+Zwei dieser Server sind außerdem direkt über **2x SFP+ (10 Gbit/s Glasfaserverbindung)** mit einem **IBM FlashSystem 5000** verbunden. Diese Hochgeschwindigkeitsverbindung sorgt für schnellen Zugriff auf Flash-Speicher – ideal für anspruchsvolle Workloads.
 
 --- 
 <img src="/rubinhood-blog/assets/img/Example-Server-Infrastructure-Setup-A-Closer-Look/0002.webp" style="max-width: 600px; width: 100%; height: auto;" />
@@ -33,9 +33,9 @@ Two of these servers are also directly connected to an **IBM FlashSystem 5000** 
 
 --- 
 
-🛠️ **The Rack Units: HPE ProLiant DL360 Gen10 (2x)**
+🛠️ **Die Rack-Units: HPE ProLiant DL360 Gen10 (2x)**
 
-Two 1U rack servers connected solely via their **iLO ports**. These are not active in production but are available as **spare systems or for testing**. Nevertheless, they remain visible on the network and can be accessed remotely at any time.
+Zwei 1U-Rackserver, die ausschließlich über ihre **iLO-Ports** verbunden sind. Diese sind nicht aktiv im produktiven Einsatz, stehen aber als **Ersatzsysteme oder für Tests** bereit. Dennoch sind sie im Netzwerk sichtbar und jederzeit remote erreichbar.
 
 <img src="/rubinhood-blog/assets/img/Example-Server-Infrastructure-Setup-A-Closer-Look/0005.webp" style="max-width: 600px; width: 100%; height: auto;" />
 <img src="/rubinhood-blog/assets/img/Example-Server-Infrastructure-Setup-A-Closer-Look/0006.webp" style="max-width: 600px; width: 100%; height: auto;" />
@@ -43,70 +43,70 @@ Two 1U rack servers connected solely via their **iLO ports**. These are not acti
 
 --- 
 
-🌌 **Heavy Storage: HPE Apollo 4200 Gen10**
+🌌 **Massenspeicher: HPE Apollo 4200 Gen10**
 
-The storage server is also connected via **2x RJ45** to the network and features its own **iLO port**. An additional **SAS cable (Serial Attached SCSI)** provides a high-speed link typically used to connect storage devices or tape libraries.
+Auch dieser Storage-Server ist über **2x RJ45** ans Netzwerk angeschlossen und verfügt über einen eigenen **iLO-Port**. Zusätzlich sorgt ein **SAS-Kabel (Serial Attached SCSI)** für eine Hochgeschwindigkeitsverbindung – meist für die Anbindung von Speichergeräten oder Bandlaufwerken genutzt.
 
-Furthermore, the Apollo is directly connected to the **IBM FlashSystem 5000 via 2x SFP+**, ensuring rapid access to high-performance flash data.
+Außerdem ist der Apollo direkt über **2x SFP+** mit dem **IBM FlashSystem 5000** verbunden, um schnellen Zugriff auf hochleistungsfähige Flash-Daten zu gewährleisten.
 
 <img src="/rubinhood-blog/assets/img/Example-Server-Infrastructure-Setup-A-Closer-Look/0008.webp" style="max-width: 600px; width: 100%; height: auto;" />
 <img src="/rubinhood-blog/assets/img/Example-Server-Infrastructure-Setup-A-Closer-Look/0009.webp" style="max-width: 600px; width: 100%; height: auto;" />
 ---
 
 
-📊 **Flash Storage: IBM FlashSystem 5000**
+📊 **Flash-Speicher: IBM FlashSystem 5000**
 
-This high-performance storage is linked via **2x SFP+** to both the ML350 tower servers and the Apollo 4200. This allows for high-speed data access. It is also connected via **2x RJ45** to the rest of the network for general traffic and management purposes.
+Dieses Hochleistungsspeichersystem ist über **2x SFP+** sowohl mit den ML350-Tower-Servern als auch mit dem Apollo 4200 verbunden. So ist ein schneller Datenzugriff möglich. Zudem ist das System über **2x RJ45** mit dem restlichen Netzwerk verbunden – für allgemeinen Datenverkehr und Managementzwecke.
 
 <img src="/rubinhood-blog/assets/img/Example-Server-Infrastructure-Setup-A-Closer-Look/0010.webp" style="max-width: 600px; width: 100%; height: auto;" />
 <img src="/rubinhood-blog/assets/img/Example-Server-Infrastructure-Setup-A-Closer-Look/0011.webp" style="max-width: 600px; width: 100%; height: auto;" />
 --- 
 
-📀 **Tape Library: HPE StoreEver 1/8 G2**
+📀 **Bandlaufwerk: HPE StoreEver 1/8 G2**
 
-This tape library is used for data backups on magnetic tape. It is connected to the network via **1x RJ45**, sufficient for management and control. Actual data transfer occurs via a **SAS cable** connected directly to the **Apollo 4200**.
+Dieses Bandlaufwerk dient der Datensicherung auf Magnetband. Es ist über **1x RJ45** mit dem Netzwerk verbunden – ausreichend für Management und Steuerung. Die eigentliche Datenübertragung erfolgt über ein **SAS-Kabel**, das direkt mit dem **Apollo 4200** verbunden ist.
 
 <img src="/rubinhood-blog/assets/img/Example-Server-Infrastructure-Setup-A-Closer-Look/0012.webp" style="max-width: 600px; width: 100%; height: auto;" />
 <img src="/rubinhood-blog/assets/img/Example-Server-Infrastructure-Setup-A-Closer-Look/0013.webp" style="max-width: 600px; width: 100%; height: auto;" />
 --- 
 
-🛡️ **Central Communications: HP ProCurve Switch 2510-24 (J9019B)**
+🛡️ **Zentrale Kommunikation: HP ProCurve Switch 2510-24 (J9019B)**
 
-This managed switch is the **central hub** of the network. Everything converges here:
+Dieser Managed Switch ist der **zentrale Knotenpunkt** des Netzwerks. Alles läuft hier zusammen:
 
-- All servers via RJ45
+- Alle Server via RJ45
 - IBM FlashSystem 5000 (RJ45)
 - StoreEver Tape Library (RJ45)
-- APC UPS (RJ45)
+- APC USV (RJ45)
 
-The switch is also connected to the **NT (network transition)**, leading to the main building where key VMware services like **vCenter, Active Directory, SQL, Exchange**, and **other applications** are hosted and managed.
+Der Switch ist auch mit dem **NT (Netzübergang)** verbunden, der ins Hauptgebäude führt, wo zentrale VMware-Dienste wie **vCenter, Active Directory, SQL, Exchange** und **weitere Anwendungen** betrieben und verwaltet werden.
 
 <img src="/rubinhood-blog/assets/img/Example-Server-Infrastructure-Setup-A-Closer-Look/0014.webp" style="max-width: 600px; width: 100%; height: auto;" />
 
 --- 
 
-🛣️ **Power Protection: APC UPS**
+🛣️ **Stromversorgung: APC USV**
 
-The uninterruptible power supply is connected via **1x RJ45** to the switch. This connection is used for monitoring – ensuring a timely response in the event of a power failure or other issues.
+Die unterbrechungsfreie Stromversorgung ist über **1x RJ45** mit dem Switch verbunden. Diese Verbindung wird zur Überwachung genutzt – damit bei einem Stromausfall oder anderen Problemen schnell reagiert werden kann.
 
-All six servers, the HPE Apollo, and the IBM FlashSystem 5000 are connected to the power grid and, for safety in case of a power outage, are also connected to the **APC UPS**.
+Alle sechs Server, der HPE Apollo und das IBM FlashSystem 5000 sind sowohl an das Stromnetz als auch – zur Absicherung bei Stromausfall – an die **APC USV** angeschlossen.
 
 <img src="/rubinhood-blog/assets/img/Example-Server-Infrastructure-Setup-A-Closer-Look/0015.webp" style="max-width: 600px; width: 100%; height: auto;" />
 <img src="/rubinhood-blog/assets/img/Example-Server-Infrastructure-Setup-A-Closer-Look/0016.webp" style="max-width: 600px; width: 100%; height: auto;" />
 
 --- 
 
-📽️ **Peripherals**
+📽️ **Peripherie**
 
-- A **monitor** is directly connected to one of the ML350 tower servers to allow local management when needed.
-- **Keyboard and mouse** are directly attached to the Apollo 4200 server for local administration purposes.
+- Ein **Monitor** ist direkt an einen der ML350 Tower-Server angeschlossen, um bei Bedarf eine lokale Verwaltung zu ermöglichen.
+- **Tastatur und Maus** sind direkt mit dem Apollo 4200 verbunden und dienen ebenfalls der lokalen Administration.
 
---- 
+---
 
-🔧 **Conclusion: A Thought-Out Example Setup**
+🔧 **Fazit: Ein durchdachtes Beispiel-Setup**
 
-This example network demonstrates a solid mix of tower, rack, and storage servers, connected via high-speed links (SFP+, SAS) and standard network ports (RJ45). The infrastructure is scalable, flexible, and easy to manage through dedicated interfaces. At the same time, the tape library and UPS ensure data security and stability.
+Dieses Beispielnetzwerk zeigt einen gelungenen Mix aus Tower-, Rack- und Speicherservern, verbunden über Hochgeschwindigkeitsleitungen (SFP+, SAS) sowie Standard-Netzwerkanschlüsse (RJ45). Die Infrastruktur ist skalierbar, flexibel und durch dedizierte Schnittstellen einfach zu verwalten. Gleichzeitig sorgen das Bandlaufwerk und die USV für Datensicherheit und Stabilität.
 
-All components and connections described serve as an **example** of a practical setup in a typical medium-sized data center or server room.
+Alle beschriebenen Komponenten und Verbindungen dienen als **Beispiel** für ein praxisnahes Setup in einem typischen mittelgroßen Rechenzentrum oder Serverraum.
 
 <img src="/rubinhood-blog/assets/img/Example-Server-Infrastructure-Setup-A-Closer-Look/0017.gif" style="max-width: 600px; width: 100%; height: auto;" />
