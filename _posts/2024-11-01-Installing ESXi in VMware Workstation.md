@@ -1,11 +1,10 @@
 ---
 date: 01.11.2024
 layout: post
-title: 
-excerpt: 
-image: 
+title: Installing ESXi in VMware Workstation
+excerpt: Installing VMware ESXi in VMware Workstation is a great way to create a virtual test environment for ESXi. Here are the steps to install ESXi as a virtual machine in VMware Workstation
+image: /rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/001.jpg
 ---
-# Installing ESXi in VMware Workstation
 
 Installing VMware ESXi in VMware Workstation is a great way to create a virtual test environment for ESXi. Here are the steps to install ESXi as a virtual machine in VMware Workstation:
 
