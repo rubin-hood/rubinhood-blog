@@ -1,9 +1,9 @@
 ---
 date: 24.04.2025
 layout: post
-title: Beispiel-Serverinfrastruktur – Ein genauer Blick
-excerpt: Im Folgenden werfe ich einen Blick auf einen beispielhaften Netzwerkaufbau in einem Serverraum. Die Konfiguration zeigt, wie verschiedene Server, Speicherlösungen und Netzwerkomponenten miteinander verbunden sind, um eine leistungsfähige Infrastruktur zu bilden. Jede Komponente übernimmt dabei eine bestimmte Rolle.
-image: /rubinhood-blog/assets/img/Example-Server-Infrastructure-Setup-A-Closer-Look/0001.webp
+title: Überblick über die Server-Infrastruktur
+excerpt: ""
+image: /rubinhood-blog/assets/img/articles/Server-Infrastruktur-im-Ueberblick/001de.svg
 ---
 
 # 🧰 🛠️ Überblick über die Server-Infrastruktur
