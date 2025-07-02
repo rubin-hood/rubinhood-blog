@@ -3,7 +3,7 @@ date: 27.03.2022
 layout: post
 title: IBM FlashSystem 5000
 excerpt: Stell dir vor: Deine Datenbankabfragen schleichen dahin, virtuelle Maschinen kämpfen mit der Performance, und deine Storage-Admins jonglieren mehrere Systeme, nur um den Betrieb aufrechtzuerhalten. Kommt dir bekannt vor? Ob wachsendes Start-up oder etabliertes Unternehmen – Speicherprobleme entscheiden oft über digitale Transformation oder Frustration.
-image: /rubinhood-blog/assets/img/IBMFlashSystem5000/001.jpg
+image: /rubinhood-blog/assets/img/Hyper-V/014.jpg
 ---
 
 # Deep Dive: IBM FlashSystem 5000 – Das technische Meisterwerk für moderne Unternehmensspeicher
