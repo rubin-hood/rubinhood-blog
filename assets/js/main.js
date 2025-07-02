@@ -88,3 +88,4 @@ document.querySelectorAll('.blog-card').forEach(card => {
 })();
 
 
+document.querySelectorAll('img:not([loading])').forEach(img => img.setAttribute('loading', 'lazy'));
