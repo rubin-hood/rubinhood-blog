@@ -34,22 +34,19 @@ a:active { color: #AA0600; }
 /*--------------------------------------------------------*/
 
 .site-header {
-  /* Dynamische Variablen für Animation */
   --header-height: 110px;
   --header-padding: 2rem;
   --header-opacity: 1;
-
   position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
   background: #F6F5F1;
-  /* box-shadow: 0 2px 24px 0 rgba(0,0,0,0.05);*/
   transition: 
-    height 0.25s cubic-bezier(.4,0,.2,1),
-    padding 0.25s cubic-bezier(.4,0,.2,1),
-    opacity 0.25s cubic-bezier(.4,0,.2,1),
+    height 0.4s cubic-bezier(.4,0,.2,1),
+    padding 0.4s cubic-bezier(.4,0,.2,1),
+    opacity 0.4s cubic-bezier(.4,0,.2,1),
     box-shadow 0.25s cubic-bezier(.4,0,.2,1),
     background 0.25s cubic-bezier(.4,0,.2,1);
   height: var(--header-height);
@@ -58,12 +55,10 @@ a:active { color: #AA0600; }
   backdrop-filter: blur(8px);
   will-change: height, opacity, padding;
 }
-
-/* Logo dynamisch */
 .site-header .logo img {
   --logo-height: 100px;
   height: var(--logo-height);
-  transition: height 0.25s cubic-bezier(.4,0,.2,1);
+  transition: height 0.4s cubic-bezier(.4,0,.2,1);
 }
 
 

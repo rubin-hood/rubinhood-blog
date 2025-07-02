@@ -56,29 +56,30 @@ document.querySelectorAll('.blog-card').forEach(card => {
   const header = document.querySelector('.site-header');
   const logoImg = header.querySelector('.logo img');
   
-  // Anpassen: Wie weit soll der Header schrumpfen?
-  const maxScroll = 200;    // Bis zu 200px scrollen
-  const maxHeight = 110;     // Ursprungs-Höhe Header
-  const minHeight = 0;      // Ziel-Höhe (komplett weg)
-  const maxLogo = 100;       // Ursprungs-Höhe Logo
-  const minLogo = 0;        // Ziel-Höhe Logo (verschwinden)
-  const maxPadding = 2;     // Padding in rem
-  const minPadding = 0;     // Ziel-Padding
+  // Damit es schon bei kleinstem Scroll langsam reagiert:
+  const maxScroll = 100; // z.B. schon nach 100px ist der Header ganz weg
+
+  const maxHeight = 110; // px
+  const minHeight = 0;   // px (Header komplett weg)
+  const maxLogo   = 100; // px
+  const minLogo   = 0;   // px
+  const maxPadding = 2;  // rem
+  const minPadding = 0;  // rem
 
   window.addEventListener('scroll', function() {
     let scroll = window.scrollY;
     if (scroll < 0) scroll = 0;
     if (scroll > maxScroll) scroll = maxScroll;
 
-    const t = scroll / maxScroll; // 0 bis 1
+    const t = scroll / maxScroll; // 0 bis 1 (je nach Scroll)
 
-    // Dynamische Werte berechnen
+    // Interpolieren zwischen Start- und Zielwerten
     const newHeight = maxHeight - (maxHeight - minHeight) * t;
     const newLogo = maxLogo - (maxLogo - minLogo) * t;
     const newPadding = maxPadding - (maxPadding - minPadding) * t;
     const newOpacity = 1 - t;
 
-    // Variablen setzen
+    // CSS-Variablen setzen
     header.style.setProperty('--header-height', `${newHeight}px`);
     header.style.setProperty('--header-padding', `${newPadding}rem`);
     header.style.setProperty('--header-opacity', newOpacity);
@@ -86,6 +87,7 @@ document.querySelectorAll('.blog-card').forEach(card => {
     logoImg.style.setProperty('--logo-height', `${newLogo}px`);
   });
 })();
+
 
 
 
