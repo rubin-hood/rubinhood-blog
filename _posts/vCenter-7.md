@@ -1,0 +1,348 @@
+---
+date: 05.11.2024
+---
+
+# Installing vCenter Client
+
+![](../articles/vCenter-7/057.jpg)
+
+![](../articles/vCenter-7/058.jpg)
+
+![](../articles/vCenter-7/056.jpg)
+
+This guide walks you through installing the vCenter Client using VMware Workstation. Follow each step carefully, and you'll have your vCenter Server up and running in no time. If you encounter any issues, refer back to the specific step or consult VMware's official documentation for more detailed assistance.
+
+### 1: Open VMware Workstation
+
+Launch VMware Workstation and check if your virtual machine is ready. Click on "Power on this virtual machine" to start it.
+
+![](../articles/vCenter-7/001.jpg)
+
+### 2: Select vCenter ISO File
+
+Navigate to the downloaded ISO file for VMware vCenter This will be used for the installation.
+
+![](../articles/vCenter-7/002.jpg)
+
+### 3: Open ISO File
+
+Mount or open the ISO file. Go to the "VCSA-UI-Installer" folder.
+
+![](../articles/vCenter-7/003.jpg)
+
+### 4: Choose Platform
+
+Navigate to the "vcsa-ui-installer" folder and select the appropriate platform folder for your operating system (e.g., Windows: win32).
+
+![](../articles/vCenter-7/004.jpg)
+
+### 5: Start Installer
+
+Run the "installer" file to begin the installation.
+
+![](../articles/vCenter-7/005.jpg)
+
+### 6: Installation Menu
+
+In the installation menu, choose "Install" to set up a new vCenter Server.
+
+![](../articles/vCenter-7/006.jpg)
+
+### 7: Introduction
+
+Read the introduction and click "Next" to continue.
+
+![](../articles/vCenter-7/007.jpg)
+
+### 8: Accept License Agreement
+
+Accept the license terms by checking the box and clicking "Next".
+
+![](../articles/vCenter-7/008.jpg)
+
+### 9: Specify Target Host
+
+Enter the IP address, username, and password of the target ESXi host and click "Next".
+
+![](../articles/vCenter-7/009.jpg)
+
+### 10: Accept Certificate Warning
+
+Confirm the certificate warning by clicking "Yes" to proceed.
+
+![](../articles/vCenter-7/010.jpg)
+
+### 11: Set Root Password
+
+Enter the name of the virtual machine and set the root password. Confirm the password and click "Next".
+
+![](../articles/vCenter-7/011.jpg)
+
+### 12: Choose Deployment Size
+
+Select the desired deployment size (e.g., Tiny) and click "Next".
+
+![](../articles/vCenter-7/012.jpg)
+
+### 13: Warning for Insufficient Memory
+
+If there isn't enough RAM available, a warning will appear. Increase the resources and click "Next".
+
+![](../articles/vCenter-7/013.jpg)
+
+### 14: Adjust VM Memory
+
+Increase your virtual machine's memory to at least 16 GB. Then click "OK".
+
+![](../articles/vCenter-7/014.jpg)
+
+### 15: Power On Virtual Machine
+
+Click on "Power on this virtual machine" to start the VM.
+
+![](../articles/vCenter-7/015.jpg)
+
+### 16: ESXi Host Overview
+
+Start the ESXi host.
+
+![](../articles/vCenter-7/016.jpg)
+
+### 17: Select Datastore
+
+Choose the datastore, enable "Enable Thin Disk Mode," and click "Next".
+
+![](../articles/vCenter-7/017.jpg)
+
+### 18: Warning for Insufficient Storage Space
+
+If there's not enough available storage, a warning will appear. Ensure at least 25 GB is available.
+
+![](../articles/vCenter-7/018.jpg)
+
+### 19: Check Disk Capacity
+
+Check your disk capacity. Expand the disk if needed by clicking "Expand...".
+
+![](../articles/vCenter-7/019.jpg)
+
+### 20: Add New Hardware
+
+Add a new hardware component, select "Hard Disk," and click "Next".
+
+![](../articles/vCenter-7/020.jpg)
+
+### 21: Choose Disk Type
+
+Select the desired disk type (e.g., SCSI) and click "Next".
+
+![](../articles/vCenter-7/021.jpg)
+
+### 22: Create New Virtual Disk
+
+Choose "Create a new virtual disk" and click "Next".
+
+![](../articles/vCenter-7/022.jpg)
+
+### 23: Set Disk Capacity
+
+Enter the maximum size of the disk (e.g., 142 GB) and select "Split virtual disk into multiple files." Click "Next".
+
+![](../articles/vCenter-7/023.jpg)
+
+### 24: Save Disk File
+
+Provide the name for the disk file and click "Finish".
+
+![](../articles/vCenter-7/024.jpg)
+
+### 25: Verify Disk Settings
+
+Ensure the new disk has been added and click "OK".
+
+![](../articles/vCenter-7/025.jpg)
+
+### 26: Power On Virtual Machine
+
+Click on "Power on this virtual machine" to start the VM.
+
+![](../articles/vCenter-7/026.jpg)
+
+### 27: Start ESXi Host
+
+Start the ESXi host.
+
+![](../articles/vCenter-7/027.jpg)
+
+### 28: Select Datastore in Installer
+
+In the vCenter installer, choose the available datastore and click "Next".
+
+![](../articles/vCenter-7/028.jpg)
+
+### 29: Datastore in ESXi Web Client
+
+Navigate to "Storage" in the ESXi Web Client and check the available datastores.
+
+![](../articles/vCenter-7/029.jpg)
+
+### 30: Create New Datastore
+
+Click on "New datastore," select "Create new VMFS datastore," and click "Next".
+
+![](../articles/vCenter-7/030.jpg)
+
+### 31: Confirm Datastore Type
+
+Confirm the datastore type (e.g., VMFS) and click "Next".
+
+![](../articles/vCenter-7/031.jpg)
+
+### 32: Select Partitioning Options
+
+Choose the "Free Space" and click "Next".
+
+![](../articles/vCenter-7/032.jpg)
+
+### 33: Datastore Configuration Summary
+
+Review the configuration for the new datastore. Click "Finish" to complete the process.
+
+![](../articles/vCenter-7/033.jpg)
+
+### 34: Warning About Disk Formatting
+
+A warning will appear stating that all data on the selected disk will be erased. Click "Yes" to continue.
+
+![](../articles/vCenter-7/034.jpg)
+
+### 35: New Datastore Successfully Created
+
+Verify the new datastore in the overview. Details about capacity and type will be displayed.
+
+![](../articles/vCenter-7/035.jpg)
+
+### 36: Select Deployment Size
+
+In the vCenter Server Installer, choose the desired deployment size (e.g., "Tiny"). Click "Next".
+
+![](../articles/vCenter-7/036.jpg)
+
+### 37: Choose Datastore
+
+Select the previously created datastore to use for the vCenter installation. Click "Next".
+
+![](../articles/vCenter-7/037.jpg)
+
+### 38: Configure Network Settings
+
+Choose "DHCP" for IP assignment and optionally enter additional network settings. Click "Next".
+
+![](../articles/vCenter-7/038.jpg)
+
+### 39: Network Settings with DHCP
+
+Ensure the network settings are correct, such as DHCP being enabled. Click "Next".
+
+![](../articles/vCenter-7/039.jpg)
+
+### 40: Review Deployment Settings
+
+Review all configurations, including target host, datastore, and network settings. Click "Finish".
+
+![](../articles/vCenter-7/040.jpg)
+
+### 41: vCenter Server Deployment in Progress
+
+The deployment process starts. Wait until the installation is complete.
+
+![](../articles/vCenter-7/041.jpg)
+
+### 42: vCenter Server Successfully Deployed
+
+The first phase of the vCenter Server deployment was successful. Click "Continue" to proceed to Phase 2.
+
+![](../articles/vCenter-7/042.jpg)
+
+### 43: Introduction to Phase 2
+
+Read the introduction to Phase 2 of the installation process. Click "Next" to continue.
+
+![](../articles/vCenter-7/043.jpg)
+
+### 44: vCenter Server Configuration
+
+Select the time synchronization method and enable SSH access if needed. Click "Next".
+
+![](../articles/vCenter-7/044.jpg)
+
+### 45: SSO Configuration
+
+Create a new SSO domain or join an existing one. Enter the domain name, username, and password. Click "Next".
+
+![](../articles/vCenter-7/045.jpg)
+
+### 46: CEIP Configuration
+
+Decide whether to participate in the VMware Customer Experience Improvement Program (CEIP). Click "Next".
+
+![](../articles/vCenter-7/046.jpg)
+
+### 47: Finalize Settings
+
+Review all configuration settings, including network, vCenter Server, and SSO details. Click "Finish" to start the installation.
+
+![](../articles/vCenter-7/047.jpg)
+
+### 48: Warning Before Starting Installation
+
+Confirm the warning that the installation process cannot be paused or stopped. Click "OK" to continue.
+
+![](../articles/vCenter-7/048.jpg)
+
+### 49: Phase 2 Installation in Progress
+
+The progress of Phase 2 is displayed. Wait until the process is complete.
+
+![](../articles/vCenter-7/049.jpg)
+
+### 50: Phase 2 Successfully Completed
+
+The vCenter Server setup was successfully completed. Click the link to open the vCenter Getting Started page.
+
+![](../articles/vCenter-7/050.jpg)
+
+### 51: Security Warning in Browser
+
+If a security warning appears in the browser, click "Advanced" to proceed.
+
+![](../articles/vCenter-7/051.jpg)
+
+### 52: Accept Security Warning
+
+To continue, click "Accept Risk and Continue" to open the website despite the security warning.
+
+![](../articles/vCenter-7/052.jpg)
+
+### 53: Launch vSphere Client
+
+Click on "Launch vSphere Client (HTML5)" to open the vSphere web client.
+
+![](../articles/vCenter-7/053.jpg)
+
+### 54: Log In to vSphere Client
+
+Enter your login credentials (e.g., username and password) and click "Login".
+
+![](../articles/vCenter-7/054.jpg)
+
+### 55: vSphere Client Overview
+
+After logging in, you'll see the vSphere Client overview with information about your environment and health status.
+
+![](../articles/vCenter-7/055.jpg)
+
+---
+
+
+## Happy virtualizing!
