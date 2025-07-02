@@ -5,4 +5,10 @@ url: ""
 theme: null
 exclude: [Gemfile, Gemfile.lock, node_modules, vendor]
 
+markdown: kramdown
 
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+highlighter: rouge
