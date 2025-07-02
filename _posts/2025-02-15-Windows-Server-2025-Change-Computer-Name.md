@@ -1,12 +1,10 @@
 ---
 date: 15.02.2025
 layout: post
-title: 
-excerpt: 
-image: 
+title: How to Change the Computer Name in Windows Server 2025
+excerpt: This guide will walk you through the process of changing the computer name in Windows Server 2025.
+image: /rubinhood-blog/assets/img/Windows-Server-2025-Change-Computer-Name/001.jpg
 ---
-
-# How to Change the Computer Name in Windows Server 2025
 
 This guide will walk you through the process of changing the computer name in Windows Server 2025.
 

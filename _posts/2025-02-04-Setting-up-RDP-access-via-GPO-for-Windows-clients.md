@@ -1,12 +1,12 @@
 ---
 date: 04.02.2025
 layout: post
-title: 
-excerpt: 
-image: 
+title: Setting up RDP access via GPO for Windows clients
+excerpt: In a Windows Server environment, Remote Desktop Protocol (RDP) is disabled by default for security reasons. To enable RDP access for employees using Windows clients, you need to configure the correct settings via Group Policy (GPO) in Active Directory (AD). 
+image: /rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/023.jpg
 ---
 
-# Setting up RDP access via GPO for Windows clients
+
 
 In a Windows Server environment, Remote Desktop Protocol (RDP) is disabled by default for security reasons. To enable RDP access for employees using Windows clients, you need to configure the correct settings via Group Policy (GPO) in Active Directory (AD).  
 

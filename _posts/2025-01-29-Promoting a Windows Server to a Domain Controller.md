@@ -1,12 +1,12 @@
 ---
 date: 29.01.2025
 layout: post
-title: 
-excerpt: 
-image: 
+title: Setting Up a Domain Controller in Windows Server
+excerpt: This guide walks you through the process of configuring a Windows Server as a domain controller using Active Directory Domain Services (AD DS).
+image: /rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/011.jpg
 ---
 
-# Setting Up a Domain Controller in Windows Server
+
 
 ![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/011.jpg)
 
