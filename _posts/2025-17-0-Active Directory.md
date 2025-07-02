@@ -1,131 +1,113 @@
 ---
 date: 17.01.2025
 layout: post
-title: Active Directory (AD) – Eine Domäne einrichten und einen Client verbinden
-excerpt: In dieser Anleitung zeige ich dir Schritt für Schritt, wie du eine Active-Directory-Umgebung einrichtest und einen Windows-10-Client mit der Domäne verbindest.
+title: Active Directory (AD) Setting Up a Domain and Connecting a Client 
+excerpt: This tutorial provides a step-by-step guide to setting up an Active Directory environment and connecting a Windows 10 client to the domain.
 image: /rubinhood-blog/assets/img/Active-Directory/021.jpg
 ---
 
-![](/rubinhood-blog/assets/img/Active-Directory/021.jpg)  
+![](/rubinhood-blog/assets/img/Active-Directory/021.jpg)
 ![](/rubinhood-blog/assets/img/Active-Directory/022.jpg)
 
-## 🧰 Einführung  
-Diese Anleitung zeigt dir Schritt für Schritt, wie du eine **Active Directory**-Umgebung einrichtest und einen **Windows 10-Client** mit der Domäne verbindest.  
-Am Ende dieser Anleitung wirst du:
+## Introduction  
+This tutorial provides a step-by-step guide to setting up an **Active Directory** environment and connecting a **Windows 10 client** to the domain.  
+By following these steps, you will:  
+Create an **Organizational Unit (OU)** and a **user account**  
+Configure **network settings** on a client machine  
+Join a **Windows 10 client** to the domain  
+Log in with a **domain user account**  
 
-✅ Eine **Organisationseinheit (OU)** und ein **Benutzerkonto** erstellt haben  
-✅ Die **Netzwerkeinstellungen** eines Clients korrekt konfiguriert haben  
-✅ Einen **Windows 10-Client** erfolgreich der Domäne hinzugefügt haben  
-✅ Dich mit einem **Domänen-Benutzerkonto** angemeldet haben  
-
-Jeder Schritt wird durch Screenshots begleitet, um dir die Umsetzung zu erleichtern.
+Each step is illustrated with screenshots to guide you through the process.
 
 ---
 
-### 🪪 Schritt 1: Öffne **Active Directory-Benutzer und -Computer**  
-Klicke oben rechts im Menü auf **Tools** und wähle im Dropdown **Active Directory-Benutzer und -Computer** aus.
-
-### 🗂️ Schritt 2: Neue **Organisationseinheit (OU)** erstellen  
-Rechtsklick auf deine Domäne → **Neu** → **Organisationseinheit** auswählen.
-
-### ✏️ Schritt 3: Organisationseinheit benennen  
-Vergib einen Namen für die neue OU (z. B. **Mitarbeiter**) und aktiviere das Häkchen bei **Container vor versehentlichem Löschen schützen**. Klicke auf **OK**.
+#### Step 1: Open **Active Directory Users and Computers**  
+Click on **Tools** in the top right menu and select **Active Directory Users and Computers** from the dropdown menu.
+#### Step 2: Create a New **Organizational Unit (OU)**  
+Right-click on your domain, hover over **New**, and select **Organizational Unit**.
+#### Step 3: Name the Organizational Unit  
+Enter a name for the new Organizational Unit (e.g., **Employees**) and ensure **Protect container from accidental deletion** is checked. Click **OK**.  
 
 ![](/rubinhood-blog/assets/img/Active-Directory/001.jpg)  
 ![](/rubinhood-blog/assets/img/Active-Directory/002.jpg)  
-![](/rubinhood-blog/assets/img/Active-Directory/003.jpg)
+![](/rubinhood-blog/assets/img/Active-Directory/003.jpg)  
 
-### 👤 Schritt 4: Neues Benutzerkonto erstellen  
-Rechtsklick auf die erstellte OU **Mitarbeiter** → **Neu** → **Benutzer** auswählen.
-
-### 📄 Schritt 5: Benutzerdaten eingeben  
-Trage den **Vor- und Nachnamen** sowie den **Anmeldenamen** ein (z. B. `C.Neumann`). Klicke auf **Weiter**.
-
-### 🔐 Schritt 6: Passwort festlegen  
-Vergib ein **Passwort** und aktiviere die Option **Benutzer muss Kennwort bei der nächsten Anmeldung ändern**. Klicke auf **Weiter**.
+#### Step 4: Create a New User Account  
+Right-click on the newly created **Employees** Organizational Unit, hover over **New**, and select **User**.
+#### Step 5: Enter User Details  
+Fill in the user's **first name**, **last name**, and **logon name** (e.g., `C.Neumann`). Click **Next**.
+#### Step 6: Set a Password  
+Enter a **password** for the new user. Ensure that **User must change password at next logon** is checked. Click **Next**.  
 
 ![](/rubinhood-blog/assets/img/Active-Directory/004.jpg)  
 ![](/rubinhood-blog/assets/img/Active-Directory/005.jpg)  
-![](/rubinhood-blog/assets/img/Active-Directory/006.jpg)
+![](/rubinhood-blog/assets/img/Active-Directory/006.jpg)  
 
-### ✅ Schritt 7: Benutzererstellung bestätigen  
-Überprüfe die Angaben und klicke auf **Fertig stellen**, um den Benutzer anzulegen.
-
----
-
-### 🌐 Schritt 8: Netzwerkeinstellungen am Windows-10-Client öffnen  
-Gehe zum **Windows 10-Client** und öffne die **Netzwerk- & Interneteinstellungen**, indem du auf das Netzwerksymbol in der Taskleiste klickst.
-
-### 🧭 Schritt 9: Erweiterte Adapteroptionen öffnen  
-Klicke auf **Adapteroptionen ändern**, um die Netzwerkkonfiguration anzupassen.
+#### Step 7: Confirm User Creation  
+Review the user details and click **Finish** to create the account.
+#### Step 8: Open Network Settings on Windows 10 Client  
+Go to the **Windows 10 Client** and open **Network & Internet settings** by clicking on the network icon in the taskbar.
+#### Step 9: Open Advanced Network Settings  
+Click on **Change adapter options** to configure the network settings.  
 
 ![](/rubinhood-blog/assets/img/Active-Directory/007.jpg)  
 ![](/rubinhood-blog/assets/img/Active-Directory/008.jpg)  
-![](/rubinhood-blog/assets/img/Active-Directory/009.jpg)
+![](/rubinhood-blog/assets/img/Active-Directory/009.jpg) 
 
-### 🔧 Schritt 10: Netzwerkadapter konfigurieren  
-Öffne die Eigenschaften der **Ethernet-Verbindung**, wähle **Internetprotokoll Version 4 (TCP/IPv4)** und setze den **bevorzugten DNS-Server** auf die IP-Adresse des Domänencontrollers (z. B. `192.168.178.10`). Klicke auf **OK**.
-
-### 🧱 Schritt 11: Systemsteuerung öffnen  
-Öffne die **Systemsteuerung**, stelle die Ansicht auf **Kleine Symbole**, und klicke auf **System**.
-
-### 💻 Schritt 12: Computereinstellungen ändern  
-Im Fenster **Systemeigenschaften** auf **Ändern** klicken, um den Computer umzubenennen oder einer Domäne beizutreten.
+#### Step 10: Configure Network Adapter  
+Open the **Ethernet properties**, select **Internet Protocol Version 4 (TCP/IPv4)**, and set the **Preferred DNS Server** to the domain controller's IP address (e.g., `192.168.178.10`). Click **OK**.
+#### Step 11: Open the Control Panel  
+Open the **Control Panel**, switch to **Small icons view**, and click **System**.
+#### Step 12: Change Computer Settings  
+In the **System Properties** window, click **Change** to rename the computer or join a domain.  
 
 ![](/rubinhood-blog/assets/img/Active-Directory/010.jpg)  
 ![](/rubinhood-blog/assets/img/Active-Directory/011.jpg)  
 ![](/rubinhood-blog/assets/img/Active-Directory/012.jpg)
 
-### 🏢 Schritt 13: Der Domäne beitreten  
-Wähle **Domäne**, gib den Domänennamen ein (z. B. `rubinhood.local`) und bestätige mit **OK**.
-
-### 🔑 Schritt 14: Administrator-Zugangsdaten eingeben  
-Gib die **Anmeldedaten eines Domänenadministrators** ein und klicke auf **OK**, um fortzufahren.
-
-### 📬 Schritt 15: Beitritt erfolgreich  
-Es erscheint eine Bestätigung, dass der Computer erfolgreich der Domäne beigetreten ist. Klicke auf **OK**.
+#### Step 13: Join the Domain  
+Select **Domain**, enter the domain name (e.g., `rubinhood.local`), and confirm with **OK**.
+#### Step 14: Enter Administrator Credentials  
+Enter the **Administrator credentials** for the domain and click **OK** to proceed.
+#### Step 15: Domain Join Confirmation  
+A message confirms that the computer has successfully joined the domain. Click **OK**.  
 
 ![](/rubinhood-blog/assets/img/Active-Directory/013.jpg)  
 ![](/rubinhood-blog/assets/img/Active-Directory/014.jpg)  
-![](/rubinhood-blog/assets/img/Active-Directory/015.jpg)
+![](/rubinhood-blog/assets/img/Active-Directory/015.jpg)  
 
-### 🔁 Schritt 16: Computer neu starten  
-Ein Hinweis fordert dich zum **Neustart** auf. Klicke auf **OK** und starte das System neu.
-
----
-
-### 🔐 Schritt 17: Anmeldung mit Domänenkonto  
-Am Anmeldebildschirm auf **Anderer Benutzer** klicken und die **Domänen-Zugangsdaten** eingeben (z. B. `c.neumann`).
-
-### 🔄 Schritt 18: Kennwort ändern  
-Da das Konto beim ersten Login das Passwort ändern muss, erscheint eine Aufforderung. Klicke auf **OK**.
+#### Step 16: Restart the Computer  
+A prompt appears requiring a **restart**. Click **OK**, then restart the system.
+#### Step 17: Login with Domain Credentials  
+At the login screen, select **Other user** and enter the domain user credentials (e.g., `c.neumann`).
+#### Step 18: Password Change Prompt  
+Since the account was set to change the password on first login, a prompt appears. Click **OK**.  
 
 ![](/rubinhood-blog/assets/img/Active-Directory/016.jpg)  
 ![](/rubinhood-blog/assets/img/Active-Directory/017.jpg)  
-![](/rubinhood-blog/assets/img/Active-Directory/018.jpg)
+![](/rubinhood-blog/assets/img/Active-Directory/018.jpg) 
 
-### 🔏 Schritt 19: Neues Passwort festlegen  
-Gib ein **neues Passwort** ein, bestätige es und drücke **Enter**, um fortzufahren.
+#### Step 19: Enter New Password  
+Enter a **new password**, confirm it, and click **Enter** to proceed.
 
 ![](/rubinhood-blog/assets/img/Active-Directory/019.jpg)  
-![](/rubinhood-blog/assets/img/Active-Directory/020.jpg)
-
-### 🧑‍💼 Schritt 20: Erstanmeldung & Profil wird eingerichtet  
-Windows richtet das Benutzerprofil ein, und der Domänenbenutzer ist jetzt erfolgreich angemeldet.
+![](/rubinhood-blog/assets/img/Active-Directory/020.jpg)  
+#### Step 20: First Login & Profile Setup  
+Windows sets up the user profile, and the domain user is now successfully logged in.  
 
 ---
 
-## ✅ Fazit  
-Glückwunsch! Du hast erfolgreich eine **Active Directory-Domäne** eingerichtet und einen **Windows 10-Client** verbunden.
+## Conclusion  
+Congratulations! You have successfully set up an **Active Directory** domain and connected a **Windows 10 client**.  
 
-Ab sofort kann der Client:
+Now the client machine can:  
+Access **network resources** within the domain  
+Authenticate using **domain credentials**  
+Be managed centrally via **Group Policies**  
 
-- Auf **Netzwerkressourcen** innerhalb der Domäne zugreifen  
-- Sich mit **Domänen-Zugangsdaten** authentifizieren  
-- Zentral über **Gruppenrichtlinien** verwaltet werden  
+This setup is essential for **enterprise environments**, allowing better **security, administration, and scalability**.  
 
-Diese Einrichtung ist ein essenzieller Baustein für **Unternehmensumgebungen** und bietet mehr **Sicherheit, zentrale Verwaltung und Skalierbarkeit**.
+If you want to add **more clients** to the domain, simply repeat **Steps 8-20** on additional machines.  
 
-Wenn du **weitere Clients hinzufügen** willst, wiederhole einfach **Schritt 8 bis 20** auf den jeweiligen Geräten.
 
 ---
