@@ -2,190 +2,187 @@
 date: 05.04.2025
 layout: post
 title: VM-Infrastruktur mit AD, Exchange, SQL auf ESXi via Workstation unter Win 11
-excerpt: In my IT lab, I have set up a sample network configuration. My entire lab environment consists of several virtualized Windows servers and Windows clients running on VMware ESXi. The entire setup is hosted on a physical Windows 11 machine with VMware Workstation installed, where ESXi 8 runs as a virtual machine.
+excerpt: In meinem IT-Labor habe ich eine beispielhafte Netzwerkumgebung eingerichtet. Die gesamte Umgebung besteht aus mehreren virtualisierten Windows-Servern und Clients, die auf VMware ESXi laufen – gehostet auf einem physischen Windows-11-System mit VMware Workstation.
 image: /rubinhood-blog/assets/img/Infrastructure-with-Domain-Controller-AD/001.webp
 ---
 
 ![](/rubinhood-blog/assets/img/Infrastructure-with-Domain-Controller-AD/001.webp)
 
+---
 
-### **Network Configuration of My Virtual Lab**
+### 🧪 **Netzwerkkonfiguration meines virtuellen Labors**
 
-In my IT lab, I have set up a sample network configuration. My entire lab environment consists of several virtualized Windows servers and Windows clients running on VMware ESXi. The entire setup is hosted on a physical Windows 11 machine with VMware Workstation installed, where ESXi 8 runs as a virtual machine.
+In meinem LAB habe ich eine beispielhafte Netzwerkumgebung aufgebaut. Die gesamte Lab-Umgebung besteht aus mehreren virtualisierten Windows-Servern und Windows-Clients, die auf **VMware ESXi 8** betrieben werden. Die ESXi-Installation läuft dabei als virtuelle Maschine auf einer physischen **Windows-11-Workstation** mit **VMware Workstation**.
 
 ---
 
-# 🌐 **Windows Server 2025 (AD & Domain Controller)**
+# 🌐 **Windows Server 2025 (AD & Domänencontroller)**
 
-### 🖥 **Server Details**
+### 🖥️ **Serverdetails**
 
 - **🆔 Hostname:** `RUBINHOOD`
-- **🔧 Function:** Active Directory Domain Controller
-- **🌍 Domain:** `ad.rubinhood.de`
-- **🌐 DNS Server:** `192.168.178.2`
+- **🔧 Funktion:** Active Directory Domain Controller
+- **🌍 Domäne:** `ad.rubinhood.de`
+- **🌐 DNS-Server:** `192.168.178.2`
 
-### 👥 **User Management (OU Structure)**
-
-📂 **OU=Department**
-
-- 🖥 **OU=Computer:** Contains Windows client PCs (`AS682`, `MS743`, `PW578`, `TB929`).
-- 👤 **OU=User:** Contains users (`Anna Schmidt`, `Mia Schneider`, `Paul Weber`, `Tom Bauer`).
+### 👥 **Benutzerverwaltung (OU-Struktur)**
 
 📂 **OU=Department**
 
-- 🖥 **OU=Computer:** Contains Windows servers (`EXCHANGE`, `SQL`).
-- 👤 **OU=User:** Contains users (`EXCHANGESVR`, `SQLSVR`).
+- 🖥️ **OU=Computer:** Enthält Windows-Clients (`AS682`, `MS743`, `PW578`, `TB929`)
+- 👤 **OU=User:** Enthält Benutzerkonten (`Anna Schmidt`, `Mia Schneider`, `Paul Weber`, `Tom Bauer`)
 
-- **Add Roles and Features Wizard**
+📂 **OU=Department**
+
+- 🖥️ **OU=Computer:** Enthält Windows-Server (`EXCHANGE`, `SQL`)
+- 👤 **OU=User:** Enthält Dienstkonten (`EXCHANGESVR`, `SQLSVR`)
+
+- **Assistent für Rollen und Features hinzufügen**
     
-    ### **Server Roles**
+    ### 🧩 **Serverrollen**
     
-    - Active Directory Domain Services
-    - DNS Server
-    - File and Storage Services
-    - Web Server (IIS)
+    - Active Directory-Verbunddienste
+    - DNS-Server
+    - Datei- und Speicherdienste
+    - Webserver (IIS)
     
-    ### **Features**
+    ### 🔧 **Features**
     
-    - .NET Framework 3.5 Features
-    - .NET Framework 4.8 Features
-    - Group Policy Management
+    - .NET Framework 3.5 / 4.8
+    - Gruppenrichtlinienverwaltung
     - Microsoft Defender Antivirus
-    - Remote Server Administration Tools
-    - RPC over HTTP Proxy
+    - Remote Server-Verwaltungstools
+    - RPC über HTTP Proxy
     - System Data Archiver
-    - Windows Admin Center Setup
+    - Windows Admin Center
     - Windows Identity Foundation 3.5
     - Windows Internal Database
-    - Windows PowerShell
+    - PowerShell
     - Windows Process Activation Service
-    - Windows Search Service
+    - Windows-Suche
     - Windows Server Backup
-    - Wireless LAN Service
-    - WoW64 Support
+    - WLAN-Dienst
+    - WoW64-Unterstützung
     - XPS Viewer
 
 ---
 
-# 📊 **Windows Server 2025 for SQL Server**
+# 📊 **Windows Server 2025 für SQL Server**
 
-### 🖥 **Server Details**
+### 🖥️ **Serverdetails**
 
-- **🆕 Status:** Freshly installed, SQL Server not yet installed.
+- **🆕 Status:** Frisch installiert, SQL Server noch nicht installiert
 - **🆔 Hostname:** `SQL`
-- **📌 Static IP Address:** `192.168.178.3`
-- **🏢 Domain Member:** Joined to domain `ad.rubinhood.de`.
+- **📌 Statische IP:** `192.168.178.3`
+- **🏢 Domänenmitglied:** `ad.rubinhood.de`
 
-- **Add Roles and Features Wizard**
+- **Assistent für Rollen und Features hinzufügen**
     
-    ### **Server Roles**
+    ### 🧩 **Serverrollen**
     
-    - File and Storage Services
-    - Web Server (IIS)
+    - Datei- und Speicherdienste
+    - Webserver (IIS)
     
-    ### **Features**
+    ### 🔧 **Features**
     
-    - .NET Framework 3.5 Features
-    - .NET Framework 4.8 Features
+    - .NET Framework 3.5 / 4.8
     - Message Queuing
     - Microsoft Defender Antivirus
-    - Remote Server Administration Tools
-    - RPC over HTTP Proxy
+    - Remote Server-Verwaltungstools
+    - RPC über HTTP Proxy
     - System Data Archiver
-    - Windows Admin Center Setup
+    - Windows Admin Center
     - Windows Identity Foundation 3.5
     - Windows Internal Database
-    - Windows PowerShell
+    - PowerShell
     - Windows Process Activation Service
-    - Windows Search Service
-    - Wireless LAN Service
-    - WoW64 Support
+    - Windows-Suche
+    - WLAN-Dienst
+    - WoW64-Unterstützung
     - XPS Viewer
 
 ---
 
-# 📧 **Windows Server 2025 for Exchange Server**
+# 📧 **Windows Server 2025 für Exchange Server**
 
-### 🖥 **Server Details**
+### 🖥️ **Serverdetails**
 
-- **🆕 Status:** Freshly installed, Exchange Server not yet installed.
+- **🆕 Status:** Frisch installiert, Exchange Server noch nicht installiert
 - **🆔 Hostname:** `EXCHANGE`
-- **📌 Static IP Address:** `192.168.178.4`
-- **🏢 Domain Member:** Joined to domain `ad.rubinhood.de`.
+- **📌 Statische IP:** `192.168.178.4`
+- **🏢 Domänenmitglied:** `ad.rubinhood.de`
 
-- **Add Roles and Features Wizard**
+- **Assistent für Rollen und Features hinzufügen**
     
-    ### **Server Roles**
+    ### 🧩 **Serverrollen**
     
-    - File and Storage Services
-    - Web Server (IIS)
+    - Datei- und Speicherdienste
+    - Webserver (IIS)
     
-    ### **Features**
+    ### 🔧 **Features**
     
-    - .NET Framework 3.5 Features
-    - .NET Framework 4.8 Features
+    - .NET Framework 3.5 / 4.8
     - Media Foundation
     - Microsoft Defender Antivirus
     - Message Queuing
-    - RPC over HTTP Proxy
-    - Remote Server Administration Tools
+    - RPC über HTTP Proxy
+    - Remote Server-Verwaltungstools
     - System Data Archiver
-    - Windows Admin Center Setup
+    - Windows Admin Center
     - Windows Identity Foundation 3.5
     - Windows Internal Database
-    - Windows PowerShell
+    - PowerShell
     - Windows Process Activation Service
-    - Wireless LAN Service
-    - WoW64 Support
+    - WLAN-Dienst
+    - WoW64-Unterstützung
     - XPS Viewer
 
-## **1. Network Topology**
+---
 
-The network follows a **unified subnet structure**, managed by a **Fritz!Box (192.168.178.1)** as the primary router. Access to the virtual machines is centralized through a **vCenter Server**, simplifying management. The key servers in this environment include:
+## 🌐 **1. Netzwerktopologie**
 
-- **Domain Controller with Active Directory (Windows Server 2025)**
-- **Exchange Server (Windows Server 2025 with Exchange)**
-- **SQL Server (Windows Server 2025 with Microsoft SQL Server)**
-- **Windows clients, all joined to the domain**
+Das Netzwerk nutzt eine **einheitliche Subnetz-Struktur**, verwaltet durch eine **Fritz!Box (192.168.178.1)** als Haupt-Router. Die Verwaltung der VMs erfolgt zentral über einen **vCenter Server**.
 
-Each server has a **static IP address**, while clients receive **dynamic IPs via DHCP**.
+### Hauptserver:
+
+- 🧩 **Domänencontroller mit AD (Windows Server 2025)**
+- 📧 **Exchange-Server (Windows Server 2025)**
+- 🗃️ **SQL-Server (Windows Server 2025)**
+- 💻 **Windows-Clients, alle der Domäne beigetreten**
+
+Jeder Server nutzt eine **statische IP-Adresse**, während die Clients per **DHCP** eine dynamische Adresse erhalten.
 
 ---
 
-## **2. IP Addressing and Network Configuration**
+## 📐 **2. IP-Adressierung & Netzwerkeinstellungen**
 
-All server network configurations use static IP addresses to ensure stable communication within the domain.
+| Server              | Hostname   | IP-Adresse         | Gateway         | DNS-Server       |
+|---------------------|------------|--------------------|-----------------|------------------|
+| Domänencontroller   | RUBINHOOD  | 192.168.178.2       | 192.168.178.1   | 192.168.178.2    |
+| Exchange Server     | EXCHANGE   | 192.168.178.4       | 192.168.178.1   | 192.168.178.2    |
+| SQL Server          | SQL        | 192.168.178.3       | 192.168.178.1   | 192.168.178.2    |
+| Windows-Client      | TB929      | DHCP (192.168.178.X) | 192.168.178.1   | 192.168.178.2    |
 
-| Server              | Hostname   | IP-Adresse       | Gateway        | DNS-Server       |
-|---------------------|------------|------------------|----------------|------------------|
-| Domain Controller   | RUBINHOOD  | 192.168.178.2     | 192.168.178.1  | 192.168.178.2    |
-| Exchange Server     | EXCHANGE   | 192.168.178.4     | 192.168.178.1  | 192.168.178.2    |
-| SQL Server          | SQL        | 192.168.178.3     | 192.168.178.1  | 192.168.178.2    |
-| Windows Client      | TB929      | DHCP (192.168.178.X) | 192.168.178.1 | 192.168.178.2    |
-
-
-- **Gateway:** `192.168.178.1` → My **Fritz!Box** acts as the network router.
-- **DNS Server:** `192.168.178.2` → The **domain controller** handles DNS resolution, ensuring proper communication within the `ad.rubinhood.de` domain.
+- **Gateway:** `192.168.178.1` → Die **Fritz!Box** dient als Router
+- **DNS:** `192.168.178.2` → Der **Domänencontroller** verwaltet die DNS-Auflösung
 
 ---
 
-## **3. Domain Integration of the Servers**
+## 🏢 **3. Domänenintegration der Server**
 
-All servers and clients are integrated into the **ad.rubinhood.de** domain. The network settings are configured via IPv4 settings in Windows:
+Alle Server und Clients sind Mitglied der Domäne `ad.rubinhood.de`. Die Netzwerkeinstellungen sind über die **IPv4-Konfiguration** festgelegt:
 
-- **Static IP addresses are assigned to servers** to ensure reliable communication.
-- **The domain controller acts as the primary DNS server**, managing the domain structure.
-- **Each server has a registered hostname**, allowing services such as Exchange and SQL to function seamlessly.
-
-Windows clients, such as `TB929`, receive **dynamic IP addresses via DHCP** but are still joined to the domain. This ensures smooth connectivity with the Exchange and SQL servers.
-
----
-
-## **4. Conclusion**
-
-This network configuration provides a **stable and well-structured foundation** for my IT lab. With **clear IP addressing, an Active Directory domain, and proper server integration**, my setup runs efficiently and reliably. This structure allows me to **test and simulate enterprise-level networks** with real Windows servers and clients.
+- Server erhalten **feste IPs** für stabile Kommunikation  
+- Der **Domänencontroller agiert als DNS-Server**  
+- Jeder Server hat einen eindeutigen **Hostname**  
+- Clients wie `TB929` erhalten ihre IPs per **DHCP**, sind aber ebenfalls der Domäne beigetreten
 
 ---
 
-This is my current network setup—stay tuned for future updates as I expand and experiment with new configurations!
+## ✅ **4. Fazit**
 
+Diese Netzwerkkonfiguration bietet eine **stabile, strukturierte Basis** für mein Labor. Mit **klarer IP-Struktur**, einer funktionierenden **Active-Directory-Domäne** und sauber eingebundenen Serverrollen kann ich produktiv arbeiten und komplexe Unternehmensnetzwerke simulieren.
+
+---
+
+Dies ist mein aktuelles Setup – bleib dran für Updates, wenn ich die Umgebung erweitere oder neue Komponenten teste!
