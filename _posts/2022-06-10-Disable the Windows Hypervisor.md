@@ -21,11 +21,6 @@ Der Windows Hypervisor kann die Hardwarevirtualisierung für VMware blockieren. 
 bcdedit /set hypervisorlaunchtype off
 ```
 
-{% if page.image %}
-  <img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
-{% endif %}
-
-
 Starte danach dein System neu.
 
 ### 2. Device Guard und Credential Guard deaktivieren

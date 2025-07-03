@@ -6,11 +6,6 @@ excerpt: Sharing a folder in Windows allows other users on the network to access
 image: /rubinhood-blog/assets/img/How-to-Share-a-Folder-in-Windows/005.png
 ---
 
-{% if page.image %}
-  <img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
-{% endif %}
-
-
 ![](/rubinhood-blog/assets/img/How-to-Share-a-Folder-in-Windows/005.png)
 
 Sharing a folder in Windows allows other users on the network to access or edit files. This can be particularly useful in office environments or at home when multiple devices are connected.

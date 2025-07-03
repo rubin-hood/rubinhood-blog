@@ -6,11 +6,6 @@ excerpt: This guide walks you through the process of configuring a Windows Serve
 image: /rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/011.jpg
 ---
 
-{% if page.image %}
-  <img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
-{% endif %}
-
-
 ![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/011.jpg)
 
 ![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/012.jpg)
