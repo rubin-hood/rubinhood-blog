@@ -1,246 +1,244 @@
 ---
 date: 01.11.2024
 layout: post
-title: Installing ESXi in VMware Workstation
-excerpt: Installing VMware ESXi in VMware Workstation is a great way to create a virtual test environment for ESXi. Here are the steps to install ESXi as a virtual machine in VMware Workstation
+title: ESXi in VMware Workstation installieren
+excerpt: Die Installation von VMware ESXi in VMware Workstation ist eine hervorragende Möglichkeit, eine virtuelle Testumgebung für ESXi zu erstellen. Hier sind die Schritte, um ESXi als virtuelle Maschine in VMware Workstation zu installieren.
 image: /rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/001.jpg
 ---
 
-Installing VMware ESXi in VMware Workstation is a great way to create a virtual test environment for ESXi. Here are the steps to install ESXi as a virtual machine in VMware Workstation:
+Die Installation von VMware ESXi in VMware Workstation ist eine hervorragende Möglichkeit, eine virtuelle Testumgebung für ESXi zu erstellen. Hier sind die Schritte, um ESXi als virtuelle Maschine in VMware Workstation zu installieren:
 
+### **1: VMware Workstation starten und neue VM erstellen**
 
-### ** 1: Launch VMware Workstation and Start New VM Creation**
-
-Open VMware Workstation Pro and begin creating a new virtual machine. Right-click on **"My Computer"** in the Library panel and select **"New Virtual Machine..."** or click **"Create a New Virtual Machine"** on the Home screen.
+Öffne VMware Workstation Pro und beginne mit dem Erstellen einer neuen virtuellen Maschine. Klicke mit der rechten Maustaste auf **"My Computer"** im Library-Bereich und wähle **"New Virtual Machine..."** oder klicke auf **"Create a New Virtual Machine"** auf dem Startbildschirm.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/001.jpg)
 
 ---
 
-### ** 2: Choose Configuration Type**
+### **2: Konfigurationstyp auswählen**
 
-In the **New Virtual Machine Wizard**, select the configuration type. For ease of use, choose **Typical (recommended)**, then click **Next** to proceed.
+Im **New Virtual Machine Wizard** wählst du den Konfigurationstyp aus. Für eine einfache Einrichtung empfiehlt sich **Typical (recommended)**. Klicke dann auf **Next**, um fortzufahren.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/002.jpg)
 
 ---
 
-### ** 3: Select Installation Media**
+### **3: Installationsmedium auswählen**
 
-Choose the installation media for the guest operating system. Select **"Installer disc image file (iso):"** and click **Browse** to locate and select your ISO file (e.g., `ESXi802_CoRE.iso`).
+Wähle das Installationsmedium für das Gastbetriebssystem. Aktiviere **"Installer disc image file (iso):"** und klicke auf **Browse**, um deine ISO-Datei (z. B. `ESXi802_CoRE.iso`) auszuwählen.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/003.jpg)
 
 ---
 
-### ** 4: Confirm Installation Media**
+### **4: Installationsmedium bestätigen**
 
-After selecting the ISO file, confirm the path and click **Next**. VMware might display a warning that the operating system could not be detected. Proceed to manually specify the OS in the next step.
+Nachdem du die ISO-Datei ausgewählt hast, bestätige den Pfad und klicke auf **Next**. VMware könnte eine Warnung anzeigen, dass das Betriebssystem nicht erkannt wurde. Fahre in diesem Fall manuell fort.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/004.jpg)
 
 ---
 
-### ** 5: Select Guest Operating System**
+### **5: Gastbetriebssystem auswählen**
 
-Specify the guest operating system to be installed. Select **VMware ESX** as the guest operating system and choose **VMware ESXi 8** from the version dropdown menu. Click **Next** to continue.
+Wähle das zu installierende Gastbetriebssystem aus. Gib **VMware ESX** als Betriebssystem an und wähle **VMware ESXi 8** aus dem Dropdown-Menü. Klicke auf **Next**, um fortzufahren.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/005.jpg)
 
 ---
 
-### ** 6: Name and Locate Virtual Machine**
+### **6: Virtuelle Maschine benennen und Speicherort wählen**
 
-Enter a name for your virtual machine (e.g., `VMware ESXi 8`) and specify the location where the virtual machine files will be stored. Click **Next** to proceed.
+Gib einen Namen für deine virtuelle Maschine ein (z. B. `VMware ESXi 8`) und lege den Speicherort für die Dateien fest. Klicke auf **Next**, um weiterzumachen.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/006.jpg)
 
 ---
 
-### ** 7: Specify Disk Capacity**
+### **7: Festplattengröße festlegen**
 
-Set the disk capacity for the virtual machine. Use the recommended size (e.g., **142 GB**) or adjust it based on your needs. Choose to either **Store virtual disk as a single file** or **Split virtual disk into multiple files**, then click **Next**.
+Lege die Kapazität der virtuellen Festplatte fest. Verwende die empfohlene Größe (z. B. **142 GB**) oder passe sie nach Bedarf an. Wähle, ob du **Store virtual disk as a single file** oder **Split virtual disk into multiple files** verwenden möchtest. Klicke auf **Next**.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/007.jpg)
 
 ---
 
-### ** 8: Review and Finalize Configuration**
+### **8: Konfiguration überprüfen und abschließen**
 
-Review the settings for the new virtual machine. Ensure the configuration meets your requirements (e.g., memory, CPUs, and disk size). If needed, click **"Customize Hardware..."** to make adjustments. Once satisfied, click **Finish** to create the virtual machine.
+Überprüfe die Einstellungen deiner neuen VM. Stelle sicher, dass Speicher, CPU und Festplattengröße deinen Anforderungen entsprechen. Klicke ggf. auf **"Customize Hardware..."**, um Anpassungen vorzunehmen. Klicke auf **Finish**, um die VM zu erstellen.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/008.jpg)
 
 ---
 
-### ** 9: Adjust Virtual Machine Hardware**
+### **9: Hardwareeinstellungen anpassen**
 
-Open the **Virtual Machine Settings** to adjust hardware settings if necessary. For example:
+Öffne die **Virtual Machine Settings**, um bei Bedarf Hardwareanpassungen vorzunehmen:
 
-- Set the memory allocation.
-- Select the number of processors.
-- Confirm the CD/DVD drive is set to the ISO file or physical drive.
+- Speichergröße festlegen  
+- Anzahl der Prozessoren wählen  
+- Prüfen, ob das CD/DVD-Laufwerk korrekt auf ISO-Datei oder physisches Laufwerk zeigt
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/009.jpg)
 
 ---
 
-### ** 10: Enable Virtualization Features**
+### **10: Virtualisierungsfunktionen aktivieren**
 
-Under the **Processors** section, ensure the virtualization engine option **"Virtualize Intel VT-x/EPT or AMD-V/RVI"** is enabled. Click **OK** to save the settings and finalize the setup.
+Im Bereich **Processors** aktivierst du die Option **"Virtualize Intel VT-x/EPT or AMD-V/RVI"**. Klicke auf **OK**, um die Einstellungen zu speichern.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/010.jpg)
 
 ---
 
-### ** 11: Start Virtual Machine**
+### **11: Virtuelle Maschine starten**
 
-Power on the virtual machine by clicking the green **"Play"** button or selecting **"Power on this virtual machine"**. This will start the installation process for VMware ESXi 8.
+Starte die VM über den grünen **"Play"**-Button oder wähle **"Power on this virtual machine"**. Die Installation von VMware ESXi 8 beginnt.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/011.jpg)
 
 ---
 
-### ** 12: Boot VMware ESXi**
+### **12: VMware ESXi booten**
 
-The virtual machine begins booting from the selected ISO image. The ESXi installer loads the necessary components, as shown in the progress bar. Wait for the boot process to complete.
+Die VM startet vom ISO-Image. Der ESXi-Installer lädt die notwendigen Komponenten. Warte, bis der Bootvorgang abgeschlossen ist.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/012.jpg)
 
 ---
 
-### ** 13: Welcome to VMware ESXi Installer**
+### **13: Willkommen beim VMware ESXi Installer**
 
-The VMware ESXi installer starts. You will see the welcome screen with information about compatibility. Press **Enter** to continue the installation.
+Der Installer startet mit einer Willkommensseite. Drücke **Enter**, um die Installation zu beginnen.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/013.jpg)
 
 ---
 
-### ** 14: Accept End User License Agreement (EULA)**
+### **14: Lizenzvereinbarung akzeptieren**
 
-Read through the End User License Agreement. To proceed, press **F11** to accept and continue the installation.
+Lies die Endbenutzer-Lizenzvereinbarung. Drücke **F11**, um zuzustimmen und fortzufahren.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/014.jpg)
 
 ---
 
-### ** 15: Select Disk for Installation**
+### **15: Festplatte für die Installation auswählen**
 
-Choose the disk where VMware ESXi will be installed. Highlight the desired storage device (e.g., the virtual disk created earlier) and press **Enter** to confirm your selection.
+Wähle die Festplatte aus, auf der VMware ESXi installiert werden soll (z. B. die zuvor erstellte virtuelle Festplatte) und drücke **Enter**.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/015.jpg)
 
 ---
 
-### ** 16: Select Keyboard Layout**
+### **16: Tastaturlayout auswählen**
 
-Select the appropriate keyboard layout for your setup. Use the arrow keys to navigate the list, select your preferred layout (e.g., **US Default**), and press **Enter** to continue.
+Wähle das passende Tastaturlayout (z. B. **US Default**) aus der Liste und drücke **Enter**.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/016.jpg)
 
 ---
 
-### ** 17: Set Root Password**
+### **17: Root-Passwort setzen**
 
-Enter a secure password for the **root** user. Confirm the password by typing it again. Ensure both fields match, then press **Enter** to proceed.
+Vergib ein sicheres Passwort für den **root**-Benutzer. Gib das Passwort zur Bestätigung erneut ein und drücke **Enter**.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/017.jpg)
 
 ---
 
-### ** 18: Review Warnings**
+### **18: Warnungen überprüfen**
 
-The system may display warnings about hardware compatibility or virtualization features. Review the warnings and press **Enter** to acknowledge and continue.
+Möglicherweise erscheinen Hinweise zu Hardwarekompatibilität. Lies sie durch und drücke **Enter**, um fortzufahren.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/018.jpg)
 
 ---
 
-### ** 19: Confirm Installation**
+### **19: Installation bestätigen**
 
-The installer prompts you to confirm the installation. A warning indicates that the selected disk will be repartitioned. Press **F11** to start the installation.
+Der Installer fordert zur Bestätigung der Installation auf. Drücke **F11**, um zu starten. Der gewählte Datenträger wird neu partitioniert.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/019.jpg)
 
 ---
 
-### ** 20: Installation in Progress**
+### **20: Installation läuft**
 
-The ESXi installer begins copying files to the selected disk. A progress bar displays the status of the installation. Wait for the installation to complete.
+Die ESXi-Installationsdateien werden kopiert. Ein Fortschrittsbalken zeigt den aktuellen Stand an.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/020.jpg)
 
 ---
 
-### ** 21: Installation Complete**
+### **21: Installation abgeschlossen**
 
-The VMware ESXi installation is complete. The system displays a message confirming successful installation. Before rebooting, remove the installation media to avoid re-entering the installation process. Press **Enter** to reboot.
+Die Installation ist abgeschlossen. Entferne das Installationsmedium, bevor du neu startest. Drücke **Enter**, um den Neustart durchzuführen.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/021.jpg)
 
 ---
 
-### ** 22: Rebooting the System**
+### **22: System wird neu gestartet**
 
-The server begins the reboot process. Wait for the system to shut down and restart. This process may take a few minutes.
+Der Server fährt herunter und startet neu. Dieser Vorgang kann einige Minuten dauern.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/022.jpg)
 
 ---
 
-### ** 23: ESXi Boot Screen**
+### **23: ESXi-Bootbildschirm**
 
-The VMware ESXi boot loader appears, and the system begins loading the ESXi components. Wait for the boot process to complete.
+Der Bootloader von VMware ESXi erscheint und lädt die Komponenten. Warte, bis der Bootvorgang abgeschlossen ist.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/023.jpg)
 
 ---
 
-### ** 24: Uncompressing Modules**
+### **24: Module werden entpackt**
 
-The ESXi kernel starts initializing and uncompressing boot modules. Allow the process to complete without interruption.
+Der Kernel von ESXi wird initialisiert und entpackt die Bootmodule. Warte, bis der Vorgang abgeschlossen ist.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/024.jpg)
 
 ---
 
-### ** 25: Management Network Display**
+### **25: Anzeige der Verwaltungsnetzwerkdaten**
 
-The ESXi system has booted successfully. The screen displays the management network details, including the hostname and IP address of the ESXi host. Note the IP address (e.g., **192.168.65.128**) to access the host via a web browser.
+Das System ist gestartet und zeigt Netzwerkdetails wie Hostname und IP-Adresse (z. B. **192.168.65.128**) an. Diese IP brauchst du zum Zugriff über den Browser.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/025.jpg)
 
 ---
 
-### ** 26: Browser Warning**
+### **26: Browser-Warnung**
 
-When accessing the ESXi Host Client in a web browser, you might see a security warning indicating that the connection is not secure. Click on **"Erweitert" (Advanced)** to proceed to the login page.
+Beim Zugriff auf den ESXi Host Client im Browser kann eine Sicherheitswarnung erscheinen. Klicke auf **"Erweitert" (Advanced)**, um fortzufahren.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/026.jpg)
 
 ---
 
-### ** 27: Continue to the Host**
+### **27: Zugriff auf den Host fortsetzen**
 
-In the browser warning, select the option to proceed to the ESXi host (e.g., **"Weiter zu 192.168.65.128 (unsicher)"**) to access the web interface.
+Wähle im Warnhinweis **"Weiter zu 192.168.65.128 (unsicher)"**, um zum ESXi-Webinterface zu gelangen.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/027.jpg)
 
 ---
 
-### ** 28: Login to ESXi Host Client**
+### **28: Anmeldung am ESXi Host Client**
 
-The VMware ESXi Host Client login page appears. Enter the **root** username and the password you configured earlier. Click **Login** to access the host management interface.
+Die Login-Seite erscheint. Gib den Benutzernamen **root** und das zuvor gesetzte Passwort ein. Klicke auf **Login**.
 
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/028.jpg)
 
 ---
 
-### ** 29: ESXi Host Client Interface**
+### **29: ESXi Host Client Oberfläche**
 
-The ESXi Host Client interface loads. Here, you can manage the ESXi host, monitor hardware resources, and configure virtual machines. The dashboard provides an overview of the host’s performance and configuration.
+Die Verwaltungsoberfläche wird geladen. Hier kannst du deinen ESXi-Host verwalten, Ressourcen überwachen und virtuelle Maschinen konfigurieren.
 
-![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/029.jpg)
-
+![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/029.jpg)  
 ![](/rubinhood-blog/assets/img/Installing-ESXi-in-VMware-Workstation/030.jpg)
