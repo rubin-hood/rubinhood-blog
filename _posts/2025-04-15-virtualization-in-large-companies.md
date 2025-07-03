@@ -6,6 +6,8 @@ excerpt: In der modernen digitalen Ära ist eine leistungsfähige IT-Infrastrukt
 image: /rubinhood-blog/assets/img/virtualization-in-large-companies/001.png
 ---
 
+<img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+
 ![](/rubinhood-blog/assets/img/virtualization-in-large-companies/001.png)
 
 In der modernen digitalen Ära ist eine leistungsfähige IT-Infrastruktur für Unternehmen unerlässlich. Besonders für Firmen mit etwa 1000 Mitarbeitern bietet die Virtualisierung enorme Vorteile. Aber wie funktioniert das Ganze? Lassen Sie uns einen Blick auf die wichtigsten Komponenten und deren Zusammenspiel werfen.

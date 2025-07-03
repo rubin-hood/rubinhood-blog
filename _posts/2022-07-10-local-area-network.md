@@ -6,6 +6,9 @@ excerpt: Überall um uns herum finden wir heutzutage Netzwerke, die unser Leben 
 image: /rubinhood-blog/assets/img/local-area-network/001.jpg
 ---
 
+<img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+
+
 ![](/rubinhood-blog/assets/img/local-area-network/001.jpg)
 
 Überall um uns herum finden wir heutzutage Netzwerke, die unser Leben prägen. Ob zu Hause, im Büro oder in Schulen – sie bilden das Rückgrat unserer digitalen Kommunikation. Ein besonders weit verbreitetes Netzwerk ist das  **Local Area Network** , besser bekannt als  **LAN** . Doch was verbirgt sich hinter diesem Begriff, und warum ist es so wichtig für unsere tägliche Arbeit? In diesem Artikel klären wir das!

@@ -6,6 +6,8 @@ excerpt: Hier findest du ein Beispiel für eine durchdachte Serverlandschaft, wi
 image: /rubinhood-blog/assets/img/Server-Infrastruktur-im-Ueberblick/001.png
 ---
 
+<img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+
 ![Alternativtext](/rubinhood-blog/assets/img/Server-Infrastruktur-im-Ueberblick/001de.svg)
 
 Du lernst gerade, wie moderne IT-Infrastrukturen aufgebaut sind? Dann ist dieser Überblick genau das Richtige für dich.

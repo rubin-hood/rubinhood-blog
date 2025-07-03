@@ -6,6 +6,8 @@ excerpt: RUBIN-HOOD Configuration refresh message The system cannot access one o
 image: /rubinhood-blog/assets/img/Troubleshooting-Windows-Server-KDC-Errors-DNS-Issues-and-Time-Correction/001.jpg
 ---
 
+<img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+
 ![](/rubinhood-blog/assets/img/Troubleshooting-Windows-Server-KDC-Errors-DNS-Issues-and-Time-Correction/001.jpg)
 
 ![](/rubinhood-blog/assets/img/Troubleshooting-Windows-Server-KDC-Errors-DNS-Issues-and-Time-Correction/002.jpg)

@@ -6,6 +6,8 @@ excerpt: This guide will walk you through the process of changing the computer n
 image: /rubinhood-blog/assets/img/Windows-Server-2025-Change-Computer-Name/001.jpg
 ---
 
+<img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+
 This guide will walk you through the process of changing the computer name in Windows Server 2025.
 
 In the **Server Manager**, go to **Local Server**. You will see the current computer name.

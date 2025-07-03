@@ -6,6 +6,8 @@ excerpt: This tutorial provides a step-by-step guide to setting up an Active Dir
 image: /rubinhood-blog/assets/img/Active-Directory/021.jpg
 ---
 
+<img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+
 ![](/rubinhood-blog/assets/img/Active-Directory/021.jpg)
 ![](/rubinhood-blog/assets/img/Active-Directory/022.jpg)
 

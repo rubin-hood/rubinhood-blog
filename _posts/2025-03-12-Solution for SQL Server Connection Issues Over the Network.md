@@ -6,6 +6,8 @@ excerpt: When attempting to connect from a client (e.g., Windows 11) to a SQL Se
 image: /rubinhood-blog/assets/img/Solution-for-SQL-Server-Connection-Issues-Over-the-Network/003.png
 ---
 
+<img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+
 ![](/rubinhood-blog/assets/img/Solution-for-SQL-Server-Connection-Issues-Over-the-Network/003.png)
 
 ## **Problem Statement**
