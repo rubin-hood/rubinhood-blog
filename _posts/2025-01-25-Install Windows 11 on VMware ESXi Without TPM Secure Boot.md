@@ -6,7 +6,10 @@ excerpt: This guide shows you how to install Windows 11 on a VMware ESXi virtual
 image: /rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/001.jpg
 ---
 
-<img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% if page.image %}
+  <img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% endif %}
+
 
 This guide shows you how to install Windows 11 on a VMware ESXi virtual machine while bypassing the system requirements (such as TPM and Secure Boot).
 

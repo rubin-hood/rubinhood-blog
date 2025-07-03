@@ -6,7 +6,9 @@ excerpt: Hier findest du ein Beispiel für eine durchdachte Serverlandschaft, wi
 image: /rubinhood-blog/assets/img/Server-Infrastruktur-im-Ueberblick/001.png
 ---
 
-<img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% if page.image %}
+  <img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% endif %}
 
 ![Alternativtext](/rubinhood-blog/assets/img/Server-Infrastruktur-im-Ueberblick/001de.svg)
 

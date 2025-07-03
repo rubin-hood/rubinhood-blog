@@ -6,7 +6,10 @@ excerpt: Here's how you can create a new virtual machine (VM) from an existing t
 image: /rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/001.jpg
 ---
 
-<img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% if page.image %}
+  <img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% endif %}
+
 
 Here's how you can create a new virtual machine (VM) from an existing template in vSphere.
 

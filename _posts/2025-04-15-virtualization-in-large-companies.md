@@ -6,7 +6,9 @@ excerpt: In der modernen digitalen Ära ist eine leistungsfähige IT-Infrastrukt
 image: /rubinhood-blog/assets/img/virtualization-in-large-companies/001.png
 ---
 
-<img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% if page.image %}
+  <img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% endif %}
 
 ![](/rubinhood-blog/assets/img/virtualization-in-large-companies/001.png)
 

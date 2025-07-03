@@ -6,7 +6,9 @@ excerpt: In meinem IT-Labor habe ich eine beispielhafte Netzwerkumgebung eingeri
 image: /rubinhood-blog/assets/img/Infrastructure-with-Domain-Controller-AD/001.webp
 ---
 
-<img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% if page.image %}
+  <img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% endif %}
 
 ![](/rubinhood-blog/assets/img/Infrastructure-with-Domain-Controller-AD/001.webp)
 

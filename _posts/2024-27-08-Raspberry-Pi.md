@@ -6,7 +6,10 @@ excerpt: Der Raspberry Pi 5 ist ein leistungsstarker Einplatinencomputer, der si
 image: /rubinhood-blog/assets/img/Raspberry-Pi/001.jpg
 ---
 
-<img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% if page.image %}
+  <img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% endif %}
+
 
 ![](/rubinhood-blog/assets/img/Raspberry-Pi/001.jpg)
 

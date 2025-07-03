@@ -3,9 +3,13 @@ date: 13.07.2020
 layout: post
 title: Anleitung zur Netzwerkkonfiguration auf Windows Server Datacenter Desktop
 excerpt: Diese kurze Anleitung erklärt, wie du eine statische IP-Adresse und DNS-Server konfigurierst und verfügbare IP-Adressen überprüfst. Die Fritz!Box dient in diesem Setup als Gateway und DNS-Server.
-image: <img src="/rubinhood-blog/assets/img/Network-Configuration-on-Windows-Server-Datacenter-Desktop/004.jpg" alt="Netzwerkkonfiguration" loading="lazy"
-
+image: /rubinhood-blog/assets/img/Network-Configuration-on-Windows-Server-Datacenter-Desktop/004.jpg
 ---
+
+{% if page.image %}
+  <img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% endif %}
+
 
 Diese kurze Anleitung erklärt, wie du eine statische IP-Adresse und DNS-Server konfigurierst und verfügbare IP-Adressen überprüfst. Die Fritz!Box dient in diesem Setup als Gateway und DNS-Server.
 

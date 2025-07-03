@@ -6,7 +6,10 @@ excerpt: Überall um uns herum finden wir heutzutage Netzwerke, die unser Leben 
 image: /rubinhood-blog/assets/img/local-area-network/001.jpg
 ---
 
-<img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% if page.image %}
+  <img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% endif %}
+
 
 
 ![](/rubinhood-blog/assets/img/local-area-network/001.jpg)

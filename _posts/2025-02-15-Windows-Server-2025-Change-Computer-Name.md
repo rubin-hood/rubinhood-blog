@@ -6,7 +6,10 @@ excerpt: This guide will walk you through the process of changing the computer n
 image: /rubinhood-blog/assets/img/Windows-Server-2025-Change-Computer-Name/001.jpg
 ---
 
-<img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% if page.image %}
+  <img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% endif %}
+
 
 This guide will walk you through the process of changing the computer name in Windows Server 2025.
 

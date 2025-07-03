@@ -6,7 +6,10 @@ excerpt: Sharing a folder in Windows allows other users on the network to access
 image: /rubinhood-blog/assets/img/How-to-Share-a-Folder-in-Windows/005.png
 ---
 
-<img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% if page.image %}
+  <img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% endif %}
+
 
 ![](/rubinhood-blog/assets/img/How-to-Share-a-Folder-in-Windows/005.png)
 

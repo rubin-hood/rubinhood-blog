@@ -6,7 +6,10 @@ excerpt: Stell dir vor Deine Datenbankabfragen schleichen dahin, virtuelle Masch
 image: /rubinhood-blog/assets/img/IBM-FlashSystem-5000/001.jpg
 ---
 
-<img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% if page.image %}
+  <img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% endif %}
+
 
 # Deep Dive: IBM FlashSystem 5000 – Das technische Meisterwerk für moderne Unternehmensspeicher
 

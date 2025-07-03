@@ -6,7 +6,9 @@ excerpt: Im Folgenden werfe ich einen Blick auf einen beispielhaften Netzwerkauf
 image: /rubinhood-blog/assets/img/Example-Server-Infrastructure-Setup-A-Closer-Look/0001.webp
 ---
 
-<img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% if page.image %}
+  <img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% endif %}
 
 🚀 **Netzwerkaufbau im Serverraum – Ein praxisnahes Beispiel**
 

@@ -6,7 +6,10 @@ excerpt: Der Schutz von IT-Systemen vor Angriffen und Schwachstellen ist eine de
 image: /rubinhood-blog/assets/img/apply-security-patches-on-linux-windows-systems/001.jpg
 ---
 
-<img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% if page.image %}
+  <img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+{% endif %}
+
 
 ![](/rubinhood-blog/assets/img/apply-security-patches-on-linux-windows-systems/001.jpg)
 
