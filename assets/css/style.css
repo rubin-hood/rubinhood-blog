@@ -113,12 +113,12 @@ a:active { color: #AA0600; }
    =========================================================== */
 main {
   max-width: 1400px;
-  margin: 2rem auto;
+  margin: 0.5rem auto;
   padding: 0 1rem;
 }
 .page-content.narrow {
   max-width: 750px;
-  margin: 2rem auto;
+  margin: 0.5rem auto;
   padding: 0 1rem;
 }
 /*.intro { margin-bottom: 2rem; }
