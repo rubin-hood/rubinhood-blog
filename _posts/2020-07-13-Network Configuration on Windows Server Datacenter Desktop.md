@@ -58,7 +58,8 @@ Default Gateway . . . . . . . . . : 192.168.178.1
 
 1. **PowerShell öffnen**:
 - Führe folgendes Skript aus:
-  ```powershell
+
+  ```
   1..254 | ForEach-Object {
       $ip = "192.168.178.$_"
       if (Test-Connection -ComputerName $ip -Count 1 -Quiet) {
@@ -67,6 +68,8 @@ Default Gateway . . . . . . . . . : 192.168.178.1
           Write-Output "$ip is free"
       }
   }
+  
+  ```
 
 
 2. **Ergebnisse analysieren**:
