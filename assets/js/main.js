@@ -1,94 +1,100 @@
 // ================================
-// 1. Initialisierung nach Laden der Seite
-// ================================
+// Alles erst nach Laden der Seite!
 document.addEventListener('DOMContentLoaded', function() {
-  // --------- Variablen für die wichtigsten Elemente ---------
-  var burger = document.getElementById('burger-btn');      // Burger-Menü-Button
-  var menu = document.getElementById('mobile-menu');       // Overlay für das mobile Menü
 
   // ================================
-  // 2. Burger-Button: Öffnen & Schließen des Menüs
+  // 1. Burger-Menü: Öffnen & Schließen
   // ================================
-  burger.addEventListener('click', function() {
-    menu.classList.toggle('open');                // Overlay ein-/ausblenden
-    burger.classList.toggle('open');              // Button animieren (z.B. Kreuz)
-    document.body.classList.toggle('noscroll');   // Body darf nicht scrollen bei offenem Menü
-  });
+  var burger = document.getElementById('burger-btn');
+  var menu = document.getElementById('mobile-menu');
+
+  if (burger && menu) {
+    burger.addEventListener('click', function() {
+      menu.classList.toggle('open');
+      burger.classList.toggle('open');
+      document.body.classList.toggle('noscroll');
+    });
+
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 900) {
+        menu.classList.remove('open');
+        burger.classList.remove('open');
+        document.body.classList.remove('noscroll');
+      }
+    });
+  }
 
   // ================================
-  // 3. Fenstergröße überwachen: Menü bei großem Bildschirm schließen
+  // 2. Lazy Animation für Blog-Cards
   // ================================
-  window.addEventListener('resize', function() {
-    if (window.innerWidth > 900) {                      // Breakpoint anpassen an dein CSS!
-      menu.classList.remove('open');                    // Overlay ausblenden
-      burger.classList.remove('open');                  // Button zurücksetzen
-      document.body.classList.remove('noscroll');       // Body wieder scrollbar machen
-    }
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, observer) => {
+      // Nur die sichtbaren Elemente animieren (Staffelung!)
+      const visible = entries.filter(entry => entry.isIntersecting);
+      visible.forEach((entry, i) => {
+        setTimeout(() => {
+          entry.target.classList.add('appear');
+          observer.unobserve(entry.target); // Nur 1x animieren
+        }, i * 100); // 100ms Staffelung
+      });
+    }, {
+      threshold: 0,
+      rootMargin: '0px'
+    });
+
+    document.querySelectorAll('.blog-card').forEach(card => {
+      observer.observe(card);
+    });
+  } else {
+    // Fallback für alte Browser: Sofort anzeigen
+    document.querySelectorAll('.blog-card').forEach(card => {
+      card.classList.add('appear');
+    });
+  }
+
+  // ================================
+  // 3. Progressive Sticky Header Animation
+  // ================================
+  (function() {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+    const logoImg = header.querySelector('.logo img');
+    if (!logoImg) return;
+
+    // Parameter für das Animation-Intervall
+    const maxScroll = 20;
+    const maxHeight = 110;
+    const minHeight = 0;
+    const maxLogo = 100;
+    const minLogo = 0;
+    const maxPadding = 2;
+    const minPadding = 0;
+
+    window.addEventListener('scroll', function() {
+      let scroll = window.scrollY;
+      if (scroll < 0) scroll = 0;
+      if (scroll > maxScroll) scroll = maxScroll;
+
+      const t = scroll / maxScroll;
+
+      // Dynamische Werte berechnen und setzen
+      const newHeight = maxHeight - (maxHeight - minHeight) * t;
+      const newLogo = maxLogo - (maxLogo - minLogo) * t;
+      const newPadding = maxPadding - (maxPadding - minPadding) * t;
+      const newOpacity = 1 - t;
+
+      header.style.setProperty('--header-height', `${newHeight}px`);
+      header.style.setProperty('--header-padding', `${newPadding}rem`);
+      header.style.setProperty('--header-opacity', newOpacity);
+      logoImg.style.setProperty('--logo-height', `${newLogo}px`);
+    });
+  })();
+
+  // ================================
+  // 4. Lazy-Loading für Bilder
+  // ================================
+  document.querySelectorAll('img:not([loading])').forEach(img => {
+    img.setAttribute('loading', 'lazy');
   });
+
 });
-
-
-
-const observer = new IntersectionObserver((entries, observer) => {
-  // Sortiere entries nach ihrer Position im DOM (optional)
-  const visible = entries.filter(entry => entry.isIntersecting);
-  visible.forEach((entry, i) => {
-    setTimeout(() => {
-      entry.target.classList.add('appear');
-      observer.unobserve(entry.target);
-    }, i * 100); // 100ms Staffelung pro sichtbarer Card
-  });
-}, {
-  threshold: 0,
-  rootMargin: '0px'
-});
-
-document.querySelectorAll('.blog-card').forEach(card => {
-  observer.observe(card);
-});
-
-
-
-
-//-------------------------
-// Progressive Sticky Header Animation
-(function() {
-  const header = document.querySelector('.site-header');
-  if (!header) return;
-  const logoImg = header.querySelector('.logo img');
-  if (!logoImg) return;
-
-  // Hier: Nur 20px nötig bis Header komplett weg!
-  const maxScroll = 20;    // 20 Pixel scrollen reicht aus
-  const maxHeight = 110;   // Ursprüngliche Höhe Header (px)
-  const minHeight = 0;     // Zielhöhe Header (px)
-  const maxLogo = 100;     // Ursprüngliche Logo-Größe (px)
-  const minLogo = 0;       // Zielgröße Logo (px)
-  const maxPadding = 2;    // Ursprüngliches Padding (rem)
-  const minPadding = 0;    // Ziel-Padding (rem)
-
-  window.addEventListener('scroll', function() {
-    let scroll = window.scrollY;
-    if (scroll < 0) scroll = 0;
-    if (scroll > maxScroll) scroll = maxScroll;
-
-    const t = scroll / maxScroll; // Wert von 0 bis 1
-
-    // Dynamische Werte berechnen
-    const newHeight = maxHeight - (maxHeight - minHeight) * t;
-    const newLogo = maxLogo - (maxLogo - minLogo) * t;
-    const newPadding = maxPadding - (maxPadding - minPadding) * t;
-    const newOpacity = 1 - t;
-
-    header.style.setProperty('--header-height', `${newHeight}px`);
-    header.style.setProperty('--header-padding', `${newPadding}rem`);
-    header.style.setProperty('--header-opacity', newOpacity);
-    logoImg.style.setProperty('--logo-height', `${newLogo}px`);
-  });
-})();
-
-
-
-
-document.querySelectorAll('img:not([loading])').forEach(img => img.setAttribute('loading', 'lazy'));
-
