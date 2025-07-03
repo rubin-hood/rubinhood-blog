@@ -1,62 +1,63 @@
 ---
 date: 13.07.2020
 layout: post
-title: Guide to Network Configuration on Windows Server Datacenter Desktop
-excerpt: This short guide explains how to configure a static IP address and DNS servers and check available IP addresses. The Fritz!Box serves as the gateway and DNS server in this setup.
+title: Anleitung zur Netzwerkkonfiguration auf Windows Server Datacenter Desktop
+excerpt: Diese kurze Anleitung erklärt, wie du eine statische IP-Adresse und DNS-Server konfigurierst und verfügbare IP-Adressen überprüfst. Die Fritz!Box dient in diesem Setup als Gateway und DNS-Server.
 image: /rubinhood-blog/assets/img/Network-Configuration-on-Windows-Server-Datacenter-Desktop/004.jpg
 ---
 
-This short guide explains how to configure a static IP address and DNS servers and check available IP addresses. The Fritz!Box serves as the gateway and DNS server in this setup.
+Diese kurze Anleitung erklärt, wie du eine statische IP-Adresse und DNS-Server konfigurierst und verfügbare IP-Adressen überprüfst. Die Fritz!Box dient in diesem Setup als Gateway und DNS-Server.
 
 ![](/rubinhood-blog/assets/img/Network-Configuration-on-Windows-Server-Datacenter-Desktop/004.jpg)
 
 ---
 
-## 1. Setting a Static IP Address and DNS
+## 1. Statische IP-Adresse und DNS festlegen
 
-1. **Open Network Connections**:
-   - Go to **Control Panel > Network and Internet > Network Connections**.
+1. **Netzwerkverbindungen öffnen**:
+   - Gehe zu **Control Panel > Network and Internet > Network Connections**.
 
    ![](/rubinhood-blog/assets/img/Network-Configuration-on-Windows-Server-Datacenter-Desktop/001.jpg)
 
-2. **Open Adapter Properties**:
-   - Right-click on the network adapter and select **Properties**.
+2. **Adaptereigenschaften öffnen**:
+   - Klicke mit der rechten Maustaste auf den Netzwerkadapter und wähle **Properties**.
 
-3. **Open IPv4 Settings**:
-   - Select **Internet Protocol Version 4 (TCP/IPv4)** and click **Properties**.
+3. **IPv4-Einstellungen öffnen**:
+   - Wähle **Internet Protocol Version 4 (TCP/IPv4)** und klicke auf **Properties**.
 
-4. **Enter Static Values**:
-   - **IP Address**: 192.168.178.10
-   - **Subnet Mask**: 255.255.255.0
-   - **Gateway**: 192.168.178.1 (Fritz!Box address)
-   - **DNS Servers**:
-     - Preferred: 192.168.178.1 (Fritz!Box address)
+4. **Statische Werte eintragen**:
+   - **IP Address**: 192.168.178.10  
+   - **Subnet Mask**: 255.255.255.0  
+   - **Gateway**: 192.168.178.1 (Fritz!Box-Adresse)  
+   - **DNS Servers**:  
+     - Preferred: 192.168.178.1 (Fritz!Box-Adresse)  
      - Alternate: 8.8.8.8 (Google DNS)
 
-5. **Save Settings**:
-   - Click **OK** to save the changes.
+5. **Einstellungen speichern**:
+   - Klicke auf **OK**, um die Änderungen zu speichern.
 
 ---
 
-## 2. Verify Network Configuration
+## 2. Netzwerkkonfiguration überprüfen
 
-1. **Open Command Prompt**:
-   - Type `ipconfig` to verify the IP address and gateway.
+1. **Command Prompt öffnen**:
+   - Gib `ipconfig` ein, um IP-Adresse und Gateway zu überprüfen.
 
-   Example output:
+   Beispielausgabe:
 
-   Ethernet adapter Ethernet:
+   Ethernet adapter Ethernet:  
 IPv4 Address. . . . . . . . . . . : 192.168.178.10  
 Subnet Mask . . . . . . . . . . . : 255.255.255.0  
 Default Gateway . . . . . . . . . : 192.168.178.1  
 
 ![](/rubinhood-blog/assets/img/Network-Configuration-on-Windows-Server-Datacenter-Desktop/002.jpg)
+
 ---
 
-## 3. Check Available IP Addresses
+## 3. Verfügbare IP-Adressen prüfen
 
-1. **Open PowerShell**:
-- Run the following script:
+1. **PowerShell öffnen**:
+- Führe folgendes Skript aus:
   ```powershell
   1..254 | ForEach-Object {
       $ip = "192.168.178.$_"
@@ -66,12 +67,12 @@ Default Gateway . . . . . . . . . : 192.168.178.1
           Write-Output "$ip is free"
       }
   }
-  ```
 
-2. **Analyze Results**:
-- The script will display used and free IP addresses.
 
-Example output:
+2. **Ergebnisse analysieren**:
+- Das Skript zeigt belegte und freie IP-Adressen an.
+
+Beispielausgabe:
 
 192.168.178.1 is in use  
 192.168.178.2 is free  
@@ -81,4 +82,4 @@ Example output:
 
 ---
 
-These steps are specifically tailored for configuring a network with a Fritz!Box on Windows Server Datacenter Desktop.
+Diese Schritte sind speziell auf die Netzwerkkonfiguration mit einer Fritz!Box unter Windows Server Datacenter Desktop zugeschnitten.
