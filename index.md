@@ -16,7 +16,7 @@ Viele Menschen finden IT schwer verständlich, da ein Großteil des Wissens komp
 <a class="blog-card" href="{{ post.url | relative_url }}">
   <div class="card-img">
     {% if post.image %}
-      <img src="{{ post.image }}" alt="{{ post.title }}">
+      <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy">
     {% else %}
       Bild
     {% endif %}
