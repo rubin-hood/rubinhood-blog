@@ -9,6 +9,27 @@ title: Blog
 </div>
 <div id="searchresults"></div>
 
+<div id="bloglist" class="blog-grid blog-grid-single">
+  {% for post in site.posts %}
+    <a class="blog-card" href="{{ post.url | relative_url }}">
+      <div class="card-img">
+        {% if post.image %}
+          <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy">
+        {% else %}
+          Bild
+        {% endif %}
+      </div>
+      <div class="card-content">
+        <div class="card-title">{{ post.title }}</div>
+        <time class="card-date" datetime="{{ post.date | date_to_xmlschema }}">
+          {{ post.date | date: "%d.%m.%Y" }}
+        </time>
+        <div class="card-desc">{{ post.excerpt | strip_html | truncate: 140 }}</div>
+      </div>
+    </a>
+  {% endfor %}
+</div>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     let posts = [];
@@ -21,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchbox = document.getElementById('searchbox');
     const searchinfo = document.getElementById('searchinfo');
     const searchresults = document.getElementById('searchresults');
+    const bloglist = document.getElementById('bloglist');
 
     searchbox.addEventListener('input', function(e) {
       let query = e.target.value.trim().toLowerCase();
@@ -28,8 +50,12 @@ document.addEventListener('DOMContentLoaded', function() {
       if (query.length < 3) {
         searchresults.innerHTML = '';
         searchinfo.textContent = '';
+        bloglist.style.display = '';
         return;
       }
+
+      // Blog-Liste ausblenden bei aktiver Suche
+      bloglist.style.display = 'none';
 
       // Suche im Inhalt und Titel
       let results = posts.filter(post =>
@@ -55,7 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
           // Datum parsen (falls im JSON vorhanden)
           let dateStr = '';
           if (post.date) {
-            // ISO oder Jekyll Format
             let d = new Date(post.date);
             if (!isNaN(d)) {
               dateStr = d.toLocaleDateString('de-DE');
@@ -77,7 +102,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-
 
 <style>
 #searchbox-container {
@@ -106,5 +130,4 @@ document.addEventListener('DOMContentLoaded', function() {
   margin-left: auto;
   margin-right: auto;
 }
-
 </style>
