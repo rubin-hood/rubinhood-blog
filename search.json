@@ -1,16 +1,19 @@
 ---
-layout: none
+layout: null
+permalink: /search.json
 ---
 [
-{% assign posts = site.posts | sort: 'date' | reverse %}
-{% for post in posts %}
+{% assign comma = false %}
+{% for post in site.posts %}
+  {% if comma %},{% endif %}
+  {% assign comma = true %}
   {
     "title": {{ post.title | jsonify }},
-    "url": "{{ post.url | relative_url }}",
-    "date": "{{ post.date | date: "%Y-%m-%d" }}",
-    "image": {{ post.image | jsonify }},
-    "content": {{ post.content | strip_html | normalize_whitespace | jsonify }},
-    "excerpt": {{ post.excerpt | strip_html | normalize_whitespace | jsonify }}
-  }{% unless forloop.last %},{% endunless %}
+    "url": {{ post.url | absolute_url | jsonify }},
+    "date": {{ post.date | date: "%Y-%m-%d" | jsonify }},
+    "excerpt": {{ post.excerpt | strip_html | strip_newlines | truncate: 160 | jsonify }},
+    "content": {{ post.content | strip_html | strip_newlines | truncate: 500 | jsonify }},
+    "image": {{ post.image | default: "" | jsonify }}
+  }
 {% endfor %}
 ]
