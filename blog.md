@@ -45,59 +45,59 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchinfo = document.getElementById('searchinfo');
     const allposts = document.getElementById('all-posts');
 
-    searchbox.addEventListener('input', function(e) {
-      let query = e.target.value.trim().toLowerCase();
-      let out = '';
-      let info = '';
-      if (query.length < 3) {
-        searchresults.innerHTML = '';
-        searchinfo.innerHTML = '';
-        allposts.style.display = '';
-        return;
+searchbox.addEventListener('input', function(e) {
+  let query = e.target.value.trim().toLowerCase();
+  let out = '';
+  let info = '';
+  if (query.length < 3) {
+    searchresults.innerHTML = '';
+    searchinfo.innerHTML = '';
+    allposts.style.display = '';
+    return;
+  }
+
+  // Suche im Inhalt und Titel
+  let results = posts.filter(post =>
+    post.content.toLowerCase().includes(query) ||
+    post.title.toLowerCase().includes(query)
+  );
+
+  if (results.length) {
+    info = `<div class="search-info">${results.length} Treffer gefunden</div>`;
+    out = results.map(post => {
+      // Datum ins deutsche Format bringen
+      let date = '';
+      if (post.date) {
+        const d = new Date(post.date);
+        date = d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
       }
-
-      // Suche im Inhalt und Titel
-      let results = posts.filter(post =>
-        post.content.toLowerCase().includes(query) ||
-        post.title.toLowerCase().includes(query)
-      );
-
-      if (results.length) {
-        info = `<div class="search-info">${results.length} Treffer gefunden</div>`;
-        out = results.map(post => {
-          // Datum ins deutsche Format bringen
-          let date = '';
-          if (post.date) {
-            const d = new Date(post.date);
-            date = d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
-          }
-          // Fundstellen hervorheben
-          let snippet = post.content;
-          let idx = snippet.toLowerCase().indexOf(query);
-          if (idx > -1) {
-            snippet = snippet.substring(Math.max(0, idx-60), idx+80);
-          } else {
-            snippet = snippet.substring(0, 140);
-          }
-          // Query fett markieren
-          let re = new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')+')','gi');
-          let excerpt = snippet.replace(re, '<b>$1</b>');
-
-          return `<div class="search-card">
-            <a href="${post.url}" class="search-title">${post.title}</a>
-            <div class="search-date">${date}</div>
-            <div class="search-snippet">${excerpt}...</div>
-          </div>`;
-        }).join('');
+      // Fundstellen hervorheben
+      let snippet = post.content;
+      let idx = snippet.toLowerCase().indexOf(query);
+      if (idx > -1) {
+        snippet = snippet.substring(Math.max(0, idx-60), idx+80);
       } else {
-        info = `<div class="search-info notfound">Keine Treffer gefunden.</div>`;
-        out = '';
+        snippet = snippet.substring(0, 140);
       }
+      // Query fett & rot markieren
+      let re = new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')+')','gi');
+      let excerpt = snippet.replace(re, '<b style="color:#AA0600;font-weight:bold;">$1</b>');
+      let title = post.title.replace(re, '<b style="color:#AA0600;font-weight:bold;">$1</b>');
 
-      allposts.style.display = 'none';
-      searchinfo.innerHTML = info;
-      searchresults.innerHTML = out;
-    });
+      return `<div class="search-card">
+        <a href="${post.url}" class="search-title">${title}</a>
+        <div class="search-date">${date}</div>
+        <div class="search-snippet">${excerpt}...</div>
+      </div>`;
+    }).join('');
+  } else {
+    info = `<div class="search-info notfound">Keine Treffer gefunden.</div>`;
+    out = '';
+  }
+
+  allposts.style.display = 'none';
+  searchinfo.innerHTML = info;
+  searchresults.innerHTML = out;
 });
 </script>
 
