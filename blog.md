@@ -13,6 +13,8 @@ title: Blog
 <div id="loadmore" style="text-align:center;margin:2em 0;"></div>
 
 <script>
+  fetch('{{ "/search.json" | relative_url }}')
+
 document.addEventListener('DOMContentLoaded', function() {
     let posts = [];
     let currentIndex = 0;
