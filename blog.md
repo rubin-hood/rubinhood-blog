@@ -31,6 +31,8 @@ title: Blog
   {% endfor %}
 </div>
 
+<div id="loadmore" style="text-align:center;margin:2em 0;"></div>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     let posts = [];
@@ -101,6 +103,88 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
+
+
+
+
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Anzahl der Posts pro "Seite"
+    const postsPerPage = 4;
+
+    // Alle Cards abholen
+    const postsContainer = document.getElementById('all-posts');
+    const postCards = Array.from(postsContainer.getElementsByClassName('blog-card'));
+    const loadmoreDiv = document.getElementById('loadmore');
+    let currentPage = 1;
+
+    // Funktion zum Anzeigen der aktuellen Seite
+    function showPosts() {
+        // Alle Karten erst ausblenden
+        postCards.forEach(card => card.style.display = 'none');
+        // Gewünschte einblenden
+        const max = currentPage * postsPerPage;
+        postCards.slice(0, max).forEach(card => card.style.display = '');
+
+        // Button zeigen/verstecken
+        if (max < postCards.length) {
+            loadmoreDiv.innerHTML = `
+                <button id="loadmore-btn" style="
+                  background:#009C6C;
+                  color:#fff;
+                  font-size:1.2em;
+                  border:none;
+                  padding:0.7em 1.7em;
+                  border-radius:1.5em;
+                  cursor:pointer;
+                  box-shadow:0 4px 12px rgba(0,0,0,0.07);
+                  margin:0.5em 0 1.5em 0;
+                  display:inline-flex;
+                  align-items:center;
+                  gap:0.5em;">
+                  <span>Mehr laden</span>
+                  <span style="font-size:1.3em;">&#x25BC;</span>
+                </button>
+            `;
+            document.getElementById('loadmore-btn').onclick = function() {
+                currentPage++;
+                showPosts();
+            };
+        } else {
+            loadmoreDiv.innerHTML = '';
+        }
+    }
+
+    // Initial anzeigen
+    showPosts();
+
+    // Optional: Wenn Suche aktiv ist, alles anzeigen und Button verstecken!
+    const searchbox = document.getElementById('searchbox');
+    if (searchbox) {
+        searchbox.addEventListener('input', function(e) {
+            if (e.target.value.trim().length >= 3) {
+                loadmoreDiv.innerHTML = '';
+            } else {
+                showPosts();
+            }
+        });
+    }
+});
+</script>
+
+
+
+
+
+
+
+
+
 
 <style>
 /* Container für das Suchfeld, sorgt für Zentrierung */
