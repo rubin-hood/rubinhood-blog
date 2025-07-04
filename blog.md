@@ -9,7 +9,8 @@ title: Blog
 <div id="searchinfo"></div>
 <div id="searchresults"></div>
 
-<div id="bloglist" class="blog-grid blog-grid-single">
+<!-- Standard-Post-Liste für den ersten Besuch -->
+<div id="all-posts" class="blog-grid blog-grid-single">
   {% for post in site.posts %}
     <a class="blog-card" href="{{ post.url | relative_url }}">
       <div class="card-img">
@@ -40,22 +41,20 @@ document.addEventListener('DOMContentLoaded', function() {
       });
 
     const searchbox = document.getElementById('searchbox');
-    const searchinfo = document.getElementById('searchinfo');
     const searchresults = document.getElementById('searchresults');
-    const bloglist = document.getElementById('bloglist');
+    const searchinfo = document.getElementById('searchinfo');
+    const allposts = document.getElementById('all-posts');
 
     searchbox.addEventListener('input', function(e) {
       let query = e.target.value.trim().toLowerCase();
-
-      // Zeige wieder alle Blogposts, wenn weniger als 3 Zeichen
+      let out = '';
+      let info = '';
       if (query.length < 3) {
         searchresults.innerHTML = '';
         searchinfo.innerHTML = '';
-        bloglist.style.display = '';
+        allposts.style.display = '';
         return;
       }
-
-      bloglist.style.display = 'none'; // Blogposts verstecken, wenn Suche aktiv
 
       // Suche im Inhalt und Titel
       let results = posts.filter(post =>
@@ -63,35 +62,40 @@ document.addEventListener('DOMContentLoaded', function() {
         post.title.toLowerCase().includes(query)
       );
 
-      // Info-Anzeige über den Ergebnissen
-      if (results.length > 0) {
-        searchinfo.innerHTML = `<div class="search-info">${results.length} Treffer gefunden</div>`;
+      if (results.length) {
+        info = `<div class="search-info">${results.length} Treffer gefunden</div>`;
+        out = results.map(post => {
+          // Datum lesbar machen (ISO -> TT.MM.JJJJ)
+          let date = '';
+          if (post.date) {
+            const d = new Date(post.date);
+            date = d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+          }
+          // Fundstellen hervorheben
+          let snippet = post.content;
+          let idx = snippet.toLowerCase().indexOf(query);
+          if (idx > -1) {
+            snippet = snippet.substring(Math.max(0, idx-60), idx+80);
+          } else {
+            snippet = snippet.substring(0, 140);
+          }
+          // Query fett markieren
+          let re = new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')+')','gi');
+          let excerpt = snippet.replace(re, '<b>$1</b>');
+
+          return `<div style="margin-bottom:1.5em">
+            <a href="${post.url}"><strong>${post.title}</strong></a>
+            <span class="search-date">${date ? ' &middot; ' + date : ''}</span><br>
+            <span>${excerpt}...</span>
+          </div>`;
+        }).join('');
       } else {
-        searchinfo.innerHTML = `<div class="search-info notfound">Keine Treffer gefunden.</div>`;
+        info = `<div class="search-info notfound">Keine Treffer gefunden.</div>`;
+        out = '';
       }
 
-      // Ergebnisse bauen
-      let out = '';
-      results.forEach(post => {
-        // Fundstellen hervorheben
-        let snippet = post.content;
-        let idx = snippet.toLowerCase().indexOf(query);
-        if (idx > -1) {
-          snippet = snippet.substring(Math.max(0, idx-60), idx+80);
-        } else {
-          snippet = snippet.substring(0, 140);
-        }
-        // Query fett markieren
-        let re = new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')+')','gi');
-        let excerpt = snippet.replace(re, '<b>$1</b>');
-
-        out += `<div style="margin-bottom:1.5em">
-          <a href="${post.url}"><strong>${post.title}</strong></a>
-          <span style="color:#888;font-size:0.95em; margin-left:10px;">${(post.date ? post.date : '').replace(/(\d{4})-(\d{2})-(\d{2})/, '$3.$2.$1')}</span><br>
-          <span>${excerpt}...</span>
-        </div>`;
-      });
-
+      allposts.style.display = 'none';
+      searchinfo.innerHTML = info;
       searchresults.innerHTML = out;
     });
 });
@@ -102,8 +106,8 @@ document.addEventListener('DOMContentLoaded', function() {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 1.5em;    /* Abstand zur Trefferzahl */
-  margin-top: 1em;       /* Abstand zum Menü oben */
+  margin-top: 2em;       /* Abstand zum Menü */
+  margin-bottom: 1.5em;  /* Abstand zur Trefferzahl */
 }
 #searchbox {
   width: 320px;
@@ -120,19 +124,28 @@ document.addEventListener('DOMContentLoaded', function() {
 #searchbox:focus {
   border-color: #AA0600;
 }
-#searchinfo .search-info {
-  text-align: center;
-  font-size: 1em;
-  color: #009C6C;
-  margin-bottom: 1em;    /* Abstand zu den Ergebnissen unten */
-  margin-top: 0.3em;       /* Abstand zur Suchbox oben */
+#searchinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 2.3em;
+  margin-bottom: 1.3em;
 }
-#searchinfo .notfound {
+.search-info {
+  color: #009C6C;
+  font-size: 2.3em;
+  text-align: center;
+}
+.search-info.notfound {
   color: #AA0600;
 }
 #searchresults {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+}
+.search-date {
+  color: #999;
+  font-size: 0.97em;
 }
 </style>
