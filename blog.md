@@ -102,8 +102,8 @@ document.addEventListener('DOMContentLoaded', function() {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 1em;    /* Abstand zur Trefferzahl */
-  margin-top: 0.3em;       /* Abstand zum Menü oben */
+  margin-bottom: 1.5em;    /* Abstand zur Trefferzahl */
+  margin-top: 1em;       /* Abstand zum Menü oben */
 }
 #searchbox {
   width: 320px;
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
   font-size: 1em;
   color: #009C6C;
   margin-bottom: 1em;    /* Abstand zu den Ergebnissen unten */
-  margin-top: 1em;       /* Abstand zur Suchbox oben */
+  margin-top: 0.3em;       /* Abstand zur Suchbox oben */
 }
 #searchinfo .notfound {
   color: #AA0600;
