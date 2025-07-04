@@ -1,18 +1,15 @@
 ---
 layout: default
 title: Blog
-paginate: 8
-paginate_path: "/blog/page:num/"
 ---
 
-<!-- Suchfeld -->
 <div id="searchbox-container">
   <input id="searchbox" type="text" placeholder="Suche im Blog...">
 </div>
 <div id="searchinfo"></div>
 <div id="searchresults"></div>
 
-<!-- Standard-Post-Liste für den ersten Besuch (mit Pagination) -->
+<!-- Standard-Post-Liste für den ersten Besuch mit Pagination -->
 <div id="all-posts" class="blog-grid blog-grid-single">
   {% for post in paginator.posts %}
     <a class="blog-card" href="{{ post.url | relative_url }}">
@@ -34,17 +31,17 @@ paginate_path: "/blog/page:num/"
   {% endfor %}
 </div>
 
-<!-- Pagination Navigation -->
+<!-- Pagination Buttons -->
 {% if paginator.total_pages > 1 %}
-  <div class="pagination">
-    {% for page in (1..paginator.total_pages) %}
-      {% if page == paginator.page %}
-        <span class="page-number active">{{ page }}</span>
-      {% else %}
-        <a class="page-number" href="{{ paginator.paginate_path | replace: ':num', page }}">{{ page }}</a>
-      {% endif %}
-    {% endfor %}
-  </div>
+<div class="pagination">
+  {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+      <span class="page-number active">{{ page }}</span>
+    {% else %}
+      <a class="page-number" href="{{ paginator.paginate_path | replace: ':num', page }}">{{ page }}</a>
+    {% endif %}
+  {% endfor %}
+</div>
 {% endif %}
 
 <script>
@@ -74,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
 
-      // Suche im Inhalt und Titel (ohne Groß-/Kleinschreibung)
+      // Suche im Inhalt und Titel (ohne Berücksichtigung von Groß-/Kleinschreibung)
       let results = posts.filter(post =>
         post.content.toLowerCase().includes(query.toLowerCase()) ||
         post.title.toLowerCase().includes(query.toLowerCase())
@@ -122,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <style>
-/* --- Suchfeld --- */
+/* Container für das Suchfeld */
 #searchbox-container {
   display: flex;
   flex-direction: column;
@@ -130,6 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
   margin-top: 0.3em;
   margin-bottom: 1em;
 }
+/* Suchfeld-Design */
 #searchbox {
   width: 320px;
   max-width: 90vw;
@@ -145,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
 #searchbox:focus {
   border-color: #AA0600;
 }
-/* --- Trefferanzahl --- */
+/* Wrapper für Treffer-Anzeige ("x Treffer gefunden") */
 #searchinfo {
   display: flex;
   flex-direction: column;
@@ -153,16 +151,18 @@ document.addEventListener('DOMContentLoaded', function() {
   min-height: 2em;
   margin-bottom: 0.3em;
 }
+/* Stil für Treffer-Anzeige */
 .search-info {
   color: #009C6C;
   font-size: 1em;
   text-align: center;
   margin-bottom: 1.2em;
 }
+/* Stil für "Keine Treffer gefunden" */
 .search-info.notfound {
   color: #AA0600;
 }
-/* --- Suchergebnisse --- */
+/* Wrapper für Suchergebnisse */
 #searchresults {
   max-width: 600px;
   margin-left: auto;
@@ -190,30 +190,24 @@ document.addEventListener('DOMContentLoaded', function() {
   font-size: 1.04em;
   color: #222;
 }
-/* --- Pagination --- */
+/* Pagination-Stil */
 .pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 2em 0 3em 0;
-  gap: 0.6em;
+  text-align: center;
+  margin: 2em 0 1em 0;
 }
 .page-number {
   display: inline-block;
-  padding: 0.38em 0.9em;
-  margin: 0 0.12em;
-  font-size: 1.15em;
-  border-radius: 5px;
+  margin: 0 0.3em;
+  padding: 0.3em 0.7em;
+  font-size: 1.3em;
   color: #009C6C;
   text-decoration: none;
-  background: transparent;
-  border: 1px solid #009C6C;
-  transition: background 0.18s, color 0.18s;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
 }
-.page-number.active,
-.page-number:hover {
-  color: #fff;
-  background: #009C6C;
-  border: 1px solid #009C6C;
+.page-number.active, .page-number:hover {
+  color: #AA0600;
+  font-weight: bold;
+  background: #e4e2dd;
 }
 </style>
