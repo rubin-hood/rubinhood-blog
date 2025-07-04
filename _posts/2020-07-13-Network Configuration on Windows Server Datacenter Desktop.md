@@ -7,7 +7,7 @@ excerpt: Diese kurze Anleitung erklärt, wie du eine statische IP-Adresse und DN
 
 Diese kurze Anleitung erklärt, wie du eine statische IP-Adresse und DNS-Server konfigurierst und verfügbare IP-Adressen überprüfst. Die Fritz!Box dient in diesem Setup als Gateway und DNS-Server.
 
-<img src="/rubinhood-blog/assets/img/Network-Configuration-on-Windows-Server-Datacenter-Desktop/004.jpg" alt="Netzwerkkonfiguration" loading="lazy">
+<img src="/rubinhood-blog/assets/img/Network-Configuration-on-Windows-Server-Datacenter-Desktop/001.jpg" alt="Netzwerkkonfiguration" loading="lazy">
 
 ---
 
