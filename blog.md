@@ -9,13 +9,11 @@ title: Blog
 <div id="searchinfo"></div>
 <div id="searchresults"></div>
 
-<!-- Hier werden die Blog-Posts per AJAX eingefügt -->
 <div id="all-posts" class="blog-grid blog-grid-single"></div>
 <div id="loadmore" style="text-align:center;margin:2em 0;"></div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // === Variablen ===
     let posts = [];
     let currentIndex = 0;
     const postsPerPage = 4;
@@ -31,20 +29,24 @@ document.addEventListener('DOMContentLoaded', function() {
       .then(response => response.json())
       .then(function(json){
         posts = json;
-        renderNextPosts(); // Initial: Zeige die ersten Posts
+        renderNextPosts(); // Zeige initial die ersten Posts
       });
 
-    // === Rendering für Blog-Cards ===
-    function renderNextPosts() {
-        // Immer die nächsten postsPerPage Posts holen
-        const nextPosts = posts.slice(currentIndex, currentIndex + postsPerPage);
+    // === Helper: Datum auf Deutsch ===
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      const d = new Date(dateStr);
+      return d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    }
 
+    // === Rendering Blogcards ===
+    function renderNextPosts() {
+        // Nur die nächsten noch nicht gezeigten Posts
+        const nextPosts = posts.slice(currentIndex, currentIndex + postsPerPage);
         nextPosts.forEach(post => {
-            // Card zusammenbauen (wie bisher)
             const card = document.createElement('a');
             card.className = 'blog-card';
             card.href = post.url;
-
             card.innerHTML = `
                 <div class="card-img">
                   ${post.image ? `<img src="${post.image}" alt="${post.title}" loading="lazy">` : 'Bild'}
@@ -59,10 +61,9 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             postsContainer.appendChild(card);
         });
-
         currentIndex += postsPerPage;
 
-        // „Mehr laden“-Button ein-/ausblenden
+        // Button anzeigen oder ausblenden
         if (currentIndex < posts.length) {
             loadmoreDiv.innerHTML = `
                 <button id="loadmore-btn" style="
@@ -88,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // === Suchfunktion über AJAX-Posts ===
+    // === Suchfunktion ===
     searchbox.addEventListener('input', function(e) {
         let query = e.target.value.trim();
         let out = '';
@@ -98,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
             searchinfo.innerHTML = '';
             postsContainer.style.display = '';
             loadmoreDiv.style.display = '';
-            // Nur die bisher geladenen Posts zeigen
+            // Zeige alle bis jetzt geladenen Cards wieder an:
             Array.from(postsContainer.children).forEach(el => el.style.display = '');
             return;
         }
@@ -112,12 +113,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (results.length) {
             info = `<div class="search-info">${results.length} Treffer gefunden</div>`;
             out = results.map(post => {
-              // Datum formatieren
               let date = post.date ? formatDate(post.date) : '';
-              // Suchwort hervorheben
               let re = new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')+')','gi');
               let title = post.title.replace(re, '<b style="color:#AA0600;font-weight:bold;">$1</b>');
-
               let snippet = post.content || '';
               let idx = snippet.toLowerCase().indexOf(query.toLowerCase());
               if (idx > -1) {
@@ -126,7 +124,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 snippet = snippet.substring(0, 140);
               }
               let excerpt = snippet.replace(re, '<b style="color:#AA0600;font-weight:bold;">$1</b>');
-
               return `<div class="search-card">
                 <a href="${post.url}" class="search-title">${title}</a>
                 <div class="search-date">${date}</div>
@@ -143,12 +140,97 @@ document.addEventListener('DOMContentLoaded', function() {
         searchinfo.innerHTML = info;
         searchresults.innerHTML = out;
     });
-
-    // === Hilfsfunktion: Datum im deutschen Format ===
-    function formatDate(dateStr) {
-      if (!dateStr) return '';
-      const d = new Date(dateStr);
-      return d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
-    }
 });
 </script>
+
+
+
+<style>
+/* Container für das Suchfeld, sorgt für Zentrierung */
+#searchbox-container {
+  display: flex;                   /* Flexbox für einfaches Zentrieren */
+  flex-direction: column;          /* Untereinander anordnen */
+  align-items: center;             /* Horizontal zentrieren */
+  margin-top: 0.3em;               /* Abstand nach oben */
+  margin-bottom: 1em;              /* Abstand nach unten */
+}
+
+/* Suchfeld-Design */
+#searchbox {
+  width: 320px;                    /* Feste Breite */
+  max-width: 90vw;                 /* Max. 90% der Viewport-Breite */
+  padding: 0.5em;                  /* Innenabstand */
+  font-size: 1.1em;                /* Schriftgröße */
+  margin-bottom: 0.2em;            /* Minimaler Abstand zu Treffer-Anzeige */
+  border: 2px solid #009C6C;       /* Grüner Rahmen */
+  border-radius: 8px;              /* Abgerundete Ecken */
+  outline: none;                   /* Kein extra Rahmen beim Fokus */
+  background: #FCFBF7;             /* Heller Hintergrund */
+  transition: border-color 0.2s;   /* Sanfter Übergang der Rahmenfarbe */
+}
+
+/* Rahmenfarbe des Suchfelds bei Fokus */
+#searchbox:focus {
+  border-color: #AA0600;           /* Rot beim Fokussieren */
+}
+
+/* Wrapper für Treffer-Anzeige ("x Treffer gefunden") */
+#searchinfo {
+  display: flex;                   /* Flex für Zentrierung */
+  flex-direction: column;
+  align-items: center;
+  min-height: 2em;                 /* Mindesthöhe (Abstand nach unten) */
+  margin-bottom: 0.3em;            /* Minimaler Abstand zu Ergebnissen */
+}
+
+/* Stil für Treffer-Anzeige */
+.search-info {
+  color: #009C6C;                  /* Grün */
+  font-size: 1em;                  /* Größe der Treffer-Anzeige */
+  text-align: center;              /* Zentriert */
+  margin-bottom: 1.2em;            /* Abstand zu den Suchergebnissen */
+}
+
+/* Stil für "Keine Treffer gefunden" */
+.search-info.notfound {
+  color:rgb(92, 92, 92);                  /* Rot */
+}
+
+/* Wrapper für Suchergebnisse (max. Breite & Zentrierung) */
+#searchresults {
+  max-width: 600px;                /* Maximale Breite */
+  margin-left: auto;               /* Zentriert */
+  margin-right: auto;
+}
+
+/* Einzelne Ergebnis-Box */
+.search-card {
+  margin-bottom: 2em;              /* Abstand zwischen den Ergebnissen */
+}
+
+/* Titel des Suchergebnisses */
+.search-title {
+  display: block;                  /* Block-Element für Abstand */
+  font-size: 1.2em;                /* Schriftgröße */
+  font-weight: bold;               /* Fett */
+  color: #009C6C;                  /* Grün */
+  text-decoration: none;           /* Keine Unterstreichung */
+  margin-bottom: 0.2em;            /* Abstand zum Datum */
+  margin-top: 0.3em;               /* Abstand zum vorherigen Element */
+}
+
+/* Veröffentlichungsdatum */
+.search-date {
+  font-size: 1em;                  /* Normale Schriftgröße */
+  color: #8a8a8a;                  /* Hellgrau */
+  margin-bottom: 0.2em;            /* Abstand zum Textauszug */
+  margin-top: 0.2em;
+}
+
+/* Auszug/Textvorschau */
+.search-snippet {
+  font-size: 1.04em;               /* Etwas größere Schrift */
+  color: #222;                     /* Fast Schwarz */
+}
+</style>
+
