@@ -5,8 +5,8 @@ title: Blog
 
 <div id="searchbox-container">
   <input id="searchbox" type="text" placeholder="Suche im Blog...">
-  <div id="searchinfo" style="margin-top:0.5em; color:#009C6C; font-size:1em;"></div>
 </div>
+<div id="searchinfo"></div>
 <div id="searchresults"></div>
 
 <div id="bloglist" class="blog-grid blog-grid-single">
@@ -46,16 +46,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     searchbox.addEventListener('input', function(e) {
       let query = e.target.value.trim().toLowerCase();
-      let out = '';
+
+      // Zeige wieder alle Blogposts, wenn weniger als 3 Zeichen
       if (query.length < 3) {
         searchresults.innerHTML = '';
-        searchinfo.textContent = '';
+        searchinfo.innerHTML = '';
         bloglist.style.display = '';
         return;
       }
 
-      // Blog-Liste ausblenden bei aktiver Suche
-      bloglist.style.display = 'none';
+      bloglist.style.display = 'none'; // Blogposts verstecken, wenn Suche aktiv
 
       // Suche im Inhalt und Titel
       let results = posts.filter(post =>
@@ -63,40 +63,34 @@ document.addEventListener('DOMContentLoaded', function() {
         post.title.toLowerCase().includes(query)
       );
 
+      // Info-Anzeige über den Ergebnissen
       if (results.length > 0) {
-        searchinfo.textContent = results.length + ' Treffer gefunden';
-        results.forEach(post => {
-          // Fundstellen hervorheben
-          let snippet = post.content;
-          let idx = snippet.toLowerCase().indexOf(query);
-          if (idx > -1) {
-            snippet = snippet.substring(Math.max(0, idx-60), idx+80);
-          } else {
-            snippet = snippet.substring(0, 140);
-          }
-          // Query fett markieren
-          let re = new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')+')','gi');
-          let excerpt = snippet.replace(re, '<b>$1</b>');
-
-          // Datum parsen (falls im JSON vorhanden)
-          let dateStr = '';
-          if (post.date) {
-            let d = new Date(post.date);
-            if (!isNaN(d)) {
-              dateStr = d.toLocaleDateString('de-DE');
-            }
-          }
-
-          out += `<div style="margin-bottom:1.5em">
-            <a href="${post.url}"><strong>${post.title}</strong></a><br>
-            <span style="color:#888;font-size:0.95em">${dateStr ? dateStr + ' – ' : ''}</span>
-            <span>${excerpt}...</span>
-          </div>`;
-        });
+        searchinfo.innerHTML = `<div class="search-info">${results.length} Treffer gefunden</div>`;
       } else {
-        searchinfo.textContent = '';
-        out = '<span style="color:#AA0600;">Keine Treffer gefunden.</span>';
+        searchinfo.innerHTML = `<div class="search-info notfound">Keine Treffer gefunden.</div>`;
       }
+
+      // Ergebnisse bauen
+      let out = '';
+      results.forEach(post => {
+        // Fundstellen hervorheben
+        let snippet = post.content;
+        let idx = snippet.toLowerCase().indexOf(query);
+        if (idx > -1) {
+          snippet = snippet.substring(Math.max(0, idx-60), idx+80);
+        } else {
+          snippet = snippet.substring(0, 140);
+        }
+        // Query fett markieren
+        let re = new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')+')','gi');
+        let excerpt = snippet.replace(re, '<b>$1</b>');
+
+        out += `<div style="margin-bottom:1.5em">
+          <a href="${post.url}"><strong>${post.title}</strong></a>
+          <span style="color:#888;font-size:0.95em; margin-left:10px;">${(post.date ? post.date : '').replace(/(\d{4})-(\d{2})-(\d{2})/, '$3.$2.$1')}</span><br>
+          <span>${excerpt}...</span>
+        </div>`;
+      });
 
       searchresults.innerHTML = out;
     });
@@ -124,6 +118,15 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 #searchbox:focus {
   border-color: #AA0600;
+}
+#searchinfo .search-info {
+  text-align: center;
+  font-size: 2em;
+  color: #009C6C;
+  margin-bottom: 1em;
+}
+#searchinfo .notfound {
+  color: #AA0600;
 }
 #searchresults {
   max-width: 600px;
