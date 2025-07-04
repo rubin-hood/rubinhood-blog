@@ -1,0 +1,13 @@
+---
+layout: none
+---
+[
+{% assign posts = site.posts | sort: 'date' | reverse %}
+{% for post in posts %}
+  {
+    "title": {{ post.title | jsonify }},
+    "url": "{{ post.url }}",
+    "content": {{ post.content | strip_html | normalize_whitespace | jsonify }}
+  } {% unless forloop.last %},{% endunless %}
+{% endfor %}
+]
