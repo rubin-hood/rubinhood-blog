@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
   flex-direction: column;
   align-items: center;
   margin-bottom: 1em;    /* Abstand zur Trefferzahl */
-  margin-top: 1em;       /* Abstand zum Menü oben */
+  margin-top: 0.3em;       /* Abstand zum Menü oben */
 }
 #searchbox {
   width: 320px;
