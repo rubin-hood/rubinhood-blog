@@ -1,193 +1,124 @@
 ---
 layout: default
 title: Blog
+permalink: /blog/
 ---
 
-<div id="searchbox-container">
-  <input id="searchbox" type="text" placeholder="Suche im Blog...">
+<div class="blog-container">
+  <h1>Blog</h1>
+  <input type="text" id="search-input" placeholder="Suche im Blog ..." autocomplete="off" />
+  <ul id="search-results" class="search-results"></ul>
+  <div id="posts-grid" class="posts-grid"></div>
+  <button id="load-more-btn" style="display:none;">Mehr laden</button>
 </div>
-<div id="searchinfo"></div>
-<div id="searchresults"></div>
 
-<!-- Standard-Post-Liste für den ersten Besuch -->
-<div id="all-posts" class="blog-grid blog-grid-single">
-  {% for post in site.posts %}
-    <a class="blog-card" href="{{ post.url | relative_url }}">
-      <div class="card-img">
-        {% if post.image %}
-          <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy">
-        {% else %}
-          Bild
-        {% endif %}
-      </div>
-      <div class="card-content">
-        <div class="card-title">{{ post.title }}</div>
-        <time class="card-date" datetime="{{ post.date | date_to_xmlschema }}">
-          {{ post.date | date: "%d.%m.%Y" }}
-        </time>
-        <div class="card-desc">{{ post.excerpt | strip_html | truncate: 140 }}</div>
-      </div>
-    </a>
-  {% endfor %}
-</div>
+<!-- Styles: Passe nach Wunsch an -->
+<style>
+.blog-container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+#search-input { width: 100%; padding: 0.5rem; margin-bottom: 1.5rem; font-size: 1.1rem; }
+.posts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+.blog-card { background: #fff; border-radius: 12px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); padding: 1.2rem; transition: box-shadow 0.2s; }
+.blog-card:hover { box-shadow: 0 6px 28px rgba(0,0,0,0.13);}
+.blog-card img { width: 100%; border-radius: 8px; margin-bottom: 1rem; }
+.blog-card-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;}
+.blog-card-meta { color: #777; font-size: 0.92rem; margin-bottom: 0.8rem;}
+.blog-card-excerpt { color: #333; font-size: 1rem;}
+#load-more-btn { margin: 2rem auto; display: block; padding: 0.8rem 2rem; font-size: 1.1rem; border: none; border-radius: 8px; background: #2e72e6; color: white; cursor: pointer;}
+#load-more-btn:hover { background: #1a4da3; }
+.search-results { list-style: none; padding: 0; margin-bottom: 1.5rem;}
+.search-results li { background: #f5f5f5; margin-bottom: 0.5rem; padding: 0.7rem 1rem; border-radius: 7px;}
+.search-results a { color: #2e72e6; text-decoration: none; font-weight: 500;}
+</style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    let posts = [];
-    fetch('{{ "/search.json" | relative_url }}')
-      .then(response => response.json())
-      .then(function(json){
-        posts = json;
-      });
+const POSTS_PER_PAGE = 4;
+let allPosts = [];
+let currentPage = 1;
+let filteredPosts = null;
 
-    const searchbox = document.getElementById('searchbox');
-    const searchresults = document.getElementById('searchresults');
-    const searchinfo = document.getElementById('searchinfo');
-    const allposts = document.getElementById('all-posts');
+// Suche nach search.json im richtigen Pfad (dynamisch für GitHub Pages & lokal!)
+async function fetchPosts() {
+  try {
+    const res = await fetch('{{ "/search.json" | relative_url }}');
+    allPosts = await res.json();
+    renderPosts();
+    document.getElementById('load-more-btn').style.display = allPosts.length > POSTS_PER_PAGE ? 'block' : 'none';
+  } catch (err) {
+    document.getElementById('posts-grid').innerHTML = '<p>Fehler beim Laden der Blogposts.</p>';
+  }
+}
 
-    searchbox.addEventListener('input', function(e) {
-      let query = e.target.value.trim();
-      let out = '';
-      let info = '';
-      if (query.length < 3) {
-        searchresults.innerHTML = '';
-        searchinfo.innerHTML = '';
-        allposts.style.display = '';
-        return;
-      }
+function renderPosts(reset = true) {
+  const grid = document.getElementById('posts-grid');
+  let postsToShow = (filteredPosts || allPosts).slice(0, currentPage * POSTS_PER_PAGE);
+  if (reset) grid.innerHTML = '';
+  postsToShow.forEach(post => {
+    grid.innerHTML += createCard(post);
+  });
+  if ((filteredPosts || allPosts).length > postsToShow.length) {
+    document.getElementById('load-more-btn').style.display = 'block';
+  } else {
+    document.getElementById('load-more-btn').style.display = 'none';
+  }
+}
 
-      // Suche im Inhalt und Titel (ohne Berücksichtigung von Groß-/Kleinschreibung)
-      let results = posts.filter(post =>
-        post.content.toLowerCase().includes(query.toLowerCase()) ||
-        post.title.toLowerCase().includes(query.toLowerCase())
-      );
+function createCard(post) {
+  return `
+    <div class="blog-card">
+      ${post.image ? `<img src="${post.image}" alt="Vorschaubild">` : ''}
+      <div class="blog-card-title"><a href="${post.url}">${post.title}</a></div>
+      <div class="blog-card-meta">${formatDate(post.date)}</div>
+      <div class="blog-card-excerpt">${post.excerpt}</div>
+    </div>
+  `;
+}
 
-      if (results.length) {
-        info = `<div class="search-info">${results.length} Treffer gefunden</div>`;
-        out = results.map(post => {
-          // Datum im deutschen Format, wenn vorhanden
-          let date = '';
-          if (post.date) {
-            const d = new Date(post.date);
-            date = d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
-          }
-          // Fundstellen hervorheben (fett + rot)
-          let re = new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')+')','gi');
-          let title = post.title.replace(re, '<b style="color:#AA0600;font-weight:bold;">$1</b>');
+function formatDate(d) {
+  // Datumsformat: yyyy-mm-dd oder ISO
+  if (!d) return '';
+  const date = new Date(d);
+  return date.toLocaleDateString('de-DE', { year: 'numeric', month: 'short', day: 'numeric' });
+}
 
-          let snippet = post.content;
-          let idx = snippet.toLowerCase().indexOf(query.toLowerCase());
-          if (idx > -1) {
-            snippet = snippet.substring(Math.max(0, idx-60), idx+80);
-          } else {
-            snippet = snippet.substring(0, 140);
-          }
-          let excerpt = snippet.replace(re, '<b style="color:#AA0600;font-weight:bold;">$1</b>');
+// Mehr laden Button
+document.addEventListener('DOMContentLoaded', () => {
+  fetchPosts();
 
-          return `<div class="search-card">
-            <a href="${post.url}" class="search-title">${title}</a>
-            <div class="search-date">${date}</div>
-            <div class="search-snippet">${excerpt}...</div>
-          </div>`;
-        }).join('');
-      } else {
-        info = `<div class="search-info notfound">Keine Treffer gefunden.</div>`;
-        out = '';
-      }
+  document.getElementById('load-more-btn').onclick = () => {
+    currentPage++;
+    renderPosts(false);
+  };
 
-      allposts.style.display = 'none';
-      searchinfo.innerHTML = info;
-      searchresults.innerHTML = out;
-    });
+  // Suche
+  const searchInput = document.getElementById('search-input');
+  searchInput.oninput = function() {
+    const val = this.value.trim().toLowerCase();
+    const list = document.getElementById('search-results');
+    if (!val) {
+      filteredPosts = null;
+      renderPosts();
+      list.innerHTML = '';
+      return;
+    }
+    // Suche in Titel UND Inhalt/Excerpt
+    const hits = allPosts.filter(post =>
+      (post.title && post.title.toLowerCase().includes(val)) ||
+      (post.content && post.content.toLowerCase().includes(val)) ||
+      (post.excerpt && post.excerpt.toLowerCase().includes(val))
+    );
+    filteredPosts = hits;
+    // Treffer-Liste unter Suchfeld
+    if (hits.length === 0) {
+      list.innerHTML = '<li>Keine Treffer gefunden.</li>';
+    } else {
+      list.innerHTML = hits.slice(0, 8).map(p => `
+        <li><a href="${p.url}">${p.title}</a> <span style="color:#aaa;">(${formatDate(p.date)})</span></li>
+      `).join('');
+    }
+    // Im Grid alle Treffer anzeigen (Pagination off)
+    renderPosts();
+    document.getElementById('load-more-btn').style.display = 'none';
+  };
 });
 </script>
-
-<style>
-/* Container für das Suchfeld, sorgt für Zentrierung */
-#searchbox-container {
-  display: flex;                   /* Flexbox für einfaches Zentrieren */
-  flex-direction: column;          /* Untereinander anordnen */
-  align-items: center;             /* Horizontal zentrieren */
-  margin-top: 0.3em;               /* Abstand nach oben */
-  margin-bottom: 1em;              /* Abstand nach unten */
-}
-
-/* Suchfeld-Design */
-#searchbox {
-  width: 320px;                    /* Feste Breite */
-  max-width: 90vw;                 /* Max. 90% der Viewport-Breite */
-  padding: 0.5em;                  /* Innenabstand */
-  font-size: 1.1em;                /* Schriftgröße */
-  margin-bottom: 0.2em;            /* Minimaler Abstand zu Treffer-Anzeige */
-  border: 2px solid #009C6C;       /* Grüner Rahmen */
-  border-radius: 8px;              /* Abgerundete Ecken */
-  outline: none;                   /* Kein extra Rahmen beim Fokus */
-  background: #FCFBF7;             /* Heller Hintergrund */
-  transition: border-color 0.2s;   /* Sanfter Übergang der Rahmenfarbe */
-}
-
-/* Rahmenfarbe des Suchfelds bei Fokus */
-#searchbox:focus {
-  border-color: #AA0600;           /* Rot beim Fokussieren */
-}
-
-/* Wrapper für Treffer-Anzeige ("x Treffer gefunden") */
-#searchinfo {
-  display: flex;                   /* Flex für Zentrierung */
-  flex-direction: column;
-  align-items: center;
-  min-height: 2em;                 /* Mindesthöhe (Abstand nach unten) */
-  margin-bottom: 0.3em;            /* Minimaler Abstand zu Ergebnissen */
-}
-
-/* Stil für Treffer-Anzeige */
-.search-info {
-  color: #009C6C;                  /* Grün */
-  font-size: 1em;                  /* Größe der Treffer-Anzeige */
-  text-align: center;              /* Zentriert */
-  margin-bottom: 1.2em;            /* Abstand zu den Suchergebnissen */
-}
-
-/* Stil für "Keine Treffer gefunden" */
-.search-info.notfound {
-  color:rgb(92, 92, 92);                  /* Rot */
-}
-
-/* Wrapper für Suchergebnisse (max. Breite & Zentrierung) */
-#searchresults {
-  max-width: 600px;                /* Maximale Breite */
-  margin-left: auto;               /* Zentriert */
-  margin-right: auto;
-}
-
-/* Einzelne Ergebnis-Box */
-.search-card {
-  margin-bottom: 2em;              /* Abstand zwischen den Ergebnissen */
-}
-
-/* Titel des Suchergebnisses */
-.search-title {
-  display: block;                  /* Block-Element für Abstand */
-  font-size: 1.2em;                /* Schriftgröße */
-  font-weight: bold;               /* Fett */
-  color: #009C6C;                  /* Grün */
-  text-decoration: none;           /* Keine Unterstreichung */
-  margin-bottom: 0.2em;            /* Abstand zum Datum */
-  margin-top: 0.3em;               /* Abstand zum vorherigen Element */
-}
-
-/* Veröffentlichungsdatum */
-.search-date {
-  font-size: 1em;                  /* Normale Schriftgröße */
-  color: #8a8a8a;                  /* Hellgrau */
-  margin-bottom: 0.2em;            /* Abstand zum Textauszug */
-  margin-top: 0.2em;
-}
-
-/* Auszug/Textvorschau */
-.search-snippet {
-  font-size: 1.04em;               /* Etwas größere Schrift */
-  color: #222;                     /* Fast Schwarz */
-}
-</style>
 
