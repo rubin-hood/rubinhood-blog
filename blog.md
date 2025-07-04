@@ -31,8 +31,6 @@ title: Blog
 </div>
 
 
-
-/////////Suchfunktion
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     let posts = [];
@@ -80,5 +78,25 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+
+<style>
+#searchbox-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2em;
+}
+#searchbox {
+  width: 400px; /* Hier stellst du die Breite ein */
+  padding: 0.5em;
+  font-size: 1.1em;
+  margin-bottom: 1.5em;
+}
+#searchresults {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
 
 
