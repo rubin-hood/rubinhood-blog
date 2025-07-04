@@ -58,21 +58,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Suche im Inhalt und Titel
       let results = posts.filter(post =>
-        post.content.toLowerCase().includes(query) ||
-        post.title.toLowerCase().includes(query)
+        (post.content && post.content.toLowerCase().includes(query)) ||
+        (post.title && post.title.toLowerCase().includes(query))
       );
 
       if (results.length) {
         info = `<div class="search-info">${results.length} Treffer gefunden</div>`;
         out = results.map(post => {
-          // Datum ins deutsche Format bringen
-          let date = '';
+          // Datum formatieren: Fallback auf leer
+          let dateString = '';
           if (post.date) {
-            const d = new Date(post.date);
-            date = d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+            // Versuche, JS Date zu erzeugen (geht mit ISO oder 'YYYY-MM-DD')
+            let d = new Date(post.date);
+            if (!isNaN(d)) {
+              dateString = d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+            } else {
+              // Fallback: Zeige das date-Feld wie es ist
+              dateString = post.date;
+            }
           }
           // Fundstellen hervorheben
-          let snippet = post.content;
+          let snippet = post.content || '';
           let idx = snippet.toLowerCase().indexOf(query);
           if (idx > -1) {
             snippet = snippet.substring(Math.max(0, idx-60), idx+80);
@@ -85,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
           return `<div class="search-card">
             <a href="${post.url}" class="search-title">${post.title}</a>
-            <div class="search-date">${date}</div>
+            <div class="search-date">${dateString}</div>
             <div class="search-snippet">${excerpt}...</div>
           </div>`;
         }).join('');
@@ -100,6 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
 
 <style>
 #searchbox-container {
@@ -154,14 +161,14 @@ document.addEventListener('DOMContentLoaded', function() {
   font-weight: bold;
   color: #009C6C;
   text-decoration: none;
-  margin-bottom: 0.2em;
+  margin-bottom: 0.05em;
   margin-top: 0.3em;
 }
 .search-date {
   font-size: 1em;
   color: #8a8a8a;
-  margin-bottom: 0.2em;
-  margin-top: 0.2em;
+  margin-bottom: 0.1em;
+  margin-top: 0.1em;
 }
 .search-snippet {
   font-size: 1.04em;
