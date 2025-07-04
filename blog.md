@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Blog
-paginate: 8         # Anzahl Posts pro Seite
+paginate: 8
 paginate_path: "/blog/page:num/"
 ---
 
@@ -145,7 +145,6 @@ document.addEventListener('DOMContentLoaded', function() {
 #searchbox:focus {
   border-color: #AA0600;
 }
-
 /* --- Trefferanzahl --- */
 #searchinfo {
   display: flex;
@@ -163,7 +162,6 @@ document.addEventListener('DOMContentLoaded', function() {
 .search-info.notfound {
   color: #AA0600;
 }
-
 /* --- Suchergebnisse --- */
 #searchresults {
   max-width: 600px;
@@ -192,7 +190,6 @@ document.addEventListener('DOMContentLoaded', function() {
   font-size: 1.04em;
   color: #222;
 }
-
 /* --- Pagination --- */
 .pagination {
   display: flex;
