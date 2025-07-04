@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
   flex-direction: column;
   align-items: center;
   min-height: 2em;    /* Abstand zu den Ergebnissen unten */
-  margin-bottom: 1.3em;       /* Abstand zur Suchbox oben */
+  margin-bottom: 0.3em;       /* Abstand zur Suchbox oben */
 }
 .search-info {
   color: #009C6C;
