@@ -16,3 +16,7 @@ highlighter: rouge
 
 paginate: 5         # Anzahl der Posts pro Seite (z.B. 5 Cards pro Seite)
 paginate_path: "/blog/page:num/"
+
+plugins:
+  - jekyll-paginate
+
