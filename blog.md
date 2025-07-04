@@ -36,10 +36,10 @@ let allPosts = [];
 let currentPage = 1;
 let filteredPosts = null;
 
-// Suche nach search.json im Root
+// Suche nach search.json im richtigen Pfad (dynamisch für GitHub Pages & lokal!)
 async function fetchPosts() {
   try {
-    const res = await fetch('/search.json');
+    const res = await fetch('{{ "/search.json" | relative_url }}');
     allPosts = await res.json();
     renderPosts();
     document.getElementById('load-more-btn').style.display = allPosts.length > POSTS_PER_PAGE ? 'block' : 'none';
@@ -121,3 +121,4 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 });
 </script>
+
