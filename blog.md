@@ -3,11 +3,10 @@ layout: default
 title: Blog
 ---
 
-<div style="margin-bottom:2em;">
-  <input id="searchbox" type="text" placeholder="Suche im Blog..." style="width:60%;padding:0.5em;font-size:1.1em">
+<div id="searchbox-container">
+  <input id="searchbox" type="text" placeholder="Suche im Blog...">
 </div>
 <div id="searchresults"></div>
-
 
 <div class="blog-grid blog-grid-single">
   {% for post in site.posts %}
@@ -29,7 +28,6 @@ title: Blog
     </a>
   {% endfor %}
 </div>
-
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -78,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-
 <style>
 #searchbox-container {
   display: flex;
@@ -87,10 +84,13 @@ document.addEventListener('DOMContentLoaded', function() {
   margin-bottom: 2em;
 }
 #searchbox {
-  width: 400px; /* Hier stellst du die Breite ein */
+  width: 320px;      /* Hier stellst du die Breite ein (z.B. 300-400px) */
+  max-width: 90vw;
   padding: 0.5em;
   font-size: 1.1em;
   margin-bottom: 1.5em;
+  border: 1px solid #a4d7aa;
+  border-radius: 4px;
 }
 #searchresults {
   max-width: 600px;
@@ -98,5 +98,3 @@ document.addEventListener('DOMContentLoaded', function() {
   margin-right: auto;
 }
 </style>
-
-
