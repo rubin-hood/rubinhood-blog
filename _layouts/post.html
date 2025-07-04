@@ -4,41 +4,48 @@ layout: default
 
 <div class="blog-layout">
   <aside class="blog-sidebar">
-<div class="blog-list">
-  {% for post in site.posts %}
-    <a class="blog-card{% if post.url == page.url %} active{% endif %}" href="{{ post.url | relative_url }}">
-      <div class="card-img">
-        {% if post.image %}
-          <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy">
-        {% else %}
-          Bild
-        {% endif %}
-      </div>
-      <div class="card-content">
-        <div class="card-title">
-          {% if post.url == page.url %}
-            <strong>{{ post.title }}</strong>
-          {% else %}
-            {{ post.title }}
-          {% endif %}
-        </div>
-        <time class="card-date" datetime="{{ post.date | date_to_xmlschema }}">
-          {{ post.date | date: "%d.%m.%Y" }}
-        </time>
-        <div class="card-desc">
-          {{ post.excerpt | strip_html | truncate: 80 }}
-        </div>
-      </div>
-    </a>
-  {% endfor %}
-</div>
+    <div class="blog-list">
+      {% for post in site.posts %}
+        <a class="blog-card{% if post.url == page.url %} active{% endif %}" href="{{ post.url | relative_url }}">
+          <div class="card-img">
+            {% capture postslug %}
+              {{ post.path | split: '/' | last | split: '.' | first | strip }}
+            {% endcapture %}
+            {% assign bildbasis = "/assets/img/posts/" | append: postslug %}
+            {% assign extlist = "webp,jpg,png,svg" | split: "," %}
+            {% assign bildpfad = "" %}
+            {% for ext in extlist %}
+              {% assign candidate = bildbasis | append: "." | append: ext %}
+              {% if bildpfad == "" %}
+                {% assign bildpfad = candidate %}
+              {% endif %}
+            {% endfor %}
+            <img src="{{ bildpfad }}" alt="{{ post.title }}" loading="lazy" onerror="this.style.display='none';">
+          </div>
+          <div class="card-content">
+            <div class="card-title">
+              {% if post.url == page.url %}
+                <strong>{{ post.title }}</strong>
+              {% else %}
+                {{ post.title }}
+              {% endif %}
+            </div>
+            <time class="card-date" datetime="{{ post.date | date_to_xmlschema }}">
+              {{ post.date | date: "%d.%m.%Y" }}
+            </time>
+            <div class="card-desc">
+              {{ post.excerpt | strip_html | truncate: 80 }}
+            </div>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
   </aside>
-<section class="blog-content">
-  <h1>{{ page.title }}</h1>
-  <time class="card-date" datetime="{{ page.date | date_to_xmlschema }}">
-    {{ page.date | date: "%d.%m.%Y" }}
-  </time>
-  {{ content }}
-</section>
+  <section class="blog-content">
+    <h1>{{ page.title }}</h1>
+    <time class="card-date" datetime="{{ page.date | date_to_xmlschema }}">
+      {{ page.date | date: "%d.%m.%Y" }}
+    </time>
+    {{ content }}
+  </section>
 </div>
-
