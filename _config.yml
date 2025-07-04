@@ -1,17 +1,15 @@
 title: Rubin Hood
 description: Minimalistischer Jekyll-Blog
 baseurl: "/rubinhood-blog"
-url: ""
+url: ""          # Das ist okay, solange baseurl gesetzt ist!
+permalink: /:year/:month/:day/:title.html
 theme: null
 exclude: [Gemfile, Gemfile.lock, node_modules, vendor]
 
 markdown: kramdown
 
 kramdown:
-input: GFM
-hard_wrap: false
+  input: GFM
+  hard_wrap: false
 
 highlighter: rouge
-
-
-permalink: /:year/:month/:day/:title/
