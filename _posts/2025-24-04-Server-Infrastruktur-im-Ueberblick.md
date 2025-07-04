@@ -3,10 +3,10 @@ date: 24.04.2025
 layout: post
 title: Überblick über die Server-Infrastruktur
 excerpt: Hier findest du ein Beispiel für eine durchdachte Serverlandschaft, wie sie in Unternehmen eingesetzt wird – mit klar definierten Rollen, empfohlener Hardware und passender Software.
-image: /rubinhood-blog/assets/img/Server-Infrastruktur-im-Ueberblick/001.png
+image: /rubinhood-blog/assets/img/Server-Infrastruktur-im-Ueberblick/001.webp
 ---
 
-![Alternativtext](/rubinhood-blog/assets/img/Server-Infrastruktur-im-Ueberblick/001de.webp)
+![Alternativtext](/rubinhood-blog/assets/img/Server-Infrastruktur-im-Ueberblick/001de.svg)
 
 Du lernst gerade, wie moderne IT-Infrastrukturen aufgebaut sind? Dann ist dieser Überblick genau das Richtige für dich.
 
