@@ -89,14 +89,13 @@ document.addEventListener('DOMContentLoaded', function() {
   padding: 0.5em;
   font-size: 1.1em;
   margin-bottom: 1.5em;
-  border: 2px solid #AA0600;   /* Deine Wunschfarbe */
+  border: 2px solid #009C6C;   /* Deine Wunschfarbe */
   border-radius: 8px;
   outline: none;               /* Entfernt den blauen Standard-Fokus */
   transition: border-color 0.2s;
 }
 #searchbox:focus {
-  border-color: #009C6C;       /* Rot auch beim Fokus */
-  box-shadow: 0 0 0 2px #f2dbd8; /* Optional, ein leichter Fokus-Effekt in Rot-Ton */
+  border-color: #AA0600;       /* Rot auch beim Fokus */
 }
 #searchresults {
   max-width: 600px;
