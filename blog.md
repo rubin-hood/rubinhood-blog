@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (results.length) {
         info = `<div class="search-info">${results.length} Treffer gefunden</div>`;
         out = results.map(post => {
-          // Datum lesbar machen (ISO -> TT.MM.JJJJ)
+          // Datum ins deutsche Format bringen
           let date = '';
           if (post.date) {
             const d = new Date(post.date);
@@ -83,10 +83,10 @@ document.addEventListener('DOMContentLoaded', function() {
           let re = new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')+')','gi');
           let excerpt = snippet.replace(re, '<b>$1</b>');
 
-          return `<div style="margin-bottom:1.5em">
-            <a href="${post.url}"><strong>${post.title}</strong></a>
-            <span class="search-date">${date ? ' &middot; ' + date : ''}</span><br>
-            <span>${excerpt}...</span>
+          return `<div class="search-card">
+            <a href="${post.url}" class="search-title">${post.title}</a>
+            <div class="search-date">${date}</div>
+            <div class="search-snippet">${excerpt}...</div>
           </div>`;
         }).join('');
       } else {
@@ -106,8 +106,8 @@ document.addEventListener('DOMContentLoaded', function() {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2em;       /* Abstand zum Menü */
-  margin-bottom: 1.5em;  /* Abstand zur Trefferzahl */
+  margin-top: 2em;
+  margin-bottom: 1.5em;
 }
 #searchbox {
   width: 320px;
@@ -133,8 +133,9 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 .search-info {
   color: #009C6C;
-  font-size: 2.3em;
+  font-size: 2em;
   text-align: center;
+  margin-bottom: 1.2em;
 }
 .search-info.notfound {
   color: #AA0600;
@@ -144,8 +145,26 @@ document.addEventListener('DOMContentLoaded', function() {
   margin-left: auto;
   margin-right: auto;
 }
+.search-card {
+  margin-bottom: 2em;
+}
+.search-title {
+  display: block;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #009C6C;
+  text-decoration: none;
+  margin-bottom: 0.2em;
+  margin-top: 0.3em;
+}
 .search-date {
-  color: #999;
-  font-size: 0.97em;
+  font-size: 1em;
+  color: #8a8a8a;
+  margin-bottom: 0.2em;
+  margin-top: 0.2em;
+}
+.search-snippet {
+  font-size: 1.04em;
+  color: #222;
 }
 </style>
