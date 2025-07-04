@@ -50,18 +50,17 @@ async function fetchPosts() {
 
 function renderPosts(reset = true) {
   const grid = document.getElementById('posts-grid');
-  let postsToShow = (filteredPosts === null ? allPosts : filteredPosts).slice(0, currentPage * POSTS_PER_PAGE);
+  let postsToShow = (filteredPosts || allPosts).slice(0, currentPage * POSTS_PER_PAGE);
   if (reset) grid.innerHTML = '';
   postsToShow.forEach(post => {
     grid.innerHTML += createCard(post);
   });
-  if ((filteredPosts === null ? allPosts : filteredPosts).length > postsToShow.length) {
+  if ((filteredPosts || allPosts).length > postsToShow.length) {
     document.getElementById('load-more-btn').style.display = 'block';
   } else {
     document.getElementById('load-more-btn').style.display = 'none';
   }
 }
-
 
 function createCard(post) {
   return `
