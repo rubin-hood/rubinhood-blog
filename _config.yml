@@ -14,4 +14,4 @@ hard_wrap: false
 highlighter: rouge
 
 
-permalink: /:year/:month/:day/:title.html
+permalink: /:year/:month/:day/:title/
