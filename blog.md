@@ -5,29 +5,9 @@ title: Blog
 
 <div id="searchbox-container">
   <input id="searchbox" type="text" placeholder="Suche im Blog...">
+  <div id="searchinfo" style="margin-top:0.5em; color:#009C6C; font-size:1em;"></div>
 </div>
 <div id="searchresults"></div>
-
-<div class="blog-grid blog-grid-single">
-  {% for post in site.posts %}
-    <a class="blog-card" href="{{ post.url | relative_url }}">
-      <div class="card-img">
-        {% if post.image %}
-          <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy">
-        {% else %}
-          Bild
-        {% endif %}
-      </div>
-      <div class="card-content">
-        <div class="card-title">{{ post.title }}</div>
-        <time class="card-date" datetime="{{ post.date | date_to_xmlschema }}">
-          {{ post.date | date: "%d.%m.%Y" }}
-        </time>
-        <div class="card-desc">{{ post.excerpt | strip_html | truncate: 140 }}</div>
-      </div>
-    </a>
-  {% endfor %}
-</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -38,11 +18,16 @@ document.addEventListener('DOMContentLoaded', function() {
         posts = json;
       });
 
-    document.getElementById('searchbox').addEventListener('input', function(e) {
+    const searchbox = document.getElementById('searchbox');
+    const searchinfo = document.getElementById('searchinfo');
+    const searchresults = document.getElementById('searchresults');
+
+    searchbox.addEventListener('input', function(e) {
       let query = e.target.value.trim().toLowerCase();
       let out = '';
       if (query.length < 3) {
-        document.getElementById('searchresults').innerHTML = '';
+        searchresults.innerHTML = '';
+        searchinfo.textContent = '';
         return;
       }
 
@@ -52,29 +37,47 @@ document.addEventListener('DOMContentLoaded', function() {
         post.title.toLowerCase().includes(query)
       );
 
-      results.forEach(post => {
-        // Fundstellen hervorheben
-        let snippet = post.content;
-        let idx = snippet.toLowerCase().indexOf(query);
-        if (idx > -1) {
-          snippet = snippet.substring(Math.max(0, idx-60), idx+80);
-        } else {
-          snippet = snippet.substring(0, 140);
-        }
-        // Query fett markieren
-        let re = new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')+')','gi');
-        let excerpt = snippet.replace(re, '<b>$1</b>');
+      if (results.length > 0) {
+        searchinfo.textContent = results.length + ' Treffer gefunden';
+        results.forEach(post => {
+          // Fundstellen hervorheben
+          let snippet = post.content;
+          let idx = snippet.toLowerCase().indexOf(query);
+          if (idx > -1) {
+            snippet = snippet.substring(Math.max(0, idx-60), idx+80);
+          } else {
+            snippet = snippet.substring(0, 140);
+          }
+          // Query fett markieren
+          let re = new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')+')','gi');
+          let excerpt = snippet.replace(re, '<b>$1</b>');
 
-        out += `<div style="margin-bottom:1.5em">
-          <a href="${post.url}"><strong>${post.title}</strong></a><br>
-          <span>${excerpt}...</span>
-        </div>`;
-      });
+          // Datum parsen (falls im JSON vorhanden)
+          let dateStr = '';
+          if (post.date) {
+            // ISO oder Jekyll Format
+            let d = new Date(post.date);
+            if (!isNaN(d)) {
+              dateStr = d.toLocaleDateString('de-DE');
+            }
+          }
 
-      document.getElementById('searchresults').innerHTML = out || "Keine Treffer gefunden.";
+          out += `<div style="margin-bottom:1.5em">
+            <a href="${post.url}"><strong>${post.title}</strong></a><br>
+            <span style="color:#888;font-size:0.95em">${dateStr ? dateStr + ' – ' : ''}</span>
+            <span>${excerpt}...</span>
+          </div>`;
+        });
+      } else {
+        searchinfo.textContent = '';
+        out = '<span style="color:#AA0600;">Keine Treffer gefunden.</span>';
+      }
+
+      searchresults.innerHTML = out;
     });
 });
 </script>
+
 
 <style>
 #searchbox-container {
