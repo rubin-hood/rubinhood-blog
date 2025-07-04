@@ -133,7 +133,7 @@ searchbox.addEventListener('input', function(e) {
 }
 .search-info {
   color: #009C6C;
-  font-size: 2em;
+  font-size: 1em;
   text-align: center;
   margin-bottom: 1.2em;
 }
