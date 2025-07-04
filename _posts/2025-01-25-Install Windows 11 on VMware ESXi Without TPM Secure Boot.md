@@ -3,7 +3,7 @@ date: 25.01.2025
 layout: post
 title: This PC doesn’t currently meet Windows 11 system requirements
 excerpt: This guide shows you how to install Windows 11 on a VMware ESXi virtual machine while bypassing the system requirements (such as TPM and Secure Boot).
-image: /rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/001.jpg
+image: /rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/001.webp
 ---
 
 This guide shows you how to install Windows 11 on a VMware ESXi virtual machine while bypassing the system requirements (such as TPM and Secure Boot).

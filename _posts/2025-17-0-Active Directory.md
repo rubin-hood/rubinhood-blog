@@ -3,7 +3,7 @@ date: 17.01.2025
 layout: post
 title: Active Directory (AD) Setting Up a Domain and Connecting a Client 
 excerpt: This tutorial provides a step-by-step guide to setting up an Active Directory environment and connecting a Windows 10 client to the domain.
-image: /rubinhood-blog/assets/img/Active-Directory/021.jpg
+image: /rubinhood-blog/assets/img/Active-Directory/022.webp
 ---
 
 ![](/rubinhood-blog/assets/img/Active-Directory/021.jpg)

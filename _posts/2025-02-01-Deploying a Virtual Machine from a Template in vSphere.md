@@ -3,7 +3,7 @@ date: 01.02.2025
 layout: post
 title: Create a New VM from Template (vSphere)
 excerpt: Here's how you can create a new virtual machine (VM) from an existing template in vSphere.
-image: /rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/001.jpg
+image: /rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/001.webp
 ---
 
 Here's how you can create a new virtual machine (VM) from an existing template in vSphere.

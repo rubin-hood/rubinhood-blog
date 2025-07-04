@@ -3,7 +3,7 @@ date: 27.08.2024
 layout: post
 title: Installation von Ubuntu Server auf dem Raspberry Pi 5
 excerpt: Der Raspberry Pi 5 ist ein leistungsstarker Einplatinencomputer, der sich hervorragend als Heimserver eignet. In diesem Blogbeitrag zeige ich Ihnen, wie Sie Ubuntu Server auf Ihrem Raspberry Pi 5 installieren können. Folgen Sie dieser detaillierten Anleitung, um Ihren eigenen Ubuntu-Server einzurichten.
-image: /rubinhood-blog/assets/img/Raspberry-Pi/001.jpg
+image: /rubinhood-blog/assets/img/Raspberry-Pi/001.webp
 ---
 
 ![](/rubinhood-blog/assets/img/Raspberry-Pi/001.jpg)

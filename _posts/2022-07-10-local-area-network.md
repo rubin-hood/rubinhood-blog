@@ -3,7 +3,7 @@ date: 10.07.2022
 layout: post
 title: Alles, was du über Local Area Networks (LAN) wissen musst
 excerpt: Überall um uns herum finden wir heutzutage Netzwerke, die unser Leben prägen. Ob zu Hause, im Büro oder in Schulen – sie bilden das Rückgrat unserer digitalen Kommunikation. Ein besonders weit verbreitetes Netzwerk ist das Local Area Network, besser bekannt als LAN.
-image: /rubinhood-blog/assets/img/local-area-network/001.jpg
+image: /rubinhood-blog/assets/img/local-area-network/001.webp
 ---
 
 ![](/rubinhood-blog/assets/img/local-area-network/001.jpg)
