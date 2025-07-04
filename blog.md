@@ -34,7 +34,7 @@ title: Blog
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     let posts = [];
-    fetch('/search.json')
+    fetch('{{ "/search.json" | relative_url }}')
       .then(response => response.json())
       .then(function(json){
         posts = json;
@@ -77,3 +77,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
