@@ -107,8 +107,8 @@ document.addEventListener('DOMContentLoaded', function() {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2em;
-  margin-bottom: 1.5em;
+  margin-top: 0.3em;    /* Abstand zur Trefferzahl */
+  margin-bottom: 1em;       /* Abstand zum Menü oben */
 }
 #searchbox {
   width: 320px;
@@ -129,8 +129,8 @@ document.addEventListener('DOMContentLoaded', function() {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 2.3em;
-  margin-bottom: 1.3em;
+  min-height: 2em;    /* Abstand zu den Ergebnissen unten */
+  margin-bottom: 1.3em;       /* Abstand zur Suchbox oben */
 }
 .search-info {
   color: #009C6C;
