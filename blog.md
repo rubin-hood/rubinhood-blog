@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
   max-width: 90vw;
   padding: 0.5em;
   font-size: 1.1em;
-  margin-bottom: 1.5em;
+  margin-bottom: 0.2em;
   border: 2px solid #009C6C;
   border-radius: 8px;
   outline: none;
