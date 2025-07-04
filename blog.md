@@ -9,9 +9,9 @@ title: Blog
 <div id="searchinfo"></div>
 <div id="searchresults"></div>
 
-<!-- Standard-Post-Liste für den ersten Besuch mit Pagination -->
+<!-- Standard-Post-Liste für den ersten Besuch -->
 <div id="all-posts" class="blog-grid blog-grid-single">
-  {% for post in paginator.posts %}
+  {% for post in site.posts %}
     <a class="blog-card" href="{{ post.url | relative_url }}">
       <div class="card-img">
         {% if post.image %}
@@ -31,19 +31,6 @@ title: Blog
   {% endfor %}
 </div>
 
-<!-- Pagination Buttons -->
-{% if paginator.total_pages > 1 %}
-<div class="pagination">
-  {% for page in (1..paginator.total_pages) %}
-    {% if page == paginator.page %}
-      <span class="page-number active">{{ page }}</span>
-    {% else %}
-      <a class="page-number" href="{{ paginator.paginate_path | replace: ':num', page }}">{{ page }}</a>
-    {% endif %}
-  {% endfor %}
-</div>
-{% endif %}
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     let posts = [];
@@ -57,7 +44,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchresults = document.getElementById('searchresults');
     const searchinfo = document.getElementById('searchinfo');
     const allposts = document.getElementById('all-posts');
-    const pagination = document.querySelector('.pagination');
 
     searchbox.addEventListener('input', function(e) {
       let query = e.target.value.trim();
@@ -67,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
         searchresults.innerHTML = '';
         searchinfo.innerHTML = '';
         allposts.style.display = '';
-        if (pagination) pagination.style.display = '';
         return;
       }
 
@@ -111,7 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       allposts.style.display = 'none';
-      if (pagination) pagination.style.display = 'none';
       searchinfo.innerHTML = info;
       searchresults.innerHTML = out;
     });
@@ -119,95 +103,91 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <style>
-/* Container für das Suchfeld */
+/* Container für das Suchfeld, sorgt für Zentrierung */
 #searchbox-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 0.3em;
-  margin-bottom: 1em;
+  display: flex;                   /* Flexbox für einfaches Zentrieren */
+  flex-direction: column;          /* Untereinander anordnen */
+  align-items: center;             /* Horizontal zentrieren */
+  margin-top: 0.3em;               /* Abstand nach oben */
+  margin-bottom: 1em;              /* Abstand nach unten */
 }
+
 /* Suchfeld-Design */
 #searchbox {
-  width: 320px;
-  max-width: 90vw;
-  padding: 0.5em;
-  font-size: 1.1em;
-  margin-bottom: 0.2em;
-  border: 2px solid #009C6C;
-  border-radius: 8px;
-  outline: none;
-  background: #FCFBF7;
-  transition: border-color 0.2s;
+  width: 320px;                    /* Feste Breite */
+  max-width: 90vw;                 /* Max. 90% der Viewport-Breite */
+  padding: 0.5em;                  /* Innenabstand */
+  font-size: 1.1em;                /* Schriftgröße */
+  margin-bottom: 0.2em;            /* Minimaler Abstand zu Treffer-Anzeige */
+  border: 2px solid #009C6C;       /* Grüner Rahmen */
+  border-radius: 8px;              /* Abgerundete Ecken */
+  outline: none;                   /* Kein extra Rahmen beim Fokus */
+  background: #FCFBF7;             /* Heller Hintergrund */
+  transition: border-color 0.2s;   /* Sanfter Übergang der Rahmenfarbe */
 }
+
+/* Rahmenfarbe des Suchfelds bei Fokus */
 #searchbox:focus {
-  border-color: #AA0600;
+  border-color: #AA0600;           /* Rot beim Fokussieren */
 }
+
 /* Wrapper für Treffer-Anzeige ("x Treffer gefunden") */
 #searchinfo {
-  display: flex;
+  display: flex;                   /* Flex für Zentrierung */
   flex-direction: column;
   align-items: center;
-  min-height: 2em;
-  margin-bottom: 0.3em;
+  min-height: 2em;                 /* Mindesthöhe (Abstand nach unten) */
+  margin-bottom: 0.3em;            /* Minimaler Abstand zu Ergebnissen */
 }
+
 /* Stil für Treffer-Anzeige */
 .search-info {
-  color: #009C6C;
-  font-size: 1em;
-  text-align: center;
-  margin-bottom: 1.2em;
+  color: #009C6C;                  /* Grün */
+  font-size: 1em;                  /* Größe der Treffer-Anzeige */
+  text-align: center;              /* Zentriert */
+  margin-bottom: 1.2em;            /* Abstand zu den Suchergebnissen */
 }
+
 /* Stil für "Keine Treffer gefunden" */
 .search-info.notfound {
-  color: #AA0600;
+  color:rgb(92, 92, 92);                  /* Rot */
 }
-/* Wrapper für Suchergebnisse */
+
+/* Wrapper für Suchergebnisse (max. Breite & Zentrierung) */
 #searchresults {
-  max-width: 600px;
-  margin-left: auto;
+  max-width: 600px;                /* Maximale Breite */
+  margin-left: auto;               /* Zentriert */
   margin-right: auto;
 }
+
+/* Einzelne Ergebnis-Box */
 .search-card {
-  margin-bottom: 2em;
+  margin-bottom: 2em;              /* Abstand zwischen den Ergebnissen */
 }
+
+/* Titel des Suchergebnisses */
 .search-title {
-  display: block;
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #009C6C;
-  text-decoration: none;
-  margin-bottom: 0.2em;
-  margin-top: 0.3em;
+  display: block;                  /* Block-Element für Abstand */
+  font-size: 1.2em;                /* Schriftgröße */
+  font-weight: bold;               /* Fett */
+  color: #009C6C;                  /* Grün */
+  text-decoration: none;           /* Keine Unterstreichung */
+  margin-bottom: 0.2em;            /* Abstand zum Datum */
+  margin-top: 0.3em;               /* Abstand zum vorherigen Element */
 }
+
+/* Veröffentlichungsdatum */
 .search-date {
-  font-size: 1em;
-  color: #8a8a8a;
-  margin-bottom: 0.2em;
+  font-size: 1em;                  /* Normale Schriftgröße */
+  color: #8a8a8a;                  /* Hellgrau */
+  margin-bottom: 0.2em;            /* Abstand zum Textauszug */
   margin-top: 0.2em;
 }
+
+/* Auszug/Textvorschau */
 .search-snippet {
-  font-size: 1.04em;
-  color: #222;
-}
-/* Pagination-Stil */
-.pagination {
-  text-align: center;
-  margin: 2em 0 1em 0;
-}
-.page-number {
-  display: inline-block;
-  margin: 0 0.3em;
-  padding: 0.3em 0.7em;
-  font-size: 1.3em;
-  color: #009C6C;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: background 0.2s, color 0.2s;
-}
-.page-number.active, .page-number:hover {
-  color: #AA0600;
-  font-weight: bold;
-  background: #e4e2dd;
+  font-size: 1.04em;               /* Etwas größere Schrift */
+  color: #222;                     /* Fast Schwarz */
 }
 </style>
+
