@@ -58,27 +58,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Suche im Inhalt und Titel
       let results = posts.filter(post =>
-        (post.content && post.content.toLowerCase().includes(query)) ||
-        (post.title && post.title.toLowerCase().includes(query))
+        post.content.toLowerCase().includes(query) ||
+        post.title.toLowerCase().includes(query)
       );
 
       if (results.length) {
         info = `<div class="search-info">${results.length} Treffer gefunden</div>`;
         out = results.map(post => {
-          // Datum formatieren: Fallback auf leer
-          let dateString = '';
+          // Datum lesbar machen (ISO -> TT.MM.JJJJ)
+          let date = '';
           if (post.date) {
-            // Versuche, JS Date zu erzeugen (geht mit ISO oder 'YYYY-MM-DD')
-            let d = new Date(post.date);
-            if (!isNaN(d)) {
-              dateString = d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
-            } else {
-              // Fallback: Zeige das date-Feld wie es ist
-              dateString = post.date;
-            }
+            const d = new Date(post.date);
+            date = d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
           }
           // Fundstellen hervorheben
-          let snippet = post.content || '';
+          let snippet = post.content;
           let idx = snippet.toLowerCase().indexOf(query);
           if (idx > -1) {
             snippet = snippet.substring(Math.max(0, idx-60), idx+80);
@@ -89,10 +83,10 @@ document.addEventListener('DOMContentLoaded', function() {
           let re = new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')+')','gi');
           let excerpt = snippet.replace(re, '<b>$1</b>');
 
-          return `<div class="search-card">
-            <a href="${post.url}" class="search-title">${post.title}</a>
-            <div class="search-date">${dateString}</div>
-            <div class="search-snippet">${excerpt}...</div>
+          return `<div style="margin-bottom:1.5em">
+            <a href="${post.url}"><strong>${post.title}</strong></a>
+            <span class="search-date">${date ? ' &middot; ' + date : ''}</span><br>
+            <span>${excerpt}...</span>
           </div>`;
         }).join('');
       } else {
@@ -107,14 +101,13 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-
 <style>
 #searchbox-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2em;
-  margin-bottom: 1.5em;
+  margin-top: 2em;       /* Abstand zum Menü */
+  margin-bottom: 1.5em;  /* Abstand zur Trefferzahl */
 }
 #searchbox {
   width: 320px;
@@ -140,9 +133,8 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 .search-info {
   color: #009C6C;
-  font-size: 2em;
+  font-size: 2.3em;
   text-align: center;
-  margin-bottom: 1.2em;
 }
 .search-info.notfound {
   color: #AA0600;
@@ -152,26 +144,8 @@ document.addEventListener('DOMContentLoaded', function() {
   margin-left: auto;
   margin-right: auto;
 }
-.search-card {
-  margin-bottom: 2em;
-}
-.search-title {
-  display: block;
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #009C6C;
-  text-decoration: none;
-  margin-bottom: 0.05em;
-  margin-top: 0.3em;
-}
 .search-date {
-  font-size: 1em;
-  color: #8a8a8a;
-  margin-bottom: 0.1em;
-  margin-top: 0.1em;
-}
-.search-snippet {
-  font-size: 1.04em;
-  color: #222;
+  color: #999;
+  font-size: 0.97em;
 }
 </style>
