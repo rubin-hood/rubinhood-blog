@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 #searchinfo .search-info {
   text-align: center;
-  font-size: 2em;
+  font-size: 1em;
   color: #009C6C;
   margin-bottom: 1em;
 }
