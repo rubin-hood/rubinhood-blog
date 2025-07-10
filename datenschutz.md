@@ -9,11 +9,12 @@ narrow: true
 Der Schutz Ihrer persönlichen Daten ist mir ein wichtiges Anliegen. Diese Website erhebt und speichert **keine personenbezogenen Daten** und verwendet **keine Cookies** oder Analyse-Tools.
 
 ### Verantwortlicher für die Datenverarbeitung
-Andreas Rubin  
-Berner Str. 1  
-70619 Stuttgart  
-Telefon: +49 155 60926238  
-E-Mail: andreasrubin[at]gmx[dot]de
+Max Beispielmann
+Beispielstraße 1
+12345 Musterstadt
+
+Phone: +49 155 12345678
+Email: max.beispielmann[at]beispielmail[dot]de
 
 ### Erhebung und Speicherung personenbezogener Daten
 Beim Besuch dieser Website werden **keine personenbezogenen Daten** gespeichert oder verarbeitet. Es findet kein Tracking statt. Es werden keine Cookies gesetzt.
@@ -64,11 +65,12 @@ Ich behalte mir vor, diese Datenschutzerklärung gelegentlich anzupassen, damit 
 The protection of your personal data is important to me. This website does **not collect or store personal data** and does **not use cookies** or analytics tools.
 
 ### Data Controller
-Andreas Rubin  
-Berner Str. 1  
-70619 Stuttgart  
-Phone: +49 155 60926238  
-Email: andreasrubin[at]gmx[dot]de
+Max Beispielmann
+Beispielstraße 1
+12345 Musterstadt
+
+Phone: +49 155 12345678
+Email: max.beispielmann[at]beispielmail[dot]de
 
 ### Collection and Storage of Personal Data
 When you visit this website, **no personal data** is collected or processed. No tracking is carried out. No cookies are set.
